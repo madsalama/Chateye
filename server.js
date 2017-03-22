@@ -123,7 +123,7 @@ var App = function() {
     self.initializeServer = function() {
 		
 		self.app = express();
-        self.app.set('port', (process.env.PORT || 5000));
+        self.app.set('port', (process.env.PORT || 8080));
 
 
         self.createRoutes();
