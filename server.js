@@ -7,6 +7,7 @@ var cors = require('cors');
 var Twitter = require('twitter');
 var request = require('request');
 var language = require('@google-cloud/language')
+var bodyParser = require("body-parser");
 
 
 var client  = new Twitter({
@@ -63,7 +64,8 @@ var App = function() {
         self.app.use(cors());
         self.app.use(express.static('static'));
 
-
+        self.app.use(bodyParser.urlencoded({ extended: false }));
+		self.app.use(bodyParser.json());
 
 
 var languageClient = language({
@@ -283,8 +285,6 @@ self.app.post('/ai', function(req, res) {
     response.send(403);          
   }
 */   
-
-console.log('ai is HIT!');
 
 var data = req.body;
 
