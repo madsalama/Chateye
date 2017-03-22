@@ -1,0 +1,3 @@
+remote GIT = https://git.heroku.com/chatzer.git
+
+heroku git:https://git.heroku.com/chatzer.git -a chatzer
