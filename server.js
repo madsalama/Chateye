@@ -54,11 +54,13 @@ var App = function() {
     self.initializeServer = function() {
 		
 		self.app = express();
+    self.app.use(express.static('static'));
+    
         self.app.set('port', (process.env.PORT || 8080));
      
         self.app.use(compression()); 
         self.app.use(cors());
-        self.app.use(express.static('static'));
+     
 
         self.app.use(bodyParser.urlencoded({ extended: false }));
 		self.app.use(bodyParser.json());
