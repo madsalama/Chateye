@@ -48,47 +48,7 @@ client.get('followers/list', params, function(error, followers, response){
 
 var App = function() {
 
-    //  Scope.
-    var self = this;
-
-    self.setupVariables = function() {
-        
-    };
-
-    // Populate the cache
-    self.populateCache = function() {
-        if (typeof self.zcache === "undefined") {
-           // self.zcache = { 'index.html': '' };
-        }
-
-        //  Local cache for static content.
-        // self.zcache['index.html'] = fs.readFileSync('./index.html');
-    };
-
-    /**
-     *  Retrieve entry (content) from cache.
-     *  @param {string} key  Key identifying content to retrieve from cache.
-     */
-    self.cache_get = function(key) { return self.zcache[key]; };
-    self.terminator = function(sig){
-        if (typeof sig === "string") {
-           console.log('%s: Received %s - terminating sample app ...',
-                       Date(Date.now()), sig);
-           process.exit(1);
-        }
-        console.log('%s: Node server stopped.', Date(Date.now()) );
-    };
-    self.setupTerminationHandlers = function(){
-        //  Process on exit and signals.
-        process.on('exit', function() { self.terminator(); });
-
-        // Removed 'SIGPIPE' from the list - bugz 852598.
-        ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
-         'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
-        ].forEach(function(element, index, array) {
-            process.on(element, function() { self.terminator(element); });
-        });
-    };
+    var self = this; 
 
     // ==========================
     //    MAIN APP LOGIC HERE
@@ -360,14 +320,7 @@ var data = request.body;
     };
 
     self.initialize = function() {
-		        // Create the express server and routes.
-        self.initializeServer();
-		
-        self.setupVariables();
-        self.populateCache();
-        self.setupTerminationHandlers();
-
-
+        self.initializeServer();		
     };
     self.start = function() {
         //  Start the app on the specific interface (and port).
@@ -380,8 +333,8 @@ var data = request.body;
 };
 
 
-var pikdox = new App();
-pikdox.initialize();
-pikdox.start();
+var chatzer = new App();
+chatzer.initialize();
+chatzer.start();
 
 
