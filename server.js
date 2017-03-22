@@ -103,15 +103,12 @@ var App = function() {
 		
 		self.app = express();
         self.app.set('port', (process.env.PORT || 8080));
-
-
-        self.createRoutes();
-        
+     
         self.app.use(compression()); //use compression
         self.app.use(cors());
         self.app.use(express.static('static'));
 
-self.app.get('/chatzer', function(request, response) {
+self.app.get('/ai', function(request, response) {
   
   /** VERIFICATION CODE = DONE! **/
 
