@@ -6,7 +6,7 @@ var fs      = require('fs');
 var cors = require('cors');
 var Twitter = require('twitter');
 var request = require('request');
-var language = require('@google-cloud/language')
+var language = require('@google-cloud/language');
 var bodyParser = require("body-parser");
 
 
@@ -117,14 +117,14 @@ function callSendAPI(messageData) {
 var headers = {
     'User-Agent':       'Super Agent/0.0.1',
     'Content-Type':     'application/x-www-form-urlencoded'
-}
+};
 
 var options = {
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
     method: 'POST',
     json: messageData
-}
+};
 
 request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -244,10 +244,9 @@ function receivedMessage(event) {
 
     var document = languageClient.document(messageText);
     document.detectSentiment(function(err, sentiment) { 
-    console.log(sentiment);         // JSON Object 
-    
-    var score = JSON.stringify(sentiment.score);          // String  
-    var magnitude = JSON.stringify(sentiment.magnitude);  // String 
+  
+    var score = JSON.stringify(sentiment.score);          
+    var magnitude = JSON.stringify(sentiment.magnitude);  
 
  sendTextMessage(senderID, "Score = " + score + " | Magnitude = " + magnitude);
  

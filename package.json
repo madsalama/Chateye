@@ -13,7 +13,8 @@
     "@google-cloud/language": "0.9.0"
   },
   "devDependencies": {
-    "body-parser": "^1.17.1"
+    "body-parser": "^1.17.1",
+    "eslint": "^3.18.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
