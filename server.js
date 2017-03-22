@@ -207,8 +207,8 @@ document.annotate(function(err, annotations) {
     };
     self.start = function() {
         //  Start the app on the specific interface (and port).
-        self.app.listen(app.get('port'), function() {
-            console.log('Node app is running on port', app.get('port'));
+        self.app.listen(self.app.get('port'), function() {
+            console.log('Node app is running on port', self.app.get('port'));
         });
     };
 	self.init = function(){
