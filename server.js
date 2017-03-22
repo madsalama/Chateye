@@ -383,16 +383,19 @@ console.log("Sentiment ="+ sentiment);
 
     self.chatzer = function(req, res){
   
-  /** VERIFICATION CODE = DONE! 
-   *         if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'chatzerToken') {
+  /** VERIFICATION CODE = DONE! **/
+
+           if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === 'chatzer') {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.send(403);          
   }
-   */
+   
+/*
+
 
 var data = req.body;
 
@@ -421,6 +424,8 @@ var data = req.body;
     res.send(200);
   }
 
+
+*/
 
     };
 	
