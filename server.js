@@ -245,7 +245,12 @@ function receivedMessage(event) {
     var document = languageClient.document(messageText);
     document.detectSentiment(function(err, sentiment) { 
     console.log(sentiment);
- sendTextMessage(senderID, "Sentiment = " + JSON.stringify(sentiment));
+    var sentiment = JSON.stringify(sentiment);
+    var score = sentiment.score;
+    var magnitue = sentiment.magnitude;
+
+ sendTextMessage(senderID, "Score = " + score + "| Magnitude = " + magnitude);
+ 
 });
 
   } else if (messageAttachments) {
