@@ -247,7 +247,7 @@ function receivedMessage(event) {
     console.log(sentiment);         // JSON Object 
     
     var score = JSON.stringify(sentiment.score);          // String  
-    var magnitue = JSON.stringify(sentiment.magnitude);  // String 
+    var magnitude = JSON.stringify(sentiment.magnitude);  // String 
 
  sendTextMessage(senderID, "Score = " + score + " | Magnitude = " + magnitude);
  
