@@ -94,11 +94,6 @@ var App = function() {
     //    MAIN APP LOGIC HERE
     // ==========================
 	
-
-
-    /***  Initialize the server (express) and create the routes and register
-     *  the handlers.
-     */
     self.initializeServer = function() {
 		
 		self.app = express();
@@ -112,13 +107,13 @@ self.app.get('/ai', function(request, response) {
   
   /** VERIFICATION CODE = DONE! **/
 
-           if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'chatzer') {
+           if (request.query['hub.mode'] === 'subscribe' &&
+      request.query['hub.verify_token'] === 'chatzer') {
     console.log("Validating webhook");
-    res.status(200).send(req.query['hub.challenge']);
+    response.status(200).send(request.query['hub.challenge']);
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
-    res.send(403);          
+    response.send(403);          
   }
    
 /*
