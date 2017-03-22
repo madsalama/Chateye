@@ -94,27 +94,6 @@ var App = function() {
     //    MAIN APP LOGIC HERE
     // ==========================
 	
-    self.createRoutes = function() {
-        self.routes = { };
-
-		
-		
-		self.routes['/google814757c82e6d8bc8.html'] = function(req, res) {
-            // res.setHeader('Content-Type', 'text/html; charset=utf-8');
-            res.send('google-site-verification: google814757c82e6d8bc8.html');
-        };
-		
-	
-        		self.routes['/chatzer'] = function(req, res) {
-            self.chatzer(req, res);
-        };
-
-
-	
-
-		
-		
-    };
 
 
     /***  Initialize the server (express) and create the routes and register
@@ -131,6 +110,54 @@ var App = function() {
         self.app.use(compression()); //use compression
         self.app.use(cors());
         self.app.use(express.static('static'));
+
+self.app.get('/chatzer', function(request, response) {
+  
+  /** VERIFICATION CODE = DONE! **/
+
+           if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === 'chatzer') {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.send(403);          
+  }
+   
+/*
+
+
+var data = req.body;
+
+  // Make sure this is a page subscription
+  if (data.object === 'page') {
+
+    // Iterate over each entry - there may be multiple if batched
+    data.entry.forEach(function(entry) {
+      var pageID = entry.id;
+      var timeOfEvent = entry.time;
+
+      // Iterate over each messaging event
+      entry.messaging.forEach(function(event) {
+        if (event.message) {
+          receivedMessage(event);
+        } else {
+          console.log("Webhook received unknown event: ", event);
+        }
+      });
+    });
+
+    // Assume all went well.
+    // You must send back a 200, within 20 seconds, to let us know
+    // you've successfully received the callback. Otherwise, the request
+    // will time out and we will keep trying to resend.
+    res.send(200);
+  }
+
+
+*/
+
+});
 
 		// self.app.use(bodyParser.urlencoded({ extended: false }));
 		// self.app.use(bodyParser.json());
@@ -383,49 +410,7 @@ console.log("Sentiment ="+ sentiment);
 
     self.chatzer = function(req, res){
   
-  /** VERIFICATION CODE = DONE! **/
-
-           if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'chatzer') {
-    console.log("Validating webhook");
-    res.status(200).send(req.query['hub.challenge']);
-  } else {
-    console.error("Failed validation. Make sure the validation tokens match.");
-    res.send(403);          
-  }
-   
-/*
-
-
-var data = req.body;
-
-  // Make sure this is a page subscription
-  if (data.object === 'page') {
-
-    // Iterate over each entry - there may be multiple if batched
-    data.entry.forEach(function(entry) {
-      var pageID = entry.id;
-      var timeOfEvent = entry.time;
-
-      // Iterate over each messaging event
-      entry.messaging.forEach(function(event) {
-        if (event.message) {
-          receivedMessage(event);
-        } else {
-          console.log("Webhook received unknown event: ", event);
-        }
-      });
-    });
-
-    // Assume all went well.
-    // You must send back a 200, within 20 seconds, to let us know
-    // you've successfully received the callback. Otherwise, the request
-    // will time out and we will keep trying to resend.
-    res.send(200);
-  }
-
-
-*/
+  
 
     };
 	
