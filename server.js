@@ -5,27 +5,9 @@ var compression = require('compression');
 var fs      = require('fs');
 var cors = require('cors');
 var Twitter = require('twitter');
-var mysql = require("mysql");
-var bodyParser = require("body-parser");
-
 var request = require('request');
-
-
 var language = require('@google-cloud/language')
 
-var con = mysql.createConnection({
-    host: "127.10.246.2",
-    user: "adminqKJ5d2u",
-    password: "V_QdpnGjkvhU",
-    database: "app"
-});
-
-var viewCount = 0 ;						// How many people waited through the loading screen asdasd
-var WinCount = 0 ; 						// How many peasants have completed the game  
-var topScore = 0 ; 						// currentTopScore
-
-var wakeup = require('http');
-var cronJob = require("cron").CronJob;
 
 var client  = new Twitter({
 	
@@ -142,55 +124,21 @@ var App = function() {
 	
     self.createRoutes = function() {
         self.routes = { };
-        self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
-            res.send("<html><body><img src='" + link + "'></body></html>");
-        };
+
 		
-		/**
-        self.routes['/'] = function(req, res) {
-            res.setHeader('Content-Type', 'text/html; charset=utf-8');
-            res.send(self.cache_get('index.html') );
-        };
-		**/
 		
 		self.routes['/google814757c82e6d8bc8.html'] = function(req, res) {
             // res.setHeader('Content-Type', 'text/html; charset=utf-8');
             res.send('google-site-verification: google814757c82e6d8bc8.html');
         };
 		
-		self.routes['/increaseViewCount'] = function(req, res) {
-            self.increaseViewCount(res);
-        };
-		self.routes['/increaseWinCount'] = function(req, res) {
-			 self.increaseWinCount(res);
-        };
-		self.routes['/updateTopScore'] = function(req, res) {
-            var scoreFromURL =  req.query.score;
-			self.updateTopScore(res,scoreFromURL);
-        };
-        self.routes['/getTopScore'] = function(req, res) {
-            self.getTopScore(res);
-        };
-		self.routes['/getWinCount'] = function(req, res) {
-            self.getWinCount(res);
-        };
-				self.routes['/getViewCount'] = function(req, res) {
-            self.getViewCount(res);
-        };
-
+	
         		self.routes['/chatzer'] = function(req, res) {
             self.chatzer(req, res);
         };
 
 
-		
-		new cronJob("00 00 1 * * *", function() {
-			wakeup.get('http://pixos-pikdox.rhcloud.com', function (res) {})
-			.on('error', function(e) {});
-			wakeup.get('http://app-pikdox.rhcloud.com', function (res) {})
-			.on('error', function(e) {});
-		}, null, true);
+	
 
 		
 		
@@ -295,129 +243,7 @@ document.annotate(function(err, annotations) {
 	};
 
 	
-	// PUBLIC API IMPLEMENTATION
-	self.increaseViewCount = function(res){
 
-	
-        con.query(
-            'UPDATE GAMESTATS SET VIEWCOUNT = VIEWCOUNT + 1' +
-            ' WHERE ID = 1',
-            function (err, result) {
-                if (err)
-                    throw err;
-                else
-                    // res.send("UPDATED");
-                    console.log('Changed ' + result.changedRows + ' rows');
-            }
-        );
-
-
-			// You must reply or else the HTTP will keep listening for a response till timeout (404 error)
-		res.send("ViewCount Updated");
-		console.log("You got one more view !");
-	};
-    self.increaseWinCount = function(res){
-
-        con.query(
-            'UPDATE GAMESTATS SET NUMCOMPLETED = NUMCOMPLETED + 1' +
-            ' WHERE ID = 1',
-            function (err, result) {
-                if (err)
-                    throw err;
-                else
-                    res.send("UPDATED");
-                    console.log('Changed ' + result.changedRows + ' rows');
-            }
-			
-        );
-
-        res.send("WINCOUNT Updated");
-        // console.log("You got one more view !");
-    };
-	self.updateTopScore = function(res, scoreFromURL){
-                 con.query(
-                            'SELECT TOPSCORE FROM GAMESTATS' +
-                            ' WHERE ID = 1',
-                            function (err,rows, result) {
-                                if (err)
-                                    throw err;
-
-                                // result = Array of Tuples = [{"TOPSCORE":98766}]
-
-                                topScore = rows[0].TOPSCORE;
-                                // res.send(topScore);
-                            }
-                        );
-
-
-                        // Compare value in GET to topScore stored in fileCreatedDate
-                        if (scoreFromURL > topScore)
-                        {
-                            con.query(
-                                'UPDATE GAMESTATS SET TOPSCORE = '+scoreFromURL+
-                                ' WHERE ID = 1',
-                                function (err, result) {
-                                    if (err)
-                                        throw err;
-                                    // topScore = result ;
-                                }
-                            );
-
-                             res.send("Score Updated");
-                        }
-                        else
-                            res.send("Score NOT Updated");
-                            //res.send("Score NOT Updated");
-	};
-    self.getTopScore = function(res){
-        con.query(
-            'SELECT TOPSCORE FROM GAMESTATS' +
-            ' WHERE ID = 1',
-            function (err,rows, result) {
-                if (err)
-                    throw err;
-
-                // result = Array of Tuples = [{"TOPSCORE":98766}]
-
-                topScore = rows[0].TOPSCORE;
-                res.send(""+topScore);
-            }
-        );
-
-    }
-	    self.getWinCount = function(res){
-        con.query(
-            'SELECT NUMCOMPLETED FROM GAMESTATS' +
-            ' WHERE ID = 1',
-            function (err,rows, result) {
-                if (err)
-                    throw err;
-
-                // result = Array of Tuples = [{"TOPSCORE":98766}]
-
-                numCompleted = rows[0].NUMCOMPLETED;
-                res.send(""+numCompleted);
-            }
-        );
-
-    }
-	
-	self.getViewCount = function(res){
-        con.query(
-            'SELECT VIEWCOUNT FROM GAMESTATS' +
-            ' WHERE ID = 1',
-            function (err,rows, result) {
-                if (err)
-                    throw err;
-
-                // result = Array of Tuples = [{"TOPSCORE":98766}]
-
-                viewCo = rows[0].VIEWCOUNT;
-                res.send(""+viewCo);
-            }
-        );
-
-    }
 
 // ============= CHATZER! - CHATBOT for FB Messenger Challenge! ==============
 // Chatzer! The anti-boredom chatbot!
