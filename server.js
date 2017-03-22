@@ -103,138 +103,7 @@ var App = function() {
         self.app.use(cors());
         self.app.use(express.static('static'));
 
-self.app.get('/ai', function(request, response) {
-  
-  /** VERIFICATION CODE = DONE! **/
 
-           if (request.query['hub.mode'] === 'subscribe' &&
-      request.query['hub.verify_token'] === 'chatzer') {
-    console.log("Validating webhook");
-    response.status(200).send(request.query['hub.challenge']);
-  } else {
-    console.error("Failed validation. Make sure the validation tokens match.");
-    response.send(403);          
-  }
-   
-/*
-
-
-var data = req.body;
-
-  // Make sure this is a page subscription
-  if (data.object === 'page') {
-
-    // Iterate over each entry - there may be multiple if batched
-    data.entry.forEach(function(entry) {
-      var pageID = entry.id;
-      var timeOfEvent = entry.time;
-
-      // Iterate over each messaging event
-      entry.messaging.forEach(function(event) {
-        if (event.message) {
-          receivedMessage(event);
-        } else {
-          console.log("Webhook received unknown event: ", event);
-        }
-      });
-    });
-
-    // Assume all went well.
-    // You must send back a 200, within 20 seconds, to let us know
-    // you've successfully received the callback. Otherwise, the request
-    // will time out and we will keep trying to resend.
-    res.send(200);
-  }
-
-
-*/
-
-});
-
-		// self.app.use(bodyParser.urlencoded({ extended: false }));
-		// self.app.use(bodyParser.json());
-
-
-        //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
-            self.app.post(r, self.routes[r]);
-        }
-
-
-    };
-
-    self.initialize = function() {
-		        // Create the express server and routes.
-        self.initializeServer();
-		
-        self.setupVariables();
-        self.populateCache();
-        self.setupTerminationHandlers();
-
-
-
-var languageClient = language({
-  projectId: 'nlpi-162211',
-  keyFilename:'./NLPI-c6ba16b1d273.json'
-});
-
-languageClient.detectEntities('Stephen of Michigan!', function(err, entities) {
-  // entities = {
-  //   people: ['Stephen'],
-  //   places: ['Michigan']
-  // }
-});
-
-var document = languageClient.document('Contributions welcome!');
-
-
-document.annotate(function(err, annotations) {
-  // annotations = {
-  //   language: 'en',
-  //   sentiment: 100,
-  //   entities: {},
-  //   sentences: ['I am feeling very amazing today!!'],
-  //   tokens: [
-  //     {
-  //       text: 'Contributions',
-  //       partOfSpeech: 'Noun (common and proper)',
-  //       partOfSpeechTag: 'NOUN'
-  //     },
-  //     {
-  //       text: 'welcome',
-  //       partOfSpeech: 'Verb (all tenses and modes)',
-  //       partOfSpeechTag: 'VERB'
-  //     },
-  //     {
-  //       text: '!',
-  //       partOfSpeech: 'Punctuation',
-  //       partOfSpeechTag: 'PUNCT'
-  //     }
-  //   ]
-  // }
-
-  console.log(annotations);
-});
-
-
-
-
-
-
-
-
-    };
-    self.start = function() {
-        //  Start the app on the specific interface (and port).
-        self.app.listen(self.app.get('port'), function() {
-            console.log('Node app is running on port', self.app.get('port'));
-        });
-    };
-	self.init = function(){
-         // Read topScore from DB table
-	};
-
-	
 
 
 // ============= CHATZER! - CHATBOT for FB Messenger Challenge! ==============
@@ -358,20 +227,6 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
-/**
- * 
- * // Create a document if you plan to run multiple detections.
-var document = language.document(messageText);
-
-// Analyze the sentiment of the document.
-var sentiment = document.detectSentiment(function(err, sentiment) {
-  // sentiment = 100 // Large numbers represent more positive sentiments.
-});
-
-console.log("Sentiment ="+ sentiment); 
- * 
- */
-
 
 
   if (messageText) {
@@ -392,6 +247,142 @@ console.log("Sentiment ="+ sentiment);
 
 
 }
+
+
+
+
+var languageClient = language({
+  projectId: 'nlpi-162211',
+  keyFilename:'./NLPI-c6ba16b1d273.json'
+});
+
+languageClient.detectEntities('Stephen of Michigan!', function(err, entities) {
+  // entities = {
+  //   people: ['Stephen'],
+  //   places: ['Michigan']
+  // }
+});
+
+var document = languageClient.document('Contributions welcome!');
+
+
+document.annotate(function(err, annotations) {
+  // annotations = {
+  //   language: 'en',
+  //   sentiment: 100,
+  //   entities: {},
+  //   sentences: ['I am feeling very amazing today!!'],
+  //   tokens: [
+  //     {
+  //       text: 'Contributions',
+  //       partOfSpeech: 'Noun (common and proper)',
+  //       partOfSpeechTag: 'NOUN'
+  //     },
+  //     {
+  //       text: 'welcome',
+  //       partOfSpeech: 'Verb (all tenses and modes)',
+  //       partOfSpeechTag: 'VERB'
+  //     },
+  //     {
+  //       text: '!',
+  //       partOfSpeech: 'Punctuation',
+  //       partOfSpeechTag: 'PUNCT'
+  //     }
+  //   ]
+  // }
+
+  console.log(annotations);
+});
+
+
+
+
+
+
+self.app.get('/ai', function(request, response) {
+  
+  /** VERIFICATION CODE = DONE! **/
+/*
+           if (request.query['hub.mode'] === 'subscribe' &&
+      request.query['hub.verify_token'] === 'chatzer') {
+    console.log("Validating webhook");
+    response.status(200).send(request.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    response.send(403);          
+  }
+*/   
+
+
+
+var data = req.body;
+
+  // Make sure this is a page subscription
+  if (data.object === 'page') {
+
+    // Iterate over each entry - there may be multiple if batched
+    data.entry.forEach(function(entry) {
+      var pageID = entry.id;
+      var timeOfEvent = entry.time;
+
+      // Iterate over each messaging event
+      entry.messaging.forEach(function(event) {
+        if (event.message) {
+          receivedMessage(event);
+        } else {
+          console.log("Webhook received unknown event: ", event);
+        }
+      });
+    });
+
+    // Assume all went well.
+    // You must send back a 200, within 20 seconds, to let us know
+    // you've successfully received the callback. Otherwise, the request
+    // will time out and we will keep trying to resend.
+    res.send(200);
+  }
+
+
+
+
+});
+
+		// self.app.use(bodyParser.urlencoded({ extended: false }));
+		// self.app.use(bodyParser.json());
+
+
+        //  Add handlers for the app (from the routes).
+        for (var r in self.routes) {
+            self.app.post(r, self.routes[r]);
+        }
+
+
+    };
+
+    self.initialize = function() {
+		        // Create the express server and routes.
+        self.initializeServer();
+		
+        self.setupVariables();
+        self.populateCache();
+        self.setupTerminationHandlers();
+
+
+    };
+    self.start = function() {
+        //  Start the app on the specific interface (and port).
+        self.app.listen(self.app.get('port'), function() {
+            console.log('Node app is running on port', self.app.get('port'));
+        });
+    };
+	self.init = function(){
+         // Read topScore from DB table
+	};
+
+	
+
+
+
 
 
 // Call back for the URL (webhook)
