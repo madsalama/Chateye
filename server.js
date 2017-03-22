@@ -55,7 +55,7 @@ var App = function() {
 		
 		self.app = express();
     self.app.use(express.static('static'));
-    
+
         self.app.set('port', (process.env.PORT || 8080));
      
         self.app.use(compression()); 
@@ -71,7 +71,7 @@ var languageClient = language({
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
-
+nj
 
 var document = languageClient.document('Contributions welcome!');
 document.annotate(function(err, annotations) {
@@ -81,7 +81,7 @@ document.annotate(function(err, annotations) {
   //   entities: {},
   //   sentences: ['I am feeling very amazing today!!'],
   //   tokens: [
-  //     {
+  //     {     
   //       text: 'Contributions',
   //       partOfSpeech: 'Noun (common and proper)',
   //       partOfSpeechTag: 'NOUN'
@@ -225,11 +225,7 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
-var document = languageClient.document(messageText);
-document.detectSentiment(function(err, sentiment) { 
-    console.log(sentiment);
- sendTextMessage(senderID, "Sentiment = " + sentiment);
-});
+
 
 
 
@@ -245,6 +241,13 @@ document.detectSentiment(function(err, sentiment) {
       default:
         sendTextMessage(senderID, messageText);
     }
+
+    var document = languageClient.document(messageText);
+    document.detectSentiment(function(err, sentiment) { 
+    console.log(sentiment);
+ sendTextMessage(senderID, "Sentiment = " + JSON.stringify(sentiment));
+});
+
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   } 
