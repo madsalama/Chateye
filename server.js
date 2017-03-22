@@ -41,17 +41,6 @@ client.get('followers/list', params, function(error, followers, response){
    // do something with key or value
 // });
 
-
-// GET ALL TWEETS WITH #PIXO|<
-// SHOW TWEETS ON FRONT PAGE 
-
-// USE INSTAGRAM API TO CHECK PHOTOS TO WEBSITE 
-
-// PROMOTE TWEET 
-// SPONSOR FB POST 
-
-
-	
   }
 });
 
@@ -61,13 +50,6 @@ var App = function() {
 
     //  Scope.
     var self = this;
-
-
-
-
-
-
-
 
     self.setupVariables = function() {
         //  Set the environment variables we need.
@@ -158,8 +140,8 @@ var App = function() {
         self.app.use(cors());
         self.app.use(express.static('static'));
 
-		self.app.use(bodyParser.urlencoded({ extended: false }));
-		self.app.use(bodyParser.json());
+		// self.app.use(bodyParser.urlencoded({ extended: false }));
+		// self.app.use(bodyParser.json());
 
 
         //  Add handlers for the app (from the routes).
