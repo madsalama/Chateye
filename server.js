@@ -54,9 +54,22 @@ var App = function() {
     //    MAIN APP LOGIC HERE
     // ==========================
 	
+      self.createRoutes = function() {
+        self.routes = { };
+        self.routes['/ai'] = function(req, res) {
+            self.chatzer(req, res);
+        };
+      }
+
     self.initializeServer = function() {
 		
 		self.app = express();
+        self.createRoutes();
+
+         for (var r in self.routes) {
+            self.app.post(r, self.routes[r]);
+        }
+
         self.app.set('port', (process.env.PORT || 8080));
      
         self.app.use(compression()); //use compression
@@ -266,7 +279,9 @@ console.log("Sentiment ="+ sentiment);
 }
 
 
-self.app.post('/ai', function(req, res) {
+
+
+self.chatzer('/ai', function(req, res) {
   
   /** VERIFICATION CODE = DONE! **/
 /*
