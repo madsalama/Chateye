@@ -52,17 +52,7 @@ var App = function() {
     var self = this;
 
     self.setupVariables = function() {
-        //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 443 ;
-        self.rejectUnauthorized =  false; 
-
-        if (typeof self.ipaddress === "undefined") {
-            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
-            //  allows us to run/test the app locally.
-            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = "127.0.0.1";
-        }
+        
     };
 
     // Populate the cache
@@ -133,6 +123,8 @@ var App = function() {
     self.initializeServer = function() {
 		
 		self.app = express();
+        self.app.set('port', (process.env.PORT || 5000));
+
 
         self.createRoutes();
         
@@ -216,8 +208,7 @@ document.annotate(function(err, annotations) {
     self.start = function() {
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {
-            console.log('%s: Node server started on %s:%d ...',
-                        Date(Date.now() ), self.ipaddress, self.port);
+            console.log('Node app is running on port', app.get('port'));
         });
     };
 	self.init = function(){
