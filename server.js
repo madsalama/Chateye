@@ -272,7 +272,7 @@ console.log("Sentiment ="+ sentiment);
 
 
 
-self.app.post('/ai', function(req, res) {
+self.app.post('/ai', jsonParser, function(req, res) {
   
   /** VERIFICATION CODE = DONE! **/
 /*
