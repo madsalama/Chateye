@@ -51,16 +51,12 @@ var App = function() {
 
     var self = this; 
 
-    // ==========================
-    //    MAIN APP LOGIC HERE
-    // ==========================
-	
     self.initializeServer = function() {
 		
 		self.app = express();
         self.app.set('port', (process.env.PORT || 8080));
      
-        self.app.use(compression()); //use compression
+        self.app.use(compression()); 
         self.app.use(cors());
         self.app.use(express.static('static'));
 
@@ -73,16 +69,9 @@ var languageClient = language({
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
-languageClient.detectEntities('Stephen of Michigan!', function(err, entities) {
-  // entities = {
-  //   people: ['Stephen'],
-  //   places: ['Michigan']
-  // }
-});
+
 
 var document = languageClient.document('Contributions welcome!');
-
-
 document.annotate(function(err, annotations) {
   // annotations = {
   //   language: 'en',
@@ -234,19 +223,11 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
-/**
- * 
- * // Create a document if you plan to run multiple detections.
-var document = language.document(messageText);
-
-// Analyze the sentiment of the document.
-var sentiment = document.detectSentiment(function(err, sentiment) {
-  // sentiment = 100 // Large numbers represent more positive sentiments.
+var document = languageClient.document(messageText);
+document.detectSentiment(function(err, entities) { 
+    console.log(sentiment);
+ sendTextMessage(senderID, "Sentiment = " + sentiment);
 });
-
-console.log("Sentiment ="+ sentiment); 
- * 
- */
 
 
 
