@@ -123,7 +123,7 @@ var headers = {
 
 var options = {
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
+    qs: { access_token: 'EAAXdsmtZAx2oBADvWMmvTzPgJSgEIaesdY0F3zCgyoS71sXb2RAu1HLbgIroNkX51FSuo9pSZC3R6fwFnKuU4b97K7ZB47DRw5G5pI7oE1PPhu1slWsgHJf4qtTUBNg7ZCTJ6MrPzNxq9Dp3ih77fdu3CDokymJduzoAZCMQXZCQZDZD'},
     method: 'POST',
     json: messageData
 }
@@ -315,7 +315,7 @@ self.app.get('/ai', function(request, response) {
 
 
 
-var data = req.body;
+var data = request.body;
 
   // Make sure this is a page subscription
   if (data.object === 'page') {
@@ -337,9 +337,9 @@ var data = req.body;
 
     // Assume all went well.
     // You must send back a 200, within 20 seconds, to let us know
-    // you've successfully received the callback. Otherwise, the request
-    // will time out and we will keep trying to resend.
-    res.send(200);
+    // you've successfully received the callback. Otherwise, the requestuest
+    // will time out and we will keep trying to responseend.
+    response.send(200);
   }
 
 
@@ -360,7 +360,7 @@ var data = req.body;
     };
 
     self.initialize = function() {
-		        // Create the express server and routes.
+		        // Create the expresponses server and routes.
         self.initializeServer();
 		
         self.setupVariables();
@@ -383,19 +383,6 @@ var data = req.body;
 
 
 
-
-
-// Call back for the URL (webhook)
-// This function is supposed to send/receive messages.
-
-// Involved parties: 
-    // FB MessengerAPI - nodeJS - AI API - YT/TWITTER/MUSICXMATCH API 
-
-    self.chatzer = function(req, res){
-  
-  
-
-    };
 	
 
 };
