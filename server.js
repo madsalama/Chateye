@@ -224,7 +224,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 var document = languageClient.document(messageText);
-document.detectSentiment(function(err, entities) { 
+document.detectSentiment(function(err, sentiment) { 
     console.log(sentiment);
  sendTextMessage(senderID, "Sentiment = " + sentiment);
 });
