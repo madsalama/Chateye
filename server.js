@@ -71,7 +71,7 @@ var languageClient = language({
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
-nj
+
 
 var document = languageClient.document('Contributions welcome!');
 document.annotate(function(err, annotations) {
