@@ -155,7 +155,7 @@ function sendMediaMessage(recipientId, media) {
   };
 
 
-
+callSendAPI(messageData);
 }
 
 
@@ -268,7 +268,7 @@ function receivedMessage(event) {
 
   } else if (messageAttachments) {
 
-    sendMediaMessage(senderID, messageAttachments); 
+    sendMediaMessage(senderID, message); 
   } 
 
 
