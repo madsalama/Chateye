@@ -151,7 +151,7 @@ function sendMediaMessage(recipientId, message) {
       id: recipientId
     },
     message: {
-      attachment: JSON.stringify(messageAttachments)
+      attachment: messageAttachments
     }
   };
 
@@ -175,9 +175,6 @@ function sendMediaMessage(recipientId, message) {
 }
 '
 */
-
-console.log("=================="); 
-console.log(messageData); 
 
 callSendAPI(messageData);            
 
