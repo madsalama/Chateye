@@ -146,6 +146,7 @@ request(options, function (error, response, body) {
 function sendMediaMessage(recipientId, message) {
 
   var messageAttachments = message.attachments;
+
   var messageData = {
     recipient: {
       id: recipientId
@@ -155,7 +156,7 @@ function sendMediaMessage(recipientId, message) {
     }
   };
 
-
+console.log(messageData);
 
 /* EXPECTED FORMAT */
 /*
@@ -176,7 +177,7 @@ function sendMediaMessage(recipientId, message) {
 '
 */
 
-callSendAPI(messageData);            
+// callSendAPI(messageData);            
 
 }
 
