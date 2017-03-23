@@ -143,22 +143,17 @@ request(options, function (error, response, body) {
 
 }
 
-function sendMediaMessage(recipientId, message) {
+function sendMediaMessage(recipientId, media) {
 
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message:message
-    }
+    message: {
+      media
     }
   };
 
-  console.log(media.type);
-  console.log(media.payload);
-
-
-  callSendAPI(messageData);
 
 
 }
@@ -273,7 +268,7 @@ function receivedMessage(event) {
 
   } else if (messageAttachments) {
 
-    sendMediaMessage(senderID, message);
+    sendMediaMessage(senderID, messageAttachments); 
   } 
 
 
