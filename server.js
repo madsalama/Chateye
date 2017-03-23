@@ -149,7 +149,7 @@ function sendMediaMessage(recipientId, media) {
     recipient: {
       id: recipientId
     },
-    message: JSON.stringify(media)
+    message: JSON.stringify(media.attachments)
     
   };
 
@@ -161,7 +161,7 @@ console.log(media);                     // JavaScript Object
 console.log(JSON.stringify(media));     // JSON Object 
 // console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
 
-callSendAPI(messageData);
+ callSendAPI(messageData);            // Invalid Keys
 
 }
 
