@@ -288,10 +288,6 @@ function receivedMessage(event) {
         sendGenericMessage(senderID);
         break;
 
-      default:
-        sendTextMessage(senderID, messageText);
-
-
         var reqs = app.textRequest(messageText, {
     sessionId: senderID
 });
