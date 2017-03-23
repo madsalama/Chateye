@@ -294,6 +294,7 @@ function receivedMessage(event) {
  
 reqs.on('response', function(response) {
     console.log(response);
+    sendTextMessage(senderID, response);
 });
  
 reqs.on('error', function(error) {
