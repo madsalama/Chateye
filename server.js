@@ -75,34 +75,38 @@ var languageClient = language({
 
 
 
-var document = languageClient.document('Contributions welcome!');
-document.annotate(function(err, annotations) {
-  // annotations = {
-  //   language: 'en',
-  //   sentiment: 100,
-  //   entities: {},
-  //   sentences: ['I am feeling very amazing today!!'],
-  //   tokens: [
-  //     {     
-  //       text: 'Contributions',
-  //       partOfSpeech: 'Noun (common and proper)',
-  //       partOfSpeechTag: 'NOUN'
-  //     },
-  //     {
-  //       text: 'welcome',
-  //       partOfSpeech: 'Verb (all tenses and modes)',
-  //       partOfSpeechTag: 'VERB'
-  //     },
-  //     {
-  //       text: '!',
-  //       partOfSpeech: 'Punctuation',
-  //       partOfSpeechTag: 'PUNCT'
-  //     }
-  //   ]
-  // }
 
-  console.log(annotations);
-});
+ 
+
+ /**
+  * 
+
+result: { 
+
+  source: 'agent',
+  resolvedQuery: 'Hi there!',
+  action: '',
+  actionIncomplete: false,
+  
+  parameters: { greetings: 'Hello, there!' },
+  contexts: [],
+
+  metadata: { 
+    intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
+    webhookUsed: 'false',
+    webhookForSlotFillingUsed: 'false',
+    intentName: 'greet' },
+    
+  fulfillment: { 
+      speech: 'Aloha! How\'s your day going!?', messages: [Object] },
+      score: 1 },
+      status: { code: 200, errorType: 'success' },
+      sessionId: '1450043748391296' 
+}
+
+
+  */
+
 
 
 
@@ -323,16 +327,8 @@ result: {
   */
 reqs.on('response', function(response) {
 
-  var result = response.fulfillment; 
-  
-  console.log("======================");
-  console.log(response); 
-  console.log(JSON.stringify(response)); 
-
-  // console.log(result);
-  // console.log(JSON.stringify(result));
-
-  // sendTextMessage(senderID, response);
+var obj = response.result.fulfillment.speech; 
+sendTextMessage(senderID, obj);
 
 });
  
@@ -341,7 +337,6 @@ reqs.on('error', function(error) {
 });
  
 reqs.end();
-
 
     }
 
