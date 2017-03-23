@@ -147,8 +147,8 @@ function sendMediaMessage(recipientId, message) {
 
   var messageAttachments = message.attachments;
   var messageAttachments = messageAttachments[0];
-  var messageAttachments = (({type, payload }) => ({ type, payload }))(messageAttachments);
-  
+  var messageAttachments = {type: messageAttachments.type, payload: messageAttachments.payload.url};
+
   var messageData = {
     recipient: {
       id: recipientId
