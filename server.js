@@ -325,8 +325,12 @@ reqs.on('response', function(response) {
 
   var result = response.fulfillment; 
   
-  console.log(result);
-  console.log(JSON.stringify(result));
+  console.log("======================");
+  console.log(response); 
+  console.log(JSON.stringify(response)); 
+
+  // console.log(result);
+  // console.log(JSON.stringify(result));
 
   // sendTextMessage(senderID, response);
 
