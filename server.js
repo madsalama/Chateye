@@ -9,6 +9,8 @@ var request = require('request');
 var language = require('@google-cloud/language');
 var bodyParser = require("body-parser");
 
+var apiai = require('apiai');
+var app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
 
 var client  = new Twitter({
 	
@@ -284,6 +286,23 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, messageText);
+
+
+        var reqs = app.textRequest(messageText, {
+    sessionId: senderID
+});
+ 
+reqs.on('response', function(response) {
+    console.log(response);
+});
+ 
+reqs.on('error', function(error) {
+    console.log(error);
+});
+ 
+reqs.end();
+
+
     }
 
     var document = languageClient.document(messageText);
