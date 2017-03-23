@@ -149,9 +149,8 @@ function sendMediaMessage(recipientId, media) {
     recipient: {
       id: recipientId
     },
-    message: {
-      media
-    }
+    message: JSON.stringify(media)
+    
   };
 
 
