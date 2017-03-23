@@ -145,17 +145,13 @@ request(options, function (error, response, body) {
 
 function sendMediaMessage(recipientId, message) {
 
-var messageAttachments = message.attachments;
-
+  var messageAttachments = message.attachments;
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: messageAttachments    
+    message: JSON.stringify(messageAttachments)
   };
-
-
-  var messageData_strng = JSON.stringify(messageData); 
 
 /* EXPECTED FORMAT */
 /*
@@ -176,22 +172,9 @@ var messageAttachments = message.attachments;
 '
 */
 
-console.log(messageData);
-console.log(messageAttachments);
-
-console.log(JSON.stringify(messageAttachments)); 
-
-/*
-console.log("========"); 
-console.log(media);                     // JS OBJECT - NOT OK! 
-console.log("========");  
-console.log(JSON.stringify(media));    // JS OBJECT - COOL! 
-console.log("========"); 
-console.log(JSON.stringify(messageData)); 
-console.log("========"); 
-*/
-
-// callSendAPI(messageAttachments);            
+console.log("=================="); 
+console.log(messageData); 
+// callSendAPI(messageData);            
 
 }
 
