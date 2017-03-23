@@ -160,8 +160,10 @@ console.log(media);                     // JS Object
 console.log(JSON.stringify(media));     // JS > JSON Object 
 console.log(JSON.stringify(media.attachments));
 
+console.log(messageData);
+
 // console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
- callSendAPI(messageData);            // Invalid Keys
+// callSendAPI(messageData);            // Invalid Keys
 
 }
 
