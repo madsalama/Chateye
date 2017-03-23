@@ -157,7 +157,13 @@ function sendMediaMessage(recipientId, media) {
     }
   };
 
-  callSendAPI(messageData);
+  console.log(media.type);
+  console.log(media.payload);
+
+
+  // callSendAPI(messageData);
+
+
 }
 
 
