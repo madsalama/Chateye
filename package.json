@@ -4,13 +4,14 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "@google-cloud/language": "0.9.0",
+    "apiai": "^4.0.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "express": "^3.4.8",
     "fs": "^0.0.1-security",
     "request": "^2.81.0",
-    "twitter": "^1.7.0",
-    "@google-cloud/language": "0.9.0"
+    "twitter": "^1.7.0"
   },
   "devDependencies": {
     "apiai": "^4.0.1",
