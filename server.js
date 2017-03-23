@@ -145,25 +145,23 @@ request(options, function (error, response, body) {
 
 function sendMediaMessage(recipientId, media) {
 
+var media = JSON.stringify(media.attachments); 
+
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: JSON.stringify(media.attachments)
-    
+    message: media    
   };
 
 
-
-
 console.log("=== logging attachment === ");
-console.log(media);                     // JavaScript Object 
-console.log(JSON.stringify(media));     // JSON Object 
+console.log(media);                     // JS Object 
+console.log(JSON.stringify(media));     // JS > JSON Object 
 console.log(JSON.stringify(media.attachments));
 
 // console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
-
-// callSendAPI(messageData);            // Invalid Keys
+ callSendAPI(messageData);            // Invalid Keys
 
 }
 
