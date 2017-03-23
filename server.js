@@ -150,8 +150,12 @@ function sendMediaMessage(recipientId, message) {
     recipient: {
       id: recipientId
     },
-    message: JSON.stringify(messageAttachments)
+    message: {
+      attachment: JSON.stringify(messageAttachments)
+    }
   };
+
+
 
 /* EXPECTED FORMAT */
 /*
@@ -174,7 +178,8 @@ function sendMediaMessage(recipientId, message) {
 
 console.log("=================="); 
 console.log(messageData); 
-// callSendAPI(messageData);            
+
+callSendAPI(messageData);            
 
 }
 
