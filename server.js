@@ -146,13 +146,15 @@ request(options, function (error, response, body) {
 function sendMediaMessage(recipientId, message) {
 
   var messageAttachments = message.attachments;
-
+  var messageAttachments = messageAttachments[0];
+  var messageAttachments = (({type, payload }) => ({ type, payload }))(messageAttachments);
+  
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      attachment: JSON.stringify(messageAttachments[0]) 
+      attachment: JSON.stringify(messageAttachments) 
     }
   };
 
