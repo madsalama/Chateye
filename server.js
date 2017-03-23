@@ -346,7 +346,9 @@ reqs.end();
     var score = JSON.stringify(sentiment.score);          
     var magnitude = JSON.stringify(sentiment.magnitude);  
 
- sendTextMessage(senderID, "Score = " + score + " | Magnitude = " + magnitude);
+    console.log("Score = " + score + " | Magnitude = " + magnitude);
+
+    // sendTextMessage(senderID, "Score = " + score + " | Magnitude = " + magnitude);
  
 });
 
