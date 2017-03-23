@@ -147,19 +147,23 @@ function sendMediaMessage(recipientId, message) {
 
   var messageAttachments = message.attachments;
   var messageAttachments = messageAttachments[0];
-  var messageAttachments = {type: messageAttachments.type, payload: messageAttachments.payload.url};
+  
+  var messageAttachments = {
+    type: messageAttachments.type,
+      payload: {
+        url: messageAttachments.payload.url
+      }
+      };
 
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: {
+    message: { 
       attachment: JSON.stringify(messageAttachments) 
     }
   };
 
-
-console.log(messageData);
 
 /* EXPECTED FORMAT */
 /*
@@ -180,7 +184,7 @@ console.log(messageData);
 '
 */
 
- // callSendAPI(messageData);            
+ callSendAPI(messageData);            
 
 }
 
