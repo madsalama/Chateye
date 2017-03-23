@@ -145,7 +145,7 @@ request(options, function (error, response, body) {
 
 function sendMediaMessage(recipientId, media) {
 
-var media = JSON.stringify(media.attachments); 
+var media = JSON.stringify(media.message); 
 
   var messageData = {
     recipient: {
@@ -155,15 +155,19 @@ var media = JSON.stringify(media.attachments);
   };
 
 
-console.log("=== logging attachment === ");
-console.log(media);                     // JS Object 
-console.log(JSON.stringify(media));     // JS > JSON Object 
-console.log(JSON.stringify(media.attachments));
+// console.log("======= logging attachment ========");
+// console.log(media);                     // JS Object 
+// console.log(JSON.stringify(media));     // JS > JSON Object 
+// console.log(JSON.stringify(media.attachments));   // undefined 
 
-console.log(messageData);
+// console.log(media); 
+// { recipient: { id: '1450043748391296' }, 
+// message: '[{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/851557_369239266556155_759568595_n.png?_nc_ad=z-m&oh=65f8806bcfe45834eb50b60f51cb352d&oe=596142DC","sticker_id":369239263222822}}]' }
+
 
 // console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
-// callSendAPI(messageData);            // Invalid Keys
+
+callSendAPI(messageData);            // Invalid Keys
 
 }
 
