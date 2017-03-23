@@ -154,12 +154,14 @@ function sendMediaMessage(recipientId, media) {
   };
 
 
-// callSendAPI(messageData);
+
 
 console.log("=== logging attachment === ");
-console.log(media); 
-console.log(JSON.stringify(media)); 
-console.log(JSON.parse(media)); 
+console.log(media);                     // JavaScript Object 
+console.log(JSON.stringify(media));     // JSON Object 
+// console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
+
+callSendAPI(messageData);
 
 }
 
