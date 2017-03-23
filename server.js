@@ -154,7 +154,13 @@ function sendMediaMessage(recipientId, media) {
   };
 
 
-callSendAPI(messageData);
+// callSendAPI(messageData);
+
+console.log("=== logging attachment === ");
+console.log(media); 
+console.log(JSON.stringify(media)); 
+console.log(JSON.parse(media)); 
+
 }
 
 
