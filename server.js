@@ -161,7 +161,7 @@ console.log(media);                     // JavaScript Object
 console.log(JSON.stringify(media));     // JSON Object 
 // console.log(JSON.parse(media));      // Throws Error (Expects a JSON > JS?)
 
- callSendAPI(messageData);            // Invalid Keys
+// callSendAPI(messageData);            // Invalid Keys
 
 }
 
