@@ -323,11 +323,10 @@ result: {
   */
 reqs.on('response', function(response) {
 
- 
-  var result = response.fulfillment.speech;
-  
+  var result = response.fulfillment.speech;  
   console.log(JSON.stringify(result));
-  sendTextMessage(senderID, response);
+
+  // sendTextMessage(senderID, response);
 
 });
  
