@@ -324,6 +324,9 @@ result: {
 reqs.on('response', function(response) {
 
 var obj = response.result.fulfillment.speech; 
+
+console.log(obj);
+
 sendTextMessage(senderID, obj);
 
 });
