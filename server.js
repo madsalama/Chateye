@@ -324,10 +324,10 @@ result: {
 reqs.on('response', function(response) {
   var response = JSON.parse(response); 
   var result = response.fulfillment.speech;
-  console.log(result);
-
-
-   // sendTextMessage(senderID, response);
+  
+  console.log(JSON.stringify(result));
+  sendTextMessage(senderID, response);
+  
 });
  
 reqs.on('error', function(error) {
