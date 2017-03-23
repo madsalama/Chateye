@@ -292,9 +292,42 @@ function receivedMessage(event) {
     sessionId: senderID
 });
  
+
+ /**
+  * 
+
+result: { 
+
+  source: 'agent',
+  resolvedQuery: 'Hi there!',
+  action: '',
+  actionIncomplete: false,
+  
+  parameters: { greetings: 'Hello, there!' },
+  contexts: [],
+
+  metadata: { 
+    intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
+    webhookUsed: 'false',
+    webhookForSlotFillingUsed: 'false',
+    intentName: 'greet' },
+    
+  fulfillment: { 
+      speech: 'Aloha! How\'s your day going!?', messages: [Object] },
+      score: 1 },
+      status: { code: 200, errorType: 'success' },
+      sessionId: '1450043748391296' 
+}
+
+
+  */
 reqs.on('response', function(response) {
-    console.log(response);
-    sendTextMessage(senderID, response);
+  var response = JSON.parse(response); 
+  var result = response.fulfillment.speech;
+  console.log(result);
+
+
+   // sendTextMessage(senderID, response);
 });
  
 reqs.on('error', function(error) {
