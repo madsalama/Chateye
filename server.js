@@ -143,16 +143,19 @@ request(options, function (error, response, body) {
 
 }
 
-function sendMediaMessage(recipientId, media) {
+function sendMediaMessage(recipientId, message) {
 
-var media = JSON.parse(media.message.attachments); 
+var messageAttachments = message.attachments;
 
   var messageData = {
     recipient: {
       id: recipientId
     },
-    message: media    
+    message: messageAttachments    
   };
+
+
+  var messageData_strng = JSON.stringify(messageData); 
 
 /* EXPECTED FORMAT */
 /*
@@ -171,10 +174,12 @@ var media = JSON.parse(media.message.attachments);
   }
 }
 '
-
 */
 
+console.log(messageData);
+console.log(messageAttachments);
 
+console.log(JSON.stringify(messageAttachments)); 
 
 /*
 console.log("========"); 
@@ -186,7 +191,7 @@ console.log(JSON.stringify(messageData));
 console.log("========"); 
 */
 
-callSendAPI(media);            
+// callSendAPI(messageAttachments);            
 
 }
 
