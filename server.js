@@ -145,7 +145,8 @@ request(options, function (error, response, body) {
 
 function sendMediaMessage(recipientId, media) {
 
-var media = JSON.stringify(media.message); 
+// var media = JSON.stringify(media.message); 
+
 
   var messageData = {
     recipient: {
@@ -164,7 +165,8 @@ var media = JSON.stringify(media.message);
 // { recipient: { id: '1450043748391296' }, 
 // message: '[{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/851557_369239266556155_759568595_n.png?_nc_ad=z-m&oh=65f8806bcfe45834eb50b60f51cb352d&oe=596142DC","sticker_id":369239263222822}}]' }
 
-
+console.log(media); 
+console.log(JSON.stringify(media)); 
 console.log(JSON.stringify(messageData)); 
 
 // callSendAPI(messageData);            // Invalid Keys
