@@ -152,7 +152,7 @@ function sendMediaMessage(recipientId, message) {
       id: recipientId
     },
     message: {
-      attachment: messageAttachments
+      attachment: JSON.stringify(messageAttachments)
     }
   };
 
