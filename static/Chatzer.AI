@@ -1,0 +1,41 @@
+
+
+    - You're building an interesting working prototype! - 
+    - Focus on UX/Usability instead of number of features - 
+    - Main tasks - improving AI - completing integrations (YT/TWITTER/INSTA)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+= What should I do with the data? = 'STATEFUL'
+    - Favorites: Entertainment (movies/actors/music/singers) | Save preferences. 
+    - Offer better suggestions as I learn user's preferences. 
+    (using media tags on different media channels Youtube/Insta/Twitter/MusicXmatch/etc.)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+= What should I do with the data? = 'STATEFUL'
+    - detects emotions in text.
+    - detects emotions in emojis.
+    - detects emotions in an uploaded selfie.
+
+        A1 = Form a total emotional state. (On a scale from 1:10).
+        A2 = Form an emotional diary for that specific user. (STATEFUL)
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+= API.AI should be fed back user responses and be customized for that user = 'STATEFUL'
+(User persistent/preference data is stored in mongoDB? - or just fed up to dynamically improve AI model?)
+
+= API.AI = 
+    - Define CONTEXTS -
+        - GREETING user only at the start of every session.
+        - LISTENING to user | when to offer help. (emotional/entertain)
+        - HELPING user feel better by emotionally sympathizing/empathizing. 
+        - ENTERTAINING user according to their preferences.
+
+
+
+
+
+
+
