@@ -328,7 +328,7 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[1];
-console.log(JSON.stringify(mediaObj.payload.facebook));
+// console.log(JSON.stringify(mediaObj.payload.facebook));
 
 /**
  * 
