@@ -328,13 +328,15 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[1];
-console.log(JSON.stringify(mediaObj));
+console.log(JSON.stringify(mediaObj.payload.facebook));
+
+
 
 var textObj = response.result.fulfillment.speech; 
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-sendMediaMessage(senderID, mediaObj.payload.facebook);
+// sendMediaMessage(senderID, mediaObj.payload.facebook);
 
 
 });
