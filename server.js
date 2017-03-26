@@ -328,7 +328,7 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[1];
-var attachmentflag = mediaObj.payload.facebook == value? console.log(JSON.stringify(mediaObj.payload.facebook)):console.log("no attachments");
+var attachmentflag = mediaObj.payload.facebook? console.log(JSON.stringify(mediaObj.payload.facebook)):console.log("no attachments");
 
 /**
  * 
