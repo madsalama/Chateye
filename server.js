@@ -348,7 +348,7 @@ var textObj = response.result.fulfillment.speech;
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-// sendMediaMessage(senderID, mediaObj.payload.facebook);
+sendMediaMessage(senderID, mediaObj.payload.facebook);
 
 
 });
