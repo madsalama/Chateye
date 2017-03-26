@@ -334,7 +334,7 @@ var textObj = response.result.fulfillment.speech;
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-sendMediaMessage(senderID,mediaObj);
+sendMediaMessage(senderID, mediaObj.payload.facebook);
 
 
 });
