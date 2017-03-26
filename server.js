@@ -374,8 +374,8 @@ reqs.end();
 });
 
   } else if (messageAttachments) {
-
-    sendMediaMessage(senderID, message); 
+    // sendMediaMessage(senderID, message); 
+    // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
   } 
 
 
