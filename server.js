@@ -297,41 +297,30 @@ function receivedMessage(event) {
  /**
   * 
 
-result: { 
+   result:
+   { source: 'agent',
+     resolvedQuery: 'hi',
+     action: 'send_self_id',
+      actionIncomplete: false,
+      parameters: { greetings: 'Hello, there!' },
+     contexts: [],
+     metadata:
+      { intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
+        webhookUsed: 'false',
+        webhookForSlotFillingUsed: 'false',
+        intentName: 'greet_user' },
+     fulfillment: { speech: 'Hello!', messages: [Object] },
+     score: 1 },
+  status: { code: 200, errorType: 'success' },
+   sessionId: '1450043748391296' }
 
-  source: 'agent',
-  resolvedQuery: 'Hi there!',
-  action: '',
-  actionIncomplete: false,
-  
-  parameters: { greetings: 'Hello, there!' },
-  contexts: [],
-
-  metadata: { 
-    intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
-    webhookUsed: 'false',
-    webhookForSlotFillingUsed: 'false',
-    intentName: 'greet' },
-    
-  fulfillment: { 
-      speech: 'Aloha! How\'s your day going!?', 
-      messages: [Object] 
-    },
-  score: 1 
-},
-      status: { code: 200, errorType: 'success' },
-      sessionId: '1450043748391296' 
-}
 
 
   */
 reqs.on('response', function(response) {
 
-
-console.log(response);
-
-// var mediaObj = response.result.fulfillment.message.
-// console.log(mediaObj);
+var mediaObj = response.result.fulfillment.messages[0];
+console.log(stringify(mediaObj));
 
 var textObj = response.result.fulfillment.speech; 
 console.log(textObj);
