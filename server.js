@@ -348,7 +348,7 @@ var textObj = response.result.fulfillment.speech;
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-sendMediaMessage(senderID, mediaObj.payload.facebook);
+sendMediaMessage(senderID, mediaObj.payload.facebook);  // API.AI orginating media message (from user)
 
 
 });
@@ -373,7 +373,7 @@ reqs.end();
  
 });
 
-  } else if (messageAttachments) {
+  } else if (messageAttachments) { // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
   } 
