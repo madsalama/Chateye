@@ -320,7 +320,7 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[0];
-console.log(stringify(mediaObj));
+console.log(JSON.stringify(mediaObj));
 
 var textObj = response.result.fulfillment.speech; 
 console.log(textObj);
