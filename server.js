@@ -314,8 +314,11 @@ result: {
     intentName: 'greet' },
     
   fulfillment: { 
-      speech: 'Aloha! How\'s your day going!?', messages: [Object] },
-      score: 1 },
+      speech: 'Aloha! How\'s your day going!?', 
+      messages: [Object] 
+    },
+  score: 1 
+},
       status: { code: 200, errorType: 'success' },
       sessionId: '1450043748391296' 
 }
