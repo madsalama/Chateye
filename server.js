@@ -327,6 +327,8 @@ result: {
   */
 reqs.on('response', function(response) {
 
+console.log(obj);
+
 var obj = response.result.fulfillment.speech; 
 
 console.log(obj);
