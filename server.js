@@ -348,7 +348,7 @@ var textObj = response.result.fulfillment.speech;
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-mediaObj.payload.facebook? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  // API.AI orginating media message (from user)
+mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  // API.AI orginating media message (from user)
 
 
 });
