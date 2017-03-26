@@ -309,7 +309,15 @@ function receivedMessage(event) {
         webhookUsed: 'false',
         webhookForSlotFillingUsed: 'false',
         intentName: 'greet_user' },
-     fulfillment: { speech: 'Hello!', messages: [Object] },
+     fulfillment: { 
+        speech: 'Hello!', 
+        messages: {
+          "title":"Chatzer!",
+          "subtitle":"",
+          "imageUrl":"https://fb-s-d-a.akamaihd.net/h-ak-xfp1/v/t1.0-9/17191310_1886318901589735_6240676010806644895_n.png?oh=a43f0c821833b413be3589ae32f4cb17&oe=59698AD9&__gda__=1499001758_2de2bfd6b78c206cdc14e4b233094bef",
+          "buttons":[],"type":1} 
+    },
+     
      score: 1 },
   status: { code: 200, errorType: 'success' },
    sessionId: '1450043748391296' }
@@ -319,14 +327,14 @@ function receivedMessage(event) {
   */
 reqs.on('response', function(response) {
 
-var mediaObj = response.result.fulfillment.messages;
+var mediaObj = response.result.fulfillment.messages[1];
 console.log(JSON.stringify(mediaObj));
 
 var textObj = response.result.fulfillment.speech; 
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-// sendMediaMessage(senderID,mediaObj)
+sendMediaMessage(senderID,mediaObj);
 
 
 });
