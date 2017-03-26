@@ -327,13 +327,18 @@ result: {
   */
 reqs.on('response', function(response) {
 
-console.log(obj);
 
-var obj = response.result.fulfillment.speech; 
+console.log(response);
 
-console.log(obj);
+// var mediaObj = response.result.fulfillment.message.
+// console.log(mediaObj);
 
-sendTextMessage(senderID, obj);
+var textObj = response.result.fulfillment.speech; 
+console.log(textObj);
+
+sendTextMessage(senderID, textObj);
+// sendMediaMessage(senderID,mediaObj)
+
 
 });
  
