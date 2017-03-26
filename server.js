@@ -328,7 +328,7 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[1];
-// console.log(JSON.stringify(mediaObj.payload.facebook));
+var attachmentflag = mediaObj.payload.facebook == value? console.log(JSON.stringify(mediaObj.payload.facebook)):console.log("no attachments");
 
 /**
  * 
@@ -348,7 +348,7 @@ var textObj = response.result.fulfillment.speech;
 console.log(textObj);
 
 sendTextMessage(senderID, textObj);
-sendMediaMessage(senderID, mediaObj.payload.facebook);  // API.AI orginating media message (from user)
+attachmentflag? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("");  // API.AI orginating media message (from user)
 
 
 });
