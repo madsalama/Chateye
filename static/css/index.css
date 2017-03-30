@@ -37,7 +37,7 @@
 }
 
 #second-ring {
-    position: absolute;
+    position: relative;
     border: 10px solid yellow;
     border-top-color: #191919;
     border-bottom-color: #191919;
@@ -47,13 +47,10 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-animation: turn_counter_clockwise 8s infinite;
-    -moz-animation: turn_counter_clockwise 8s infinite;
-    animation: turn_counter_clockwise 8s infinite;  
 }
 
 #third-ring {
-    position: absolute;
+    position: relative;
     border: 2px solid cyan;
     border-bottom-color: #191919;
     margin: 5px;
@@ -62,9 +59,6 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-animation: turn_clockwise 10s infinite;
-    -moz-animation: turn_clockwise 10s infinite;
-    animation: turn_clockwise 10s infinite;
 }       
 
 
