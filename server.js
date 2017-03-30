@@ -328,22 +328,6 @@ function receivedMessage(event) {
 reqs.on('response', function(response) {
 
 var mediaObj = response.result.fulfillment.messages[1];
-// var attachmentflag = mediaObj.payload.facebook? console.log(JSON.stringify(mediaObj.payload.facebook)):console.log("no attachments");
-
-/**
- * 
- * 
- *  {
- * "attachments":{
- * "type":"image",
- * "payload":{
- * "url":"https://fb-s-d-a.akamaihd.net/h-ak-xfp1/v/t1.0-9/17191310_1886318901589735_6240676010806644895_n.png?oh=a43f0c821833b413be3589ae32f4cb17&oe=59698AD9&__gda__=1499001758_2de2bfd6b78c206cdc14e4b233094bef"
- * }
- * }
- * }
-
- */
-
 var textObj = response.result.fulfillment.speech; 
 console.log(textObj);
 
