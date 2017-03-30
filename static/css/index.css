@@ -31,9 +31,9 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-animation: turn_clockwise 10s infinite;
-    -moz-animation: turn_clockwise 10s infinite;
-    animation: turn_clockwise 10s infinite;   
+    -webkit-animation: turn_clockwise 1s infinite;
+    -moz-animation: turn_clockwise 1s infinite;
+    animation: turn_clockwise 1s infinite;   
 }
 
 #second-ring {
