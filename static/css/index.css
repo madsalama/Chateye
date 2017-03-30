@@ -1,11 +1,14 @@
-#outPopUp {
-  position: absolute;
-  width: 300px;
-  height: 200px;
-  z-index: 15;
 
-  margin: -100px 0 0 -150px;
-  background: red;
+#label1{
+    font-family: 'Roboto Slab', serif;
+    color: #4c4c4c; 
+    font-size: 40px
+}
+
+#label2{
+    font-family: 'Roboto Slab', serif;
+    color: orangered; 
+    font-size: 15px
 }
 
 #rings {
