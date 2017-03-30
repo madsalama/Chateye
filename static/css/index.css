@@ -1,0 +1,8 @@
+.circle-border1 {
+    border: 3px solid orange;
+    height:50px;
+    width:50px;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+    border-radius: 75px
+}

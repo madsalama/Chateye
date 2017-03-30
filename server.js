@@ -1,5 +1,6 @@
 #!/bin/env node
 
+require('newrelic');
 var express = require('express');
 var compression = require('compression');
 var fs      = require('fs');
