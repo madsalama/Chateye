@@ -327,6 +327,7 @@ if (messageText){
 
     console.log("Score = " + score + " | Magnitude = " + magnitude);
 
+
 });
 
 }
