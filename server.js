@@ -341,8 +341,9 @@ if (messageAttachments.type="audio")
 {
 
 //  console.log(JSON.stringify(messageAttachments[0].payload.url)); 
-
-  speechClient.recognize(JSON.stringify(messageAttachments[0].payload.url), {
+  
+  var audio = messageAttachments[0].payload.url; 
+  speechClient.recognize(''+audio, {
   encoding: 'LINEAR16',
   sampleRate: 16000
 
