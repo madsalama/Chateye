@@ -318,9 +318,6 @@ function receivedMessage(event) {
 
 
     var document; 
-    
-    if (messageText)
-    {
     languageClient.document(messageText);
     document.detectSentiment(function(err, sentiment) { 
   
@@ -332,7 +329,7 @@ function receivedMessage(event) {
 });
 
 
-    }
+  
 
 
 // This is a huge project to be handled by one person 
