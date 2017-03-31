@@ -328,9 +328,15 @@ function receivedMessage(event) {
   */
 reqs.on('response', function(response) {
 
+
 var mediaObj = response.result.fulfillment.messages[1];
 var textObj = response.result.fulfillment.speech; 
+
+console.log("=======");
+console.log(response); 
 console.log(textObj);
+console.log(mediaObj);
+console.log("=======");
 
 sendTextMessage(senderID, textObj);
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  // API.AI orginating media message (from user)
