@@ -277,7 +277,15 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 
+    var document = languageClient.document(messageText);
+    document.detectSentiment(function(err, sentiment) { 
+  
+    var score = JSON.stringify(sentiment.score);          
+    var magnitude = JSON.stringify(sentiment.magnitude);  
 
+    console.log("Score = " + score + " | Magnitude = " + magnitude);
+
+});
 
 
   if (messageText) {
@@ -350,17 +358,7 @@ reqs.end();
 
     }
 
-    var document = languageClient.document(messageText);
-    document.detectSentiment(function(err, sentiment) { 
-  
-    var score = JSON.stringify(sentiment.score);          
-    var magnitude = JSON.stringify(sentiment.magnitude);  
 
-    console.log("Score = " + score + " | Magnitude = " + magnitude);
-
-    // sendTextMessage(senderID, "Score = " + score + " | Magnitude = " + magnitude);
- 
-});
 
   } else if (messageAttachments) { // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
