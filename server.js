@@ -341,7 +341,7 @@ if (messageAttachments.type="audio")
 {
 
 
-  console.log(messageAttachments.payload); 
+  console.log(messageAttachments[0].payload.url); 
 
   /**
    * speechClient.recognize(JSON.stringify(messageAttachments.payload.url), {
