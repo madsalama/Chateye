@@ -224,16 +224,7 @@ function sendMediaMessage(recipientId, message) {
     }
   };
 
-if (messageAttachments.type="audio")
-{
-speechClient.recognize(JSON.stringify(messageAttachments.payload.url), {
-  encoding: 'LINEAR16',
-  sampleRate: 16000
-}, function(err, transcript) {
-  console.log(transcript);
-});
 
-}
 
 
 
@@ -342,6 +333,21 @@ function receivedMessage(event) {
 
   var messageText = message.text;
   var messageAttachments = message.attachments;
+
+
+
+
+if (messageAttachments.type="audio")
+{
+speechClient.recognize(JSON.stringify(messageAttachments.payload.url), {
+  encoding: 'LINEAR16',
+  sampleRate: 16000
+}, function(err, transcript) {
+  console.log(transcript);
+});
+
+}
+
 
 
 if (messageText){
