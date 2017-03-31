@@ -14,6 +14,13 @@
   // Chatzer offers a personalized experience for each user... 
     // as it detects "mood patterns"" and saves your 'personality type' and 'preferences'.
 
+    // Chatzer uses google Speech API/translateAPI 
+    // to listen to audio/texts in other languages other than english
+    // English/Arabic/Japanese
+
+// BONUS: Chatzer can detect your mood based on a selfie feature 
+// + textual/audio sentiment analysis using KAIROS API 
+
 // ==========================
 //     Integration list 
 // ==========================
@@ -38,14 +45,20 @@
   // 7- GIPHY             = 
   // 8- MusicXmatch       = 
 
+  // Speech API/translateAPI = 
+
+  // Translate ANY language (text/audio) to English to process it in API.AI
+  // If input is in certain language/output should be in the same language. (BIDIRECTIONAL)
+
 // ==================
 //    NOTE TO SELF 
 // ==================
-// This is a huge project to be handled by one person 
+// This is a huge project to be handled by one person... 
 // who's also doing a full time job and has limited time and energy 
-// in less than freaking 30 days ONLY! 
-// but I am doing it anyway! It's a light hack though! ;) 
+// in less than freaking 30 days ONLY! - I am doing it anyway! It's a light hack though! ;) 
 
+// NodeJS is perfect because it's only a JSON API Server 
+// that does not do any processing/io - which is awesome, super fast and efficient!
 
 require('newrelic');
 var express = require('express');
@@ -55,6 +68,7 @@ var cors = require('cors');
 var Twitter = require('twitter');
 var request = require('request');
 var language = require('@google-cloud/language');
+var speech = require('@google-cloud/speech');
 var bodyParser = require("body-parser");
 
 var apiai = require('apiai');
@@ -78,13 +92,18 @@ var languageClient = language({
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
+var speechClient = speech({
+  projectId: 'nlpi-162211',
+  keyFilename: './NLPI-c6ba16b1d273.json'
+});
+
 // var params = {screen_name: '_zalterego'};
 
 /**
  * 
  * client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
-    // Get the most popular tweet (with most favorited/retweets) | not neccassarily latest 
+    // Get the most popular tweet (with most favorited/retweets) | not neccassarily latest ! 
 
     // var text = tweets[1].text;
 
@@ -152,14 +171,6 @@ result: {
 
 
 
-
-// ============= CHATZER! - CHATBOT for FB Messenger Challenge! ==============
-// Chatzer! The anti-boredom chatbot!
-    // -A- Connects to Instagram/Twitter/Youtube for entertainment suggestions! (~heavy usage of messengerAPI here~)
-    // -B- Talkative Personality !
-        // GoogleNLP - define sentiment of messages
-        // Route to Multiple intents (Trainable AI using recast.ai / api.ai)
-
 function callSendAPI(messageData) {
 
 // Set the headers
@@ -212,6 +223,20 @@ function sendMediaMessage(recipientId, message) {
       attachment: JSON.stringify(messageAttachments) 
     }
   };
+
+if (messageAttachments.type="audio")
+{
+speechClient.recognize(JSON.stringify(messageAttachments.payload.url), {
+  encoding: 'LINEAR16',
+  sampleRate: 16000
+}, function(err, transcript) {
+  console.log(transcript);
+});
+
+}
+
+
+
 
 
 /* EXPECTED FORMAT */
