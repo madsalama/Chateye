@@ -85,6 +85,8 @@ client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
     console.log("======== TWEETS SIZE ======");
     console.log(JSON.stringify(Object.keys(tweets).length)); 
+    
+    console.log(tweets); 
 
     // console.log("======= FIRST TWEET IN OBJECT ========");
     // console.log(JSON.stringify(text));
