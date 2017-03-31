@@ -340,15 +340,14 @@ function receivedMessage(event) {
 if (messageAttachments.type="audio")
 {
 
-  console.log(messageAttachments[0].payload.url); 
-  console.log(JSON.stringify(messageAttachments[0].payload.url)); 
+//  console.log(JSON.stringify(messageAttachments[0].payload.url)); 
 
-  speechClient.recognize(messageAttachments[0].payload.url, {
+  speechClient.recognize(JSON.stringify(messageAttachments[0].payload.url), {
   encoding: 'LINEAR16',
   sampleRate: 16000
 
 }, function(err, transcript) {
-  console.log(JSON.stringify(transcript));
+  console.log(transcript);
   console.log(err);
 
 });
