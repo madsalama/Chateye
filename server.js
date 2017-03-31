@@ -317,8 +317,9 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 
-    var document; 
-    languageClient.document(messageText);
+if (messageText){
+
+    var document = languageClient.document(messageText);
     document.detectSentiment(function(err, sentiment) { 
   
     var score = JSON.stringify(sentiment.score);          
@@ -327,6 +328,9 @@ function receivedMessage(event) {
     console.log("Score = " + score + " | Magnitude = " + magnitude);
 
 });
+
+}
+
 
 
   
