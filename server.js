@@ -8,11 +8,11 @@
     // it will sympathize and listen then try to make you feel better or celebrate with you!
 
     // Contexts | what it does // 
-        // mutually_identify/greet/small_talk/listen/sympathize/entertain/handle_repetition/bye_bye
-        // remember user's emotional_state | confirms it via +ve/-ve feedback from the user.
+        // "mutually_identify"/greet/small_talk/"listen"/sympathize/entertain/handle_repetition/bye_bye
+        // remember user's "emotional_state"" | confirms it via +ve/-ve feedback from the user.
 
   // Chatzer offers a personalized experience for each user... 
-    // as it detects mood patterns and saves your 'personality type' and 'preferences'.
+    // as it detects "mood patterns"" and saves your 'personality type' and 'preferences'.
 
 // ==========================
 //     Integration list 
@@ -22,7 +22,7 @@
   // 2- Google NLP        = DONE  
 
     // get overall sentiment of a message if AI context is 'sentiment-required' 
-    // get parts of speech to detect whether user is talking about themselves or about chatzer (You are awesome or I am bored)
+    // get parts of speech to detect whether user is talking about themselves or about chatzer (You are awesome | I am bored)
     // get adjectives to be able to only send the adjective to detect whether it's positive or negative. (you are awesome vs you are terrible)
     // a list of 100 most common pos/neg adjectives is going to be used in API.AI 
     // emotional response can be a custom chatzer gif with a moving eye and a smile/frown/etc 
@@ -59,9 +59,7 @@ var bodyParser = require("body-parser");
 
 var apiai = require('apiai');
 var app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
-
 var client  = new Twitter({
-	
 		access_token_key:
 			'119710335-AKBgvx71f8jmhpuJ0q8Fsh6yOYjSrq0YrZ8hHgnd',
 		
@@ -75,9 +73,16 @@ var client  = new Twitter({
 			'w9zNUnEciOb5nHEtpMyB1m4I1weiIDU5SDkBQuUIoM4rlYqrNt'
 }); 	
 
-var params = {screen_name: '_zalterego'};
+var languageClient = language({
+  projectId: 'nlpi-162211',
+  keyFilename:'./NLPI-c6ba16b1d273.json'
+});
 
-client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
+// var params = {screen_name: '_zalterego'};
+
+/**
+ * 
+ * client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
     // Get the most popular tweet (with most favorited/retweets) | not neccassarily latest 
 
@@ -94,8 +99,8 @@ client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
 });
 
-
-
+ * 
+ */
 
 var App = function() {
 
@@ -113,18 +118,8 @@ var App = function() {
      
 
         self.app.use(bodyParser.urlencoded({ extended: false }));
-		self.app.use(bodyParser.json());
+		    self.app.use(bodyParser.json());
 
-
-var languageClient = language({
-  projectId: 'nlpi-162211',
-  keyFilename:'./NLPI-c6ba16b1d273.json'
-});
-
-
-
-
- 
 
  /**
   * 
