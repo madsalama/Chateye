@@ -346,10 +346,10 @@ if (messageAttachments.type="audio")
   speechClient.recognize(messageAttachments[0].payload.url, {
   encoding: 'LINEAR16',
   sampleRate: 16000
-  
+
 }, function(err, transcript) {
   console.log(JSON.stringify(transcript));
-  consolge.log(err);
+  console.log(err);
 
 });
 
