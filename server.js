@@ -77,17 +77,17 @@ var client  = new Twitter({
 
 var params = {screen_name: '_zalterego'};
 
-client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
     // Get the most popular tweet (with most favorited/retweets) | not neccassarily latest 
 
-    var text = tweets[0].text;
+    // var text = tweets[1].text;
 
     console.log("======== TWEETS SIZE ======");
     console.log(JSON.stringify(Object.keys(tweets).length)); 
 
-    console.log("======= FIRST TWEET IN OBJECT ========");
-    console.log(JSON.stringify(text));
+    // console.log("======= FIRST TWEET IN OBJECT ========");
+    // console.log(JSON.stringify(text));
 
 
 });
