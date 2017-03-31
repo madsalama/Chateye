@@ -317,7 +317,11 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 
-    var document = languageClient.document(messageText);
+    var document; 
+    
+    if (messageText)
+    {
+    languageClient.document(messageText);
     document.detectSentiment(function(err, sentiment) { 
   
     var score = JSON.stringify(sentiment.score);          
@@ -326,6 +330,10 @@ function receivedMessage(event) {
     console.log("Score = " + score + " | Magnitude = " + magnitude);
 
 });
+
+
+    }
+
 
 // This is a huge project to be handled by one person 
 // who's also doing a full time job and has limited time and energy 
