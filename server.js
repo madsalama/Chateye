@@ -1,8 +1,8 @@
 #!/bin/env node
 
-// ================================================================================================================================================
+// ========================================
 //       Chatzer - A friendly AI
-// ================================================================================================================================================
+// ========================================
     
     // Chatzer learns to be your bestfriend, who you would talk to when you're bored/not feeling well/in a good sharing mood
     // it will sympathize and listen then try to make you feel better or celebrate with you!
@@ -38,7 +38,14 @@
   // 7- GIPHY             = 
   // 8- MusicXmatch       = 
 
-// =========================================================================================================================================
+// ==================
+//    NOTE TO SELF 
+// ==================
+// This is a huge project to be handled by one person 
+// who's also doing a full time job and has limited time and energy 
+// in less than freaking 30 days ONLY! 
+// but I am doing it anyway! It's a light hack though! ;) 
+
 
 require('newrelic');
 var express = require('express');
@@ -70,23 +77,10 @@ var client  = new Twitter({
 
 var params = {screen_name: '_zalterego'};
 
-client.get('followers/list', params, function(error, followers, response){
-  if (!error) {
-
-  // https://api.twitter.com/1.1/search/tweets.json
-  // ?q=from%3ACmdr_Hadfield%20%23nasa&result_type=popular
-
-// Following 
-
-//Object.keys(followers).forEach(function (key) {
-//  var val = followers[key];
-//  console.log(val[0]);
-  // console.log(key);
-   // do something with key or value
-// });
-
-  }
+client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+   console.log(tweets);
 });
+
 
 
 
@@ -337,11 +331,7 @@ if (messageText){
   
 
 
-// This is a huge project to be handled by one person 
-// who's also doing a full time job and has limited time and energy 
-// in less than freaking 30 days ONLY! 
 
-// but I am doing it anyway! :) 
 
   if (messageText) {
 
