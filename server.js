@@ -1,5 +1,45 @@
 #!/bin/env node
 
+// ================================================================================================================================================
+//       Chatzer - A friendly AI
+// ================================================================================================================================================
+    
+    // Chatzer learns to be your bestfriend, who you would talk to when you're bored/not feeling well/in a good sharing mood
+    // it will sympathize and listen then try to make you feel better or celebrate with you!
+
+    // Contexts | what it does // 
+        // mutually_identify/greet/small_talk/listen/sympathize/entertain/handle_repetition/bye_bye
+        // remember user's emotional_state | confirms it via +ve/-ve feedback from the user.
+
+  // Chatzer offers a personalized experience for each user... 
+    // as it detects mood patterns and saves your 'personality type' and 'preferences'.
+
+// ==========================
+//     Integration list 
+// ==========================
+
+  // 1- API.AI            = DONE 
+  // 2- Google NLP        = DONE  
+
+    // get overall sentiment of a message if AI context is 'sentiment-required' 
+    // get parts of speech to detect whether user is talking about themselves or about chatzer (You are awesome or I am bored)
+    // get adjectives to be able to only send the adjective to detect whether it's positive or negative. (you are awesome vs you are terrible)
+    // a list of 100 most common pos/neg adjectives is going to be used in API.AI 
+    // emotional response can be a custom chatzer gif with a moving eye and a smile/frown/etc 
+
+  // 3- MessengerAPI      = DONE 
+
+// User is asked about his prferences/hobbies and will be suggested media from these platforms 
+// media types are: tweet - instagram pic - giphy gif - youtube video (music/etc) - music+lyrics (sing-a-long)
+
+  // 4- Youtube           = 
+  // 5- Instagram         = 
+  // 6- Twitter           = DONE 
+  // 7- GIPHY             = 
+  // 8- MusicXmatch       = 
+
+// =========================================================================================================================================
+
 require('newrelic');
 var express = require('express');
 var compression = require('compression');
@@ -287,6 +327,11 @@ function receivedMessage(event) {
 
 });
 
+// This is a huge project to be handled by one person 
+// who's also doing a full time job and has limited time and energy 
+// in less than freaking 30 days ONLY! 
+
+// but I am doing it anyway! :) 
 
   if (messageText) {
 
