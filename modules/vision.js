@@ -154,12 +154,12 @@ module.exports = {
                 });
 
                  
-                // callback(module.exports.returnData(res));
+                callback(module.exports.returnData(res));
 
 
   });
 
-                 callback(module.exports.returnData(res));
+                 // callback(module.exports.returnData(res));
 
         });
 
