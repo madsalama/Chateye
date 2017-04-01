@@ -13,6 +13,15 @@
   //   }
   // ]
 
+// facial hair?
+// dominant colors? 
+// logos?
+// celebrities?
+// animals? other entities?
+// landmarks?
+// detect TEXT. 
+
+
 module.exports = {
 
     returnData:function(data){
@@ -39,20 +48,15 @@ module.exports = {
             request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);});
             };
 
-            download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
-
-                console.log('image downloaded!');
-
+            download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
                 var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
-
                 visionClient.detectFaces(image_path).then((results) => {
 
                     const faces = results[0];
-
                     console.log('Faces:');
                     faces.forEach((face, i) => {
 
-                    values = 
+                    values[i] =
                     {
                     "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -77,11 +81,6 @@ module.exports = {
                     "headwear":JSON.stringify(faces[i].headwear),
                     "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
-
-                // console.log("EACH LOOP");
-                // console.log(values);                                                     
-                // callback(module.exports.returnData(values));
-
                 });
 
                  callback(module.exports.returnData(values));
