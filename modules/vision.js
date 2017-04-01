@@ -131,11 +131,14 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
     };
 
-        // console.log(results); 
+        console.log(module.exports.results); 
 
             // :TODO: delete the image...
 
         }); 
+
+        console.log(module.exports.results); 
+        
         });
     }
 
