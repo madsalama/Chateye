@@ -99,10 +99,6 @@ var speechClient = speech({
   keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
-var Kairos = require('kairos-api');
-var kairos_client = new Kairos('b1592ea1', 'ddfb3317a291a021d1ee240b54f517cf');
-
-
 var mkairos = require('./kairos');
 
 
@@ -504,38 +500,6 @@ var params = {
     
 
 mkairos.enroll(params);
-
-
-/**
- * 
- * kairos_client.enroll(params).then(function(result) {
-
-  res = JSON.stringify(result);
-  console.log(res);
-
-   })
-  // err -> array: jsonschema validate errors 
-  //        or throw Error 
-  .catch(function(err) {
-
-  });
-
-  kairos_client.detect(params).then(function(result) {
-
-    res = JSON.stringify(result);
-    console.log(res);
-  
-   })
-  // err -> array: jsonschema validate errors 
-  //        or throw Error 
-  .catch(function(err) {
-
-  });
- * 
- */
-
-
-
 
 }
 
