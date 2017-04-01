@@ -95,6 +95,8 @@ module.exports = {
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){    
 
+            var values; 
+
             // download the image & access it!
             var download = function(uri, filename, callback){
             request.head(uri, function(err, res, body){
@@ -118,7 +120,7 @@ module.exports = {
                     console.log('Faces:');
                     faces.forEach((face, i) => {
 
-                    var values = 
+                    values = 
                     {
                     "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -146,11 +148,12 @@ module.exports = {
 
                 console.log("EACH LOOP");
                 console.log(values);                                                     
+                // callback(module.exports.returnData(values));
 
                 });
                 
                  console.log("AFTER LOOP");
-                 console.log(values);
+                 console.log(values);                
                  callback(module.exports.returnData(values));
 
 
