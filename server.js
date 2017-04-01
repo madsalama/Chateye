@@ -467,7 +467,6 @@ reqs.end();
   {
     mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
     console.log("IN SERVER.JS"+JSON.stringify(mvision.results));
-
   }
 
     // messenger orginating media message (from user)
