@@ -472,6 +472,7 @@ reqs.end();
           output=results;
       });
      
+       console.log("=== SERVER JS ===");
       console.log(output);
   }
 
