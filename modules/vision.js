@@ -82,7 +82,6 @@
   //   }
   // ]
 
-
 module.exports = {
     results:{},
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
@@ -106,7 +105,7 @@ module.exports = {
                 // lots faces? you guys look amazing! 
                 // one face? focus on features. 
 
-            results = {
+            module.exports.results = {
 
                 "confidence":JSON.stringify(faces[0].confidence),   
 
