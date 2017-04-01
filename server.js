@@ -460,7 +460,7 @@ reqs.on('response', function(response) {
 
 var mediaObj; 
 
-if (messages){
+if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
 }
 
