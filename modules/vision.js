@@ -103,30 +103,33 @@ module.exports = {
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
             visionClient.detectFaces(image_path, function(err, faces) {
 
-                console.log(JSON.stringify(faces[0].confidence));
+                console.log("confidence="+JSON.stringify(faces[0].confidence));
 
-                console.log(JSON.stringify(faces[0].joy));
-                console.log(JSON.stringify(faces[0].joyLikelihood));
+                console.log("joy="+JSON.stringify(faces[0].joy));
+                console.log("joyLikelihood="+JSON.stringify(faces[0].joyLikelihood));
 
-                console.log(JSON.stringify(faces[0].sorrow));
-                console.log(JSON.stringify(faces[0].sorrowLikelihood));
+                console.log("sorrow="+JSON.stringify(faces[0].sorrow));
+                console.log("sorrowLikelihood"+JSON.stringify(faces[0].sorrowLikelihood));
 
-                console.log(JSON.stringify(faces[0].anger));
-                console.log(JSON.stringify(faces[0].angerLikelihood));
+                console.log("anger="+JSON.stringify(faces[0].anger));
+                console.log("angerLikelihood="+JSON.stringify(faces[0].angerLikelihood));
 
-                console.log(JSON.stringify(faces[0].surprise));
-                console.log(JSON.stringify(faces[0].surpriseLikelihood));
+                console.log("surprise="+JSON.stringify(faces[0].surprise));
+                console.log("surpriseLikelihood="+JSON.stringify(faces[0].surpriseLikelihood));
 
-                console.log(JSON.stringify(faces[0].underExposed));
-                console.log(JSON.stringify(faces[0].underExposedLikelihood));
+                console.log("underExposed="+JSON.stringify(faces[0].underExposed));
+                console.log("underExposedLikelihood="+JSON.stringify(faces[0].underExposedLikelihood));
 
-                console.log(JSON.stringify(faces[0].blurred));
-                console.log(JSON.stringify(faces[0].blurredLikelihood));
+                console.log("blurred="+JSON.stringify(faces[0].blurred));
+                console.log("blurredLikelihood="+JSON.stringify(faces[0].blurredLikelihood));
 
-                console.log(JSON.stringify(faces[0].headwear));
-                console.log(JSON.stringify(faces[0].headwearLikelihood));
+                console.log("headwear="+JSON.stringify(faces[0].headwear));
+                console.log("headwearLikelihood="+JSON.stringify(faces[0].headwearLikelihood));
 
-
+                // Use above features to invoke an intent to describe the image! 
+                // lots faces? you guys look amazing! 
+                // one face? focus on features. 
+                
             // :TODO: delete the image...
 
         }); 
