@@ -45,10 +45,12 @@
   // 7- GIPHY             = 
   // 8- MusicXmatch       = 
 
-  // Speech API/translateAPI = 
+  // 9- Speech API/translateAPI = 
 
   // Translate ANY language (text/audio) to English to process it in API.AI
   // If input is in certain language/output should be in the same language. (BIDIRECTIONAL)
+
+  // 10-KAIROS.API 
 
 // ==================
 //    NOTE TO SELF 
@@ -96,6 +98,25 @@ var speechClient = speech({
   projectId: 'nlpi-162211',
   keyFilename: './NLPI-c6ba16b1d273.json'
 });
+
+var Kairos = require('kairos-api');
+var kairos_client = new Kairos('b1592ea1', 'ddfb3317a291a021d1ee240b54f517cf');
+
+/***
+ *  var audio = './audio.raw'  ; 
+  speechClient.recognize(audio, {
+  encoding: 'LINEAR16',
+  sampleRate: 16000
+
+}, function(err, transcript) {
+  console.log(transcript);
+  console.log(err);
+
+});
+
+ */
+
+
 
 // var params = {screen_name: '_zalterego'};
 
@@ -335,7 +356,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 
-
+/*
 
 if (messageAttachments.type="audio")
 {
@@ -355,6 +376,48 @@ if (messageAttachments.type="audio")
 
 
 }
+
+**/
+
+if (messageAttachments.type="image")
+{
+var params = {
+  image: ''+messageAttachments[0].payload.url,
+  subject_id: senderID,
+  gallery_name: senderID
+};
+    
+  // return Promise 
+  //  result: { 
+  //    status: <http status code>, 
+  //    body: <data> 
+  //  } 
+
+kairos_client.enroll(params).then(function(result) {
+
+  console.log(result);
+
+   })
+  // err -> array: jsonschema validate errors 
+  //        or throw Error 
+  .catch(function(err) {
+
+  });
+
+  kairos_client.detect(params).then(function(result) {
+
+  console.log(result);
+  
+   })
+  // err -> array: jsonschema validate errors 
+  //        or throw Error 
+  .catch(function(err) {
+
+  });
+
+
+}
+
 
 
 
