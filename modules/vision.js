@@ -6,18 +6,23 @@ module.exports = {
             // download the image & access it!
             var download = function(uri, filename, callback){
             request.head(uri, function(err, res, body){
+
             console.log('content-type:', res.headers['content-type']);
             console.log('content-length:', res.headers['content-length']);
 
-            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);});
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+                
+                console.log(JSON.stringify(err));
+
+            });
             };
 
-            download(image, './faces/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
+            download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
             console.log('image downloaded!');
         });
         
 
-        var image_path = './faces/'+''+senderID+'_'+timeOfMessage+'.jpg'
+        var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'
 
         visionClient.detectFaces(image_path, function(err, faces) {
 
