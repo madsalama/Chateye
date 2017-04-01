@@ -3,19 +3,12 @@ module.exports = {
 
     detect:function(visionClient, image){    
 
-   visionClient.detectFaces(image)
-  .then((results) => {
-    const faces = results[0];
+   visionClient.detectFaces(image, function(err, faces) {
+    
+        var faces = JSON.stringify(faces);
+        console.log(faces);
 
-    console.log('Faces:');
-    faces.forEach((face, i) => {
-      console.log(`  Face #${i + 1}:`);
-      console.log(`    Joy: ${face.joy}`);
-      console.log(`    Anger: ${face.anger}`);
-      console.log(`    Sorrow: ${face.sorrow}`);
-      console.log(`    Surprise: ${face.surprise}`);
-    });
-  });
+});
   
     }
 
