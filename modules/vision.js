@@ -83,7 +83,10 @@
   // ]
 
 module.exports = {
-    results:{},
+    displayResults:function (results){
+        return results; 
+    },
+
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
 
             // download the image & access it!
@@ -105,7 +108,7 @@ module.exports = {
                 // lots faces? you guys look amazing! 
                 // one face? focus on features. 
 
-            module.exports.results = {
+            results = {
 
                 "confidence":JSON.stringify(faces[0].confidence),   
 
@@ -129,15 +132,15 @@ module.exports = {
 
                 "headwear":JSON.stringify(faces[0].headwear),
                 "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
-    };
+            };
 
-        console.log("INSIDE CALLBACK"+JSON.stringify(module.exports.results)); 
-
+            module.exports.displayResults(results); 
+        
             // :TODO: delete the image...
 
         }); 
 
-        console.log("OUTSIDE CALLBACK"+JSON.stringify(module.exports.results)); 
+        
 
 
         });

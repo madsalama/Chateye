@@ -465,8 +465,8 @@ reqs.end();
   else if (messageAttachments) { 
     if (messageAttachments.type="image")
   {
-    mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
-    console.log("IN SERVER.JS"+JSON.stringify(mvision.results));
+    var results = mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
+    console.log(JSON.stringify(results));
   }
 
     // messenger orginating media message (from user)
