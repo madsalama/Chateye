@@ -21,6 +21,11 @@
 // BONUS: Chatzer can detect your mood based on a selfie feature 
 // + textual/audio sentiment analysis using KAIROS API 
 
+// GAME VISUAL RESPONSE: It can response by a chatzer GIF as it detects your emotions 
+     // confused (dont know - not sure)
+    // sad - surprise - angry 
+
+
 // ==========================
 //     Integration list 
 // ==========================
@@ -45,12 +50,12 @@
   // 7- GIPHY             = 
   // 8- MusicXmatch       = 
 
-  // 9- Speech API/translateAPI = 
+  // 9- Speech API/translateAPI = a SLOW WIP (Speech is in BETA on only works with .raw audio files - messenger works with MP4 audio)
 
   // Translate ANY language (text/audio) to English to process it in API.AI
   // If input is in certain language/output should be in the same language. (BIDIRECTIONAL)
 
-  // 10-KAIROS.API 
+  // 10-KAIROS.API       = DONE 
 
 // ==================
 //    NOTE TO SELF 
@@ -59,35 +64,25 @@
 // who's also doing a full time job and has limited time and energy 
 // in less than freaking 30 days ONLY! - I am doing it anyway! It's a light hack though! ;) 
 
-// NodeJS is perfect because it's only a JSON API Server 
-// that does not do any processing/io - which is awesome, super fast and efficient!
+// NodeJS is perfect because it's only a JSON API Server that does not do any heavy processing/io 
+// - which is awesome, super fast and efficient! - also I only know JS pretty well enough! <3 
 
 require('newrelic');
 var express = require('express');
 var compression = require('compression');
 var fs      = require('fs');
 var cors = require('cors');
-var Twitter = require('twitter');
 var request = require('request');
+
 var language = require('@google-cloud/language');
 var speech = require('@google-cloud/speech');
+
+var vision = require('./modules/vision');
+
 var bodyParser = require("body-parser");
 
 var apiai = require('apiai');
 var app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
-var client  = new Twitter({
-		access_token_key:
-			'119710335-AKBgvx71f8jmhpuJ0q8Fsh6yOYjSrq0YrZ8hHgnd',
-		
-		access_token_secret:
-			'r96eL48Qd2yEx9C0UJlvd8gwYdHgwlg06UHZQUhH7Lvfp',
-		
-		consumer_key:
-			'wOI0K9TtPnmDRMcaJUM9MW6hL',
-		
-		consumer_secret:
-			'w9zNUnEciOb5nHEtpMyB1m4I1weiIDU5SDkBQuUIoM4rlYqrNt'
-}); 	
 
 var languageClient = language({
   projectId: 'nlpi-162211',
@@ -99,7 +94,7 @@ var speechClient = speech({
   keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
-var mkairos = require('./modules/kairos');
+
 
 /***
  *  var audio = './audio.raw'  ; 
@@ -115,31 +110,6 @@ var mkairos = require('./modules/kairos');
 
  */
 
-
-
-// var params = {screen_name: '_zalterego'};
-
-/**
- * 
- * client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
-
-    // Get the most popular tweet (with most favorited/retweets) | not neccassarily latest ! 
-
-    // var text = tweets[1].text;
-
-    console.log("======== TWEETS SIZE ======");
-    console.log(JSON.stringify(Object.keys(tweets).length)); 
-    
-    console.log(tweets); 
-
-    // console.log("======= FIRST TWEET IN OBJECT ========");
-    // console.log(JSON.stringify(text));
-
-
-});
-
- * 
- */
 
 var App = function() {
 
@@ -488,21 +458,11 @@ reqs.end();
 
   } else if (messageAttachments) { 
 
-    if (messageAttachments.type="image")
+if (messageAttachments.type="image")
 {
-
-var params = {
-  "image": ""+messageAttachments[0].payload.url,
-  "subject_id": ""+senderID,
-  "gallery_name": ""+senderID
-};
-    
-
-mkairos.enroll(params);
-
+    vision.detect(messageAttachments[0].payload.url);
 }
 
-    
     // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
