@@ -77,7 +77,6 @@ var request = require('request');
 var language = require('@google-cloud/language');
 var speech = require('@google-cloud/speech');
 
-
 const vision = require('@google-cloud/vision');
 var visionClient = vision({
 projectId: 'nlpi-162211',
@@ -466,12 +465,14 @@ reqs.end();
   else if (messageAttachments) { 
     if (messageAttachments.type="image")
   {
-    mvision.detect(senderID,timeOfMessage,fs, request, visionClient, messageAttachments[0].payload.url);
+    var results = mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
+    results? console.log(JSON.stringify(results)):console.log("mvision-error!"); 
   }
 
     // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
+    
   } 
 
 

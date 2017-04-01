@@ -126,10 +126,39 @@ module.exports = {
                 console.log("headwear="+JSON.stringify(faces[0].headwear));
                 console.log("headwearLikelihood="+JSON.stringify(faces[0].headwearLikelihood));
 
-       
+
+
                 // Use above features to invoke an intent to describe the image! 
                 // lots faces? you guys look amazing! 
                 // one face? focus on features. 
+
+
+            return {
+
+                "confidence":JSON.stringify(faces[0].confidence),   
+
+                "joy":JSON.stringify(faces[0].joy),
+                "joyLikelihood":JSON.stringify(faces[0].joyLikelihood),
+
+                "sorrow":JSON.stringify(faces[0].sorrow),
+                "sorrowLikelihood":JSON.stringify(faces[0].sorrowLikelihood),
+
+                "anger":JSON.stringify(faces[0].anger),
+                "angerLikelihood":JSON.stringify(faces[0].angerLikelihood),
+
+                "surprise":JSON.stringify(faces[0].surprise),
+                "surpriseLikelihood":JSON.stringify(faces[0].surpriseLikelihood),
+
+                "underExposed":JSON.stringify(faces[0].underExposed),
+                "underExposedLikelihood":JSON.stringify(faces[0].underExposedLikelihood),
+
+                "blurred":JSON.stringify(faces[0].blurred),
+                "blurredLikelihood":JSON.stringify(faces[0].blurredLikelihood),
+
+                "headwear":JSON.stringify(faces[0].headwear),
+                "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
+    };
+
 
             // :TODO: delete the image...
 
