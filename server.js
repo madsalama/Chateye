@@ -468,12 +468,11 @@ reqs.end();
       var output; 
       var image = messageAttachments[0].payload.url;
 
+      // === ASYNC + Callback after fullfillment = HEAVEN! <3  ===    
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
-        function(values){
-          output=values;         
-
-          console.log("=== SERVER JS ===");
-          console.log(output);                   // This is ALWAYS OUTPUT BEFORE the file is even downloaded/loaded - ASYNC HELL! 
+        function(values){        
+          output=values;
+          console.log(JSON.stringify(output));
 
       });
      
