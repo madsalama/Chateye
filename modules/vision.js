@@ -105,7 +105,9 @@ module.exports = {
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
             visionClient.detectFaces(image_path, function(err, faces) {
 
-                console.log("confidence="+JSON.stringify(faces[0].confidence));
+
+                /**
+                 *  console.log("confidence="+JSON.stringify(faces[0].confidence));
 
                 console.log("joy="+JSON.stringify(faces[0].joy));
                 console.log("joyLikelihood="+JSON.stringify(faces[0].joyLikelihood));
@@ -128,14 +130,16 @@ module.exports = {
                 console.log("headwear="+JSON.stringify(faces[0].headwear));
                 console.log("headwearLikelihood="+JSON.stringify(faces[0].headwearLikelihood));
 
-
+                 * 
+                 */
+               
 
                 // Use above features to invoke an intent to describe the image! 
                 // lots faces? you guys look amazing! 
                 // one face? focus on features. 
 
 
-            results =  {
+            results = {
 
                 "confidence":JSON.stringify(faces[0].confidence),   
 
@@ -161,10 +165,15 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
     };
 
+        console.log(results); 
+
 
             // :TODO: delete the image...
 
         }); 
+
+
+        console.log(results); 
 
 
         });
