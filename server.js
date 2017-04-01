@@ -469,11 +469,15 @@ reqs.end();
 
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
         function(results){
-          output=results;
+          output=results;         
+
+          console.log("=== SERVER JS ===");
+          console.log(output);                   // This is ALWAYS OUTPUT BEFORE the file is even downloaded/loaded - ASYNC HELL! 
+
       });
      
-       console.log("=== SERVER JS ===");
-       console.log(output);
+       
+
   }
 
     // messenger orginating media message (from user)
