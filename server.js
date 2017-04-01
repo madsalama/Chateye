@@ -497,12 +497,11 @@ reqs.end();
 {
 
 var params = {
-  image: ''+messageAttachments[0].payload.url,
-  subject_id: senderID,
-  gallery_name: senderID
+  "image": ""+messageAttachments[0].payload.url,
+  "subject_id": ""+senderID,
+  "gallery_name": ""+senderID
 };
     
-
 
 mkairos.detect(params);
 
