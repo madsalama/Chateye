@@ -503,7 +503,7 @@ var params = {
 };
     
 
-mkairos.detect(params);
+mkairos.enroll(params);
 
 
 /**
