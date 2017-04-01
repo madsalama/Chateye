@@ -1,7 +1,7 @@
 
 module.exports = {
 
-    detect = function(data) {
+    detect: function(data) {
 
     var headers = {
         'User-Agent':       'Super Agent/0.0.1',
@@ -34,7 +34,7 @@ module.exports = {
     },
 
 
-enroll = function(data) {
+enroll:function(data) {
 
     // Set the headers
     var headers = {
@@ -65,7 +65,7 @@ enroll = function(data) {
 
 },
 
-analyze = function(data) {
+analyze:function(data) {
 
     // Set the headers
     var headers = {

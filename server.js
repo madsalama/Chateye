@@ -102,6 +102,10 @@ var speechClient = speech({
 var Kairos = require('kairos-api');
 var kairos_client = new Kairos('b1592ea1', 'ddfb3317a291a021d1ee240b54f517cf');
 
+
+var mkairos = require('./kairos');
+
+
 /***
  *  var audio = './audio.raw'  ; 
   speechClient.recognize(audio, {
@@ -499,7 +503,13 @@ var params = {
 };
     
 
-kairos_client.enroll(params).then(function(result) {
+
+mkairos.detect(params);
+
+
+/**
+ * 
+ * kairos_client.enroll(params).then(function(result) {
 
   res = JSON.stringify(result);
   console.log(res);
@@ -522,6 +532,10 @@ kairos_client.enroll(params).then(function(result) {
   .catch(function(err) {
 
   });
+ * 
+ */
+
+
 
 
 }
