@@ -465,10 +465,12 @@ reqs.end();
     if (messageAttachments.type="image")
   {
       var output; 
-      
-      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image,
-      function(results) { output=results; }); 
+      var image = messageAttachments[0].payload.url;
 
+      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, function(results){
+          output=results; 
+      });
+     
       console.log(output);
   }
 
