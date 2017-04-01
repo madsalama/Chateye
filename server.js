@@ -473,7 +473,7 @@ reqs.end();
       });
      
        console.log("=== SERVER JS ===");
-      console.log(output);
+       console.log(output);
   }
 
     // messenger orginating media message (from user)
