@@ -395,7 +395,8 @@ var params = {
 
 kairos_client.enroll(params).then(function(result) {
 
-  console.log(result);
+  res = JSON.stringify(result);
+  console.log(res);
 
    })
   // err -> array: jsonschema validate errors 
@@ -406,7 +407,8 @@ kairos_client.enroll(params).then(function(result) {
 
   kairos_client.detect(params).then(function(result) {
 
-  console.log(result);
+    res = JSON.stringify(result);
+    console.log(res);
   
    })
   // err -> array: jsonschema validate errors 
