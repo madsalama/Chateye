@@ -452,10 +452,18 @@ if (messageText){
 
 
   */
+
+
+  // HANDLE THE RESPONSE FROM API.AI 
+
 reqs.on('response', function(response) {
 
 var mediaObj; 
-response.result.fulfillment.messages[1]? mediaObj = response.result.fulfillment.messages[1] : console.log("ERROR!");
+
+if (messages){
+  mediaObj = response.result.fulfillment.messages[1]; 
+}
+
 var textObj = response.result.fulfillment.speech; 
 
 console.log("=======");
@@ -463,6 +471,7 @@ console.log(response);
 console.log(mediaObj);
 
 sendTextMessage(senderID, textObj);
+
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  // API.AI orginating media message (from user)
 
 
@@ -479,6 +488,7 @@ reqs.end();
 
 
   } else if (messageAttachments) { 
+
     if (messageAttachments.type="image")
 {
 
