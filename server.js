@@ -464,6 +464,7 @@ reqs.end();
   else if (messageAttachments) { 
     if (messageAttachments.type="image")
   {
+
       var output; 
       var image = messageAttachments[0].payload.url;
 

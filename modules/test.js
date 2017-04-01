@@ -9,17 +9,29 @@ function returnData(data){
 function getData(callback){
 
     // ASYNC method 
-    db.transaction(function(tx){
-        tx.executeSql('SELECT * from q', [], function(tx, result){
-            var q = [];
-            for (var i=0; i < result.rows.length; i++) {
-                q.push(result.rows.item(i));
-            };
-            console.log(q.length);  // 3
+    db.transaction(
+        function(tx){
+
+            // ASYNC METHOD
+            tx.executeSql('SELECT * from q', [], function(tx, result){
+                
+                var q = [];    
+                for (var i=0; i < result.rows.length; i++) {
+                    q.push(result.rows.item(i));
+                };
+
+            console.log(q.length);  // 3            
             callback(returnData(q));
-        });
-    });
-}
+
+        }
+        );
+    }
+    
+    );
+
+} // ===================
+
+
 
 
 

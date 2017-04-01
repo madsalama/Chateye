@@ -95,8 +95,6 @@ module.exports = {
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){    
 
-            var res={};
-
             // download the image & access it!
             var download = function(uri, filename, callback){
             request.head(uri, function(err, res, body){
@@ -109,52 +107,48 @@ module.exports = {
 
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
 
+                console.log('image downloaded!');
 
-            var res={};
-            console.log('image downloaded!');
+                var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-            var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
+                visionClient.detectFaces(image_path).then((results) => {
 
-            visionClient.detectFaces(image_path).then((results) => {
+                    const faces = results[0];
 
-                const faces = results[0];
+                    console.log('Faces:');
+                    faces.forEach((face, i) => {
 
-                console.log('Faces:');
-                faces.forEach((face, i) => {
+                    var res = 
+                    {
+                    "confidence":JSON.stringify(faces[i].confidence),   
 
-                var res = {
+                    "joy":JSON.stringify(faces[i].joy),
+                    "joyLikelihood":JSON.stringify(faces[i].joyLikelihood),
 
-                "confidence":JSON.stringify(faces[i].confidence),   
+                    "sorrow":JSON.stringify(faces[i].sorrow),
+                    "sorrowLikelihood":JSON.stringify(faces[i].sorrowLikelihood),
 
-                "joy":JSON.stringify(faces[i].joy),
-                "joyLikelihood":JSON.stringify(faces[i].joyLikelihood),
+                    "anger":JSON.stringify(faces[i].anger),
+                    "angerLikelihood":JSON.stringify(faces[i].angerLikelihood),
 
-                "sorrow":JSON.stringify(faces[i].sorrow),
-                "sorrowLikelihood":JSON.stringify(faces[i].sorrowLikelihood),
+                    "surprise":JSON.stringify(faces[i].surprise),
+                    "surpriseLikelihood":JSON.stringify(faces[i].surpriseLikelihood),
 
-                "anger":JSON.stringify(faces[i].anger),
-                "angerLikelihood":JSON.stringify(faces[i].angerLikelihood),
+                    "underExposed":JSON.stringify(faces[i].underExposed),
+                    "underExposedLikelihood":JSON.stringify(faces[i].underExposedLikelihood),
 
-                "surprise":JSON.stringify(faces[i].surprise),
-                "surpriseLikelihood":JSON.stringify(faces[i].surpriseLikelihood),
+                    "blurred":JSON.stringify(faces[i].blurred),
+                    "blurredLikelihood":JSON.stringify(faces[i].blurredLikelihood),
 
-                "underExposed":JSON.stringify(faces[i].underExposed),
-                "underExposedLikelihood":JSON.stringify(faces[i].underExposedLikelihood),
-
-                "blurred":JSON.stringify(faces[i].blurred),
-                "blurredLikelihood":JSON.stringify(faces[i].blurredLikelihood),
-
-                "headwear":JSON.stringify(faces[i].headwear),
-                "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
+                    "headwear":JSON.stringify(faces[i].headwear),
+                    "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
-                        
-               
-                console.log("confidence = "+JSON.stringify(faces[i].confidence));
+                console.log(res);                                                     
 
                 });
 
                  
-                callback(module.exports.returnData(res));
+                // callback(module.exports.returnData(res));
 
 
   });
