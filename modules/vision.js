@@ -10,7 +10,7 @@ module.exports = {
         });
 
     
-   vision.detectFaces(image)
+   visionClient.detectFaces(image)
   .then((results) => {
     const faces = results[0];
 
