@@ -118,7 +118,7 @@ module.exports = {
                     console.log('Faces:');
                     faces.forEach((face, i) => {
 
-                    var res = 
+                    var values = 
                     {
                     "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -143,12 +143,15 @@ module.exports = {
                     "headwear":JSON.stringify(faces[i].headwear),
                     "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
-                console.log(res);                                                     
+
+                console.log("EACH LOOP");
+                console.log(values);                                                     
 
                 });
-
-                 
-                // callback(module.exports.returnData(res));
+                
+                 console.log("AFTER LOOP");
+                 console.log(values);
+                 callback(module.exports.returnData(values));
 
 
   });
