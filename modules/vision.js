@@ -83,10 +83,14 @@
   // ]
 
 module.exports = {
-    results:{},
+    res:{},
 
     setResults:function (results){
-        module.exports.results=results; 
+        module.exports.res=results; 
+        
+        console.log(" === SET RESULTS === ");
+        console.log(module.exports.res); 
+
     },
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
@@ -140,6 +144,10 @@ module.exports = {
             
             // console.log(results);
                 module.exports.setResults(results);
+
+                console.log(" === DETECT === ");
+                console.log(module.exports.setResults(results)); 
+
 
                 });
   });
