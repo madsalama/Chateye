@@ -83,6 +83,8 @@
   // ]
 
 module.exports = {
+    results:{},
+
     displayResults:function (results){
         return results; 
     },
@@ -109,7 +111,8 @@ module.exports = {
 
                 console.log('Faces:');
                 faces.forEach((face, i) => {
-                    results = {
+
+                    module.exports.results = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -194,8 +197,9 @@ module.exports = {
 
         });
 
-
         return module.exports.displayResults(results); 
+        // return module.exports.results; 
+        
     }
 
 }
