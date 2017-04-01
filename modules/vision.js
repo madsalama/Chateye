@@ -135,7 +135,8 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
             
-            console.log(results);
+            // console.log(results);
+                module.exports.displayResults(results);
 
                 });
   });
@@ -192,6 +193,9 @@ module.exports = {
 // ===============
 
         });
+
+
+        return module.exports.displayResults(results); 
     }
 
 }
