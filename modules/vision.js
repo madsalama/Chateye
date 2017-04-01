@@ -126,8 +126,8 @@ module.exports = {
                 console.log("headwear="+JSON.stringify(faces[0].headwear));
                 console.log("headwearLikelihood="+JSON.stringify(faces[0].headwearLikelihood));
 
-                console.log("headwear="+JSON.stringify(faces[0].sadness));
-                console.log("headwearLikelihood="+JSON.stringify(faces[0].sadnessLikelihood));
+                console.log("sad="+JSON.stringify(faces[0].sad));
+                console.log("sadLikelihood="+JSON.stringify(faces[0].sadLikelihood));
 
                 
                 // Use above features to invoke an intent to describe the image! 
