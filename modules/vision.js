@@ -104,7 +104,9 @@ module.exports = {
             };
 
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
+
             console.log('image downloaded!');
+
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
             visionClient.detectFaces(image_path)
@@ -140,12 +142,15 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
                         
-                callback(module.exports.returnData(results));
+               
 
                 });
+
+                 
+
   });
 
-
+            callback(module.exports.returnData(results));
 
         });
 

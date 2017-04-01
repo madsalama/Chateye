@@ -467,8 +467,9 @@ reqs.end();
       var output; 
       var image = messageAttachments[0].payload.url;
 
-      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, function(results){
-          output=results; 
+      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
+        function(results){
+          output=results;
       });
      
       console.log(output);
