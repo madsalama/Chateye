@@ -83,10 +83,10 @@
   // ]
 
 module.exports = {
-    res:{},
+    results:{},
 
-    setResults:function (newres){
-        module.exports.res=newres; 
+    setResults:function (results){
+        module.exports.results=results; 
     },
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
@@ -112,7 +112,7 @@ module.exports = {
                 console.log('Faces:');
                 faces.forEach((face, i) => {
 
-                   res = {
+                    module.exports.results = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -139,7 +139,7 @@ module.exports = {
             };
             
             // console.log(results);
-                module.exports.setResults(res);
+                module.exports.setResults(results);
 
                 });
   });
@@ -197,8 +197,8 @@ module.exports = {
 
         });
 
-       // return module.exports.displayResults(results); 
-        return module.exports.res; 
+        return module.exports.displayResults(results); 
+        // return module.exports.results; 
         
     }
 
