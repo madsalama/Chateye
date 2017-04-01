@@ -197,8 +197,8 @@ module.exports = {
 
         });
 
-        return module.exports.displayResults(results); 
-        // return module.exports.results; 
+       // return module.exports.displayResults(results); 
+        return module.exports.results; 
         
     }
 
