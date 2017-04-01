@@ -87,6 +87,8 @@ module.exports = {
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
 
+            var results; 
+
             // download the image & access it!
             var download = function(uri, filename, callback){
             request.head(uri, function(err, res, body){
@@ -101,7 +103,7 @@ module.exports = {
             console.log('image downloaded!');
 
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
-            return visionClient.detectFaces(image_path, function(err, faces) {
+            visionClient.detectFaces(image_path, function(err, faces) {
 
                 console.log("confidence="+JSON.stringify(faces[0].confidence));
 
@@ -133,7 +135,7 @@ module.exports = {
                 // one face? focus on features. 
 
 
-            return {
+            results =  {
 
                 "confidence":JSON.stringify(faces[0].confidence),   
 
@@ -168,12 +170,7 @@ module.exports = {
         });
         
 
-        
-
-
-
-
-
+        return results ; 
 
   
     }
