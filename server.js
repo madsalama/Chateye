@@ -466,13 +466,14 @@ reqs.end();
     if (messageAttachments.type="image")
   {
     var results = mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
-    results? console.log(JSON.stringify(results)):console.log("mvision-error!"); 
+    console.log(results);
+    
   }
 
     // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
-    
+
   } 
 
 
