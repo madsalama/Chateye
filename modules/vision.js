@@ -113,6 +113,8 @@ module.exports = {
 
             visionClient.detectFaces(image_path)
             .then((results) => {
+
+
                 const faces = results[0];
 
                 console.log('Faces:');
@@ -145,11 +147,13 @@ module.exports = {
             };
                         
                
-                callback(module.exports.returnData(results));
+                // callback(module.exports.returnData(results));
                 });
 
                  
-                // callback(module.exports.returnData(results));
+                callback(module.exports.returnData(results));
+
+                
   });
 
                 // callback(module.exports.returnData(results));
