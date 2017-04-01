@@ -3,6 +3,7 @@ module.exports = {
 
     detect: function(data) {
 
+    var request = require('request');
     var headers = {
         'User-Agent':       'Super Agent/0.0.1',
         'Content-Type':     ' application/json',
@@ -10,7 +11,7 @@ module.exports = {
         'app_key': 'ddfb3317a291a021d1ee240b54f517cf'
     };
 
-
+    
     var detect = {
         url: 'https://api.kairos.com/detect',
         method: 'POST',
@@ -36,7 +37,7 @@ module.exports = {
 
 enroll:function(data) {
 
-    // Set the headers
+    var request = require('request');
     var headers = {
         'User-Agent':       'Super Agent/0.0.1',
         'Content-Type':     ' application/json',
@@ -67,7 +68,7 @@ enroll:function(data) {
 
 analyze:function(data) {
 
-    // Set the headers
+    var request = require('request');
     var headers = {
         'User-Agent':       'Super Agent/0.0.1',
         'Content-Type':     ' application/json',
