@@ -472,7 +472,7 @@ reqs.end();
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
         function(values){        
           output=values;
-          output=console.log(JSON.stringify(output));
+          output=JSON.stringify(output);
           sendTextMessage(senderID,output);
       });
      
