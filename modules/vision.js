@@ -1,15 +1,8 @@
 
 module.exports = {
 
-    detect:function(image){
+    detect:function(visionClient, image){    
 
-        const vision = require('@google-cloud/vision');
-        var visionClient = vision({
-        projectId: 'nlpi-162211',
-        keyFilename: './NLPI-c6ba16b1d273.json'
-        });
-
-    
    visionClient.detectFaces(image)
   .then((results) => {
     const faces = results[0];

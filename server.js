@@ -77,7 +77,15 @@ var request = require('request');
 var language = require('@google-cloud/language');
 var speech = require('@google-cloud/speech');
 
-var vision = require('./modules/vision');
+
+const vision = require('@google-cloud/vision');
+var visionClient = vision({
+projectId: 'nlpi-162211',
+keyFilename: './NLPI-c6ba16b1d273.json'
+});
+      
+var mvision = require('./modules/vision');
+
 
 var bodyParser = require("body-parser");
 
@@ -460,7 +468,7 @@ reqs.end();
 
 if (messageAttachments.type="image")
 {
-    vision.detect(messageAttachments[0].payload.url);
+    mvision.detect(visionClient, messageAttachments[0].payload.url);
 }
 
     // messenger orginating media message (from user)
