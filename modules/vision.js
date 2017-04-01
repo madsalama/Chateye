@@ -107,6 +107,8 @@ module.exports = {
 
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
 
+
+            var res={};
             console.log('image downloaded!');
 
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
@@ -120,7 +122,7 @@ module.exports = {
                 console.log('Faces:');
                 faces.forEach((face, i) => {
 
-                    res = {
+                    var res = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
