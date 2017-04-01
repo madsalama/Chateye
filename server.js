@@ -381,17 +381,13 @@ if (messageAttachments.type="audio")
 
 if (messageAttachments.type="image")
 {
+
 var params = {
   image: ''+messageAttachments[0].payload.url,
   subject_id: senderID,
   gallery_name: senderID
 };
     
-  // return Promise 
-  //  result: { 
-  //    status: <http status code>, 
-  //    body: <data> 
-  //  } 
 
 kairos_client.enroll(params).then(function(result) {
 
