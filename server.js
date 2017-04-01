@@ -430,17 +430,15 @@ if (messageText){
 
   */
 
-
-  // HANDLE THE RESPONSE FROM API.AI 
+  // =====================================
+  //   HANDLE THE RESPONSE FROM API.AI 
+  // =====================================
 
 reqs.on('response', function(response) {
-
 var mediaObj; 
-
 if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
 }
-
 var textObj = response.result.fulfillment.speech; 
 
 console.log("=======");
@@ -448,8 +446,8 @@ console.log(response);
 console.log(mediaObj);
 
 sendTextMessage(senderID, textObj);
-
-mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  // API.AI orginating media message (from user)
+mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
+// API.AI orginating media message (from user)
 
 
 });
@@ -464,12 +462,12 @@ reqs.end();
 
 
 
-  } else if (messageAttachments) { 
-
-if (messageAttachments.type="image")
-{
+  } 
+  else if (messageAttachments) { 
+    if (messageAttachments.type="image")
+  {
     mvision.detect(visionClient, messageAttachments[0].payload.url);
-}
+  }
 
     // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
