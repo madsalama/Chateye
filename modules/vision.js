@@ -85,8 +85,8 @@
 module.exports = {
     results:{},
 
-    displayResults:function (results){
-        return results; 
+    setResults:function (results){
+        module.exports.results=results; 
     },
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
@@ -139,7 +139,7 @@ module.exports = {
             };
             
             // console.log(results);
-                module.exports.displayResults(results);
+                module.exports.setResults(results);
 
                 });
   });
@@ -197,8 +197,8 @@ module.exports = {
 
         });
 
-        return module.exports.displayResults(results); 
-        // return module.exports.results; 
+       // return module.exports.displayResults(results); 
+        return module.exports.results; 
         
     }
 
