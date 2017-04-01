@@ -99,8 +99,7 @@ var speechClient = speech({
   keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
-var mkairos = require('./kairos');
-
+var mkairos = require('./modules/kairos');
 
 /***
  *  var audio = './audio.raw'  ; 
