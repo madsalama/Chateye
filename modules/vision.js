@@ -21,9 +21,7 @@ module.exports = {
         });
         
 
-        var image_path = '../static/'+''+senderID+'_'+timeOfMessage+'.jpg' ; 
-
-        fs.readFile(image_path, function(err, data) {
+        var image_path = '../static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
 
         visionClient.detectFaces(image_path, function(err, faces) {
 
@@ -35,7 +33,7 @@ module.exports = {
 
             // delete the image. 
 
-        });
+        
 
         }); 
 
