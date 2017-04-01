@@ -94,7 +94,7 @@ module.exports = {
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){    
 
-            var results={};
+            var res={};
 
             // download the image & access it!
             var download = function(uri, filename, callback){
