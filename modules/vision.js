@@ -84,7 +84,14 @@
 
 module.exports = {
 
-    detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
+    returnData:function(data){
+        console.log(data.length);
+        return data;
+    },
+
+    detect:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){    
+
+            var results={};
 
             // download the image & access it!
             var download = function(uri, filename, callback){
@@ -107,7 +114,7 @@ module.exports = {
                 console.log('Faces:');
                 faces.forEach((face, i) => {
 
-                    faceresults = {
+                    results[i] = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -132,9 +139,8 @@ module.exports = {
                 "headwear":JSON.stringify(faces[i].headwear),
                 "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
-            
-            
-                
+                        
+                callback(module.exports.returnData(results));
 
                 });
   });
