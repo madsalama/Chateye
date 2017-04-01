@@ -109,7 +109,7 @@ module.exports = {
                 console.log("joyLikelihood="+JSON.stringify(faces[0].joyLikelihood));
 
                 console.log("sorrow="+JSON.stringify(faces[0].sorrow));
-                console.log("sorrowLikelihood"+JSON.stringify(faces[0].sorrowLikelihood));
+                console.log("sorrowLikelihood="+JSON.stringify(faces[0].sorrowLikelihood));
 
                 console.log("anger="+JSON.stringify(faces[0].anger));
                 console.log("angerLikelihood="+JSON.stringify(faces[0].angerLikelihood));
@@ -126,10 +126,7 @@ module.exports = {
                 console.log("headwear="+JSON.stringify(faces[0].headwear));
                 console.log("headwearLikelihood="+JSON.stringify(faces[0].headwearLikelihood));
 
-                console.log("sad="+JSON.stringify(faces[0].sad));
-                console.log("sadLikelihood="+JSON.stringify(faces[0].sadLikelihood));
-
-                
+       
                 // Use above features to invoke an intent to describe the image! 
                 // lots faces? you guys look amazing! 
                 // one face? focus on features. 
