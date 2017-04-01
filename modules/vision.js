@@ -85,10 +85,12 @@
 module.exports = {
 
     returnData:function(data){
+
         console.log("=== RETURN DATA ===");
         console.log(JSON.stringify(data)); 
         console.log(data.length);
         return data;
+
     },
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){    
@@ -113,16 +115,14 @@ module.exports = {
 
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-            visionClient.detectFaces(image_path)
-            .then((results) => {
-
+            visionClient.detectFaces(image_path).then((results) => {
 
                 const faces = results[0];
 
                 console.log('Faces:');
                 faces.forEach((face, i) => {
 
-                    var res = {
+                var res = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -149,7 +149,7 @@ module.exports = {
             };
                         
                
-                console.log(res);
+                console.log("confidence = "+JSON.stringify(faces[i].confidence));
 
                 });
 
