@@ -85,6 +85,10 @@
 module.exports = {
     res:{},
 
+    getResults:function(){
+        return module.exports.res; 
+    },
+
     setResults:function (results){
         module.exports.res=results; 
         
@@ -142,12 +146,12 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
             
-            // console.log(results);
                 module.exports.setResults(results);
 
                 console.log(" === DETECT === ");
-                console.log(module.exports.setResults(results)); 
+                console.log(module.exports.res); 
 
+                
 
                 });
   });
@@ -206,8 +210,8 @@ module.exports = {
         });
 
        // return module.exports.displayResults(results); 
-        return module.exports.results; 
-        
+        return module.exports.getResults(); 
+
     }
 
 }
