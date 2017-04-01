@@ -379,42 +379,7 @@ if (messageAttachments.type="audio")
 
 **/
 
-if (messageAttachments.type="image")
-{
 
-var params = {
-  image: ''+messageAttachments[0].payload.url,
-  subject_id: senderID,
-  gallery_name: senderID
-};
-    
-
-kairos_client.enroll(params).then(function(result) {
-
-  res = JSON.stringify(result);
-  console.log(res);
-
-   })
-  // err -> array: jsonschema validate errors 
-  //        or throw Error 
-  .catch(function(err) {
-
-  });
-
-  kairos_client.detect(params).then(function(result) {
-
-    res = JSON.stringify(result);
-    console.log(res);
-  
-   })
-  // err -> array: jsonschema validate errors 
-  //        or throw Error 
-  .catch(function(err) {
-
-  });
-
-
-}
 
 
 
@@ -513,7 +478,46 @@ reqs.end();
 
 
 
-  } else if (messageAttachments) { // messenger orginating media message (from user)
+  } else if (messageAttachments) { 
+    if (messageAttachments.type="image")
+{
+
+var params = {
+  image: ''+messageAttachments[0].payload.url,
+  subject_id: senderID,
+  gallery_name: senderID
+};
+    
+
+kairos_client.enroll(params).then(function(result) {
+
+  res = JSON.stringify(result);
+  console.log(res);
+
+   })
+  // err -> array: jsonschema validate errors 
+  //        or throw Error 
+  .catch(function(err) {
+
+  });
+
+  kairos_client.detect(params).then(function(result) {
+
+    res = JSON.stringify(result);
+    console.log(res);
+  
+   })
+  // err -> array: jsonschema validate errors 
+  //        or throw Error 
+  .catch(function(err) {
+
+  });
+
+
+}
+
+    
+    // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
   } 
