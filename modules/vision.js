@@ -11,9 +11,8 @@ module.exports = {
             console.log('content-length:', res.headers['content-length']);
 
             request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-                
                 console.log(JSON.stringify(err));
-
+                
             });
             };
 
@@ -22,7 +21,9 @@ module.exports = {
         });
         
 
-        var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'
+        var image_path = '../static/'+''+senderID+'_'+timeOfMessage+'.jpg' ; 
+
+        fs.readFile(image_path, function(err, data) {
 
         visionClient.detectFaces(image_path, function(err, faces) {
 
@@ -34,7 +35,11 @@ module.exports = {
 
             // delete the image. 
 
-});
+        });
+
+        }); 
+
+
   
     }
 
