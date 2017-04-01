@@ -56,7 +56,7 @@ module.exports = {
                     console.log('Faces:');
                     faces.forEach((face, i) => {
 
-                    values[i] =
+                    values =
                     {
                     "confidence":JSON.stringify(faces[i].confidence),   
 
