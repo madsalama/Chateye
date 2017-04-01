@@ -101,7 +101,7 @@ module.exports = {
             console.log('image downloaded!');
 
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
-            visionClient.detectFaces(image_path, function(err, faces) {
+            return visionClient.detectFaces(image_path, function(err, faces) {
 
                 console.log("confidence="+JSON.stringify(faces[0].confidence));
 
