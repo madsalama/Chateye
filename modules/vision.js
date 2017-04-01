@@ -102,7 +102,31 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
             console.log('image downloaded!');
             var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
-            visionClient.detectFaces(image_path, function(err, faces) {
+
+
+
+
+            visionClient.detectFaces(image_path)
+            .then((results) => {
+                const faces = results[0];
+
+                console.log('Faces:');
+                faces.forEach((face, i) => {
+                    console.log(`  Face #${i + 1}:`);
+                    console.log(`    Joy: ${face.joy}`);
+                    console.log(`    Anger: ${face.anger}`);
+                    console.log(`    Sorrow: ${face.sorrow}`);
+                    console.log(`    Surprise: ${face.surprise}`);
+                });
+  });
+
+
+
+// ===============
+
+/**
+ * 
+ *     visionClient.detectFaces(image_path, function(err, faces) {
 
                 // Use above features to invoke an intent to describe the image! 
                 // lots faces? you guys look amazing! 
@@ -139,9 +163,13 @@ module.exports = {
             // :TODO: delete the image...
 
         }); 
+ * 
+ */
+        
 
         
 
+// ===============
 
         });
     }
