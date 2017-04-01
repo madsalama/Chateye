@@ -2,75 +2,6 @@
 //    MODULE POTENTIAL OUTPUTS 
 // ================================
 
- // faces = [
-  //   {
-  //     angles: {pan,tilt,roll},
-  //     bounds: {
-  //       head: [{x,y},{x,y},{x,y},{x,y}],
-  //       face: [{x,y},{x,y},{x,y},{x,y}]
-  //     },
-  //     features: {
-  //       confidence: 34.489909,
-  //       chin: {
-  //         center: {x,y,z},
-  //         left: {x,y,z},
-  //         right: {x,y,z}
-  //       },
-  //       ears: {
-  //         left: {x,y,z},
-  //         right: {x,y,z}
-  //       },
-  //       eyebrows: {
-  //         left: {
-  //           left: {x,y,z},
-  //           right: {x,y,z},
-  //           top: {x,y,z}
-  //         },
-  //         right: {
-  //           left: {x,y,z},
-  //           right: {x,y,z},
-  //           top: {x,y,z}
-  //         }
-  //       },
-
-  //       eyes: {
-  //         left: {
-  //           bottom: {x,y,z},
-  //           center: {x,y,z},
-  //           left: {x,y,z},
-  //           pupil: {x,y,z},
-  //           right: {x,y,z},
-  //           top: {x,y,z}
-  //         },
-  //         right: {
-  //           bottom: {x,y,z},
-  //           center: {x,y,z},
-  //           left: {x,y,z},
-  //           pupil: {x,y,z},
-  //           right: {x,y,z},
-  //           top: {x,y,z}
-  //         }
-  //       },
-  //       forehead: {x,y,z},
-  //       lips: {
-  //         bottom: {x,y,z},
-  //         top: {x,y,z}
-  //       },
-  //       mouth: {
-  //         center: {x,y,z},
-  //         left: {x,y,z},
-  //         right: {x,y,z}
-  //       },
-  //       nose: {
-  //         bottom: {
-  //           center: {x,y,z},
-  //           left: {x,y,z},
-  //           right: {x,y,z}
-  //         },
-  //         tip: {x,y,z},
-  //         top: {x,y,z}
-  //       }
-  //     },
   //     confidence: 56.748849,
   //     blurry: false,
   //     dark: false,
@@ -152,17 +83,11 @@ module.exports = {
                 // callback(module.exports.returnData(values));
 
                 });
-                
-                 // console.log("AFTER LOOP");
-                 // console.log(values);        
 
                  callback(module.exports.returnData(values));
 
   });
-
-                 // callback(module.exports.returnData(res));
-
-        });
+  });
 
 
     }
