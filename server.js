@@ -466,7 +466,7 @@ reqs.end();
     if (messageAttachments.type="image")
   {
     mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
-    console.log(mvision.results);
+    console.log(JSON.stringify(mvision.results));
 
   }
 

@@ -132,7 +132,7 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
     };
 
-        console.log(results); 
+        // console.log(results); 
 
             // :TODO: delete the image...
 
