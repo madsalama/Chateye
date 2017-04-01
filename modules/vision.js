@@ -83,19 +83,6 @@
   // ]
 
 module.exports = {
-    res:{},
-
-    getResults:function(){
-        return module.exports.res; 
-    },
-
-    setResults:function (results){
-        module.exports.res=results; 
-        
-        console.log(" === SET RESULTS === ");
-        console.log(module.exports.res); 
-
-    },
 
     detect:function(senderID, timeOfMessage, fs, request, visionClient, image){    
 
@@ -120,7 +107,7 @@ module.exports = {
                 console.log('Faces:');
                 faces.forEach((face, i) => {
 
-                    results = {
+                    faceresults = {
 
                 "confidence":JSON.stringify(faces[i].confidence),   
 
@@ -146,11 +133,7 @@ module.exports = {
                 "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
             
-                module.exports.setResults(results);
-
-                console.log(" === DETECT === ");
-                console.log(module.exports.res); 
-
+            
                 
 
                 });
@@ -158,59 +141,8 @@ module.exports = {
 
 
 
-// ===============
-
-/**
- * 
- *     visionClient.detectFaces(image_path, function(err, faces) {
-
-                // Use above features to invoke an intent to describe the image! 
-                // lots faces? you guys look amazing! 
-                // one face? focus on features. 
-
-            results = {
-
-                "confidence":JSON.stringify(faces[0].confidence),   
-
-                "joy":JSON.stringify(faces[0].joy),
-                "joyLikelihood":JSON.stringify(faces[0].joyLikelihood),
-
-                "sorrow":JSON.stringify(faces[0].sorrow),
-                "sorrowLikelihood":JSON.stringify(faces[0].sorrowLikelihood),
-
-                "anger":JSON.stringify(faces[0].anger),
-                "angerLikelihood":JSON.stringify(faces[0].angerLikelihood),
-
-                "surprise":JSON.stringify(faces[0].surprise),
-                "surpriseLikelihood":JSON.stringify(faces[0].surpriseLikelihood),
-
-                "underExposed":JSON.stringify(faces[0].underExposed),
-                "underExposedLikelihood":JSON.stringify(faces[0].underExposedLikelihood),
-
-                "blurred":JSON.stringify(faces[0].blurred),
-                "blurredLikelihood":JSON.stringify(faces[0].blurredLikelihood),
-
-                "headwear":JSON.stringify(faces[0].headwear),
-                "headwearLikelihood":JSON.stringify(faces[0].headwearLikelihood)
-            };
-
-            module.exports.displayResults(results); 
-        
-            // :TODO: delete the image...
-
-        }); 
- * 
- */
-        
-
-        
-
-// ===============
-
         });
 
-       // return module.exports.displayResults(results); 
-        return module.exports.getResults(); 
 
     }
 

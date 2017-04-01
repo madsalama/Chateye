@@ -84,7 +84,7 @@ keyFilename: './NLPI-c6ba16b1d273.json'
 });
       
 var mvision = require('./modules/vision');
-
+var faceresults;
 
 var bodyParser = require("body-parser");
 
@@ -465,8 +465,9 @@ reqs.end();
   else if (messageAttachments) { 
     if (messageAttachments.type="image")
   {
-    var out = mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
-    console.log(out); 
+      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, messageAttachments[0].payload.url);
+      console.log(faceresults); 
+
   }
 
     // messenger orginating media message (from user)
