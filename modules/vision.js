@@ -87,6 +87,7 @@ module.exports = {
     returnData:function(data){
 
         console.log("=== RETURN DATA ===");
+        console.log(JSON.stringify(data)); 
         console.log(data.length);
         return data;
     },
@@ -153,7 +154,7 @@ module.exports = {
                  
                 callback(module.exports.returnData(results));
 
-                
+
   });
 
                 // callback(module.exports.returnData(results));
