@@ -17,10 +17,8 @@ module.exports = {
 
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){
             console.log('image downloaded!');
-
-
-            var image_path = '../static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
-
+            
+            var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg'; 
             visionClient.detectFaces(image_path, function(err, faces) {
 
                 var faces = JSON.stringify(faces);
