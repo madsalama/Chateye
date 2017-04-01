@@ -146,14 +146,15 @@ module.exports = {
                     "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
 
-                console.log("EACH LOOP");
-                console.log(values);                                                     
+                // console.log("EACH LOOP");
+                // console.log(values);                                                     
                 // callback(module.exports.returnData(values));
 
                 });
                 
-                 console.log("AFTER LOOP");
-                 console.log(values);                
+                 // console.log("AFTER LOOP");
+                 // console.log(values);        
+                         
                  callback(module.exports.returnData(values));
 
 
