@@ -81,7 +81,7 @@ module.exports = {
                     var uri = encodeURIComponent("https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg");
 
             options = {
-                url: 'https://api.kairos.com/media?source='+uri,
+                url: 'https://api.kairos.com/v2/media?source='+uri,
                 method: 'POST',        
                 headers: module.exports.headers 
             }; 
