@@ -473,7 +473,9 @@ reqs.end();
         function(values){        
           output=values;
           output = JSON.stringify(output);
-          sendTextMessage(senderID,output);
+
+          output?sendTextMessage(senderID, output):console.log("no face detected");
+
       });
      
        
