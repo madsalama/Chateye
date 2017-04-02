@@ -82,7 +82,8 @@ module.exports = {
                     "headwearLikelihood":JSON.stringify(faces[i].headwearLikelihood)
             };
 
-                console.log(values);
+                // console.log(values);
+
                 });
 
                  callback(module.exports.returnData(values));

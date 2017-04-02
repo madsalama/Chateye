@@ -465,16 +465,18 @@ reqs.end();
     if (messageAttachments.type="image")
   {
 
-      var output; 
+      var faceinfo; 
       var image = messageAttachments[0].payload.url;
 
       // === ASYNC + Callback after fullfillment = HEAVEN! <3  ===    
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
         function(values){        
-          output=values;
-          output = JSON.stringify(output);
+          faceinfo=values;
+          faceinfo = JSON.stringify(output);
 
-          output?sendTextMessage(senderID, output):console.log("no face detected");
+          // Handle an exception where no faces are detected in image! 
+          // Send faceinfo to user for DEBUG
+          faceinfo?sendTextMessage(senderID, output):console.log("= no face detected =");
 
       });
      
