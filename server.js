@@ -473,7 +473,7 @@ reqs.end();
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
         function(values){        
           faceinfo=values;
-          faceinfo = JSON.stringify(output);
+          faceinfo = JSON.stringify(faceinfo);
 
           // Handle an exception where no faces are detected in image! 
           // Send faceinfo to user for DEBUG
