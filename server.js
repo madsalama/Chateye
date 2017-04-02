@@ -472,14 +472,15 @@ reqs.end();
 
       mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
         function(values){        
-          faceinfo=values;
-          faceinfo = JSON.stringify(faceinfo);
+          faces=values;
+
+          console.log(faces);
+          console.log(JSON.stringify(faces)); 
 
           // Handle an exception where no faces are detected in image! 
-          // Send faceinfo to user for DEBUG
-          faceinfo.forEach((face, i) => {
-               faceinfo?sendTextMessage(senderID, face):console.log("= no face detected =");
-          }); 
+          // Send faceinfo to user for DEBUG!          
+          faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
+          :sendTextMessage(senderID, "no faces detected!");
          
 
       });
