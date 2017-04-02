@@ -519,6 +519,7 @@ reqs.end();
             // faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
            // :sendTextMessage(senderID, "no faces detected!");
 
+           console.log(faces);
            console.log(JSON.stringify(faces));
 
           });
