@@ -2,25 +2,18 @@
 //    MODULE POTENTIAL OUTPUTS 
 // ================================
 
-  //     confidence: 56.748849,
-  //     blurry: false,
-  //     dark: false,
-  //     happy: false,
-  //     hat: false,
-  //     mad: false,
-  //     sad: false,
-  //     surprised: false
-  //   }
-  // ]
+// EXTRACT THESE and feed them into SELFIE_OPINION INTENT
+// with the parameters! 
 
-// facial hair?
-// dominant colors? 
-// logos?
-// celebrities?
-// animals? other entities?
-// landmarks?
-// detect TEXT. 
-
+    // emotional state | < 0.3 reliable
+    // facial hair?
+    // dominant colors? 
+    // logos?
+    // celebrities?
+    // animals? other entities?
+    // landmarks?
+    // detect TEXT!?
+    // detect how many faces in the picture - "you two look amazing!" - "you guys look great!"
 
 module.exports = {
 

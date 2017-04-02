@@ -84,6 +84,7 @@ keyFilename: './NLPI-c6ba16b1d273.json'
 });
       
 var mvision = require('./modules/vision');
+var mkairos = require('./modules/kairos');
 
 var bodyParser = require("body-parser");
 
@@ -461,31 +462,48 @@ reqs.end();
 
 
   } 
+
+
   else if (messageAttachments) { 
     if (messageAttachments.type="image")
   {
 
+// =================================================
+// |    STARTS A SELFIE GAME > INTENT = SELFIE     |
+// =================================================
+
+  // must find a way to catch exception if KAIROS do not work \
+  // as the API is much more limited than Google's)
+
       var faceinfo; 
       var image = messageAttachments[0].payload.url;
 
-      // === ASYNC + Callback after fullfillment = HEAVEN! <3  ===    
+      // =================
+      //   GOOGLE VISION
+      // =================
+        // === ASYNC + Callback after fullfillment = HEAVEN! <3  ===    
+        mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
+          function(values){        
+            faces=values;
 
-      mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
-        function(values){        
-          faces=values;
+            // Handle an exception where no faces are detected in image! 
+            // Send faceinfo to user for DEBUG!          
+            faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
+            :sendTextMessage(senderID, "no faces detected!");});
+            
+            // INTENT:CONTEXT = SELFIE 
 
-          console.log(faces);
-          console.log(JSON.stringify(faces)); 
+      // =================
+      //      KAIROS
+      // =================
+        mkairos.detect(senderID, timeOfMessage, fs, request, image, 
+          function(values){        
+            faces=values;
 
-          // Handle an exception where no faces are detected in image! 
-          // Send faceinfo to user for DEBUG!          
-          faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
-          :sendTextMessage(senderID, "no faces detected!");
-         
-
-      });
-     
-       
+            // Handle an exception where no faces are detected in image! 
+            // Send faceinfo to user for DEBUG!          
+            faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
+            :sendTextMessage(senderID, "no faces detected!");});
 
   }
 
