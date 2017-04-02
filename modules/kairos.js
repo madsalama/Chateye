@@ -47,7 +47,7 @@ module.exports = {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
                 console.log(body); 
-                callback(module.exports.returnData(values));                
+                callback(module.exports.returnData(body));
         }
     });
 
