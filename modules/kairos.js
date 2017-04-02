@@ -57,6 +57,47 @@ module.exports = {
         
     },
 
+
+
+// ==========
+//   MEDIA 
+// ==========
+        media:function(senderID, timeOfMessage, fs, request, image, callback){
+
+          var download = function(uri, filename, callback){
+        
+            request.head(uri, function(err, res, body){
+            console.log('content-type:', res.headers['content-type']);
+            console.log('content-length:', res.headers['content-length']);
+            request(uri).pipe(
+                fs.createWriteStream(filename)).on('close', callback);
+        });
+            };
+
+
+            download(image, './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg', 
+                function(){            
+                    var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';                
+                    var uri = encodeURIComponent("https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg");
+
+            options = {
+                url: 'https://api.kairos.com/media?source='+uri,
+                method: 'POST',        
+                headers: module.exports.headers 
+            }; 
+
+
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {                
+                callback(module.exports.returnData(body));
+        }
+    });
+
+            });
+            
+        
+    }
+
     
     
 

@@ -508,6 +508,23 @@ reqs.end();
            console.log(JSON.stringify(faces));
 
           });
+
+
+        mkairos.media(senderID, timeOfMessage, fs, request, image, 
+          function(values){        
+            faces=values;
+
+            // Handle an exception where no faces are detected in image! 
+            // Send faceinfo to user for DEBUG!          
+            // faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
+           // :sendTextMessage(senderID, "no faces detected!");
+
+           console.log(JSON.stringify(faces));
+
+          });
+
+
+
           
         }
 
