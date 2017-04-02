@@ -21,7 +21,7 @@ module.exports = {
 
         // console.log("=== RETURN DATA ===");
        //  console.log(JSON.stringify(data)); 
-         console.log(data.length+"faces detected...");
+         console.log(data.length+" face(s) detected...");
 
         return data;
 

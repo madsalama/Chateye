@@ -33,12 +33,14 @@ module.exports = {
 
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg', 
                 function(){            
-                    var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';
+                    var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';                
+                    // var uri = encodeURIComponent();     
+
             options = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
                 json: {
-                    "image":""+image_path,
+                    "image":"http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg",
                     "selector":"ROLL" },                    
                 headers: module.exports.headers 
             }; 
