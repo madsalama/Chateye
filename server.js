@@ -477,7 +477,10 @@ reqs.end();
 
           // Handle an exception where no faces are detected in image! 
           // Send faceinfo to user for DEBUG
-          faceinfo?sendTextMessage(senderID, faceinfo):console.log("= no face detected =");
+          faceinfo.forEach((face, i) => {
+               faceinfo?sendTextMessage(senderID, face):console.log("= no face detected =");
+          }); 
+         
 
       });
      
