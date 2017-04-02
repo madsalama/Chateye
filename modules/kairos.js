@@ -38,7 +38,7 @@ module.exports = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
                 json: {
-                    "image":image_path,
+                    "image":""+image_path,
                     "selector":"ROLL" },                    
                 headers: module.exports.headers 
             }; 
