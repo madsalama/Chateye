@@ -13,8 +13,9 @@ download:function(file){
             });
             };
 
-            download(file, './static/'+''+senderID+'_'+timeOfMessage+'.mp4', function(){            
-                var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.mp4';
+            var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
+
+            download(file, './static/audio.mp4', function(){                
                 console.log("....audio received and downloaded!");
             }); 
 
