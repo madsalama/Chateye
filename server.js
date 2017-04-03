@@ -76,8 +76,8 @@ var request = require('request');
 
 var language = require('@google-cloud/language');
 var speech = require('@google-cloud/speech');
-
 const vision = require('@google-cloud/vision');
+
 var visionClient = vision({
 projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
@@ -85,6 +85,7 @@ keyFilename: './NLPI-c6ba16b1d273.json'
       
 var mvision = require('./modules/vision');
 var mkairos = require('./modules/kairos');
+var maudio = require('./modules/audio');
 
 var bodyParser = require("body-parser");
 
@@ -528,6 +529,14 @@ reqs.end();
 
           
         }
+        else if (messageAttachments.type="audio"){
+          
+            var audio = messageAttachments[0].payload.url;
+            maudio.download(audio);
+            
+        }
+
+        
 
     // messenger orginating media message (from user)
     // sendMediaMessage(senderID, message); 
