@@ -30,7 +30,7 @@ module.exports = {
         });
             };
 
-
+;
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg', 
                 function(){            
                     var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';                
