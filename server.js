@@ -468,6 +468,11 @@ reqs.end();
   else if (messageAttachments) { 
 
 
+    console.log("===========================");
+    console.log(messageAttachments);
+    console.log(messageAttachments[0].type);
+    console.log("===========================");
+
 
     if (messageAttachments[0].type="image")
   {
