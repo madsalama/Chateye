@@ -36,7 +36,7 @@ module.exports={
 
 
                     const req = {
-                    encoding: 'BASE64',
+                    encoding: 'LINEAR16',
                     sampleRate: 16000
                     };
 
