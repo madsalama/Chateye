@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    transcribe:function(request, base64, fs, file, callback){
+    transcribe:function(senderID, timeOfMessage, fs, request, speechClient, file, callback){
 
         // download the image & access it!
                 var download = function(uri, filename, callback){

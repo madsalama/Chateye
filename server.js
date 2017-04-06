@@ -535,19 +535,13 @@ reqs.end();
 
           });
 
-*/
-
-
-
-          
+*/        
         }
-        else if (messageAttachments[0].type=="audio"){
-          
-          console.log("WE GOT AUDIO!");
-
+        else if (messageAttachments[0].type=="audio"){                          
           var audio = messageAttachments[0].payload.url;
-          maudio.transcribe(request, base64, fs, audio, function(data){
-              // console.log(data);
+          maudio.transcribe(senderID, timeOfMessage, fs, request, speechClient, audio,         
+            function(data){
+                // console.log(data);
           });
 
         }
