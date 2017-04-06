@@ -17,13 +17,14 @@ module.exports={
                 });
                 };
 
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.raw' ; 
 
                 download(file, filename, function(){    
                     
                 // 2- READ the file as BASE64
                fs.readFile(filename, {encoding: 'base64'}, function(err,data){
                 if (!err){   
+
 
 
                     // STORE the file as BASE64
