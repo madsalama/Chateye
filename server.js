@@ -468,13 +468,11 @@ reqs.end();
   else if (messageAttachments) { 
 
 
-    console.log("===========================");
-    console.log(messageAttachments);
-    console.log(messageAttachments[0].type);
-    console.log("===========================");
 
 
-    if (messageAttachments[0].type="image")
+    // THIS always matches to TRUE which is insane!!!?
+
+    if (messageAttachments[0].type=="image")     // STILL matches to true?
   {
 
 // =================================================
@@ -486,6 +484,7 @@ reqs.end();
 
 
       console.log("IMAGE RECEIVED!");
+
       var faceinfo; 
       var image = messageAttachments[0].payload.url;
 
@@ -544,7 +543,7 @@ reqs.end();
 
           
         }
-        else if (messageAttachments[0].type="audio"){
+        else if (messageAttachments[0].type=="audio"){
           
           console.log("WE GOT AUDIO!");
 
