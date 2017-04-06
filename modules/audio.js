@@ -1,24 +1,36 @@
 module.exports={
 
-download:function(file){
+    returnData:function(data){
+        return data;
+    },
 
-     // download the image & access it!
-            var download = function(uri, filename, callback){
-            request.head(uri, function(err, res, body){
+    transcribe:function(request, file, callback){
 
-            console.log('content-type:', res.headers['content-type']);
-            console.log('content-length:', res.headers['content-length']);
+        // download the image & access it!
+                var download = function(uri, filename, callback){
+                request.head(uri, function(err, res, body){
 
-            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-            });
-            };
+                console.log('content-type:', res.headers['content-type']);
+                console.log('content-length:', res.headers['content-length']);
 
-            var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
+                request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+                });
+                };
 
-            download(file, './static/audio.mp4', function(){                
-                console.log("....audio received and downloaded!");
-            }); 
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
 
-}
+                download(file, filename, function(){    
+                    
+                    // Convert Downloaded file into BASE64 (SYNC)
+                    var base46; 
+                    callback(module.exports.returnData(base46));
 
-}
+                    console.log("....audio received/converted to BASE64!");
+
+                }); 
+
+    }
+
+
+
+};

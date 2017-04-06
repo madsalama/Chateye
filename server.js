@@ -47,7 +47,7 @@
   // 4- Youtube           = 
   // 5- Instagram         = 
   // 6- Twitter           = DONE 
-  // 7- GIPHY             = 
+  // 7- GIPHY             = DONE
   // 8- MusicXmatch       = 
 
   // 9- Speech API/translateAPI = a SLOW WIP (Speech is in BETA on only works with .raw audio files - messenger works with MP4 audio)
@@ -531,8 +531,7 @@ reqs.end();
         }
         else if (messageAttachments.type="audio"){
           
-          //  var audio = messageAttachments[0].payload.url;
-          //  maudio.download(audio);
+          console.log("WE GOT AUDIO!");
 
         }
 

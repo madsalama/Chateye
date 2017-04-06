@@ -7,7 +7,7 @@ module.exports = {
     // Get a random result within 100 results with a set of keywords 
     // Keywords is a sentence separated by spaces! 
 
-    get:function(keywords, limit, callback){        
+    get:function(request, keywords, limit, callback){        
         var keywords = encodeURIComponent(keywords);        
         var options = {
                 url: 'http://api.giphy.com/v1/gifs/search?q='+keywords+'&api_key=dc6zaTOxFJmzC&limit='+limit+'&offset=0',
