@@ -41,7 +41,7 @@ module.exports={
                     };
 
               // 3 - TRANSCRIBE audio
-                    speech.recognize(filename, req)
+                    speechClient.recognize(filename, req)
                     .then((results) => {
                         const transcription = results[0];
 
