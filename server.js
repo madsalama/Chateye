@@ -466,7 +466,10 @@ reqs.end();
 
 
   else if (messageAttachments) { 
-    if (messageAttachments.type="image")
+
+
+
+    if (messageAttachments[0].type="image")
   {
 
 // =================================================
@@ -489,8 +492,9 @@ reqs.end();
 
             // Handle an exception where no faces are detected in image! 
             // Send faceinfo to user for DEBUG!          
-            faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
-            :sendTextMessage(senderID, "no faces detected!");});
+            faces? faces.forEach((face, i) => {
+              sendTextMessage(senderID, JSON.stringify(face));
+            }):sendTextMessage(senderID, "no faces detected!");});
             
             // INTENT:CONTEXT = SELFIE 
 
@@ -529,7 +533,7 @@ reqs.end();
 
           
         }
-        else if (messageAttachments.type="audio"){
+        else if (messageAttachments[0].type="audio"){
           
           console.log("WE GOT AUDIO!");
 

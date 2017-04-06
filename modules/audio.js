@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    transcribe:function(request, file, callback){
+    convert:function(request, file, callback){
 
         // download the image & access it!
                 var download = function(uri, filename, callback){
@@ -23,13 +23,14 @@ module.exports={
                     
                     // Convert Downloaded file into BASE64 (SYNC)
                     var base46; 
-                    callback(module.exports.returnData(base46));
-
                     console.log("....audio received/converted to BASE64!");
 
                 }); 
 
-    }
+    },
+
+
+            
 
 
 
