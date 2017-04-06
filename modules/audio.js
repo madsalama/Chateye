@@ -6,7 +6,7 @@ module.exports={
 
     transcribe:function(senderID, timeOfMessage, fs, request, speechClient, file, callback){
 
-        // download the image & access it!
+                // 1- DOWNLOAD THE FILE 
                 var download = function(uri, filename, callback){
                 request.head(uri, function(err, res, body){
 
@@ -21,22 +21,35 @@ module.exports={
 
                 download(file, filename, function(){    
                     
+                // 2- READ the file as BASE64
                fs.readFile(filename, {encoding: 'base64'}, function(err,data){
-                if (!err){
+                if (!err){   
 
-                    callback(module.exports.returnData(data));
-                  
-                    speechClient.recognize(data, {
+
+                    // STORE the file as BASE64
+                    fs.writeFile(filename, data, function(err) {
+                        if(err) {
+                            return console.log(err);
+                        }
+                    console.log("The file was saved!"); }); 
+                
+
+
+                    const req = {
                     encoding: 'BASE64',
                     sampleRate: 16000
+                    };
 
-                    }, function(err, transcript) {
-                    console.log(transcript);
-                    console.log(err);});
+              // 3 - TRANSCRIBE audio
+                    speech.recognize(filename, req)
+                    .then((results) => {
+                        const transcription = results[0];
 
-                     
+                        console.log(`Transcription: ${transcription}`);
+                        callback(module.exports.returnData(transcription));
+                    });
 
-
+                    
 
                    
                 } else{

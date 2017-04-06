@@ -540,8 +540,8 @@ reqs.end();
         else if (messageAttachments[0].type=="audio"){                          
           var audio = messageAttachments[0].payload.url;
           maudio.transcribe(senderID, timeOfMessage, fs, request, speechClient, audio,         
-            function(data){
-                // console.log(data);
+            function(transcript){
+                 console.log(transcript);
           });
 
         }
