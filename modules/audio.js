@@ -19,9 +19,9 @@ module.exports={
 
                 var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
 
-                download(file, filepath, function(){    
+                download(file, filename, function(){    
                     
-               fs.readFile(filepath, {encoding: 'base64'}, function(err,data){
+               fs.readFile(filename, {encoding: 'base64'}, function(err,data){
                 if (!err){
 
                     callback(module.exports.returnData(data));
