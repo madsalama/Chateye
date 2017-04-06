@@ -479,6 +479,8 @@ reqs.end();
   // must find a way to catch exception if KAIROS do not work \
   // as the API is much more limited than Google's)
 
+
+      console.log("IMAGE RECEIVED!");
       var faceinfo; 
       var image = messageAttachments[0].payload.url;
 
@@ -515,6 +517,8 @@ reqs.end();
           });
 
 
+
+/*
         mkairos.media(senderID, timeOfMessage, fs, request, image, 
           function(values){        
             faces=values;
@@ -528,6 +532,8 @@ reqs.end();
            console.log(JSON.stringify(faces));
 
           });
+
+*/
 
 
 
