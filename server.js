@@ -87,6 +87,8 @@ var mvision = require('./modules/vision');
 var mkairos = require('./modules/kairos');
 var maudio = require('./modules/audio');
 
+var base64 = require('base-64');
+
 var bodyParser = require("body-parser");
 
 var apiai = require('apiai');
@@ -511,11 +513,7 @@ reqs.end();
           function(values){        
             faces=values;
 
-            // Handle an exception where no faces are detected in image! 
-            // Send faceinfo to user for DEBUG!          
-            // faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
-           // :sendTextMessage(senderID, "no faces detected!");
-
+            // GUESS AGE/GENDER/GLASSES 
            console.log(JSON.stringify(faces));
 
           });
@@ -546,6 +544,10 @@ reqs.end();
         else if (messageAttachments[0].type=="audio"){
           
           console.log("WE GOT AUDIO!");
+
+          maudio.transcribe(request, base64, fs, file, function(data){
+              // console.log(data);
+          });
 
         }
 

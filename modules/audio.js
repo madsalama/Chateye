@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    convert:function(request, file, callback){
+    transcribe:function(request, base64, fs, file, callback){
 
         // download the image & access it!
                 var download = function(uri, filename, callback){
@@ -19,11 +19,41 @@ module.exports={
 
                 var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
 
-                download(file, filename, function(){    
+                download(file, filepath, function(){    
                     
-                    // Convert Downloaded file into BASE64 (SYNC)
-                    var base46; 
-                    console.log("....audio received/converted to BASE64!");
+               fs.readFile(filepath, {encoding: 'base64'}, function(err,data){
+                if (!err){
+
+                    callback(module.exports.returnData(data));
+                    console.log('received data: ' + data);
+                    
+                    /**
+                     * 
+                     *                     
+                    speechClient.recognize(filename, {
+                    encoding: 'BASE64',
+                    sampleRate: 16000
+
+                    }, function(err, transcript) {
+                    console.log(transcript);
+                    console.log(err);});
+
+                     * */    
+
+
+
+                   
+                } else{
+                    console.log(err);
+                }
+
+});
+
+
+
+
+
+                    
 
                 }); 
 
