@@ -25,12 +25,8 @@ module.exports={
                 if (!err){
 
                     callback(module.exports.returnData(data));
-                    console.log('received data: ' + data);
-                    
-                    /**
-                     * 
-                     *                     
-                    speechClient.recognize(filename, {
+                  
+                    speechClient.recognize(data, {
                     encoding: 'BASE64',
                     sampleRate: 16000
 
@@ -38,7 +34,7 @@ module.exports={
                     console.log(transcript);
                     console.log(err);});
 
-                     * */    
+                     
 
 
 
