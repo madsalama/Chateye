@@ -545,7 +545,8 @@ reqs.end();
           
           console.log("WE GOT AUDIO!");
 
-          maudio.transcribe(request, base64, fs, file, function(data){
+          var audio = messageAttachments[0].payload.url;
+          maudio.transcribe(request, base64, fs, audio, function(data){
               // console.log(data);
           });
 
