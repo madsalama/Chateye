@@ -538,11 +538,20 @@ reqs.end();
 */        
         }
         else if (messageAttachments[0].type=="audio"){                          
-          var audio = messageAttachments[0].payload.url;
-          maudio.transcribe(senderID, timeOfMessage, fs, request, speechClient, audio,         
+          
+            
+
+ /**
+  *
+  var audio = messageAttachments[0].payload.url;           
+  maudio.transcribe(senderID, timeOfMessage, fs, request, speechClient, audio,         
             function(transcript){
                  console.log(transcript);
           });
+
+  */
+          
+
 
         }
 
