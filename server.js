@@ -335,6 +335,10 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
 
+
+
+
+
 /*
 
 if (messageAttachments.type="audio")
