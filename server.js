@@ -463,7 +463,7 @@ sendTextMessage(senderID, textObj);
 
 /////////////////////
 
-  mgiphy.get(request, messageText, 500, function(url){
+  mgiphy.get(request, messageText, 1000, function(url){
           
           console.log(JSON.stringify(messageText));            
 
@@ -475,16 +475,19 @@ sendTextMessage(senderID, textObj);
                     "payload": {
                     "url":url }}};
 
-            sendMediaMessage(senderID, message1);         // ASYNC!       
 
-        });
-        
              var message2 = {
                     "attachment": {
                     "type": "image",
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
+
+            url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");         // ASYNC!       
             sendMediaMessage(senderID, message2);
+
+        });
+        
+
 
 ////////////////////
 
