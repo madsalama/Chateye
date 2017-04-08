@@ -401,14 +401,23 @@ if (messageText){
 
       default:
         mgiphy.get(request, messageText, 3, function(url){
-
-          var murl = url ; 
-
+          
+          var murl = url ;
+          
           // var murl = JSON.stringify(url);          
           // console.log(murl);
 
           // var myurl = url ;   
           // console.log(myurl);
+
+
+  var messageAttachments = {
+    type: 'image',
+      payload: {
+        url: murl
+      }
+    };
+    
 
           var messageData = 
           {        
@@ -417,12 +426,7 @@ if (messageText){
               },
             
             message:{ 
-              attachment:{
-                          type:'image',
-
-                          payload:{
-                            url:murl
-                          }}
+              attachment: JSON.stringify(messageAttachments) 
                       }
                     
           };                   
