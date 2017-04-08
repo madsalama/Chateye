@@ -30,6 +30,9 @@ module.exports = {
                 else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
                 var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!
+                
+                console.log(object);
+
                 var url = object.data[choice].url;   
 
                 // url = JSON.stringify(url);
