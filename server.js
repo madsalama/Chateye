@@ -424,7 +424,7 @@ if (messageText){
 
             message = JSON.stringify(message); 
 
-            callSendAPI(message); 
+            // callSendAPI(message); 
 
         }
                 
