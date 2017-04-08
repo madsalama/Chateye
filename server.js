@@ -410,8 +410,8 @@ if (messageText){
                     "url":url }}};
 
               console.log(message);
-              
-            // sendMediaMessage(recipientID, message);
+
+            sendMediaMessage(recipientID, message);
 
         }
                 
