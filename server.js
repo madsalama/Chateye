@@ -404,30 +404,7 @@ if (messageText){
         sendGenericMessage(senderID);
         break;
 
-      default:
-        mgiphy.get(request, messageText, 25, function(url){
-          
-          console.log(JSON.stringify(messageText));            
-
-            var url = url;                                               
-            var message1 = {
-                    "attachment": {
-                    "type": "image",
-                    "payload": {
-                    "url":url }}};
-
-            sendMediaMessage(senderID, message1);         // ASYNC       
-
-        });
-        
-             var message2 = {
-                    "attachment": {
-                    "type": "image",
-                    "payload": {
-                    "url":"https://chatzer.herokuapp.com/logo.png" }}};
-            sendMediaMessage(senderID, message2);
-
-        
+      default:              
         var reqs = app.textRequest(messageText, {
         sessionId: senderID
 });
@@ -470,6 +447,30 @@ if (messageText){
   // =====================================
 
 reqs.on('response', function(response) {
+
+
+  mgiphy.get(request, messageText, 25, function(url){
+          
+          console.log(JSON.stringify(messageText));            
+
+            var url = url;                                               
+            var message1 = {
+                    "attachment": {
+                    "type": "image",
+                    "payload": {
+                    "url":url }}};
+
+            sendMediaMessage(senderID, message1);         // ASYNC!       
+
+        });
+        
+             var message2 = {
+                    "attachment": {
+                    "type": "image",
+                    "payload": {
+                    "url":"https://chatzer.herokuapp.com/logo.png" }}};
+            sendMediaMessage(senderID, message2);
+            
 var mediaObj; 
 if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
