@@ -419,10 +419,12 @@ if (messageText){
                       }
                     };                   
 
+ 
 
+            message = JSON.stringify(message);             
             console.log(JSON.stringify(message)); 
 
-         //   callSendAPI(message); 
+            callSendAPI(message); 
 
         }
                 
