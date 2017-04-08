@@ -410,7 +410,7 @@ if (messageText){
           // var myurl = url ;   
           // console.log(myurl);
 
-          var message = {        
+          var messageData = {        
             recipient:{
                 id:recipientID
               },
@@ -426,8 +426,8 @@ if (messageText){
                     };                   
 
 
-            message = JSON.stringify(message); 
-            console.log(message);
+            messageData = JSON.stringify(messageData); 
+            console.log(messageData);
 
             // callSendAPI(message); 
 
