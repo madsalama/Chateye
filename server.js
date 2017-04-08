@@ -401,7 +401,7 @@ if (messageText){
 
       default:
         mgiphy.get(request, messageText, 100, function(url){
-          
+                    
           var message = {
             "recipient":{
             "id":senderID },
