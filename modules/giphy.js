@@ -10,7 +10,7 @@ module.exports = {
                 url: 'http://api.giphy.com/v1/gifs/search?q='+keywords+'&api_key=dc6zaTOxFJmzC&limit='+limit+'&offset=0',
                 method: 'GET' }; 
 
-    request(module.exports.options, function (error, response, body) {
+    request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {  
 
                 var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
