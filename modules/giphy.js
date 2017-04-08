@@ -33,7 +33,6 @@ module.exports = {
                 var url = object.data[choice].url;   
 
                 // url = JSON.stringify(url);
-
                 // url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
 
                 callback(module.exports.returnData(url));
