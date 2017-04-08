@@ -23,14 +23,17 @@ module.exports = {
                 var objectConstructor = {}.constructor;
 
                 console.log("=========== GIPHY LOGGER! ==========");
-                if (data.constructor===stringConstructor){  console.log("STRING!"); }
-                else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
-                else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
+               // if (data.constructor===stringConstructor){  console.log("STRING!"); }
+               // else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
+               // else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
-                // console.log(JSON.stringify(object.data[choice]));
+              // console.log(JSON.stringify(object.data[choice]));
+
+              console.log(choice);
+              
                 var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                           
                 var url = object.data[choice].images.fixed_width.url; 
-                
+
                 callback(module.exports.returnData(url));
 
         }

@@ -417,10 +417,7 @@ if (messageText){
               console.log(message);
 
             sendMediaMessage(senderID, message);
-
-        }
-                
-        );
+        });
         
         var reqs = app.textRequest(messageText, {
         sessionId: senderID
