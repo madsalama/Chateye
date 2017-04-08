@@ -31,7 +31,7 @@ module.exports = {
                 
                 var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!
                 
-                console.log(object);
+                console.log(JSON.stringify(object.data));
 
                 var url = object.data[choice].url;   
 
