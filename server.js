@@ -405,9 +405,11 @@ if (messageText){
         break;
 
       default:
-        mgiphy.get(request, messageText, 50, function(url){
+        mgiphy.get(request, messageText, 25, function(url){
           
-            var url = url;                                   
+            console.log(JSON.stringify(messageText));            
+
+            var url = url;                                               
             var message = {
                     "attachment": {
                     "type": "image",
