@@ -33,9 +33,9 @@ module.exports = {
               
                 var url; 
 
-                console.time("json parse starts...");
+                console.time("json parse");
                 var object = JSON.parse(data);
-                console.timeEnd("json parse ends...");
+                console.timeEnd("json parse");
 
                 object.data[choice]? url = object.data[choice].images.fixed_width.url:console.log("GIPHY NOT FOUND!");                
                     
