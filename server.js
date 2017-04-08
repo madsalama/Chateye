@@ -402,28 +402,25 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 2, function(url){
 
-          var url = url ;
+          var url = JSON.stringify(url);
 
           var message = {        
-            "recipient":{
-                "id":recipientID
+            recipient:{
+                id:recipientID
               },
             
-            "message":{ 
-              "attachment":{
-                          "type":"image",
+            message:{ 
+              attachment:{
+                          type:image,
 
-                          "payload":{
-                            "url":""+url
+                          payload:{
+                            url:url
                           }}
                       }
                     };                   
 
- 
 
             message = JSON.stringify(message);             
-            console.log(JSON.stringify(message)); 
-
             callSendAPI(message); 
 
         }
