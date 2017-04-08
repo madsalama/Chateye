@@ -206,7 +206,12 @@ request(options, function (error, response, body) {
 
 function sendMediaMessage(recipientId, message) {
 
-  var messageAttachments = message.attachments;
+  var messageAttachments ;
+  
+  message.attachments? 
+    messageAttachments=message.attachments:
+    messageAttachments=message.attachment;
+    
   // var messageAttachments = messageAttachments[0];
   
   var messageAttachments = {
