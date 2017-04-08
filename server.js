@@ -406,9 +406,7 @@ if (messageText){
 
       default:              
         var reqs = app.textRequest(messageText, {
-        sessionId: senderID
-});
-
+        sessionId: senderID });
 
  /**
   * 
@@ -447,13 +445,27 @@ if (messageText){
   // =====================================
 
 reqs.on('response', function(response) {
+var mediaObj; 
+if (response.result.fulfillment.messages){
+  mediaObj = response.result.fulfillment.messages[1]; 
+}
+var textObj = response.result.fulfillment.speech; 
+var textObj = response.result.fulfillment.speech; 
 
+console.log("=======");
+console.log(response); 
+console.log(mediaObj);
+
+sendTextMessage(senderID, textObj);
+
+/////////////////////
 
   mgiphy.get(request, messageText, 25, function(url){
           
           console.log(JSON.stringify(messageText));            
 
-            var url = url;                                               
+            var url = url;    
+
             var message1 = {
                     "attachment": {
                     "type": "image",
@@ -470,18 +482,9 @@ reqs.on('response', function(response) {
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             sendMediaMessage(senderID, message2);
-            
-var mediaObj; 
-if (response.result.fulfillment.messages){
-  mediaObj = response.result.fulfillment.messages[1]; 
-}
-var textObj = response.result.fulfillment.speech; 
 
-console.log("=======");
-console.log(response); 
-console.log(mediaObj);
+////////////////////
 
-sendTextMessage(senderID, textObj);
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
 // API.AI orginating media message (from user)
 
