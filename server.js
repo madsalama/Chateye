@@ -412,9 +412,15 @@ if (messageText){
             var url = url;                                               
             var message = {
                     "attachment": {
-                    "type": "image",
+                    "type": "template",
                     "payload": {
-                    "url":url }}};
+                      "template_type": "generic",
+                      "elements": [{
+                        "item_url": url,               
+                        "image_url": url,  
+                      }]
+                    }
+                  }};
 
               console.log(message);
 
