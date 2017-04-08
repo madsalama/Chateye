@@ -475,15 +475,13 @@ sendTextMessage(senderID, textObj);
                     "payload": {
                     "url":url }}};
 
-
              var message2 = {
                     "attachment": {
                     "type": "image",
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
-
             
-            url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");         // ASYNC!       
+            url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");       
             url?sendMediaMessage(senderID, message2):console.log("================");
 
         });
@@ -521,6 +519,8 @@ reqs.end();
     if (messageAttachments[0].type=="image")     // STILL matches to true?
   {
 
+    console.log(messageAttachments[0]);
+    
 // =================================================
 // |    STARTS A SELFIE GAME > INTENT = SELFIE     |
 // =================================================
