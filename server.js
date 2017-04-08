@@ -403,6 +403,7 @@ if (messageText){
         mgiphy.get(request, messageText, 2, function(url){
 
           var murl = JSON.stringify(url);
+          console.log(murl);
           
           // var myurl = url ;   
           // console.log(myurl);
