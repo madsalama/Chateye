@@ -23,7 +23,7 @@ module.exports = {
                 var url = chosen.url;
             
                 console.log("OBJ:" + obj + " | " + 
-                            "DATA:" + data);
+                            "DATA:" + chosen);
 
                 callback(module.exports.returnData(url));
 
