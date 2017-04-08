@@ -30,8 +30,9 @@ module.exports = {
                 else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
                 var object = JSON.parse(data);
-                var url = object.data[choice].url;                             
-                url = JSON.stringify(url);
+                var url = object.data[choice].url;   
+
+                // url = JSON.stringify(url);
 
                 // url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
 
