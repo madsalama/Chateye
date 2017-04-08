@@ -402,8 +402,8 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 2, function(url){
 
-          var url = JSON.stringify(url);
-
+          // var murl = JSON.stringify(url);
+          var myurl = url ;        
           var message = {        
             recipient:{
                 id:recipientID
@@ -411,10 +411,10 @@ if (messageText){
             
             message:{ 
               attachment:{
-                          type:image,
+                          type:'image',
 
                           payload:{
-                            url:url
+                            url:+""+myurl
                           }}
                       }
                     };                   
