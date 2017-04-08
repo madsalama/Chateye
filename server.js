@@ -463,7 +463,7 @@ sendTextMessage(senderID, textObj);
 
 /////////////////////
 
-  mgiphy.get(request, messageText, 1000, function(url){
+  mgiphy.get(request, messageText, 25, function(url){
           
           console.log(JSON.stringify(messageText));            
 
@@ -482,8 +482,9 @@ sendTextMessage(senderID, textObj);
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
 
+            
             url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");         // ASYNC!       
-            sendMediaMessage(senderID, message2);
+            url?sendMediaMessage(senderID, message2):console.log("================");
 
         });
         
