@@ -33,7 +33,6 @@ module.exports = {
               
                 var url; 
 
-
                 console.time("json parse");
                 var object = JSON.parse(data);      // 4500 element took:   | 25 element took: 
                 console.timeEnd("json parse");

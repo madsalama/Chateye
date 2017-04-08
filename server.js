@@ -463,7 +463,7 @@ sendTextMessage(senderID, textObj);
 
 /////////////////////
 
-  mgiphy.get(request, messageText, 4500, function(url){
+  mgiphy.get(request, messageText, 3000, function(url){
           
           console.log(JSON.stringify(messageText));            
 
