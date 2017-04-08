@@ -13,7 +13,7 @@ module.exports = {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {  
 
-                var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
+                var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)
                             
                 var obj = body ;             
                 var data = obj;                          // ... returned JSON - unparsed? 
