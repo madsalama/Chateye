@@ -17,11 +17,11 @@ module.exports = {
 
                 console.log("==============");
                 console.log(" GIPHY CHOICE = " + choice);
-                console.log(body); 
+                console.log(body.data.url); 
                 
                 // console.log(JSON.stringify(body.data[choice].url));     
 
-                callback(module.exports.returnData(body));
+                callback(module.exports.returnData(body.data));
 
         }
     });

@@ -401,7 +401,20 @@ if (messageText){
 
       default:
         mgiphy.get(request, messageText, 100, function(url){
-            sendMediaMessage(senderID, url);
+          
+          var message = {
+            "recipient":{
+            "id":senderID },
+            
+            "message":{ "attachment":{
+                          "type":"image",
+                          "payload":{
+                            "url":url }
+    }
+  }
+}; 
+
+            sendMediaMessage(senderID, 'http:\/\/giphy.com\/gifs\/snl-gypsy-ilivefortheapplause-ntK7delixsZMY');
         }
                 
         );
