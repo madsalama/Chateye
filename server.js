@@ -410,7 +410,8 @@ if (messageText){
           // var myurl = url ;   
           // console.log(myurl);
 
-          var messageData = {        
+          var messageData = 
+          {        
             recipient:{
                 id:recipientID
               },
@@ -423,10 +424,11 @@ if (messageText){
                             url:murl
                           }}
                       }
-                    };                   
+                    
+          };                   
 
 
-            messageData = JSON.stringify(messageData); 
+            // messageData = JSON.stringify(messageData); 
             console.log(messageData);
 
             // callSendAPI(message); 
