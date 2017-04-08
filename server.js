@@ -211,7 +211,7 @@ function sendMediaMessage(recipientId, message) {
   message.attachments? 
     messageAttachments=message.attachments:
     messageAttachments=message.attachment;
-    
+
   // var messageAttachments = messageAttachments[0];
   
   var messageAttachments = {
@@ -416,7 +416,7 @@ if (messageText){
 
               console.log(message);
 
-            sendMediaMessage(recipientID, message);
+            sendMediaMessage(senderID, message);
 
         }
                 
