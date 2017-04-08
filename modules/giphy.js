@@ -29,7 +29,7 @@ module.exports = {
                 else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
                 else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
-                var object = JSON.parse(data);                  // PERFORMANCE WARNING: That took 2 seconds! 
+                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!
                 var url = object.data[choice].url;   
 
                 // url = JSON.stringify(url);

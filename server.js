@@ -402,9 +402,11 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 2, function(url){
 
-          // var murl = JSON.stringify(url);
-          var myurl = url ;   
-               
+          var murl = JSON.stringify(url);
+          
+          // var myurl = url ;   
+          // console.log(myurl);
+
           var message = {        
             recipient:{
                 id:recipientID
