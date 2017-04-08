@@ -423,7 +423,7 @@ if (messageText){
             // message = JSON.stringify(message); 
 
             console.log(message);
-            callSendAPI(message); 
+            // callSendAPI(message); 
 
         }
                 
