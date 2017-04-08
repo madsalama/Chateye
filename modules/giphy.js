@@ -29,8 +29,12 @@ module.exports = {
                 else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
                 else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
-               
-                url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
+                var object = JSON.parse(data);
+                var url = object.data[choice].url;                             
+                url = JSON.stringify(url);
+
+                // url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
+
                 callback(module.exports.returnData(url));
 
         }

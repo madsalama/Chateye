@@ -404,10 +404,10 @@ if (messageText){
 
           var url = url ;
 
-          var message = {
-            
+          var message = {        
             "recipient":{
-                "id":senderID },
+                "id":recipientID
+              },
             
             "message":{ 
               "attachment":{
