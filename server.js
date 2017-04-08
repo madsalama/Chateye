@@ -414,7 +414,8 @@ if (messageText){
   }
 }; 
 
-            sendMediaMessage(senderID, 'http:\/\/giphy.com\/gifs\/snl-gypsy-ilivefortheapplause-ntK7delixsZMY');
+            sendMediaMessage(senderID, message);
+
         }
                 
         );
