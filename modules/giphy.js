@@ -19,15 +19,14 @@ module.exports = {
 
                 var obj = body ; 
                 var data = obj.data;
-                var chosen = data[choice]; 
-                var url = chosen.url;
+                
+                // var chosen = data[choice]; 
+                // var url = chosen.url;
             
                 console.log("OBJ:" + obj + " | " + 
-                            "DATA:" + data +  " | " + 
-                            "CHOSEN:" + chosen +  " | " + 
-                            "URL:" + url );
+                            "DATA:" + data  );
 
-                callback(module.exports.returnData(url));
+                // callback(module.exports.returnData(url));
 
         }
     });
