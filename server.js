@@ -85,6 +85,7 @@ keyFilename: './NLPI-c6ba16b1d273.json'
       
 var mvision = require('./modules/vision');
 var mkairos = require('./modules/kairos');
+var mgiphy = require('./modules/giphy');
 var maudio = require('./modules/audio');
 
 var base64 = require('base-64');
@@ -399,6 +400,12 @@ if (messageText){
         break;
 
       default:
+        mgiphy.get(request, messageText, 100, function(url){
+            sendMediaMessage(senderID, url);
+        }
+                
+        );
+        
         var reqs = app.textRequest(messageText, {
         sessionId: senderID
 });

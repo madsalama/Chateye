@@ -1,11 +1,8 @@
 
 module.exports = {
     returnData:function(data){
-        return data;
+        return data;                // one GIPHY
     },
-
-    // Get a random result within 100 results with a set of keywords 
-    // Keywords is a sentence separated by spaces! 
 
     get:function(request, keywords, limit, callback){        
         var keywords = encodeURIComponent(keywords);        
@@ -14,8 +11,16 @@ module.exports = {
                 method: 'GET' }; 
 
     request(module.exports.options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {                
-                callback(module.exports.returnData(body));
+        if (!error && response.statusCode == 200) {  
+
+                var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
+
+                console.log("==============");
+                console.log(" GIPHY CHOICE = " + choice);
+                console.log(JSON.stringify(body.data[2].url));     
+
+                callback(module.exports.returnData(body.data[2].url));
+
         }
     });
 
@@ -26,4 +31,4 @@ module.exports = {
 
 
 
-}
+}; 

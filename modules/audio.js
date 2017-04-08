@@ -34,8 +34,6 @@ module.exports={
                         }
                     console.log("The file was saved!"); }); 
                 
-
-
                     const req = {
                     encoding: 'LINEAR16',
                     sampleRate: 16000
