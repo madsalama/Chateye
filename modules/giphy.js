@@ -18,12 +18,16 @@ module.exports = {
                 console.log("==============");                
 
                 var obj = body ;             
-                var data = obj;                
-                var chosen = data[choice]; 
+                var data = obj;                          // ... returned JSON - unparsed? 
+                
+                var parsedData = JSON.parse(data);                  // ... PARSED!
+                var stringifiedData = JSON.stringify(data);         // ... STRINGIFIED!
+
+                var chosen = parsedData[choice]; 
                 var url = chosen.url;
             
                 console.log("OBJ:" + obj + " | " + 
-                            "DATA:" + chosen);
+                            "PARSED-DATA:" + parsedData);
 
                 callback(module.exports.returnData(url));
 
