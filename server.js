@@ -402,9 +402,8 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 2, function(url){
 
-          var murl = JSON.stringify(url);
-          console.log(murl);
-          
+          var murl = JSON.stringify(url);          
+
           // var myurl = url ;   
           // console.log(myurl);
 
