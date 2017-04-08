@@ -14,9 +14,7 @@ module.exports = {
         if (!error && response.statusCode == 200) {  
 
                 var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
-
-                               
-
+                            
                 var obj = body ;             
                 var data = obj;                          // ... returned JSON - unparsed? 
                 
@@ -33,7 +31,7 @@ module.exports = {
                 
                 console.log(JSON.stringify(object.data[choice]));
 
-                var url = object.data[choice].url;   
+                var url = object.data[0].url;   
 
                 // url = JSON.stringify(url);
                 // url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 

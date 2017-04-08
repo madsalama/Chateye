@@ -400,7 +400,7 @@ if (messageText){
         break;
 
       default:
-        mgiphy.get(request, messageText, 3, function(url){
+        mgiphy.get(request, messageText, 2, function(url){
 
           var murl = JSON.stringify(url);
           
