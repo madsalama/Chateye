@@ -1,4 +1,22 @@
 
+// ORIGINAL 
+
+        mgiphy.get(request, messageText, 25, function(url){
+          
+            console.log(JSON.stringify(messageText));            
+
+            var url = url;                                               
+            var message = {
+                    "attachment": {
+                    "type": "image",
+                    "payload": {
+                    "url":url }}};
+
+              console.log(message);
+
+            sendMediaMessage(senderID, message);
+        });
+
 
 
  type: "template",
@@ -11,4 +29,3 @@
             image_url: "http://messengerdemo.parseapp.com/img/rift.png",
 
 
-            

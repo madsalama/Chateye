@@ -274,7 +274,7 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-function sendGenericMessage(recipientId, messageText) {
+function sendGenericMessage(recipientId, url) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -286,9 +286,9 @@ function sendGenericMessage(recipientId, messageText) {
           template_type: "generic",
           elements: [{
             title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",               
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+            subtitle: url,
+            item_url: url,               
+            image_url: url,
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/rift/",
@@ -407,24 +407,20 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 25, function(url){
           
-            console.log(JSON.stringify(messageText));            
+          console.log(JSON.stringify(messageText));            
 
             var url = url;                                               
             var message = {
                     "attachment": {
-                    "type": "template",
+                    "type": "image",
                     "payload": {
-                      "template_type": "generic",
-                      "elements": [{
-                        "item_url": url,               
-                        "image_url": url,  
-                      }]
-                    }
-                  }};
+                    "url":url }}};
 
               console.log(message);
 
             sendMediaMessage(senderID, message);
+            sendGenericMessage(senderID, url);
+            
         });
         
         var reqs = app.textRequest(messageText, {
