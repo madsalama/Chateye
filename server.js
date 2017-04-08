@@ -519,8 +519,8 @@ reqs.end();
     if (messageAttachments[0].type=="image")     // STILL matches to true?
   {
 
-    console.log(messageAttachments[0]);
-    
+    console.log(messageAttachments);
+
 // =================================================
 // |    STARTS A SELFIE GAME > INTENT = SELFIE     |
 // =================================================
