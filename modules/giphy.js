@@ -25,11 +25,17 @@ module.exports = {
 
 
                 console.log("======= GIPHY LOGGER ======="); 
-                var chosenA = parsedData[choice];               console.log(chosenA);
-                var chosenB = stringifiedData[choice];          console.log(chosenB);
+                var chosenA = parsedData[choice];               
+                console.log(chosenA);
+                
+                var chosenB = stringifiedData[choice];          
+                console.log(chosenB);
 
-                var urlA = chosenA.url;     console.log(urlA);
-                var urlB = chosenB.url;     console.log(urlB);
+                // var urlA = chosenA.url;     
+                // console.log(urlA);
+                
+                var urlB = chosenB.url;     
+                console.log(urlB);
                     
                 
                 url = "blurgh" ; 
