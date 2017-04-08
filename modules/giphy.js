@@ -16,9 +16,10 @@ module.exports = {
                 var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
 
                 console.log("==============");
-                console.log(" GIPHY CHOICE = " + choice);            
-            
-                callback(module.exports.returnData(body[choice].url));
+                console.log(" GIPHY CHOICE = " + choice);
+                console.log(JSON.stringify(body[choice].url));
+
+                callback(module.exports.returnData(body[choice].url));              // DEBUG 
 
         }
     });

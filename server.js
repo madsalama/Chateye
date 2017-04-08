@@ -414,7 +414,7 @@ if (messageText){
   }
 }; 
 
-            sendMediaMessage(senderID, message);
+            callSendAPI(message); 
 
         }
                 
