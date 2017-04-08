@@ -23,12 +23,15 @@ module.exports = {
                 var parsedData = JSON.parse(data);                  // ... PARSED!
                 var stringifiedData = JSON.stringify(data);         // ... STRINGIFIED!
 
-                var chosen = parsedData[choice]; 
-                var url = chosen.url;
+                // var chosen = parsedData[choice]; 
+                // var url = chosen.url;
             
                 console.log("OBJ:" + obj + " | " + 
-                            "PARSED-DATA:" + parsedData);
-
+                            "PARSED-DATA:" + parsedData + " | " + 
+                            "STRINGIFIED-DATA:" + stringifiedData
+                            );
+                
+                url = "blurgh" ; 
                 callback(module.exports.returnData(url));
 
         }
