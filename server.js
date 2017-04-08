@@ -403,21 +403,23 @@ if (messageText){
         mgiphy.get(request, messageText, 1, function(url){
 
           var message = {
-            "recipient":{
-            "id":senderID },
             
-            "message":{ "attachment":{
+            "recipient":{
+                "id":senderID },
+            
+            "message":{ 
+              "attachment":{
                           "type":"image",
-                          "payload":{
-                            "url":url }
-    }
-  }
-}; 
 
+                          "payload":{
+                            "url":""+url
+                          }}
+                      }
+                    }; 
 
             console.log(message);
             console.log(JSON.stringify(message));
-            
+
             // callSendAPI(message); 
 
         }
