@@ -400,10 +400,10 @@ if (messageText){
         break;
 
       default:
-        mgiphy.get(request, messageText, 1, function(url){
+        mgiphy.get(request, messageText, 2, function(url){
 
           var url = url ;
-          
+
           var message = {
             
             "recipient":{
