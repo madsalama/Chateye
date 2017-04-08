@@ -31,8 +31,12 @@ module.exports = {
 
               console.log(choice);
               
-                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                           
-                var url = object.data[choice].images.fixed_width.url; 
+                var url; 
+                
+                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                       
+                
+                object.data[choice].images.fixed_width.url? 
+                    url = object.data[choice].images.fixed_width.url:console.log("GIPHY NOT FOUND!");; 
 
                 callback(module.exports.returnData(url));
 

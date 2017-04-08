@@ -446,10 +446,12 @@ if (messageText){
   // =====================================
 
 reqs.on('response', function(response) {
+
 var mediaObj; 
 if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
 }
+
 var textObj = response.result.fulfillment.speech; 
 var textObj = response.result.fulfillment.speech; 
 
