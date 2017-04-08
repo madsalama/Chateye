@@ -20,25 +20,17 @@ module.exports = {
                 var obj = body ;             
                 var data = obj;                          // ... returned JSON - unparsed? 
                 
-                var parsedData = JSON.parse(data);                  // ... PARSED! not a good idea! - ALREADY PARSED!
-                var stringifiedData = JSON.stringify(data);         // ... STRINGIFIED!
+                var stringConstructor = "test".constructor;
+                var arrayConstructor = [].constructor;
+                var objectConstructor = {}.constructor;
 
-
-                console.log("======= GIPHY LOGGER ======="); 
-                var chosenA = parsedData[choice];               
-                console.log(chosenA);
+                console.log("=========== GIPHY LOGGER! ==========");
+                if (data.constructor===stringConstructor){  console.log("STRING!"); }
+                else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
+                else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
-                var chosenB = stringifiedData[choice];          
-                console.log(chosenB);
-
-                // var urlA = chosenA.url;     
-                // console.log(urlA);
-                
-                var urlB = chosenB.url;     
-                console.log(urlB);
-                    
-                
-                url = "blurgh" ; 
+               
+                url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
                 callback(module.exports.returnData(url));
 
         }

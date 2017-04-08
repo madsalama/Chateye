@@ -421,10 +421,10 @@ if (messageText){
 
             console.log(message);
             console.log(JSON.stringify(message));
-            
+
             message = JSON.stringify(message); 
 
-            // callSendAPI(message); 
+            callSendAPI(message); 
 
         }
                 
