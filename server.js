@@ -417,14 +417,14 @@ if (messageText){
                     "url":url }}};
 
             sendMediaMessage(senderID, message1);         // ASYNC       
-                                       
+
         });
         
              var message2 = {
                     "attachment": {
                     "type": "image",
                     "payload": {
-                    "url":"https://chatzer.herokuapp.com/giphy.png" }}};
+                    "url":"https://chatzer.herokuapp.com/logo.png" }}};
             sendMediaMessage(senderID, message2);
 
         
