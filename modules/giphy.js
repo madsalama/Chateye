@@ -32,11 +32,13 @@ module.exports = {
               console.log(choice);
               
                 var url; 
+
+                console.time("json parse starts...");
+                var object = JSON.parse(data);
+                console.time("json parse done...");
                 
-                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                       
-                
-                object.data[choice].images.fixed_width.url? 
-                    url = object.data[choice].images.fixed_width.url:console.log("GIPHY NOT FOUND!");; 
+                object? url = object.data[choice].images.fixed_width.url:console.log("GIPHY NOT FOUND!");                
+                    
 
                 callback(module.exports.returnData(url));
 
