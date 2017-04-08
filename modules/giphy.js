@@ -30,10 +30,7 @@ module.exports = {
                 // console.log(JSON.stringify(object.data[choice]));
                 var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                           
                 var url = object.data[choice].images.fixed_width.url; 
-
-                // url = JSON.stringify(url);
-                // url = "http:\/\/giphy.com\/gifs\/mashable-nfl-lady-gaga-26xBMBPblt8oPCEN2"; 
-
+                
                 callback(module.exports.returnData(url));
 
         }

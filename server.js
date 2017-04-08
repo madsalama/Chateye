@@ -405,7 +405,7 @@ if (messageText){
         break;
 
       default:
-        mgiphy.get(request, messageText, 3, function(url){
+        mgiphy.get(request, messageText, 50, function(url){
           
             var url = url;                                   
             var message = {
