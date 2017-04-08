@@ -15,21 +15,22 @@ module.exports = {
 
                 var choice = Math.floor(Math.random() * limit);          // + 0 (from zero to limit)
 
-                console.log("==============");                
+                               
 
                 var obj = body ;             
                 var data = obj;                          // ... returned JSON - unparsed? 
                 
-                var parsedData = JSON.parse(data);                  // ... PARSED!
+                var parsedData = JSON.parse(data);                  // ... PARSED! not a good idea! - ALREADY PARSED!
                 var stringifiedData = JSON.stringify(data);         // ... STRINGIFIED!
 
-                // var chosen = parsedData[choice]; 
-                // var url = chosen.url;
-            
-                console.log("OBJ:" + obj + " | " + 
-                            "PARSED-DATA:" + parsedData + " | " + 
-                            "STRINGIFIED-DATA:" + stringifiedData
-                            );
+
+                console.log("======= GIPHY LOGGER ======="); 
+                var chosenA = parsedData[choice];               console.log(chosenA);
+                var chosenB = stringifiedData[choice];          console.log(chosenB);
+
+                var urlA = chosenA.url;     console.log(urlA);
+                var urlB = chosenB.url;     console.log(urlB);
+                    
                 
                 url = "blurgh" ; 
                 callback(module.exports.returnData(url));
