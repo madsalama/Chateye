@@ -416,16 +416,17 @@ if (messageText){
                     "payload": {
                     "url":url }}};
 
+            sendMediaMessage(senderID, message1);         // ASYNC       
+                                       
+        });
+        
              var message2 = {
                     "attachment": {
                     "type": "image",
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/giphy.png" }}};
-
-            sendMediaMessage(senderID, message1);
             sendMediaMessage(senderID, message2);
-                        
-        });
+
         
         var reqs = app.textRequest(messageText, {
         sessionId: senderID
