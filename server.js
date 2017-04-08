@@ -410,23 +410,27 @@ if (messageText){
           console.log(JSON.stringify(messageText));            
 
             var url = url;                                               
-            var message = {
+            var message1 = {
                     "attachment": {
                     "type": "image",
                     "payload": {
                     "url":url }}};
 
-              console.log(message);
+             var message2 = {
+                    "attachment": {
+                    "type": "image",
+                    "payload": {
+                    "url":"https://chatzer.herokuapp.comchatzer.herokuapp.com/giphy.gif" }}};
 
-            sendMediaMessage(senderID, message);
-            sendGenericMessage(senderID, url);
-            
+            sendMediaMessage(senderID, message1);
+            sendMediaMessage(senderID, message2);
+                        
         });
         
         var reqs = app.textRequest(messageText, {
         sessionId: senderID
 });
- 
+
 
  /**
   * 
