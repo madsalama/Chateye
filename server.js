@@ -402,26 +402,16 @@ if (messageText){
       default:
         mgiphy.get(request, messageText, 3, function(url){
           
-          var murl = url ;        
-          var messageAttachments = {
-            type: 'image',
-            payload: {
-            url: murl 
-          } };
-    
+            var url = url;                                   
+            var message = {
+                    "attachment": {
+                    "type": "image",
+                    "payload": {
+                    "url":url }}};
 
-          var messageData = {        
-            recipient:{
-                id:recipientID
-              },
-            
-            message:{ 
-              attachment: JSON.stringify(messageAttachments)}                  
-          };                           
-
-            console.log(messageData);
-
-            callSendAPI(message); 
+              console.log(message);
+              
+            // sendMediaMessage(recipientID, message);
 
         }
                 
