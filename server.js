@@ -417,7 +417,7 @@ if (messageText){
                           type:'image',
 
                           payload:{
-                            url:+""+murl
+                            url:murl
                           }}
                       }
                     };                   
