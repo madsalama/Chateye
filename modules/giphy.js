@@ -27,10 +27,8 @@ module.exports = {
                 else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
                 else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
                 
-                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!
-                
-                console.log(JSON.stringify(object.data[choice]));
-
+                // console.log(JSON.stringify(object.data[choice]));
+                var object = JSON.parse(data);      // PERFORMANCE WARNING: That took 2 seconds!                           
                 var url = object.data[choice].images.fixed_width.url; 
 
                 // url = JSON.stringify(url);
