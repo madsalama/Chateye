@@ -420,7 +420,7 @@ if (messageText){
                     "attachment": {
                     "type": "image",
                     "payload": {
-                    "url":"https://chatzer.herokuapp.comchatzer.herokuapp.com/giphy.gif" }}};
+                    "url":"https://chatzer.herokuapp.com/giphy.gif" }}};
 
             sendMediaMessage(senderID, message1);
             sendMediaMessage(senderID, message2);
