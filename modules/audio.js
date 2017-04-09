@@ -13,8 +13,8 @@ module.exports={
 
 
 
-convert:function(filename){
-cloudconvert.convert({
+convert:function(filename, cloudconvert){
+        cloudconvert.convert({
                     "inputformat": "mp4",
                     "outputformat": "wav",
                     "input": "download",
@@ -43,10 +43,7 @@ cloudconvert.convert({
 //////////////////////////// USE REQUEST MODULE ////////////////////////////
 
 
-                fs.createReadStream(filename)
-                .pipe()
-                .pipe(fs.createWriteStream(filename+".wav"));
-
+              
 ////////////////////////////////////////////////////////////////////////////
 
 
