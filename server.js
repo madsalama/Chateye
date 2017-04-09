@@ -341,6 +341,8 @@ function receivedMessage(event) {
       default:
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
+        
+        ///// API AI REQUEST 
 
   // =====================================
   //   HANDLE THE RESPONSE FROM API.AI 
@@ -391,25 +393,27 @@ console.log(mediaObj);
 
 sendTextMessage(senderID, textObj);
 
-/////////////////////
-
-
-// sendGiphy(request,messageText,10,senderID); 
-
-
-////////////////////
+///////////////////////////////////////////////////////////////
+  // sendGiphy(request,messageText,10,senderID); 
+//////////////////////////////////////////////////////////////
 
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
 // API.AI orginating media message (from user)
 
 
-});
+});  
  
 reqs.on('error', function(error) {
     console.log(error);
 });
  
 reqs.end();
+
+
+
+///// API AI RESPONSE 
+
+
 
     }
 
@@ -495,7 +499,11 @@ reqs.end();
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
               console.log(result);  
-              // send TEXT result to API.AI - all the time!                 
+
+                // SEND result to API.AI
+                // var reqs = app.textRequest(result, {
+                // sessionId: senderID });
+
           });
 
         } ///// 

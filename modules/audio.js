@@ -11,41 +11,7 @@ module.exports={
                 headers: module.exports.headers 
             }, 
 
-
-
-convert:function(filename, cloudconvert){
-        cloudconvert.convert({
-                    "inputformat": "mp4",
-                    "outputformat": "wav",
-                    "input": "download",
-                    "file": filename,
-                    "filename": filename+".wav"
-                }); 
-
-},
-    transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
-
-                // 1- DOWNLOAD THE FILE and CONVERT to WAV 
-                var download = function(uri, filename, callback){
-                request.head(uri, function(err, res, body){
-
-                console.log('content-type:', res.headers['content-type']);
-                console.log('content-length:', res.headers['content-length']);
-
-                request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-                });
-                };
-
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
-
-                download(file, filename, function(){                                            
-
-////////////////////////////////// CONVERT FILE TO WAV > TRANSCRIBE ///////////////////////////
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
+ibm:function(filepath,speech2text, callback){
 
                         var file = filename+"" ; 
                         var params = {
@@ -70,9 +36,39 @@ convert:function(filename, cloudconvert){
                             }
                            
                         });
+
+},
+
+convert:function(senderID, timeOfMessage, cloudconvert, callback){
+        cloudconvert.convert({
+                    "inputformat": "mp4",
+                    "outputformat": "wav",
+                    "input": "download",
+                    "file": "https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage})
+                    .on('close', callback);         
+},
+    transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
+
+                // 1- DOWNLOAD THE FILE and CONVERT to WAV 
+                var download = function(uri, filename, callback){
+                request.head(uri, function(err, res, body){
+
+                console.log('content-type:', res.headers['content-type']);
+                console.log('content-length:', res.headers['content-length']);
+
+                request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+                });
+                };
+
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
+
+                download(file, filename, function(){                                            
                     
-                    
-                }); 
+                    module.exports.convert(senderID, timeOfMessage, cloudconvert, 
+                        module.exports.ibm(filepath,speech2text, function(result){      
+                            module.exports.returnData(result);                       
+                        }));                   
+                    }); 
 
     },
 
