@@ -24,7 +24,7 @@ module.exports={
                             }
                             
                             else{
-                                console.log(JSON.stringify(transcript, null, 2));
+                                 // console.log(JSON.stringify(transcript, null, 2));
                                  callback(JSON.stringify(transcript, null, 2));  
                                  // then delete audio
                             }
@@ -70,9 +70,7 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
                    module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res,err){      
                        console.log(" ... audio file converted at " + wav + "!");  
 
-                         module.exports.ibm(fs, wav,speech2text, function(result){
-                             console.log(" ... audio file transcribed!"); 
-                            
+                         module.exports.ibm(fs, wav,speech2text, function(result){                        
                             module.exports.returnData(result);                       
                        }); 
 
