@@ -330,7 +330,7 @@ function receivedMessage(event) {
 
   if (messageText) {
 
-  analyzegoogleNLP(messageText);
+  // analyzegoogleNLP(messageText);
 
 
     // If we receive a text message, check to see if it matches a keyword
@@ -340,10 +340,9 @@ function receivedMessage(event) {
         sendGenericMessage(senderID);
         break;
 
-      default:              
+      default:
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
-
 
   // =====================================
   //   HANDLE THE RESPONSE FROM API.AI 
@@ -397,7 +396,7 @@ sendTextMessage(senderID, textObj);
 /////////////////////
 
 
-sendGiphy(request,messageText,10,senderID); 
+// sendGiphy(request,messageText,10,senderID); 
 
 
 ////////////////////
