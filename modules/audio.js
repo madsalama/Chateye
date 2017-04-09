@@ -29,7 +29,7 @@ module.exports={
                         for (var file in files) {
                         var params = {
                             audio: fs.createReadStream(files[file]),
-                            content_type: 'audio/mp3',
+                            content_type: 'audio/mp4',
                             timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],
