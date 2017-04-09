@@ -4,11 +4,9 @@ module.exports={
         return data;
     },
 
-    ibm:function(fs,filepath,speech2text, callback){
-
-                        var file = filepath+"" ; 
+    ibm:function(fs,filepath,speech2text, callback){                        
                         var params = {
-                            audio: fs.createReadStream(file),
+                            audio: fs.createReadStream(filepath),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
                             // timestamps: true,
                             // word_alternatives_threshold: 0.9,
@@ -60,15 +58,18 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
 
                 download(file, filename, function(){                                            
 
-
+                        console.log("...audio file downloaded at " + filename + "!");                        
         ////////////////////////////////////////////////////////////////
-
-                    module.exports.convert(senderID, timeOfMessage, cloudconvert, function(res){                            
+/**
+ *                     module.exports.convert(senderID, timeOfMessage, cloudconvert, function(res){                            
                         module.exports.ibm(fs, filename,speech2text, function(result){
                             module.exports.returnData(result);                       
                         }); 
 
                     }); // CONVERT 
+
+ */
+
 
         ////////////////////////////////////////////////////
 
