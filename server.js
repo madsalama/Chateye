@@ -395,15 +395,8 @@ console.log("=======");
 console.log(response); 
 console.log(mediaObj);
 
-sendTextMessage(senderID, textObj);
-
-///////////////////////////////////////////////////////////////
-  // sendGiphy(request,messageText,10,senderID); 
-//////////////////////////////////////////////////////////////
-
+textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
-// API.AI orginating media message (from user)
-
 
 });  
  

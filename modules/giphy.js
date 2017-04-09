@@ -4,6 +4,13 @@ module.exports = {
         return data;                // one GIPHY
     },
 
+
+
+///////////////////////////////////////////////////////////////////////////////
+//    HOW TO USE IN SERVER.JS = sendGiphy(request,messageText,10,senderID); 
+/////////////////////////////////////////////////////////////////////////////
+
+
     get:function(request, keywords, limit, callback){        
         var keywords = encodeURIComponent(keywords);        
         var options = {
