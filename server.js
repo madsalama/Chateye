@@ -412,9 +412,8 @@ function receivedMessage(event) {
 
   // analyzegoogleNLP(messageText);
 
-  // analyzeIBM
+  // =============== analyzeIBM  =====================
   // only ANALYZE if in context LISTEN - or back to context LISTEN 
-
   mwatson.manalyze(watsonNLUClient, messageText, function(response){
     var response = response;
     console.log(response);
@@ -429,10 +428,7 @@ function receivedMessage(event) {
 
       default:
          api_ai(senderID, messageText, app);
-///// API AI RESPONSE 
-
-
-
+ 
     }
 
 
@@ -534,7 +530,7 @@ function receivedMessage(event) {
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
                       
-                api_ai(senderID, transcript, sessionId, app);
+                api_ai(senderID, transcript, app);
 
           });
 
