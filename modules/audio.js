@@ -23,10 +23,14 @@ module.exports={
                                 // then delete audio 
                             }
                             
-                            else{
-                                 // console.log(JSON.stringify(transcript, null, 2));
-                                 callback(JSON.stringify(transcript, null, 2));  
-                                 // then delete audio
+                            else {
+
+                                callback(JSON.stringify(transcript, null, 2)); 
+
+                                // var result = JSON.stringify(transcript, null, 2); 
+                                // console.log(result);
+                                // callback(module.exports.returnData(result));  
+                                // then delete audio
                             }
                            
                         });
@@ -67,11 +71,11 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
                 download(file, mp4, function(){                                            
                         console.log(" ... audio file downloaded at " + mp4 + "!");                        
 
-                   module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res,err){      
+                   module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res, err){      
                        console.log(" ... audio file converted at " + wav + "!");  
 
-                         module.exports.ibm(fs, wav,speech2text, function(result){                        
-                            module.exports.returnData(result);                       
+                         module.exports.ibm(fs, wav, speech2text, function(result){                        
+                            callback(module.exports.returnData(result));                       
                        }); 
 
                     }); // CONVERT 
