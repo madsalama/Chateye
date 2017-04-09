@@ -9,7 +9,7 @@ module.exports={
                             audio: fs.createReadStream(filepath),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
                             model:'en-US_NarrowbandModel'
-                            
+
                             // timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],
@@ -24,6 +24,7 @@ module.exports={
                             }
                             
                             else{
+                                console.log(JSON.stringify(transcript, null, 2));
                                  callback(JSON.stringify(transcript, null, 2));  
                                  // then delete audio
                             }
