@@ -498,9 +498,9 @@ reqs.end();
   var audio = messageAttachments[0].payload.url;    
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
-              console.log(result);  
-              console.log(result[0]);
-              console.log(result[0].alternatives);
+
+              console.log(result);              
+              console.log(result.alternatives[0]);
 
                 // SEND result to API.AI
                 // var reqs = app.textRequest(result, {
