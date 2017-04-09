@@ -4,9 +4,26 @@ module.exports={
         return data;
     },
 
-    download:function(senderID, timeOfMessage, fs, request, file, speech2text, callback){
+    headers:{
+            'User-Agent':       'Super Agent/0.0.1',
+            'Content-Type':     'application/x-www-form-urlencoded',
+            "apikey": "NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A",
+            "input": "upload",
+            "wait": true,
+            "download": "inline" 
+        },
 
-                // 1- DOWNLOAD THE FILE 
+
+  options:{
+                url: 'https://api.cloudconvert.com/convert',
+                method: 'POST',                   
+                headers: module.exports.headers 
+            }, 
+
+
+    transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
+
+                // 1- DOWNLOAD THE FILE and CONVERT to WAV 
                 var download = function(uri, filename, callback){
                 request.head(uri, function(err, res, body){
 
@@ -21,15 +38,23 @@ module.exports={
                 // var filename = './static/audio.wav';
 
                 download(file, filename, function(){                    
-                        callback(module.exports.returnData("file downloaded!"));
                         
-                        // DO SOMETHING WITH THE FILE 
+
+                fs.createReadStream(filename)
+                .pipe(cloudconvert.convert({
+                    "inputformat": "mp4",
+                    "outputformat": "wav",
+                    "input": "upload",
+                    "file": filename,
+                    "filename": filename+".wav"
+                }))
+                .pipe(fs.createWriteStream(filename+".wav"));
 
                         var files = [filename];
                         for (var file in files) {
                         var params = {
                             audio: fs.createReadStream(files[file]),
-                            content_type: 'audio/l16;rate=8000;',
+                            content_type: 'audio/wav',    // content_type: 'video/mp4' 
                             // timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],

@@ -83,12 +83,12 @@ projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
 });
       
-var mvision = require('./modules/vision');
-var mkairos = require('./modules/kairos');
-var mgiphy = require('./modules/giphy');
-var maudio = require('./modules/audio');
+const mvision = require('./modules/vision');
+const mkairos = require('./modules/kairos');
+const mgiphy = require('./modules/giphy');
+const maudio = require('./modules/audio');
 
-var base64 = require('base-64');
+const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
 var bodyParser = require("body-parser");
 
@@ -492,17 +492,19 @@ reqs.end();
           
           
   var audio = messageAttachments[0].payload.url;  
-  maudio.download(senderID, timeOfMessage, fs, request, audio, speech2text,         
-            function(result){
 
-                 console.log(result);
+
+  
+  maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
+            function(result){
+              console.log(result);                  
           });
 
 
-    
 
 
-        }
+        } ///// 
+
 
         
 
