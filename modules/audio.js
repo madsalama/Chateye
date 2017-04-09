@@ -42,7 +42,6 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                     ); 
                 
                 callback("Conversion Complete");                          
-
 },
     transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
 
@@ -62,7 +61,7 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                 download(file, filename, function(){                                            
 
 
-                    ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
 
                     module.exports.convert(senderID, timeOfMessage, cloudconvert, function(res){                            
                         module.exports.ibm(fs, filename,speech2text, function(result){
@@ -71,7 +70,7 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
 
                     }); // CONVERT 
 
-                    ////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
 
 
 
