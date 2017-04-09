@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    ibm:function(filepath,speech2text, callback){
+    ibm:function(fs,filepath,speech2text, callback){
 
                         var file = filepath+"" ; 
                         var params = {
@@ -58,7 +58,7 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                 download(file, filename, function(){                                            
 
                     module.exports.convert(senderID, timeOfMessage, cloudconvert, 
-                        module.exports.ibm(filename,speech2text, function(result){      
+                        module.exports.ibm(fs, filename,speech2text, function(result){      
                             module.exports.returnData(result);                       
                         }));                   
                     }); 
