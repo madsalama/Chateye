@@ -142,39 +142,7 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
- /**
-  * 
-
-result: { 
-
-  source: 'agent',
-  resolvedQuery: 'Hi there!',
-  action: '',
-  actionIncomplete: false,
-  
-  parameters: { greetings: 'Hello, there!' },
-  contexts: [],
-
-  metadata: { 
-    intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
-    webhookUsed: 'false',
-    webhookForSlotFillingUsed: 'false',
-    intentName: 'greet' },
-    
-  fulfillment: { 
-      speech: 'Aloha! How\'s your day going!?', messages: [Object] },
-      score: 1 },
-      status: { code: 200, errorType: 'success' },
-      sessionId: '1450043748391296' 
-}
-
-
-  */
-
-
-
 function callSendAPI(messageData) {
-
 // Set the headers
 var headers = {
     'User-Agent':       'Super Agent/0.0.1',
@@ -205,6 +173,8 @@ request(options, function (error, response, body) {
 
 }
 
+////////////////////////////////////////////////////////////
+
 function sendMediaMessage(recipientId, message) {
 
   var messageAttachments ;
@@ -233,33 +203,9 @@ function sendMediaMessage(recipientId, message) {
 
 
 
-
-
-
-
-/* EXPECTED FORMAT */
-/*
-'
-{
-  "recipient":{
-    "id":"USER_ID"
-  },
-  "message":{
-    "attachment":{
-      "type":"image",
-      "payload":{
-        "url":"https://petersapparel.com/img/shirt.png"
-      }
-    }
-  }
-}
-'
-*/
-
  callSendAPI(messageData);            
 
 }
-
 
 function sendTextMessage(recipientId, messageText) {
 
@@ -323,145 +269,8 @@ function sendGenericMessage(recipientId, url) {
 
 }
 
-
-
-function receivedMessage(event) {
-
-  var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
-  var timeOfMessage = event.timestamp;
-  var message = event.message;
-
-  console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
-  console.log(JSON.stringify(message));
-
-  var messageId = message.mid;
-
-  var messageText = message.text;
-  var messageAttachments = message.attachments;
-
-
-
-
-
-
-/*
-
-if (messageAttachments.type="audio")
+function sendGiphy(request,messageText,limit, senderID)
 {
-
-//  console.log(JSON.stringify(messageAttachments[0].payload.url)); 
-  
-  var audio = messageAttachments[0].payload.url; 
-  speechClient.recognize(''+audio, {
-  encoding: 'LINEAR16',
-  sampleRate: 16000
-
-}, function(err, transcript) {
-  console.log(transcript);
-  console.log(err);
-
-});
-
-
-}
-
-**/
-
-
-
-
-
-
-if (messageText){
-
-    var document = languageClient.document(messageText);
-    document.detectSentiment(function(err, sentiment) { 
-  
-    var score = JSON.stringify(sentiment.score);          
-    var magnitude = JSON.stringify(sentiment.magnitude);  
-
-    console.log("Score = " + score + " | Magnitude = " + magnitude);
-
-
-});
-
-}
-
-
-
-  
-
-
-
-
-  if (messageText) {
-
-    // If we receive a text message, check to see if it matches a keyword
-    // and send back the example. Otherwise, just echo the text we received.
-    switch (messageText) {
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      default:              
-        var reqs = app.textRequest(messageText, {
-        sessionId: senderID });
-
- /**
-  * 
-
-   result:
-   { source: 'agent',
-     resolvedQuery: 'hi',
-     action: 'send_self_id',
-      actionIncomplete: false,
-      parameters: { greetings: 'Hello, there!' },
-     contexts: [],
-     metadata:
-      { intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
-        webhookUsed: 'false',
-        webhookForSlotFillingUsed: 'false',
-        intentName: 'greet_user' },
-     fulfillment: { 
-        speech: 'Hello!', 
-        messages: {
-          "title":"Chatzer!",
-          "subtitle":"",
-          "imageUrl":"https://fb-s-d-a.akamaihd.net/h-ak-xfp1/v/t1.0-9/17191310_1886318901589735_6240676010806644895_n.png?oh=a43f0c821833b413be3589ae32f4cb17&oe=59698AD9&__gda__=1499001758_2de2bfd6b78c206cdc14e4b233094bef",
-          "buttons":[],"type":1} 
-    },
-     
-     score: 1 },
-  status: { code: 200, errorType: 'success' },
-   sessionId: '1450043748391296' }
-
-
-
-  */
-
-  // =====================================
-  //   HANDLE THE RESPONSE FROM API.AI 
-  // =====================================
-
-reqs.on('response', function(response) {
-
-var mediaObj; 
-if (response.result.fulfillment.messages){
-  mediaObj = response.result.fulfillment.messages[1]; 
-}
-
-var textObj = response.result.fulfillment.speech; 
-var textObj = response.result.fulfillment.speech; 
-
-console.log("=======");
-console.log(response); 
-console.log(mediaObj);
-
-sendTextMessage(senderID, textObj);
-
-/////////////////////
 
   mgiphy.get(request, messageText, 25, function(url){
           
@@ -482,10 +291,113 @@ sendTextMessage(senderID, textObj);
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             
             url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");       
-            url?sendMediaMessage(senderID, message2):console.log("================");
+            url?sendTextMessage(senderID,'Powered by GIPHY'):console.log("==============");
 
         });
-        
+
+};
+
+function analyzegoogleNLP(messageText){
+
+    var document = languageClient.document(messageText);
+    document.detectSentiment(function(err, sentiment) { 
+
+    var score = JSON.stringify(sentiment.score);          
+    var magnitude = JSON.stringify(sentiment.magnitude);  
+
+    console.log("Score = " + score + " | Magnitude = " + magnitude);
+
+});
+}
+
+
+function receivedMessage(event) {
+
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
+
+  console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
+  console.log(JSON.stringify(message));
+
+  var messageId = message.mid;
+
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
+
+
+  if (messageText) {
+
+  analyzegoogleNLP();
+
+
+    // If we receive a text message, check to see if it matches a keyword
+    // and send back the example. Otherwise, just echo the text we received.
+    switch (messageText) {
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      default:              
+        var reqs = app.textRequest(messageText, {
+        sessionId: senderID });
+
+
+  // =====================================
+  //   HANDLE THE RESPONSE FROM API.AI 
+  // =====================================
+
+ /**
+  * 
+
+result: { 
+
+  source: 'agent',
+  resolvedQuery: 'Hi there!',
+  action: '',
+  actionIncomplete: false,
+  
+  parameters: { greetings: 'Hello, there!' },
+  contexts: [],
+
+  metadata: { 
+    intentId: 'e3a3186e-3edd-4cf7-a72e-6cc649c3afc3',
+    webhookUsed: 'false',
+    webhookForSlotFillingUsed: 'false',
+    intentName: 'greet' },
+    
+  fulfillment: { 
+      speech: 'Aloha! How\'s your day going!?', messages: [Object] },
+      score: 1 },
+      status: { code: 200, errorType: 'success' },
+      sessionId: '1450043748391296' 
+}
+
+
+  */
+
+reqs.on('response', function(response) {
+
+var mediaObj; 
+if (response.result.fulfillment.messages){
+  mediaObj = response.result.fulfillment.messages[1]; 
+}
+
+var textObj = response.result.fulfillment.speech; 
+var textObj = response.result.fulfillment.speech; 
+
+console.log("=======");
+console.log(response); 
+console.log(mediaObj);
+
+sendTextMessage(senderID, textObj);
+
+/////////////////////
+
+
+sendGiphy(request,messageText,10,senderID); 
 
 
 ////////////////////
@@ -518,8 +430,6 @@ reqs.end();
 
     if (messageAttachments[0].type=="image")     // STILL matches to true?
   {
-
-    console.log(message);
 
 // =================================================
 // |    STARTS A SELFIE GAME > INTENT = SELFIE     |
