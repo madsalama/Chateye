@@ -316,7 +316,7 @@ function analyzegoogleNLP(messageText){
 }
 
 
-function api_ai(senderID, messageText, sessionId, app){
+function api_ai(senderID, messageText, app){
 
 
         var reqs = app.textRequest(messageText, {
@@ -428,7 +428,7 @@ function receivedMessage(event) {
         break;
 
       default:
-         api_ai(senderID, messageText, sessionId, app);
+         api_ai(senderID, messageText, app);
 ///// API AI RESPONSE 
 
 
@@ -534,8 +534,8 @@ function receivedMessage(event) {
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
                       
-                var reqs = app.textRequest(transcript, {
-                sessionId: senderID });
+                api_ai(senderID, transcript, sessionId, app);
+
           });
 
         } ///// 
