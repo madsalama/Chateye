@@ -491,17 +491,11 @@ reqs.end();
         else if (messageAttachments[0].type=="audio"){                          
           
           
-  var audio = messageAttachments[0].payload.url;  
-
-
-  
+  var audio = messageAttachments[0].payload.url;    
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
               console.log(result);                  
           });
-
-
-
 
         } ///// 
 
