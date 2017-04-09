@@ -511,11 +511,12 @@ reqs.end();
           
   var audio = messageAttachments[0].payload.url;    
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
-            function(result){
-
-              checkObject(result);
-              console.log(result); 
+            function(result){              
               
+                var mresult = JSON.parse(result);
+                var transcript = mresult.results.alternatives[0] ;
+                console.log(transcript);
+
                 // SEND result to API.AI
                 // var reqs = app.textRequest(result, {
                 // sessionId: senderID });
