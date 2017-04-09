@@ -330,7 +330,7 @@ function receivedMessage(event) {
 
   if (messageText) {
 
-  analyzegoogleNLP();
+  analyzegoogleNLP(messageText);
 
 
     // If we receive a text message, check to see if it matches a keyword
