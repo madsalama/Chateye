@@ -29,12 +29,12 @@ module.exports={
                         for (var file in files) {
                         var params = {
                             audio: fs.createReadStream(files[file]),
-                            content_type: 'audio/l16',
-                            timestamps: true,
+                            content_type: 'audio/l16;rate=8000;',
+                            // timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],
                             // keywords_threshold: 0.5,
-                            continuous: true
+                            // continuous: true
                         };
 
                         speech2text.recognize(params, function(error, transcript) {
