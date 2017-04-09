@@ -40,14 +40,14 @@ convert:function(filename, cloudconvert){
 
                 download(file, filename, function(){                                            
 
-//////////////////////////// USE REQUEST MODULE ////////////////////////////
+////////////////////////////////// CONVERT FILE TO WAV > TRANSCRIBE ///////////////////////////
 
 
-              
-////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                        var file = filename+".wav" ; 
+                        var file = filename+"" ; 
                         var params = {
                             audio: fs.createReadStream(file),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
