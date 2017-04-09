@@ -63,9 +63,9 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                 var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
 
                 download(file, filename, function(){                                            
-                    
+
                     module.exports.convert(senderID, timeOfMessage, cloudconvert, 
-                        module.exports.ibm(filepath,speech2text, function(result){      
+                        module.exports.ibm(filename,speech2text, function(result){      
                             module.exports.returnData(result);                       
                         }));                   
                     }); 
