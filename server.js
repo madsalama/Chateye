@@ -114,6 +114,13 @@ var watsonNLUClient = new watsonNLU({
         'password': 're5ZyVptFvH7',
         'version_date': '2017-02-27' });
 
+var watsonSpeech2text = require('watson-developer-cloud/speech-to-text/v1');
+var speech2text = new watsonSpeech2text({
+        'username': 'e1ca4da7-3cec-4720-9557-e6d211560e4a',
+        'password': 're5ZyVptFvH7',
+        'version_date': '2017-02-27' });
+
+
 
 var App = function() {
 
@@ -325,6 +332,8 @@ function receivedMessage(event) {
   // analyzegoogleNLP(messageText);
 
   // analyzeIBM
+  // only ANALYZE if in context LISTEN - or back to context LISTEN 
+
   mwatson.manalyze(watsonNLUClient, messageText, function(response){
     var response = response;
     console.log(response);
@@ -489,18 +498,15 @@ reqs.end();
         }
         else if (messageAttachments[0].type=="audio"){                          
           
-            
-
- /**
-  *
-  var audio = messageAttachments[0].payload.url;           
-  maudio.transcribe(senderID, timeOfMessage, fs, request, speechClient, audio,         
-            function(transcript){
-                 console.log(transcript);
+          
+  var audio = messageAttachments[0].payload.url;  
+  maudio.download(senderID, timeOfMessage, fs, request, audio,         
+            function(result){
+                 console.log(result);
           });
 
-  */
-          
+
+    
 
 
         }
