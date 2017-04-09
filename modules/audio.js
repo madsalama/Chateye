@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    download:function(senderID, timeOfMessage, fs, request, file, callback){
+    download:function(senderID, timeOfMessage, fs, request, file, speech2text, callback){
 
                 // 1- DOWNLOAD THE FILE 
                 var download = function(uri, filename, callback){
@@ -17,12 +17,40 @@ module.exports={
                 });
                 };
 
-                // var filename = './static/'+''+senderID+'_'+timeOfMessage+'.raw' ; 
-
-                var filename = './static/audio';
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.wav' ; 
+                // var filename = './static/audio.wav';
 
                 download(file, filename, function(){                    
                         callback(module.exports.returnData("file downloaded!"));
+                        
+                        // DO SOMETHING WITH THE FILE 
+
+                        var files = [filename];
+                        for (var file in files) {
+                        var params = {
+                            audio: fs.createReadStream(files[file]),
+                            content_type: 'audio/wav',
+                            timestamps: true,
+                            // word_alternatives_threshold: 0.9,
+                            // keywords: ['colorado', 'tornado', 'tornadoes'],
+                            // keywords_threshold: 0.5,
+                            continuous: true
+                        };
+
+                        speech2text.recognize(params, function(error, transcript) {
+                            if (error){
+                                console.log('Error:', error); 
+                                // then delete audio 
+                            }
+                            
+                            else{
+                                 callback(JSON.stringify(transcript, null, 2));  
+                                 // then delete audio
+                            }
+                           
+                        });
+                    }
+                    
                 }); 
 
     },

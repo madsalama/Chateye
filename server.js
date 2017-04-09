@@ -76,7 +76,6 @@ var cors = require('cors');
 var request = require('request');
 
 var language = require('@google-cloud/language');
-var speech = require('@google-cloud/speech');
 const vision = require('@google-cloud/vision');
 
 var visionClient = vision({
@@ -101,10 +100,6 @@ var languageClient = language({
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
-var speechClient = speech({
-  projectId: 'nlpi-162211',
-  keyFilename: './NLPI-c6ba16b1d273.json'
-});
 
 var mwatson = require('./modules/watsonNLU');
 
@@ -116,11 +111,8 @@ var watsonNLUClient = new watsonNLU({
 
 var watsonSpeech2text = require('watson-developer-cloud/speech-to-text/v1');
 var speech2text = new watsonSpeech2text({
-        'username': 'e1ca4da7-3cec-4720-9557-e6d211560e4a',
-        'password': 're5ZyVptFvH7',
-        'version_date': '2017-02-27' });
-
-
+        'username': '747511eb-deb0-4294-a800-7f245665e62a',
+        'password': 'mlunTdSmsGJU' });
 
 var App = function() {
 
@@ -500,8 +492,9 @@ reqs.end();
           
           
   var audio = messageAttachments[0].payload.url;  
-  maudio.download(senderID, timeOfMessage, fs, request, audio,         
+  maudio.download(senderID, timeOfMessage, fs, request, audio, speech2text,         
             function(result){
+
                  console.log(result);
           });
 
