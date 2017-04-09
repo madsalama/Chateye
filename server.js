@@ -499,8 +499,13 @@ reqs.end();
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
 
-              console.log(result);              
-              console.log(result.alternatives[0]);
+              var strResult = JSON.stringify(result);
+              var strRes = JSON.stringify(result.results);
+              
+              console.log(strResult); 
+              console.log(strRes);             
+
+              // console.log(JSON.stringify(result.alternatives[0]));
 
                 // SEND result to API.AI
                 // var reqs = app.textRequest(result, {
