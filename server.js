@@ -499,10 +499,10 @@ reqs.end();
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
 
-              var strResult = JSON.stringify(result);
-              var strRes = JSON.stringify(result.results);
+              // var strResult = JSON.stringify(result);
+              var strRes = JSON.stringify(result.results[0]);
               
-              console.log(strResult); 
+              console.log(result); 
               console.log(strRes);             
 
               // console.log(JSON.stringify(result.alternatives[0]));
