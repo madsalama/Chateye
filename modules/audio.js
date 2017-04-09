@@ -65,10 +65,9 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
                         console.log(" ... audio file downloaded at " + mp4 + "!");                        
 
                    module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res,err){                            
-
-                        // module.exports.ibm(fs, wav,speech2text, function(result){
-                       //     module.exports.returnData(result);                       
-                      // }); 
+                         module.exports.ibm(fs, wav,speech2text, function(result){
+                            module.exports.returnData(result);                       
+                       }); 
 
                     }); // CONVERT 
  
