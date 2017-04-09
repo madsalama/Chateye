@@ -54,11 +54,11 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                 });
                 };
 
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ;             
 
                 download(file, filename, function(){                                            
 
-                        console.log("...audio file downloaded at " + filename + "!");                        
+                        console.log(" ... audio file downloaded at " + filename + "!");                        
         ////////////////////////////////////////////////////////////////
 /**
  *                     module.exports.convert(senderID, timeOfMessage, cloudconvert, function(res){                            
