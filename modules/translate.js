@@ -38,7 +38,7 @@ module.exports = {
 
     trans2eng:function(translateClient, input, target, callback){
 
-        return translate.translate(input, target).then((results) => {
+        return translateClient.translate(input, target).then((results) => {
             
         let translations = results[0];
         translations = Array.isArray(translations) ? translations : [translations];

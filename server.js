@@ -85,7 +85,7 @@ keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
 
-const translateClient = vision({
+const translateClient = translate({
 projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
 });
