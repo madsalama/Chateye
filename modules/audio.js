@@ -4,15 +4,6 @@ module.exports={
         return data;
     },
 
-    headers:{
-            'User-Agent':       'Super Agent/0.0.1',
-            'Content-Type':     'application/x-www-form-urlencoded',
-            "apikey": "NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A",
-            "input": "upload",
-            "wait": true,
-            "download": "inline" 
-        },
-
 
   options:{
                 url: 'https://api.cloudconvert.com/convert',
@@ -21,6 +12,17 @@ module.exports={
             }, 
 
 
+
+convert:function(filename){
+cloudconvert.convert({
+                    "inputformat": "mp4",
+                    "outputformat": "wav",
+                    "input": "download",
+                    "file": filename,
+                    "filename": filename+".wav"
+                }); 
+
+},
     transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
 
                 // 1- DOWNLOAD THE FILE and CONVERT to WAV 
@@ -36,18 +38,17 @@ module.exports={
 
                 var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
 
-                download(file, filename, function(){                    
-                        
+                download(file, filename, function(){                                            
+
+//////////////////////////// USE REQUEST MODULE ////////////////////////////
+
 
                 fs.createReadStream(filename)
-                .pipe(cloudconvert.convert({
-                    "inputformat": "mp4",
-                    "outputformat": "wav",
-                    "input": "upload",
-                    "file": filename,
-                    "filename": filename+".wav"
-                }))
+                .pipe()
                 .pipe(fs.createWriteStream(filename+".wav"));
+
+////////////////////////////////////////////////////////////////////////////
+
 
                         var file = filename+".wav" ; 
                         var params = {
