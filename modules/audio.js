@@ -17,7 +17,7 @@ module.exports={
                 });
                 };
 
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ; 
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ; 
                 // var filename = './static/audio.wav';
 
                 download(file, filename, function(){                    
@@ -29,7 +29,7 @@ module.exports={
                         for (var file in files) {
                         var params = {
                             audio: fs.createReadStream(files[file]),
-                            content_type: 'audio/l13; rate=8000; channels=1',
+                            content_type: 'audio/l16; rate=8000; channels=1',
                             timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],
