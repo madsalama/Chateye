@@ -40,7 +40,7 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
 
                 "input": "download",    
                 "file": "https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+".mp4",
-                "filename": senderID+"_"+timeOfMessage })
+                "filename": senderID+"_"+timeOfMessage+".mp4" })
                     .pipe(fs.createWriteStream('./static/'+''+senderID+'_'+timeOfMessage+".wav")
                         .on('close', callback));
 
@@ -65,7 +65,7 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
                         console.log(" ... audio file downloaded at " + mp4 + "!");                        
 
                    module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res,err){                            
-                                               
+
                         // module.exports.ibm(fs, wav,speech2text, function(result){
                        //     module.exports.returnData(result);                       
                       // }); 
