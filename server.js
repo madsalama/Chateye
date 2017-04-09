@@ -316,43 +316,9 @@ function analyzegoogleNLP(messageText){
 }
 
 
-function receivedMessage(event) {
-
-  var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
-  var timeOfMessage = event.timestamp;
-  var message = event.message;
-
-  console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
-  console.log(JSON.stringify(message));
-
-  var messageId = message.mid;
-
-  var messageText = message.text;
-  var messageAttachments = message.attachments;
+function api_ai(senderID, messageText, sessionId, app){
 
 
-  if (messageText) {
-
-  // analyzegoogleNLP(messageText);
-
-  // analyzeIBM
-  // only ANALYZE if in context LISTEN - or back to context LISTEN 
-
-  mwatson.manalyze(watsonNLUClient, messageText, function(response){
-    var response = response;
-    console.log(response);
-  });
-
-    // If we receive a text message, check to see if it matches a keyword
-    // and send back the example. Otherwise, just echo the text we received.
-    switch (messageText) {
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      default:
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
         
@@ -423,8 +389,46 @@ reqs.on('error', function(error) {
  
 reqs.end();
 
+}
+
+function receivedMessage(event) {
+
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
+
+  console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
+  console.log(JSON.stringify(message));
+
+  var messageId = message.mid;
+
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
 
 
+  if (messageText) {
+
+  // analyzegoogleNLP(messageText);
+
+  // analyzeIBM
+  // only ANALYZE if in context LISTEN - or back to context LISTEN 
+
+  mwatson.manalyze(watsonNLUClient, messageText, function(response){
+    var response = response;
+    console.log(response);
+  });
+
+    // If we receive a text message, check to see if it matches a keyword
+    // and send back the example. Otherwise, just echo the text we received.
+    switch (messageText) {
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      default:
+         api_ai(senderID, messageText, sessionId, app);
 ///// API AI RESPONSE 
 
 
@@ -514,13 +518,24 @@ reqs.end();
             function(result){              
               
                 var mresult = JSON.parse(result);
-                var transcript = mresult.results.alternatives[0] ;
-                console.log(transcript);
 
-                // SEND result to API.AI
-                // var reqs = app.textRequest(result, {
-                // sessionId: senderID });
+                // CHECK all alternatives and choose the one with largest confidence! 
+                /**
+                 * get size of alternatives
+                 * for i in 
+                 *  mresult.results.alternatives
+                 * 
+                */
 
+                console.log(mresult);
+                console.log(mresult.results[0]);
+                console.log(mresult.results[0].alternatives[0]);
+                console.log(mresult.results[0].alternatives[0].transcript);
+
+                var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
+                      
+                var reqs = app.textRequest(transcript, {
+                sessionId: senderID });
           });
 
         } ///// 
