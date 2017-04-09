@@ -5,7 +5,7 @@ module.exports = {
     },
 
 
-    manalyze:function(watsonNLUClient, messageText, callback){
+    manalyze:function(nlu, messageText, callback){
     
             nlu.analyze({
             'html': messageText, 
