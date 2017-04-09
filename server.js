@@ -528,7 +528,9 @@ function receivedMessage(event) {
                 console.log(mresult.results[0].alternatives[0]);
                 console.log(mresult.results[0].alternatives[0].transcript);
 
+
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
+
 
                 sendTextMessage(senderID, "I heard you say: " + transcript);
                 api_ai(senderID, transcript, app);
