@@ -4,7 +4,7 @@ module.exports={
         return data;
     },
 
-    ibm:function(fs,filepath,speech2text, callback){                        
+    ibm:function(fs, filepath, speech2text, callback){                        
                         var params = {
                             audio: fs.createReadStream(filepath),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
@@ -30,16 +30,20 @@ module.exports={
 
 },
 
-convert:function(senderID, timeOfMessage, cloudconvert, callback){
-        cloudconvert.convert({
-                    "inputformat": "mp4",
-                    "outputformat": "wav",
-                    "input": "download",
-                    "file": "https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage}
-                    
-                    ); 
-                
-                callback("Conversion Complete");                          
+convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
+                cloudconvert.convert({
+                "inputformat": "mp4",
+                "outputformat": "wav",
+
+                // here, service downloads your file, 
+                // converts it and then opens a stream for you to download the new file.
+
+                "input": "download",    
+                "file": "https://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+".mp4",
+                "filename": senderID+"_"+timeOfMessage })
+                    .pipe(fs.createWriteStream('./static/'+''+senderID+'_'+timeOfMessage+".wav")
+                        .on('close', callback));
+
 },
     transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
 
@@ -54,24 +58,20 @@ convert:function(senderID, timeOfMessage, cloudconvert, callback){
                 });
                 };
 
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ;             
+                var mp4 = './static/'+''+senderID+'_'+timeOfMessage+'.mp4' ;
+                var wav = './static/'+''+senderID+'_'+timeOfMessage+'.wav' ;
 
-                download(file, filename, function(){                                            
+                download(file, mp4, function(){                                            
+                        console.log(" ... audio file downloaded at " + mp4 + "!");                        
 
-                        console.log(" ... audio file downloaded at " + filename + "!");                        
-        ////////////////////////////////////////////////////////////////
-/**
- *                     module.exports.convert(senderID, timeOfMessage, cloudconvert, function(res){                            
-                        module.exports.ibm(fs, filename,speech2text, function(result){
+                   module.exports.convert(fs, senderID, timeOfMessage, cloudconvert, function(res){                            
+                        module.exports.ibm(fs, wav,speech2text, function(result){
                             module.exports.returnData(result);                       
                         }); 
-
                     }); // CONVERT 
+ 
 
- */
-
-
-        ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
