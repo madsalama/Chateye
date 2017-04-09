@@ -529,8 +529,9 @@ function receivedMessage(event) {
                 console.log(mresult.results[0].alternatives[0].transcript);
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
-                      
+
                 api_ai(senderID, transcript, app);
+
 
           });
 
