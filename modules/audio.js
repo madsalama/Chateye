@@ -8,6 +8,8 @@ module.exports={
                         var params = {
                             audio: fs.createReadStream(filepath),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
+                            model:'en-US_NarrowbandModel'
+                            
                             // timestamps: true,
                             // word_alternatives_threshold: 0.9,
                             // keywords: ['colorado', 'tornado', 'tornadoes'],
