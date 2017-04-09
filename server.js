@@ -69,11 +69,11 @@
 // - which is awesome, super fast and efficient! - also I only know JS pretty well enough! <3 
 
 require('newrelic');
-var express = require('express');
-var compression = require('compression');
-var fs      = require('fs');
-var cors = require('cors');
-var request = require('request');
+const express = require('express');
+const compression = require('compression');
+const fs      = require('fs');
+const cors = require('cors');
+const request = require('request');
 
 const language = require('@google-cloud/language');
 const vision = require('@google-cloud/vision');
@@ -98,27 +98,27 @@ const mtranslate = require('./modules/translate');
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
-var apiai = require('apiai');
-var app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
+const apiai = require('apiai');
+const app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
 
-var languageClient = language({
+const languageClient = language({
   projectId: 'nlpi-162211',
   keyFilename:'./NLPI-c6ba16b1d273.json'
 });
 
 
-var mwatson = require('./modules/watsonNLU');
+const mwatson = require('./modules/watsonNLU');
 
-var watsonNLU = require('watson-developer-cloud/natural-language-understanding/v1.js');
-var watsonNLUClient = new watsonNLU({
+const watsonNLU = require('watson-developer-cloud/natural-language-understanding/v1.js');
+const watsonNLUClient = new watsonNLU({
         'username': 'e1ca4da7-3cec-4720-9557-e6d211560e4a',
         'password': 're5ZyVptFvH7',
         'version_date': '2017-02-27' });
 
-var watsonSpeech2text = require('watson-developer-cloud/speech-to-text/v1');
-var speech2text = new watsonSpeech2text({
+const watsonSpeech2text = require('watson-developer-cloud/speech-to-text/v1');
+const speech2text = new watsonSpeech2text({
         'username': '747511eb-deb0-4294-a800-7f245665e62a',
         'password': 'mlunTdSmsGJU' });
 
@@ -345,10 +345,8 @@ function api_ai(senderID, messageText, app){
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
 
-      }); 
-            
 
-  // =====================================
+ // =====================================
   //   HANDLE THE RESPONSE FROM API.AI 
   // =====================================
 
@@ -412,6 +410,11 @@ reqs.on('error', function(error) {
 });
  
 reqs.end();
+
+      }); 
+            
+
+ 
 
 }
 
