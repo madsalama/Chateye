@@ -75,18 +75,26 @@ var fs      = require('fs');
 var cors = require('cors');
 var request = require('request');
 
-var language = require('@google-cloud/language');
+const language = require('@google-cloud/language');
 const vision = require('@google-cloud/vision');
+const translate = require('@google-cloud/translate');
 
-var visionClient = vision({
+const visionClient = vision({
 projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
 });
-      
+
+
+const translateClient = vision({
+projectId: 'nlpi-162211',
+keyFilename: './NLPI-c6ba16b1d273.json'
+});
+
 const mvision = require('./modules/vision');
 const mkairos = require('./modules/kairos');
 const mgiphy = require('./modules/giphy');
 const maudio = require('./modules/audio');
+const mtranslate = require('./modules/translate');
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
@@ -318,11 +326,27 @@ function analyzegoogleNLP(messageText){
 
 function api_ai(senderID, messageText, app){
 
+      //  ... check if message is ENGLISH ! 
+      mtranslate.detectLang(translateClient, messageText, function(result){
+          console.log(result);
+    
+    //  | if NOT | = translate to ENGLISH before sending (callback of 'translate')
+
+              // mtranslate.trans2eng(translateClient, input, target, function(){
+              /*
+                  var reqs = app.textRequest(messageText, {
+                  sessionId: senderID });
+
+                }); 
+                      
+              **/  
+              // });
 
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
-        
-        ///// API AI REQUEST 
+
+      }); 
+            
 
   // =====================================
   //   HANDLE THE RESPONSE FROM API.AI 
