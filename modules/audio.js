@@ -4,16 +4,9 @@ module.exports={
         return data;
     },
 
+    ibm:function(filepath,speech2text, callback){
 
-  options:{
-                url: 'https://api.cloudconvert.com/convert',
-                method: 'POST',                   
-                headers: module.exports.headers 
-            }, 
-
-ibm:function(filepath,speech2text, callback){
-
-                        var file = filename+"" ; 
+                        var file = filepath+"" ; 
                         var params = {
                             audio: fs.createReadStream(file),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
