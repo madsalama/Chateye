@@ -345,7 +345,6 @@ function api_ai(senderID, messageText, app){
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
 
-
  // =====================================
   //   HANDLE THE RESPONSE FROM API.AI 
   // =====================================
@@ -380,6 +379,9 @@ result: {
   */
 
 reqs.on('response', function(response) {
+
+  // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
+  // TRANSLATE the API.AI response to ORIGINAL language
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
