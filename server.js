@@ -166,6 +166,20 @@ request(options, function (error, response, body) {
 
 ////////////////////////////////////////////////////////////
 
+
+function checkObject(data){
+
+                var stringConstructor = "test".constructor;
+                var arrayConstructor = [].constructor;
+                var objectConstructor = {}.constructor;
+
+                
+                if (data.constructor===stringConstructor){  console.log("STRING!"); }
+                else if (data.constructor===arrayConstructor){ console.log("ARRAY!"); }
+                else if (data.constructor===objectConstructor){console.log("OBJECT!"); }
+
+}
+
 function sendMediaMessage(recipientId, message) {
 
   var messageAttachments ;
@@ -499,14 +513,9 @@ reqs.end();
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){
 
-              // var strResult = JSON.stringify(result);
-              var strRes = JSON.stringify(result.results[0]);
-              
+              checkObject(result);
               console.log(result); 
-              console.log(strRes);             
-
-              // console.log(JSON.stringify(result.alternatives[0]));
-
+              
                 // SEND result to API.AI
                 // var reqs = app.textRequest(result, {
                 // sessionId: senderID });
