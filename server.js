@@ -106,21 +106,13 @@ var speechClient = speech({
   keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
+var mwatson = require('./modules/watsonNLU');
 
-
-/***
- *  var audio = './audio.raw'  ; 
-  speechClient.recognize(audio, {
-  encoding: 'LINEAR16',
-  sampleRate: 16000
-
-}, function(err, transcript) {
-  console.log(transcript);
-  console.log(err);
-
-});
-
- */
+var watsonNLU = require('watson-developer-cloud/natural-language-understanding/v1.js');
+var watsonNLUClient = new watsonNLU({
+        'username': 'e1ca4da7-3cec-4720-9557-e6d211560e4a',
+        'password': 're5ZyVptFvH7',
+        'version_date': '2017-02-27' });
 
 
 var App = function() {
@@ -332,6 +324,11 @@ function receivedMessage(event) {
 
   // analyzegoogleNLP(messageText);
 
+  // analyzeIBM
+  mwatson.manalyze(watsonNLUClient, messageText, function(response){
+    var response = response;
+    console.log(response);
+  });
 
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
