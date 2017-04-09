@@ -34,8 +34,7 @@ module.exports={
                 });
                 };
 
-                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ; 
-                // var filename = './static/audio.wav';
+                var filename = './static/'+''+senderID+'_'+timeOfMessage+'' ;             
 
                 download(file, filename, function(){                    
                         
@@ -50,10 +49,9 @@ module.exports={
                 }))
                 .pipe(fs.createWriteStream(filename+".wav"));
 
-                        var files = [filename];
-                        for (var file in files) {
+                        var file = filename+".wav" ; 
                         var params = {
-                            audio: fs.createReadStream(files[file]),
+                            audio: fs.createReadStream(file),
                             content_type: 'audio/wav',    // content_type: 'video/mp4' 
                             // timestamps: true,
                             // word_alternatives_threshold: 0.9,
