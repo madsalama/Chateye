@@ -549,7 +549,7 @@ if (!lookup[senderID]) {
 
       default:
            console.log(getAction(senderID));
-           if ( getAction(senderID) === '' ) {
+           if ( getAction(senderID) === '' |  getAction(senderID) === undefined ) {
              api_ai(senderID, messageText, app);
              console.log("NOT LISTENING..."); }
 
