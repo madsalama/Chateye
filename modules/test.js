@@ -1,31 +1,17 @@
 
-// ORIGINAL 
 
-        mgiphy.get(request, messageText, 25, function(url){
-          
-            console.log(JSON.stringify(messageText));            
+var users = []; 
+users.push( { id:'1', action:'' } );
+users.push( { id:'2', action:'listen' } );
 
-            var url = url;                                               
-            var message = {
-                    "attachment": {
-                    "type": "image",
-                    "payload": {
-                    "url":url }}};
+var lookup = {};
 
-              console.log(message);
+for (var i = 0, len = users.length; i < len; i++) {
+    lookup[users[i].id] = users[i];
+};
 
-            sendMediaMessage(senderID, message);
-        });
+console.log(lookup);
+console.log(lookup[1]);
 
-
-
- type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",               
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
-
-
+lookup[1]? console.log("USER SESSION EXISTS..."):users.push( { id:'1', action:'' } );
+console.log();

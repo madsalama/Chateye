@@ -124,6 +124,7 @@ const speech2text = new watsonSpeech2text({
         'password': 'mlunTdSmsGJU' });
 
 
+var users = [];
 
 var App = function() {
 
@@ -433,18 +434,45 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
+// ===========================
+//   HANDLING USER/SESSIONS
+// ===========================
 
-   mgraph.getuser(request, senderID, function(results){     
-     console.log("====== USER INFORMATION =======");       
+
+// Create a lookup array
+var lookup = {};
+
+for (var i = 0, len = users.length; i < len; i++) {
+    lookup[users[i].id] = users[i];
+};
+
+console.log(lookup);
+console.log(lookup[senderID]);
+
+// If there's no object for that user... 
+if (!lookup[senderID]) {
+
+   // get user information | store it 
+   mgraph.getuser(request, senderID, function(results){    
      
+     console.log("====== USER INFORMATION =======");            
       var first_name = results.first_name;
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
 
+   // create an object for the user...    
+   users.push( { id:senderID, action:'', 
+                first_name:first_name, last_name:last_name, 
+                profile_pic:profile_pic, gender:gender  } );
+
     console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
 
    }); 
+}
+
+
+
 
 
 
