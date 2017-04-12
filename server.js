@@ -428,6 +428,7 @@ function setAction(senderID, actionValue) {
         
 
         users[i].action = actionValue;
+        console.log("users[i].action = " + users[i].action );
 
         break;             //Stop this loop, we found it!
      }
