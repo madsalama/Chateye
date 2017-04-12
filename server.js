@@ -340,8 +340,10 @@ function api_ai(senderID, messageText, app){
           console.log(result);
 
 
-
-       // RESET CONTEXTS 
+        // ========================
+       //      RESET CONTEXTS 
+       // ========================
+       
         var reqdel = app.deleteContextsRequest({ sessionId: senderID });
         reqdel.on('response', function(response) {
 
