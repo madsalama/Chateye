@@ -477,6 +477,7 @@ function receivedMessage(event) {
         break;
 
       default:
+      console.log('STORED ACTION IS '+action); 
          if (action==='') { 
            api_ai(senderID, messageText, app);
            console.log('STORED ACTION IS '+action); 
