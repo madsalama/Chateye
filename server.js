@@ -438,16 +438,22 @@ function receivedMessage(event) {
 //   HANDLING USER/SESSIONS
 // ===========================
 
+// ASYNC HELL
+// WHAT IF TWO RACING USER MESSAGES ARE RECEIVED AND THE FOR LOOP TAKES TIME....?
 
-// Create a lookup array
+
 var lookup = {};
-
 for (var i = 0, len = users.length; i < len; i++) {
     lookup[users[i].id] = users[i];
 };
 
-// console.log(lookup);
-// console.log(lookup[senderID]);
+/****
+ * ======= 'lookup' object ======
+      * 'id1':object1,
+      * 'id2':object2, ... 
+ * ==============================
+ */
+
 
 // If there's no object for that user... 
 if (!lookup[senderID]) {
@@ -460,7 +466,6 @@ if (!lookup[senderID]) {
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
-
 
    // create an object for the user...    
    users.push( { id:senderID, action:'', 

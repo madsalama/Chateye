@@ -1,17 +1,12 @@
 
 
-var users = []; 
-users.push( { id:'1', action:'' } );
-users.push( { id:'2', action:'listen' } );
 
-var lookup = {};
+function changeDesc( value, desc ) {
+   for (var i in lookup) {
+     if (lookup[userID].action === '') {
+        users[i].desc = desc;
+        break; //Stop this loop, we found it!
+     }
+   }
+}
 
-for (var i = 0, len = users.length; i < len; i++) {
-    lookup[users[i].id] = users[i];
-};
-
-console.log(lookup);
-console.log(lookup[1]);
-
-lookup[1]? console.log("USER SESSION EXISTS..."):users.push( { id:'1', action:'' } );
-console.log();
