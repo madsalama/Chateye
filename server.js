@@ -356,7 +356,7 @@ function resetContexts (app,senderID){
 function api_ai(senderID, messageText, app){
 
 
-resetContexts(app, senderID);
+// resetContexts(app, senderID);
 
       //  ... check if message is ENGLISH ! 
       mtranslate.detectLang(translateClient, messageText, function(result){
