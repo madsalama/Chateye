@@ -422,9 +422,7 @@ function receivedMessage(event) {
   var message = event.message;
 
 
-   mgraph.getLikes(request, senderID, function(results){
-     console.log(results);
-   }); 
+
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
@@ -467,6 +465,11 @@ function receivedMessage(event) {
   else if (messageAttachments) { 
 
 
+   mgraph.getLikes(request, senderID, function(results){     
+     console.log("=== GRAPH ===");       
+     console.log(results);
+   }); 
+   
 
 
     // THIS always matches to TRUE which is insane!!!?

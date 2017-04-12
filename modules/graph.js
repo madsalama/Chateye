@@ -17,11 +17,15 @@ module.exports = {
             headers:module.exports.headers,         
             qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' }
     }; 
-    
+
 
     request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {       
+        if (!error && response.statusCode == 200) {     
+
+                console.log("=== GRAPH ===");  
                 console.log(data);
+                
+                console.log("=== GRAPH ===");  
                 console.log(JSON.parse(data));
 
                 callback(module.exports.returnData(body));
