@@ -9,7 +9,7 @@ module.exports = {
             'Content-Type':     'application/x-www-form-urlencoded', 
         },
 
-    getLikes:function(request, userID, callback){
+    getLikes:function(request, callback){
 
     options = {    
             uri: 'https://graph.facebook.com/v2.8/10212379503708226',
