@@ -549,16 +549,20 @@ if (!lookup[senderID]) {
         sendGenericMessage(senderID);
         break;
 
-      default:           
+      default:  
+           console.log(getAction(senderID));
            if ( getAction(senderID) != 'listen' | getAction(senderID) != 'save-entry' ) {
              api_ai(senderID, messageText, app);
-             console.log("NOT LISTENING..."); }
+             console.log("NOT LISTENING..."); 
+             console.log(getAction(senderID)); }
 
            else if ( getAction(senderID) == 'listen'){
-             console.log("NOW LISTENING..."); }
+             console.log("LISTENING...");
+            console.log(getAction(senderID)); }
 
           else if (getAction(senderID) == 'save-entry'){
             console.log("ENTRY SAVED...");
+            console.log(getAction(senderID));
           }
     }
 
