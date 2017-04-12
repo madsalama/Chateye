@@ -380,9 +380,8 @@ reqs.on('response', function(response) {
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
-console.log(" ==== inside APIAI RESPONSE ==== ");
+console.log(" ==== inside API.AI RESPONSE ==== ");
 console.log(response.result.action); 
-
 
     setAction(senderID, response.result.action);
 
@@ -552,7 +551,7 @@ if (!lookup[senderID]) {
 
       default:
            console.log(getAction(senderID));
-           if ( getAction(senderID) === '' |  getAction(senderID) === undefined ) {
+           if ( getAction(senderID) !== 'listen' | getAction(senderID) !== 'save-entry' ) {
              api_ai(senderID, messageText, app);
              console.log("NOT LISTENING..."); }
 
