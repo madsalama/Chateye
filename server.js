@@ -446,8 +446,8 @@ for (var i = 0, len = users.length; i < len; i++) {
     lookup[users[i].id] = users[i];
 };
 
-console.log(lookup);
-console.log(lookup[senderID]);
+// console.log(lookup);
+// console.log(lookup[senderID]);
 
 // If there's no object for that user... 
 if (!lookup[senderID]) {
@@ -467,7 +467,9 @@ if (!lookup[senderID]) {
                 first_name:first_name, last_name:last_name, 
                 profile_pic:profile_pic, gender:gender  } );
 
-    console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
+  console.log(users);
+
+    // console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
 
    }); 
 }
