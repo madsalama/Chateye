@@ -422,17 +422,12 @@ function setAction(senderID, actionValue) {
    for (var i in users) {
      if (users[i].id == senderID) {
         
-        console.log("====== inside set action ======");
-        console.log("actionValue = " + actionValue );
-
-        console.log("uid = " + users[i].id );
-        console.log("users[i].action = " + users[i].action );
-        
+        console.log("====== inside set action ======");   
 
         users[i].action = actionValue;
         console.log("users[i].action = " + users[i].action );
 
-        break;             //Stop this loop, we found it!
+        break;          
      }
    }
 }
@@ -564,19 +559,7 @@ if (!lookup[senderID]) {
 
       default:  
            console.log(getAction(senderID));                
-
-           if ( getAction(senderID) !== 'listen' && getAction(senderID) !== 'save-entry' ) {
-             api_ai(senderID, messageText, app);
-             console.log("NOT LISTENING...");             
-            }
-
-           else if ( getAction(senderID) === 'listen'){
-             console.log("LISTENING...");
-}
-
-          else if (getAction(senderID) === 'save-entry'){
-            console.log("ENTRY SAVED...");
-          }
+           api_ai(senderID, messageText, app);    // // but invoke specific intent 
     }
 
 
