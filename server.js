@@ -558,7 +558,7 @@ if (!lookup[senderID]) {
       default:  
            console.log(getAction(senderID));                      
            api_ai(senderID, messageText, app);
-           
+
 
 
     }
@@ -664,6 +664,7 @@ if (!lookup[senderID]) {
 
                 sendTextMessage(senderID, "I heard you say: " + transcript);
                 api_ai(senderID, transcript, app);
+
 
 
           });
