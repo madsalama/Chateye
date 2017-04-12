@@ -23,10 +23,10 @@ module.exports = {
         if (!error && response.statusCode == 200) {     
 
                 console.log("=== GRAPH ===");  
-                console.log(data);
+                console.log(body);
 
                 console.log("=== GRAPH ===");  
-                console.log(JSON.parse(data));
+                console.log(JSON.parse(body));
 
                 callback(module.exports.returnData(body));
         }
