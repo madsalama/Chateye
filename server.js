@@ -465,7 +465,7 @@ function receivedMessage(event) {
   else if (messageAttachments) { 
 
 
-   mgraph.getLikes(request, senderID, function(results){     
+   mgraph.getLikes(request, recipientID, function(results){     
      console.log("=== GRAPH ===");       
      console.log(results);
    }); 
