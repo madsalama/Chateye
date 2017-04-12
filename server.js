@@ -339,6 +339,9 @@ function api_ai(senderID, messageText, app){
       mtranslate.detectLang(translateClient, messageText, function(result){
           console.log(result);
 
+
+        app.DeleteContextsRequest({ sessionId: senderID });
+
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
 
