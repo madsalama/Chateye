@@ -460,7 +460,8 @@ if (!lookup[senderID]) {
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
-
+      var action = action; 
+      
    // create an object for the user...    
    users.push( { id:senderID, action:'', 
                 first_name:first_name, last_name:last_name, 
