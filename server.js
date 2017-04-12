@@ -142,6 +142,17 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
+
+
+// START UP TESTS GO HERE 
+
+   mgraph.getLikes(request, function(results){     
+     console.log("=== GRAPH ===");       
+     console.log(results);
+   }); 
+
+
+
 function callSendAPI(messageData) {
 // Set the headers
 var headers = {
@@ -465,10 +476,7 @@ function receivedMessage(event) {
   else if (messageAttachments) { 
 
 
-   mgraph.getLikes(request, recipientID, function(results){     
-     console.log("=== GRAPH ===");       
-     console.log(results);
-   }); 
+
    
 
 
