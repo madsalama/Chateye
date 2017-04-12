@@ -394,7 +394,8 @@ reqs.on('response', function(response) {
 
 
  // extract ACTION from response 
-    action = response.result.action; 
+    action = response.result.action;
+    console.log('STORED ACTION IS '+action); 
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
@@ -478,6 +479,7 @@ function receivedMessage(event) {
       default:
          if (action==='') { 
            api_ai(senderID, messageText, app);
+           console.log('STORED ACTION IS '+action); 
            console.log("NOT LISTENING....");
          }
          else if (action==='listen')
@@ -485,10 +487,12 @@ function receivedMessage(event) {
            // concatenate the message into a BLOCK of text
            // until action is reset. 
            console.log("NOW LISTENING....");
+           console.log('STORED ACTION IS '+action); 
          }
          else if (action==='save-entry')
          {
               console.log("ENTRY SAVED.... NOT LISTENING");
+              console.log('STORED ACTION IS '+action); 
               // commit entry to DB        
          }
     }
