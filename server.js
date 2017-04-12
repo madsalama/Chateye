@@ -453,7 +453,7 @@ console.log(lookup[senderID]);
 if (!lookup[senderID]) {
 
    // get user information | store it 
-   mgraph.getuser(request, senderID, function(results){    
+   mgraph.getuser(request, senderID, function(results, action){    
      
      console.log("====== USER INFORMATION =======");            
       var first_name = results.first_name;
@@ -461,7 +461,7 @@ if (!lookup[senderID]) {
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
       var action = action; 
-      
+
    // create an object for the user...    
    users.push( { id:senderID, action:'', 
                 first_name:first_name, last_name:last_name, 
