@@ -12,7 +12,7 @@ module.exports = {
     getLikes:function(request, callback){
 
     options = {    
-            uri: 'https://graph.facebook.com/v2.8/10212379503708226',
+            uri: 'https://graph.facebook.com/v2.8/1399345187',
             method: 'GET',   
             headers:module.exports.headers,         
             qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' }
