@@ -428,7 +428,7 @@ function receivedMessage(event) {
 
 
    mgraph.getuser(request, senderID, function(results){     
-     console.log("=== GRAPH ===");       
+     console.log("=== GRAPH3 ===");       
      console.log(results);
    }); 
 
