@@ -427,6 +427,70 @@ reqs.end();
 
 }
 
+
+function setAction(senderID, actionValue) {
+   for (var i in users) {
+     if (users[i].id == senderID) {
+        users[i].action = actionValue;
+        break;             //Stop this loop, we found it!
+     }
+   }
+}
+
+
+function getAction(senderID) {
+   for (var i in users) {
+     if (users[i].id == senderID) {
+        return users[i].action;         
+     }
+   }
+}
+
+
+function conCatEntry(senderID, value) {
+   for (var i in users) {
+     if (users[i].id == senderID) {
+        users[i].currentEntry = users[i].currentEntry + " - " + value;
+        break;             //Stop this loop, we found it!
+     }
+   }
+}
+
+function getEntry(senderID) {
+   for (var i in users) {
+     if (users[i].id == senderID) {
+        return users[i].action;         
+     }
+   }
+}
+
+function commitEntry(senderID) {
+   for (var i in users) {
+     if (users[i].id == senderID) {
+
+         // STORE users[i].currentEntry in a database 
+
+     }
+   }
+}
+
+
+
+
+
+
+function getLookupSessions(users){
+
+var lookup = {};
+for (var i = 0, len = users.length; i < len; i++) {
+    lookup[users[i].id] = users[i];
+};
+
+return lookup;    /* 'lookup' object == { 'id1':object1, 'id2':object2, ... } */
+
+}
+
+
 function receivedMessage(event) {
 
   var senderID = event.sender.id;
@@ -441,19 +505,7 @@ function receivedMessage(event) {
 // ASYNC HELL
 // WHAT IF TWO RACING USER MESSAGES ARE RECEIVED AND THE FOR LOOP TAKES TIME....?
 
-
-var lookup = {};
-for (var i = 0, len = users.length; i < len; i++) {
-    lookup[users[i].id] = users[i];
-};
-
-/****
- * ======= 'lookup' object ======
-      * 'id1':object1,
-      * 'id2':object2, ... 
- * ==============================
- */
-
+var lookup = getLookupSessions(users);
 
 // If there's no object for that user... 
 if (!lookup[senderID]) {
@@ -468,13 +520,11 @@ if (!lookup[senderID]) {
       var gender = results.gender; 
 
    // create an object for the user...    
-   users.push( { id:senderID, action:'', 
+   users.push( { id:senderID, action:'', currentEntry:'',
                 first_name:first_name, last_name:last_name, 
-                profile_pic:profile_pic, gender:gender  } );
+                profile_pic:profile_pic, gender:gender } );
 
   console.log(users);
-
-    // console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
 
    }); 
 }
@@ -513,25 +563,17 @@ if (!lookup[senderID]) {
         break;
 
       default:
-     // console.log('STORED ACTION IS '+action); 
-        // if (action==='') { 
-           api_ai(senderID, messageText, app);
-          // console.log('STORED ACTION IS '+action); 
-          // console.log("NOT LISTENING....");
-   //      }
-  //       else if (action==='listen')
-   ////      {
-           // concatenate the message into a BLOCK of text
-           // until action is reset. 
-  //         console.log("NOW LISTENING....");
-  //         console.log('STORED ACTION IS '+action); 
-  //       }
- //        else if (action==='save-entry')
- //        {
- //             console.log("ENTRY SAVED.... NOT LISTENING");
- //             console.log('STORED ACTION IS '+action); 
-              // commit entry to DB        
- //        }
+           if ( getAction(senderID) === '' ) {
+             api_ai(senderID, messageText, app);
+             console.log("NOT LISTENING..."); }
+
+           else if ( getAction(senderID) === 'listen'){
+             console.log("NOW LISTENING..."); }
+
+          else if (getAction(senderID) === 'save-entry'){
+            console.log("ENTRY SAVED...");
+          }
+           
 
 
     }
