@@ -385,6 +385,7 @@ console.log(response.result.action);
 
 setAction(senderID, response.result.action);
 
+
 var mediaObj; 
 if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
@@ -418,7 +419,16 @@ reqs.end();
 function setAction(senderID, actionValue) {
    for (var i in users) {
      if (users[i].id == senderID) {
+        
+        console.log("====== inside set action ======");
+        console.log("actionValue = " + actionValue );
+
+        console.log("uid = " + users[i].id );
+        console.log("users[i].action = " + users[i].action );
+        
+
         users[i].action = actionValue;
+
         break;             //Stop this loop, we found it!
      }
    }
@@ -550,11 +560,12 @@ if (!lookup[senderID]) {
         break;
 
       default:  
-           console.log(getAction(senderID));
+           console.log(getAction(senderID));      // SMALLTALK ?
            if ( getAction(senderID) != 'listen' | getAction(senderID) != 'save-entry' ) {
              api_ai(senderID, messageText, app);
-             console.log("NOT LISTENING..."); 
-             console.log(getAction(senderID)); }
+             console.log("NOT LISTENING...");        
+             console.log(getAction(senderID)); 
+            }    // SMALLTALK ?
 
            else if ( getAction(senderID) == 'listen'){
              console.log("LISTENING...");
