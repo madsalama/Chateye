@@ -383,7 +383,7 @@ reqs.on('response', function(response) {
 console.log(" ==== inside API.AI RESPONSE ==== ");
 console.log(response.result.action); 
 
-    setAction(senderID, response.result.action);
+setAction(senderID, response.result.action);
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
@@ -549,16 +549,15 @@ if (!lookup[senderID]) {
         sendGenericMessage(senderID);
         break;
 
-      default:
-           console.log(getAction(senderID));
-           if ( getAction(senderID) !== 'listen' | getAction(senderID) !== 'save-entry' ) {
+      default:           
+           if ( getAction(senderID) != 'listen' | getAction(senderID) != 'save-entry' ) {
              api_ai(senderID, messageText, app);
              console.log("NOT LISTENING..."); }
 
-           else if ( getAction(senderID) === 'listen'){
+           else if ( getAction(senderID) == 'listen'){
              console.log("NOW LISTENING..."); }
 
-          else if (getAction(senderID) === 'save-entry'){
+          else if (getAction(senderID) == 'save-entry'){
             console.log("ENTRY SAVED...");
           }
     }
