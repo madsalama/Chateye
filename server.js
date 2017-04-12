@@ -507,24 +507,26 @@ if (!lookup[senderID]) {
 
       default:
      // console.log('STORED ACTION IS '+action); 
-         //if (action==='') { 
+        // if (action==='') { 
            api_ai(senderID, messageText, app);
           // console.log('STORED ACTION IS '+action); 
           // console.log("NOT LISTENING....");
-      //   }
-      //   else if (action==='listen')
-      //   {
+   //      }
+  //       else if (action==='listen')
+   ////      {
            // concatenate the message into a BLOCK of text
-   //        // until action is reset. 
+           // until action is reset. 
   //         console.log("NOW LISTENING....");
   //         console.log('STORED ACTION IS '+action); 
- //        }
-//         else if (action==='save-entry')
+  //       }
+ //        else if (action==='save-entry')
  //        {
-         //     console.log("ENTRY SAVED.... NOT LISTENING");
-          //    console.log('STORED ACTION IS '+action); 
+ //             console.log("ENTRY SAVED.... NOT LISTENING");
+ //             console.log('STORED ACTION IS '+action); 
               // commit entry to DB        
-         }
+ //        }
+
+
     }
 
 
