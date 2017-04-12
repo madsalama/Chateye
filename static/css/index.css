@@ -1,8 +1,16 @@
 
-#label1{
-    font-family: 'Roboto Slab', serif;
+#label1 {
+    font-family: 'Merriweather', serif;
     color: #4c4c4c; 
-    font-size: 40px
+    font-size: 45px;
+    position: relative;
+
+    top:500px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
 }
 
 #rings {
@@ -10,8 +18,16 @@
     text-align: center;
     width: 300px;
     height: 300px;
-    margin:0 auto;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
     -webkit-tap-highlight-color: transparent;
+
 }
 
 #first-ring {

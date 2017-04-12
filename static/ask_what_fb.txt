@@ -7,7 +7,7 @@
 
 
 ## How did you go about designing your bot?
-	What I wanted to create is a humanized AI as much as possible using the already exsting tools, there are many cloud APIs that helped make that at least a tangible proof of concept. Initially, it was a bunch of ideas that are not very related and can be thought of as 'collecting what other apps do in one bot' (like only suggesting music/media or just having a witty conversation that can easly be broken by an unhandled user question, etc) - but eventually, the idea was formed as something more concrete, having this sort of a pseudo emotional connection with an AI kind of works simply because people want to talk, and it's not that hard for an AI to listen and analyze, so it won't have to come up with all the solutions to all questions and possible conversation flows, it just needs to sympathize and engage the user with relevant media or little games along the way. 
+	What I wanted to create is a humanized AI as much as possible using the already exsting tools, there are many cloud APIs that helped make that at least a tangible proof of concept. Initially, it was a bunch of ideas that are not very related and can be thought of as 'collecting what other apps do in one bot' (like only suggesting music/media or just having a witty conversation that can easly be broken by an unhandled user question, etc) - but eventually, the idea was formed as something more concrete, having this sort of a pseudo emotional connection with an AI kind of works simply because people want to talk, and it's not that hard for an AI to listen and analyze, so it won't have to come up with all the solutions to all questions and possible conversation flows, it just needs to sympathize and engage the user with relevant media or little games along the way. What 
 	
 	
 ## What have you learned since launching? Any surprises or successes you want to share?
@@ -16,7 +16,7 @@
 ## What will you build next?
 	I want to improve on Chatzer not by adding more features, but by improving how the bot responds to specific queries, improving the model of NLU to make it more responsive to unhandled emotional states, and even have more litle mini games as more users interact with it, also, trying to ask users questions and user other users' answers to answer other user's questions... it's going to get a bit crazy and I am excited! 
 
-## Why Messenger?
+## Why Messenger? 
 	Facebook and Messenger are already very well established platforms for communicating with people, so an AI can reach a lot more people easily that way without much effort to try to get people to download an app and worry less about reaching a target audience. Also, Facebook has a great Ad system that I tried before, so the whole thing was a perfect match mad ein heaven! 
 	
 	
