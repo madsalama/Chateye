@@ -146,7 +146,7 @@ var App = function() {
 
 // START UP TESTS GO HERE 
 
-   mgraph.getLikes(request, function(results){     
+   mgraph.getuser(request, senderID, function(results){     
      console.log("=== GRAPH ===");       
      console.log(results);
    }); 

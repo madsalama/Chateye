@@ -9,10 +9,10 @@ module.exports = {
             'Content-Type':     'application/x-www-form-urlencoded', 
         },
 
-    getLikes:function(request, callback){
+    getuser:function(request, senderID, callback){
 
     options = {    
-            uri: 'https://graph.facebook.com/v2.8/1399345187',
+            uri: 'https://graph.facebook.com/v2.8/'+senderID+'fields=first_name,last_name,gender',
             method: 'GET',   
             headers:module.exports.headers,         
             qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' }
