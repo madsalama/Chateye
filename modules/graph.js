@@ -24,11 +24,15 @@ module.exports = {
 
                 console.log("=== GRAPH ===");  
                 console.log(data);
-                
+
                 console.log("=== GRAPH ===");  
                 console.log(JSON.parse(data));
 
                 callback(module.exports.returnData(body));
+        }
+        else
+        {
+            callback(module.exports.returnData(body));        
         }
     });
 

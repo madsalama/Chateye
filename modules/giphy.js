@@ -49,6 +49,11 @@ module.exports = {
                 callback(module.exports.returnData(url));
 
         }
+
+        else{
+
+            console.log(body);
+        }
     });
 
 
