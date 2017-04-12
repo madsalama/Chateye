@@ -123,7 +123,7 @@ const speech2text = new watsonSpeech2text({
         'username': '747511eb-deb0-4294-a800-7f245665e62a',
         'password': 'mlunTdSmsGJU' });
 
-var action=''; 
+
 
 var App = function() {
 
@@ -394,8 +394,8 @@ reqs.on('response', function(response) {
 
 
  // extract ACTION from response 
-    action = response.result.action;
-    console.log('STORED ACTION IS '+action); 
+    // action = response.result.action;
+    // console.log('STORED ACTION IS '+action); 
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
