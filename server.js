@@ -123,6 +123,8 @@ const speech2text = new watsonSpeech2text({
         'username': '747511eb-deb0-4294-a800-7f245665e62a',
         'password': 'mlunTdSmsGJU' });
 
+var action=''; 
+
 var App = function() {
 
     var self = this; 
@@ -389,6 +391,11 @@ reqs.on('response', function(response) {
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
+
+
+ // extract ACTION from response 
+    action = response.result.action; 
+
 var mediaObj; 
 if (response.result.fulfillment.messages){
   mediaObj = response.result.fulfillment.messages[1]; 
@@ -415,7 +422,6 @@ reqs.end();
       }); 
             
 
- 
 
 }
 
@@ -436,7 +442,7 @@ function receivedMessage(event) {
       var gender = results.gender; 
 
     console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
-    
+
    }); 
 
 
@@ -470,8 +476,21 @@ function receivedMessage(event) {
         break;
 
       default:
-         api_ai(senderID, messageText, app);
- 
+         if (action==='') { 
+           api_ai(senderID, messageText, app);
+           console.log("NOT LISTENING....");
+         }
+         else if (action==='listen')
+         {
+           // concatenate the message into a BLOCK of text
+           // until action is reset. 
+           console.log("NOW LISTENING....");
+         }
+         else if (action==='save-entry')
+         {
+              console.log("ENTRY SAVED.... NOT LISTENING");
+              // commit entry to DB        
+         }
     }
 
 
