@@ -380,8 +380,6 @@ reqs.on('response', function(response) {
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
-console.log(" ==== inside API.AI RESPONSE ==== ");
-console.log(response.result.action); 
 
 if (response.result.action === 'listen' | response.result.action === 'save-entry'){
   setAction(senderID, response.result.action);
@@ -558,8 +556,11 @@ if (!lookup[senderID]) {
         break;
 
       default:  
-           console.log(getAction(senderID));                
-           api_ai(senderID, messageText, app);    // // but invoke specific intent 
+           console.log(getAction(senderID));                      
+           api_ai(senderID, messageText, app);
+
+
+
     }
 
 
