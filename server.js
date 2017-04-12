@@ -339,6 +339,8 @@ function api_ai(senderID, messageText, app){
       mtranslate.detectLang(translateClient, messageText, function(result){
           console.log(result);
 
+
+        
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
 
@@ -400,7 +402,17 @@ console.log("=======");
 console.log(response); 
 console.log(mediaObj);
 
-textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
+
+
+// only send to messenger when action is NOT
+
+if ( getAction(senderID) !== 'listen' && getAction(senderID) !== 'save-entry' ){
+
+  textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
+
+}
+
+
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
 
 });  
