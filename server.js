@@ -563,20 +563,19 @@ if (!lookup[senderID]) {
         break;
 
       default:  
-           console.log(getAction(senderID));      // SMALLTALK ?
-           if ( getAction(senderID) != 'listen' | getAction(senderID) != 'save-entry' ) {
+           console.log(getAction(senderID));                
+
+           if ( getAction(senderID) !== 'listen' | getAction(senderID) !== 'save-entry' ) {
              api_ai(senderID, messageText, app);
-             console.log("NOT LISTENING...");        
-             console.log(getAction(senderID)); 
+             console.log("NOT LISTENING...");             
             }    // SMALLTALK ?
 
-           else if ( getAction(senderID) == 'listen'){
+           else if ( getAction(senderID) === 'listen'){
              console.log("LISTENING...");
-            console.log(getAction(senderID)); }
+}
 
-          else if (getAction(senderID) == 'save-entry'){
+          else if (getAction(senderID) === 'save-entry'){
             console.log("ENTRY SAVED...");
-            console.log(getAction(senderID));
           }
     }
 
