@@ -146,12 +146,6 @@ var App = function() {
 
 // START UP TESTS GO HERE 
 
-   mgraph.getuser(request, senderID, function(results){     
-     console.log("=== GRAPH ===");       
-     console.log(results);
-   }); 
-
-
 
 function callSendAPI(messageData) {
 // Set the headers
@@ -432,6 +426,11 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
+
+   mgraph.getuser(request, senderID, function(results){     
+     console.log("=== GRAPH ===");       
+     console.log(results);
+   }); 
 
 
 
