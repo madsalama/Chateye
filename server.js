@@ -340,7 +340,21 @@ function api_ai(senderID, messageText, app){
           console.log(result);
 
 
-        app.deleteContextsRequest({ sessionId: senderID });
+
+       // RESET CONTEXTS 
+        var reqdel = app.deleteContextsRequest({ sessionId: senderID });
+        reqdel.on('response', function(response) {
+
+            console.log(response);
+
+        }); 
+
+        reqdel.on('error', function(error) {
+        console.log(error); });
+ 
+        reqdel.end();
+
+
 
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
@@ -378,7 +392,7 @@ result: {
 
   */
 
-reqs.on('response', function(response) {
+  reqs.on('response', function(response) {
 
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
