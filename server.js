@@ -383,7 +383,9 @@ reqs.on('response', function(response) {
 console.log(" ==== inside API.AI RESPONSE ==== ");
 console.log(response.result.action); 
 
-setAction(senderID, response.result.action);
+if (response.result.action === 'listen' | response.result.action === 'save-entry'){
+  setAction(senderID, response.result.action);
+}
 
 
 var mediaObj; 
