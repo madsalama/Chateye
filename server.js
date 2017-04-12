@@ -444,7 +444,7 @@ function conCatEntry(senderID, value) {
    for (var i in users) {
      if (users[i].id == senderID) {
         users[i].currentEntry = users[i].currentEntry + " - " + value;
-        break;             //Stop this loop, we found it!
+        break;            
      }
    }
 }
@@ -558,7 +558,7 @@ if (!lookup[senderID]) {
       default:  
            console.log(getAction(senderID));                      
            api_ai(senderID, messageText, app);
-
+           
 
 
     }
