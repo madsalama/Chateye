@@ -1,0 +1,10 @@
+==========================================================================
+
+1 - collect user's interests (music/movies/etc) using graphAPI. 
+2 - emotional diary entries. 
+3 - contexually relevant multimedia (twitter, instagram, giphy, youtube). 
+
+==========================================================================
+> - functionality for sentiment/emotion analysis IBM. 
+> - tone analysis IBM. 
+==========================================================================
