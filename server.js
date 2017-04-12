@@ -565,10 +565,10 @@ if (!lookup[senderID]) {
       default:  
            console.log(getAction(senderID));                
 
-           if ( getAction(senderID) !== 'listen' | getAction(senderID) !== 'save-entry' ) {
+           if ( getAction(senderID) !== 'listen' && getAction(senderID) !== 'save-entry' ) {
              api_ai(senderID, messageText, app);
              console.log("NOT LISTENING...");             
-            }    // SMALLTALK ?
+            }
 
            else if ( getAction(senderID) === 'listen'){
              console.log("LISTENING...");
