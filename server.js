@@ -95,6 +95,7 @@ const mkairos = require('./modules/kairos');
 const mgiphy = require('./modules/giphy');
 const maudio = require('./modules/audio');
 const mtranslate = require('./modules/translate');
+const mgraph = require('./modules/graph');
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
@@ -419,6 +420,11 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+
+
+   mgraph.getLikes(request, senderID, function(results){
+     console.log(results);
+   }); 
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);

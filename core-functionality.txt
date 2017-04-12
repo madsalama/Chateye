@@ -1,10 +1,11 @@
 ==========================================================================
+0 - INPUT methods: text/audio/image/emoji/location/gif          
 
 1 - collect user's interests (music/movies/etc) using graphAPI. 
 2 - emotional diary entries. 
-3 - contexually relevant multimedia (twitter, instagram, giphy, youtube). 
+3 - contexually relevant multimedia (twitter, instagram, giphy, youtube, selfie game). 
 
 ==========================================================================
-> - functionality for sentiment/emotion analysis IBM. 
-> - tone analysis IBM. 
+>  functionality for sentiment/emotion analysis IBM. 
+>  tone analysis IBM. 
 ==========================================================================
