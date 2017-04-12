@@ -521,8 +521,8 @@ if (!lookup[senderID]) {
  //        }
 //         else if (action==='save-entry')
  //        {
-              console.log("ENTRY SAVED.... NOT LISTENING");
-              console.log('STORED ACTION IS '+action); 
+         //     console.log("ENTRY SAVED.... NOT LISTENING");
+          //    console.log('STORED ACTION IS '+action); 
               // commit entry to DB        
          }
     }
