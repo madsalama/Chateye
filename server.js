@@ -428,8 +428,15 @@ function receivedMessage(event) {
 
 
    mgraph.getuser(request, senderID, function(results){     
-     console.log("=== GRAPH3 ===");       
-     console.log(results);
+     console.log("====== USER INFORMATION =======");       
+     
+      var first_name = results.first_name;
+      var last_name = results.last_name; 
+      var profile_pic = results.profile_pic;
+      var gender = results.gender; 
+
+    console.log(""+first_name+"|"+last_name+"|"+profile_pic+"|"+gender+"");      
+    
    }); 
 
 

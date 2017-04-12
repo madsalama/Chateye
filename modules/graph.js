@@ -22,13 +22,9 @@ module.exports = {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {     
 
-                console.log("=== GRAPH1 ===");  
-                console.log(body);
-
-                console.log("=== GRAPH2 ===");  
-                console.log(JSON.parse(body));
-                
-                callback(module.exports.returnData(body));
+               var data = JSON.parse(body);            
+               callback(module.exports.returnData(data));
+               
         }
         else
         {
