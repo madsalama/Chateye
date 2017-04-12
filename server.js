@@ -451,16 +451,16 @@ console.log(lookup[senderID]);
 
 // If there's no object for that user... 
 if (!lookup[senderID]) {
-
+  
    // get user information | store it 
-   mgraph.getuser(request, senderID, function(results, action){    
+   mgraph.getuser(request, senderID, function(results){    
      
      console.log("====== USER INFORMATION =======");            
       var first_name = results.first_name;
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
-      var action = action; 
+
 
    // create an object for the user...    
    users.push( { id:senderID, action:'', 
@@ -506,21 +506,21 @@ if (!lookup[senderID]) {
         break;
 
       default:
-      console.log('STORED ACTION IS '+action); 
-         if (action==='') { 
+     // console.log('STORED ACTION IS '+action); 
+         //if (action==='') { 
            api_ai(senderID, messageText, app);
-           console.log('STORED ACTION IS '+action); 
-           console.log("NOT LISTENING....");
-         }
-         else if (action==='listen')
-         {
+          // console.log('STORED ACTION IS '+action); 
+          // console.log("NOT LISTENING....");
+      //   }
+      //   else if (action==='listen')
+      //   {
            // concatenate the message into a BLOCK of text
-           // until action is reset. 
-           console.log("NOW LISTENING....");
-           console.log('STORED ACTION IS '+action); 
-         }
-         else if (action==='save-entry')
-         {
+   //        // until action is reset. 
+  //         console.log("NOW LISTENING....");
+  //         console.log('STORED ACTION IS '+action); 
+ //        }
+//         else if (action==='save-entry')
+ //        {
               console.log("ENTRY SAVED.... NOT LISTENING");
               console.log('STORED ACTION IS '+action); 
               // commit entry to DB        
