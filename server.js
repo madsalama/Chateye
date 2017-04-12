@@ -380,8 +380,11 @@ reqs.on('response', function(response) {
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
-    setAction(senderID, response.result.action);
+console.log(" ==== inside APIAI RESPONSE ==== ");
+console.log(response.result.action); 
 
+
+    setAction(senderID, response.result.action);
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
