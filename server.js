@@ -340,7 +340,7 @@ function api_ai(senderID, messageText, app){
           console.log(result);
 
 
-        app.DeleteContextsRequest({ sessionId: senderID });
+        app.deleteContextsRequest({ sessionId: senderID });
 
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
