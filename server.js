@@ -333,6 +333,26 @@ function analyzegoogleNLP(messageText){
 }
 
 
+function resetContexts (app,senderID){
+
+ var reqdel = app.deleteContextsRequest({ sessionId: senderID });
+        reqdel.on('response', function(response) {
+            console.log(response);
+        }); 
+
+        reqdel.on('error', function(error) {
+        console.log(error); 
+       
+        });
+ 
+        reqdel.end();
+
+
+}
+
+
+
+
 function api_ai(senderID, messageText, app){
 
       //  ... check if message is ENGLISH ! 
@@ -344,17 +364,18 @@ function api_ai(senderID, messageText, app){
        //      RESET CONTEXTS 
        // ========================
 /**
- *         var reqdel = app.deleteContextsRequest({ sessionId: senderID });
+ *      var reqdel = app.deleteContextsRequest({ sessionId: senderID });
         reqdel.on('response', function(response) {
-
             console.log(response);
-
         }); 
 
         reqdel.on('error', function(error) {
-        console.log(error); });
+        console.log(error); 
+       
+        });
  
         reqdel.end();
+
  * 
  * 
  */
@@ -406,6 +427,9 @@ if (response.result.action === 'listen' | response.result.action === 'save-entry
   setAction(senderID, response.result.action);
 }
 
+if (response.result.action === 'save-entry') { 
+  resetContexts(app, senderID);
+};
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
