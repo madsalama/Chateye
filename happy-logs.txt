@@ -1,0 +1,761 @@
+2017-04-12T21:42:05.454094+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033324610 with message:
+2017-04-12T21:42:05.454114+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWMOQlbZB25JoiVJ","seq":34966,"text":"listen"}
+2017-04-12T21:42:05.455450+00:00 app[web.1]: undefined
+2017-04-12T21:42:05.589931+00:00 app[web.1]: ====== USER INFORMATION =======
+2017-04-12T21:42:05.590551+00:00 app[web.1]: [ { id: '1450043748391296',
+2017-04-12T21:42:05.590552+00:00 app[web.1]:     action: 'save-entry',
+2017-04-12T21:42:05.590553+00:00 app[web.1]:     currentEntry: '',
+2017-04-12T21:42:05.590554+00:00 app[web.1]:     first_name: 'Mahmoud',
+2017-04-12T21:42:05.590554+00:00 app[web.1]:     last_name: 'Salama',
+2017-04-12T21:42:05.590557+00:00 app[web.1]:     profile_pic: 'https://scontent.xx.fbcdn.net/v/t1.0-1/13592233_10209688882084367_5670732376469452789_n.jpg?oh=8a32ac51e9ec6f38371eb0b13d4574fb&oe=59509106',
+2017-04-12T21:42:05.590558+00:00 app[web.1]:     gender: 'male' },
+2017-04-12T21:42:05.590558+00:00 app[web.1]:   { id: '1240994039281531',
+2017-04-12T21:42:05.590559+00:00 app[web.1]:     action: '',
+2017-04-12T21:42:05.590560+00:00 app[web.1]:     currentEntry: '',
+2017-04-12T21:42:05.590561+00:00 app[web.1]:     first_name: 'Amr',
+2017-04-12T21:42:05.590561+00:00 app[web.1]:     last_name: 'El-Ghitany',
+2017-04-12T21:42:05.590562+00:00 app[web.1]:     profile_pic: 'https://scontent.xx.fbcdn.net/v/t1.0-1/14639673_1142023422544830_3936270406303103179_n.jpg?oh=9b0cf33d0daafea7a7c2d47766521120&oe=598A93B5',
+2017-04-12T21:42:05.590563+00:00 app[web.1]:     gender: 'male' } ]
+2017-04-12T21:42:05.648573+00:00 app[web.1]: Detections:
+2017-04-12T21:42:05.648603+00:00 app[web.1]: listen => en
+2017-04-12T21:42:05.648932+00:00 app[web.1]: [ { confidence: 0.8498023748397827,
+2017-04-12T21:42:05.648934+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:42:05.648935+00:00 app[web.1]:     input: 'listen' } ]
+2017-04-12T21:42:05.725644+00:00 app[web.1]: ====== inside set action ======
+2017-04-12T21:42:05.725715+00:00 app[web.1]: users[i].action = listen
+2017-04-12T21:42:05.725766+00:00 app[web.1]: =======
+2017-04-12T21:42:05.726883+00:00 app[web.1]: { id: 'bf113fb9-380b-485b-97d0-024b9eccd8f5',
+2017-04-12T21:42:05.726884+00:00 app[web.1]:   timestamp: '2017-04-12T21:42:05.727Z',
+2017-04-12T21:42:05.726885+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:42:05.726886+00:00 app[web.1]:   result:
+2017-04-12T21:42:05.726887+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:42:05.726887+00:00 app[web.1]:      resolvedQuery: 'listen',
+2017-04-12T21:42:05.726888+00:00 app[web.1]:      action: 'listen',
+2017-04-12T21:42:05.726888+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:42:05.726889+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:42:05.726889+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:42:05.726890+00:00 app[web.1]:      metadata:
+2017-04-12T21:42:05.726891+00:00 app[web.1]:       { intentId: '8fb413a4-69e2-4dad-b762-14d84d90268c',
+2017-04-12T21:42:05.726891+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:42:05.726892+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:42:05.726893+00:00 app[web.1]:         intentName: '1-listen' },
+2017-04-12T21:42:05.726894+00:00 app[web.1]:      fulfillment: { speech: 'I\'m here, everything OK?', messages: [Object] },
+2017-04-12T21:42:05.726894+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:42:05.726895+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:42:05.726895+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:42:05.726978+00:00 app[web.1]: undefined
+2017-04-12T21:42:05.728196+00:00 app[web.1]: no attachments
+2017-04-12T21:42:05.733194+00:00 app[web.1]: {
+2017-04-12T21:42:05.733196+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:42:05.733197+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:05.733197+00:00 app[web.1]:       "score": 0,
+2017-04-12T21:42:05.733198+00:00 app[web.1]:       "label": "neutral"
+2017-04-12T21:42:05.733199+00:00 app[web.1]:     }
+2017-04-12T21:42:05.733199+00:00 app[web.1]:   },
+2017-04-12T21:42:05.733200+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:42:05.733201+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:05.733201+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:42:05.733202+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:42:05.733203+00:00 app[web.1]:         "joy": 0,
+2017-04-12T21:42:05.733203+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:42:05.733204+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:42:05.733205+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:42:05.733205+00:00 app[web.1]:       }
+2017-04-12T21:42:05.733206+00:00 app[web.1]:     }
+2017-04-12T21:42:05.733207+00:00 app[web.1]:   },
+2017-04-12T21:42:05.733207+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:42:05.733208+00:00 app[web.1]: }
+2017-04-12T21:42:05.804516+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAbp5O6KRzdhlWMS3FbZB3K093Rb to recipient 1240994039281531
+2017-04-12T21:42:23.904621+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=ee7b04f8-9224-4e16-affa-e148d268a1f3 fwd="31.13.113.83" dyno=web.1 connect=1ms service=4ms status=200 bytes=251 protocol=https
+2017-04-12T21:42:23.898577+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033343073 with message:
+2017-04-12T21:42:23.898615+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWNWYVbZB4Lk3f2J","seq":34970,"text":"no my day was too hard"}
+2017-04-12T21:42:23.899746+00:00 app[web.1]: listen
+2017-04-12T21:42:23.972518+00:00 app[web.1]: Detections:
+2017-04-12T21:42:23.972552+00:00 app[web.1]: no my day was too hard => en
+2017-04-12T21:42:23.972868+00:00 app[web.1]: [ { confidence: 0.31476593017578125,
+2017-04-12T21:42:23.972868+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:42:23.972869+00:00 app[web.1]:     input: 'no my day was too hard' } ]
+2017-04-12T21:42:24.041994+00:00 app[web.1]: =======
+2017-04-12T21:42:24.042999+00:00 app[web.1]: { id: '992fccf5-37d3-49e7-bb6c-4a304463ca53',
+2017-04-12T21:42:24.043000+00:00 app[web.1]:   timestamp: '2017-04-12T21:42:24.042Z',
+2017-04-12T21:42:24.043000+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:42:24.043001+00:00 app[web.1]:   result:
+2017-04-12T21:42:24.043002+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:42:24.043002+00:00 app[web.1]:      resolvedQuery: 'no my day was too hard',
+2017-04-12T21:42:24.043003+00:00 app[web.1]:      action: '',
+2017-04-12T21:42:24.043003+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:42:24.043004+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:42:24.043004+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:42:24.043004+00:00 app[web.1]:      metadata:
+2017-04-12T21:42:24.043007+00:00 app[web.1]:       { intentId: 'b706c73e-4e73-408f-9223-b7aa8436b8b7',
+2017-04-12T21:42:24.043008+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:42:24.043008+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:42:24.043009+00:00 app[web.1]:         intentName: '1-listening' },
+2017-04-12T21:42:24.043009+00:00 app[web.1]:      fulfillment: { speech: '', messages: [Object] },
+2017-04-12T21:42:24.043010+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:42:24.043010+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:42:24.043011+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:42:24.043152+00:00 app[web.1]: undefined
+2017-04-12T21:42:24.043177+00:00 app[web.1]: no response from API.AI
+2017-04-12T21:42:24.043242+00:00 app[web.1]: no attachments
+2017-04-12T21:42:24.175339+00:00 app[web.1]: {
+2017-04-12T21:42:24.175354+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:42:24.175355+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:24.175356+00:00 app[web.1]:       "score": -0.775428,
+2017-04-12T21:42:24.175356+00:00 app[web.1]:       "label": "negative"
+2017-04-12T21:42:24.175357+00:00 app[web.1]:     }
+2017-04-12T21:42:24.175358+00:00 app[web.1]:   },
+2017-04-12T21:42:24.175358+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:42:24.175359+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:24.175359+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:42:24.175360+00:00 app[web.1]:         "sadness": 0.698557,
+2017-04-12T21:42:24.175361+00:00 app[web.1]:         "joy": 0.011458,
+2017-04-12T21:42:24.175361+00:00 app[web.1]:         "fear": 0.135239,
+2017-04-12T21:42:24.175362+00:00 app[web.1]:         "disgust": 0.024657,
+2017-04-12T21:42:24.175362+00:00 app[web.1]:         "anger": 0.219861
+2017-04-12T21:42:24.175363+00:00 app[web.1]:       }
+2017-04-12T21:42:24.175364+00:00 app[web.1]:     }
+2017-04-12T21:42:24.175364+00:00 app[web.1]:   },
+2017-04-12T21:42:24.175365+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:42:24.175366+00:00 app[web.1]: }
+2017-04-12T21:42:43.614298+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=1fbc3ae1-5d6a-409a-b569-a99b5573e777 fwd="31.13.113.77" dyno=web.1 connect=0ms service=6ms status=200 bytes=251 protocol=https
+2017-04-12T21:42:43.605798+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033362763 with message:
+2017-04-12T21:42:43.605863+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWOjS1bZB5Rm1NFI","seq":34972,"text":"and I lost my job"}
+2017-04-12T21:42:43.606998+00:00 app[web.1]: listen
+2017-04-12T21:42:43.731607+00:00 app[web.1]: Detections:
+2017-04-12T21:42:43.731650+00:00 app[web.1]: and I lost my job => en
+2017-04-12T21:42:43.731967+00:00 app[web.1]: [ { confidence: 0.25883948802948,
+2017-04-12T21:42:43.731968+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:42:43.731969+00:00 app[web.1]:     input: 'and I lost my job' } ]
+2017-04-12T21:42:43.804693+00:00 app[web.1]: =======
+2017-04-12T21:42:43.805672+00:00 app[web.1]: { id: '1498417c-d384-44f3-9c86-a446e0a8808b',
+2017-04-12T21:42:43.805673+00:00 app[web.1]:   timestamp: '2017-04-12T21:42:43.804Z',
+2017-04-12T21:42:43.805673+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:42:43.805674+00:00 app[web.1]:   result:
+2017-04-12T21:42:43.805674+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:42:43.805675+00:00 app[web.1]:      resolvedQuery: 'and I lost my job',
+2017-04-12T21:42:43.805675+00:00 app[web.1]:      action: '',
+2017-04-12T21:42:43.805676+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:42:43.805676+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:42:43.805677+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:42:43.805677+00:00 app[web.1]:      metadata:
+2017-04-12T21:42:43.805681+00:00 app[web.1]:       { intentId: 'b706c73e-4e73-408f-9223-b7aa8436b8b7',
+2017-04-12T21:42:43.805681+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:42:43.805682+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:42:43.805682+00:00 app[web.1]:         intentName: '1-listening' },
+2017-04-12T21:42:43.805682+00:00 app[web.1]:      fulfillment: { speech: '', messages: [Object] },
+2017-04-12T21:42:43.805683+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:42:43.805683+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:42:43.805684+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:42:43.805743+00:00 app[web.1]: undefined
+2017-04-12T21:42:43.805780+00:00 app[web.1]: no response from API.AI
+2017-04-12T21:42:43.805817+00:00 app[web.1]: no attachments
+2017-04-12T21:42:43.895155+00:00 app[web.1]: {
+2017-04-12T21:42:43.895169+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:42:43.895170+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:43.895171+00:00 app[web.1]:       "score": -0.848417,
+2017-04-12T21:42:43.895171+00:00 app[web.1]:       "label": "negative"
+2017-04-12T21:42:43.895172+00:00 app[web.1]:     }
+2017-04-12T21:42:43.895173+00:00 app[web.1]:   },
+2017-04-12T21:42:43.895205+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:42:43.895206+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:43.895207+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:42:43.895207+00:00 app[web.1]:         "sadness": 0.516134,
+2017-04-12T21:42:43.895208+00:00 app[web.1]:         "joy": 0.011702,
+2017-04-12T21:42:43.895208+00:00 app[web.1]:         "fear": 0.32618,
+2017-04-12T21:42:43.895208+00:00 app[web.1]:         "disgust": 0.072029,
+2017-04-12T21:42:43.895209+00:00 app[web.1]:         "anger": 0.20067
+2017-04-12T21:42:43.895209+00:00 app[web.1]:       }
+2017-04-12T21:42:43.895210+00:00 app[web.1]:     }
+2017-04-12T21:42:43.895210+00:00 app[web.1]:   },
+2017-04-12T21:42:43.895210+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:42:43.895211+00:00 app[web.1]: }
+2017-04-12T21:42:51.368912+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=a86a2895-5c34-4158-a034-7971c4724581 fwd="31.13.113.85" dyno=web.1 connect=0ms service=5ms status=200 bytes=251 protocol=https
+2017-04-12T21:42:51.359893+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033369538 with message:
+2017-04-12T21:42:51.359943+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWO9wlbZB5rqQBa4","seq":34974,"text":"in too sad"}
+2017-04-12T21:42:51.360980+00:00 app[web.1]: listen
+2017-04-12T21:42:51.470478+00:00 app[web.1]: Detections:
+2017-04-12T21:42:51.470486+00:00 app[web.1]: in too sad => en
+2017-04-12T21:42:51.470724+00:00 app[web.1]: [ { confidence: 0.2507225573062897,
+2017-04-12T21:42:51.470725+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:42:51.470725+00:00 app[web.1]:     input: 'in too sad' } ]
+2017-04-12T21:42:51.520308+00:00 app[web.1]: =======
+2017-04-12T21:42:51.521112+00:00 app[web.1]: { id: 'dfcd995a-c16b-4141-ac8c-bf4b56541203',
+2017-04-12T21:42:51.521114+00:00 app[web.1]:   timestamp: '2017-04-12T21:42:51.52Z',
+2017-04-12T21:42:51.521115+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:42:51.521115+00:00 app[web.1]:   result:
+2017-04-12T21:42:51.521116+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:42:51.521117+00:00 app[web.1]:      resolvedQuery: 'in too sad',
+2017-04-12T21:42:51.521117+00:00 app[web.1]:      action: '',
+2017-04-12T21:42:51.521118+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:42:51.521118+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:42:51.521119+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:42:51.521120+00:00 app[web.1]:      metadata:
+2017-04-12T21:42:51.521120+00:00 app[web.1]:       { intentId: 'b706c73e-4e73-408f-9223-b7aa8436b8b7',
+2017-04-12T21:42:51.521121+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:42:51.521122+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:42:51.521122+00:00 app[web.1]:         intentName: '1-listening' },
+2017-04-12T21:42:51.521123+00:00 app[web.1]:      fulfillment: { speech: '', messages: [Object] },
+2017-04-12T21:42:51.521124+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:42:51.521124+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:42:51.521125+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:42:51.521168+00:00 app[web.1]: undefined
+2017-04-12T21:42:51.521208+00:00 app[web.1]: no response from API.AI
+2017-04-12T21:42:51.521240+00:00 app[web.1]: no attachments
+2017-04-12T21:42:51.637141+00:00 app[web.1]: {
+2017-04-12T21:42:51.637152+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:42:51.637153+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:51.637153+00:00 app[web.1]:       "score": -0.94551,
+2017-04-12T21:42:51.637153+00:00 app[web.1]:       "label": "negative"
+2017-04-12T21:42:51.637154+00:00 app[web.1]:     }
+2017-04-12T21:42:51.637154+00:00 app[web.1]:   },
+2017-04-12T21:42:51.637155+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:42:51.637156+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:51.637156+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:42:51.637156+00:00 app[web.1]:         "sadness": 0.761653,
+2017-04-12T21:42:51.637157+00:00 app[web.1]:         "joy": 0.000014,
+2017-04-12T21:42:51.637157+00:00 app[web.1]:         "fear": 0.282985,
+2017-04-12T21:42:51.637158+00:00 app[web.1]:         "disgust": 0.011898,
+2017-04-12T21:42:51.637158+00:00 app[web.1]:         "anger": 0.010236
+2017-04-12T21:42:51.637159+00:00 app[web.1]:       }
+2017-04-12T21:42:51.637159+00:00 app[web.1]:     }
+2017-04-12T21:42:51.637160+00:00 app[web.1]:   },
+2017-04-12T21:42:51.637160+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:42:51.637160+00:00 app[web.1]: }
+2017-04-12T21:42:59.409928+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=336246cf-5b7a-4ad4-94a2-f5a3542673d8 fwd="31.13.114.68" dyno=web.1 connect=1ms service=5ms status=200 bytes=251 protocol=https
+2017-04-12T21:42:59.400030+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033378553 with message:
+2017-04-12T21:42:59.400076+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWPg-VbZB6QQ4hHZ","seq":34976,"text":"im done"}
+2017-04-12T21:42:59.401010+00:00 app[web.1]: listen
+2017-04-12T21:42:59.466592+00:00 app[web.1]: Detections:
+2017-04-12T21:42:59.466598+00:00 app[web.1]: im done => en
+2017-04-12T21:42:59.466852+00:00 app[web.1]: [ { language: 'en',
+2017-04-12T21:42:59.466854+00:00 app[web.1]:     confidence: 0.25186893343925476,
+2017-04-12T21:42:59.466854+00:00 app[web.1]:     input: 'im done' } ]
+2017-04-12T21:42:59.515395+00:00 app[web.1]: =======
+2017-04-12T21:42:59.516535+00:00 app[web.1]: { id: 'c4993eb2-794c-4b1a-9422-adb9166fee8a',
+2017-04-12T21:42:59.516537+00:00 app[web.1]:   timestamp: '2017-04-12T21:42:59.516Z',
+2017-04-12T21:42:59.516538+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:42:59.516538+00:00 app[web.1]:   result:
+2017-04-12T21:42:59.516539+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:42:59.516540+00:00 app[web.1]:      resolvedQuery: 'im done',
+2017-04-12T21:42:59.516540+00:00 app[web.1]:      action: '',
+2017-04-12T21:42:59.516541+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:42:59.516541+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:42:59.516542+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:42:59.516542+00:00 app[web.1]:      metadata:
+2017-04-12T21:42:59.516543+00:00 app[web.1]:       { intentId: 'b706c73e-4e73-408f-9223-b7aa8436b8b7',
+2017-04-12T21:42:59.516544+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:42:59.516545+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:42:59.516545+00:00 app[web.1]:         intentName: '1-listening' },
+2017-04-12T21:42:59.516546+00:00 app[web.1]:      fulfillment: { speech: '', messages: [Object] },
+2017-04-12T21:42:59.516546+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:42:59.516547+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:42:59.516548+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:42:59.516764+00:00 app[web.1]: undefined
+2017-04-12T21:42:59.516781+00:00 app[web.1]: no response from API.AI
+2017-04-12T21:42:59.516807+00:00 app[web.1]: no attachments
+2017-04-12T21:42:59.680112+00:00 app[web.1]: {
+2017-04-12T21:42:59.680117+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:42:59.680118+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:59.680118+00:00 app[web.1]:       "score": 0.532967,
+2017-04-12T21:42:59.680119+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:42:59.680120+00:00 app[web.1]:     }
+2017-04-12T21:42:59.680120+00:00 app[web.1]:   },
+2017-04-12T21:42:59.680121+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:42:59.680121+00:00 app[web.1]:     "document": {
+2017-04-12T21:42:59.680122+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:42:59.680123+00:00 app[web.1]:         "sadness": 0.317906,
+2017-04-12T21:42:59.680123+00:00 app[web.1]:         "joy": 0.176072,
+2017-04-12T21:42:59.680124+00:00 app[web.1]:         "fear": 0.166773,
+2017-04-12T21:42:59.680124+00:00 app[web.1]:         "disgust": 0.134599,
+2017-04-12T21:42:59.680125+00:00 app[web.1]:         "anger": 0.17194
+2017-04-12T21:42:59.680126+00:00 app[web.1]:       }
+2017-04-12T21:42:59.680126+00:00 app[web.1]:     }
+2017-04-12T21:42:59.680127+00:00 app[web.1]:   },
+2017-04-12T21:42:59.680128+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:42:59.680128+00:00 app[web.1]: }
+2017-04-12T21:45:21.925519+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=d05bf5fb-ec13-4b9f-a360-d937685e337e fwd="31.13.113.171" dyno=web.1 connect=1ms service=4ms status=200 bytes=251 protocol=https
+2017-04-12T21:45:21.918103+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033521088 with message:
+2017-04-12T21:45:21.918186+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWYNwFbZCCodBK8y","seq":34997,"text":"that's it"}
+2017-04-12T21:45:21.919332+00:00 app[web.1]: listen
+2017-04-12T21:45:21.997765+00:00 app[web.1]: Detections:
+2017-04-12T21:45:21.997771+00:00 app[web.1]: that's it => en
+2017-04-12T21:45:21.998002+00:00 app[web.1]: [ { language: 'en',
+2017-04-12T21:45:21.998003+00:00 app[web.1]:     confidence: 0.27791300415992737,
+2017-04-12T21:45:21.998003+00:00 app[web.1]:     input: 'that\'s it' } ]
+2017-04-12T21:45:22.124660+00:00 app[web.1]: ====== inside set action ======
+2017-04-12T21:45:22.124678+00:00 app[web.1]: users[i].action = save-entry
+2017-04-12T21:45:22.125964+00:00 app[web.1]: =======
+2017-04-12T21:45:22.126685+00:00 app[web.1]: { id: '08669039-1050-4856-92b7-8667b37c36cc',
+2017-04-12T21:45:22.126686+00:00 app[web.1]:   timestamp: '2017-04-12T21:45:22.118Z',
+2017-04-12T21:45:22.126687+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:45:22.126687+00:00 app[web.1]:   result:
+2017-04-12T21:45:22.126688+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:45:22.126688+00:00 app[web.1]:      resolvedQuery: 'that\'s it',
+2017-04-12T21:45:22.126688+00:00 app[web.1]:      action: 'save-entry',
+2017-04-12T21:45:22.126689+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:45:22.126689+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:45:22.126690+00:00 app[web.1]:      contexts: [ [Object], [Object] ],
+2017-04-12T21:45:22.126690+00:00 app[web.1]:      metadata:
+2017-04-12T21:45:22.126691+00:00 app[web.1]:       { intentId: '63c6c0bf-50e6-4078-b0fd-f19df7b4f3a8',
+2017-04-12T21:45:22.126691+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:45:22.126692+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:45:22.126692+00:00 app[web.1]:         intentName: '1-listening_done' },
+2017-04-12T21:45:22.126693+00:00 app[web.1]:      fulfillment:
+2017-04-12T21:45:22.126693+00:00 app[web.1]:       { speech: 'Done! I memorized that for you.',
+2017-04-12T21:45:22.126693+00:00 app[web.1]:         messages: [Object] },
+2017-04-12T21:45:22.126694+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:45:22.126694+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:45:22.126694+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:45:22.126730+00:00 app[web.1]: undefined
+2017-04-12T21:45:22.127717+00:00 app[web.1]: no attachments
+2017-04-12T21:45:22.162069+00:00 app[web.1]: { deleted: [ 'listening', 'done-listening' ],
+2017-04-12T21:45:22.162071+00:00 app[web.1]:   status: { code: 200, errorType: 'success' } }
+2017-04-12T21:45:22.202644+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAbp5O6KRzdhlWYSDFbZCDKAypQ_ to recipient 1240994039281531
+2017-04-12T21:45:22.231313+00:00 app[web.1]: {
+2017-04-12T21:45:22.231315+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:45:22.231316+00:00 app[web.1]:     "document": {
+2017-04-12T21:45:22.231316+00:00 app[web.1]:       "score": 0,
+2017-04-12T21:45:22.231317+00:00 app[web.1]:       "label": "neutral"
+2017-04-12T21:45:22.231317+00:00 app[web.1]:     }
+2017-04-12T21:45:22.231318+00:00 app[web.1]:   },
+2017-04-12T21:45:22.231318+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:45:22.231319+00:00 app[web.1]:     "document": {
+2017-04-12T21:45:22.231319+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:45:22.231320+00:00 app[web.1]:         "sadness": 0.323208,
+2017-04-12T21:45:22.231320+00:00 app[web.1]:         "joy": 0.162459,
+2017-04-12T21:45:22.231320+00:00 app[web.1]:         "fear": 0.17069,
+2017-04-12T21:45:22.231321+00:00 app[web.1]:         "disgust": 0.138661,
+2017-04-12T21:45:22.231321+00:00 app[web.1]:         "anger": 0.184495
+2017-04-12T21:45:22.231321+00:00 app[web.1]:       }
+2017-04-12T21:45:22.231322+00:00 app[web.1]:     }
+2017-04-12T21:45:22.231322+00:00 app[web.1]:   },
+2017-04-12T21:45:22.231322+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:45:22.231323+00:00 app[web.1]: }
+2017-04-12T21:45:57.157518+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033556311 with message:
+2017-04-12T21:45:57.157562+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWaXV1bZCEicxmVf","seq":35006,"text":"cool"}
+2017-04-12T21:45:57.160203+00:00 app[web.1]: save-entry
+2017-04-12T21:45:57.216146+00:00 app[web.1]: Detections:
+2017-04-12T21:45:57.216168+00:00 app[web.1]: cool => en
+2017-04-12T21:45:57.216404+00:00 app[web.1]: [ { language: 'en', confidence: 0.8914728760719299, input: 'cool' } ]
+2017-04-12T21:45:57.297007+00:00 app[web.1]: =======
+2017-04-12T21:45:57.297828+00:00 app[web.1]: { id: '8d0fae83-574c-42cc-adfd-432afa021a75',
+2017-04-12T21:45:57.297829+00:00 app[web.1]:   timestamp: '2017-04-12T21:45:57.287Z',
+2017-04-12T21:45:57.297830+00:00 app[web.1]:   result:
+2017-04-12T21:45:57.297831+00:00 app[web.1]:    { source: 'domains',
+2017-04-12T21:45:57.297832+00:00 app[web.1]:      resolvedQuery: 'cool',
+2017-04-12T21:45:57.297832+00:00 app[web.1]:      action: 'smalltalk.dialog',
+2017-04-12T21:45:57.297833+00:00 app[web.1]:      parameters: { simplified: 'cool' },
+2017-04-12T21:45:57.297834+00:00 app[web.1]:      metadata: {},
+2017-04-12T21:45:57.297834+00:00 app[web.1]:      fulfillment: { speech: 'You said it.' },
+2017-04-12T21:45:57.297835+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:45:57.297836+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:45:57.297836+00:00 app[web.1]:   sessionId: '1240994039281531' }
+2017-04-12T21:45:57.297887+00:00 app[web.1]: undefined
+2017-04-12T21:45:57.298860+00:00 app[web.1]: no attachments
+2017-04-12T21:45:57.382984+00:00 app[web.1]: {
+2017-04-12T21:45:57.382988+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:45:57.382988+00:00 app[web.1]:     "document": {
+2017-04-12T21:45:57.382989+00:00 app[web.1]:       "score": 0.822865,
+2017-04-12T21:45:57.382989+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:45:57.382990+00:00 app[web.1]:     }
+2017-04-12T21:45:57.382990+00:00 app[web.1]:   },
+2017-04-12T21:45:57.382991+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:45:57.382991+00:00 app[web.1]:     "document": {
+2017-04-12T21:45:57.382992+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:45:57.382992+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:45:57.382992+00:00 app[web.1]:         "joy": 0,
+2017-04-12T21:45:57.382993+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:45:57.382993+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:45:57.382994+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:45:57.382994+00:00 app[web.1]:       }
+2017-04-12T21:45:57.382994+00:00 app[web.1]:     }
+2017-04-12T21:45:57.382995+00:00 app[web.1]:   },
+2017-04-12T21:45:57.382995+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:45:57.382995+00:00 app[web.1]: }
+2017-04-12T21:45:57.168464+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=88a8f993-c4a9-4742-8766-abff51483e09 fwd="31.13.113.190" dyno=web.1 connect=1ms service=6ms status=200 bytes=251 protocol=https
+2017-04-12T21:45:57.415284+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAbp5O6KRzdhlWablFbZCFTiZek1 to recipient 1240994039281531
+2017-04-12T21:47:45.894593+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=fe901a2f-0201-48b7-8aad-477d9b6b362a fwd="31.13.113.68" dyno=web.1 connect=0ms service=9ms status=200 bytes=251 protocol=https
+2017-04-12T21:47:45.876865+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033665025 with message:
+2017-04-12T21:47:45.876929+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWhAAVbZCI0-SJSQ","seq":35045,"sticker_id":369239263222822,"attachments":[{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/851557_369239266556155_759568595_n.png?_nc_ad=z-m&oh=547beb90237e24a9682810a5144c9fba&oe=5988CFDC","sticker_id":369239263222822}}]}
+2017-04-12T21:47:45.877045+00:00 app[web.1]: IMAGE RECEIVED!
+2017-04-12T21:47:45.904424+00:00 app[web.1]: content-type: image/png
+2017-04-12T21:47:45.904472+00:00 app[web.1]: content-length: 3810
+2017-04-12T21:47:45.912669+00:00 app[web.1]: content-type: image/png
+2017-04-12T21:47:45.912714+00:00 app[web.1]: content-length: 3810
+2017-04-12T21:47:46.280690+00:00 heroku[router]: at=info method=GET path="/1240994039281531_1492033665025_kairos.jpg" host=chatzer.herokuapp.com request_id=9aecebf3-7eaf-43f6-804b-07acbab01afc fwd="52.73.136.66" dyno=web.1 connect=0ms service=9ms status=200 bytes=4085 protocol=http
+2017-04-12T21:47:46.382324+00:00 app[web.1]: Faces:
+2017-04-12T21:47:46.382445+00:00 app[web.1]: 0 face(s) detected...
+2017-04-12T21:47:47.281803+00:00 app[web.1]: {"Errors":[{"Message":"no faces found in the image","ErrCode":5002}]}
+2017-04-12T21:47:48.886484+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=edc652d9-e743-4a2e-aa48-a29111f3750c fwd="31.13.113.188" dyno=web.1 connect=0ms service=4ms status=200 bytes=251 protocol=https
+2017-04-12T21:47:48.877308+00:00 app[web.1]: Received message for user 1240994039281531 and page 1885762838312008 at 1492033668060 with message:
+2017-04-12T21:47:48.877368+00:00 app[web.1]: {"mid":"mid.$cAAbp5O6KRzdhlWhL3FbZCI2877mY","seq":35047,"sticker_id":369239263222822,"attachments":[{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/851557_369239266556155_759568595_n.png?_nc_ad=z-m&oh=547beb90237e24a9682810a5144c9fba&oe=5988CFDC","sticker_id":369239263222822}}]}
+2017-04-12T21:47:48.877407+00:00 app[web.1]: IMAGE RECEIVED!
+2017-04-12T21:47:48.889355+00:00 app[web.1]: content-type: image/png
+2017-04-12T21:47:48.889387+00:00 app[web.1]: content-length: 3810
+2017-04-12T21:47:48.893737+00:00 app[web.1]: content-type: image/png
+2017-04-12T21:47:48.893771+00:00 app[web.1]: content-length: 3810
+2017-04-12T21:47:48.983367+00:00 app[web.1]: Faces:
+2017-04-12T21:47:48.983548+00:00 app[web.1]: 0 face(s) detected...
+2017-04-12T21:47:49.032438+00:00 heroku[router]: at=info method=GET path="/1240994039281531_1492033668060_kairos.jpg" host=chatzer.herokuapp.com request_id=954b68f5-3ff2-4c03-bd52-1fc053e8d361 fwd="52.73.136.66" dyno=web.1 connect=0ms service=5ms status=200 bytes=4085 protocol=http
+2017-04-12T21:47:50.440820+00:00 app[web.1]: {"Errors":[{"Message":"no faces found in the image","ErrCode":5002}]}
+
+
+2017-04-12T21:53:57.433046+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=d8c90d3b-7db8-436e-859e-d1dc46447504 fwd="31.13.113.79" dyno=web.1 connect=0ms service=5ms status=200 bytes=251 protocol=https
+2017-04-12T21:53:57.425580+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034036562 with message:
+2017-04-12T21:53:57.425719+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW3rUlbZChpUe1zx","seq":135042,"text":"I feel amazing!"}
+2017-04-12T21:53:57.426766+00:00 app[web.1]: save-entry
+2017-04-12T21:53:57.516288+00:00 app[web.1]: Detections:
+2017-04-12T21:53:57.516324+00:00 app[web.1]: I feel amazing! => en
+2017-04-12T21:53:57.516689+00:00 app[web.1]: [ { confidence: 0.2765378952026367,
+2017-04-12T21:53:57.516690+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:53:57.516691+00:00 app[web.1]:     input: 'I feel amazing!' } ]
+2017-04-12T21:53:57.636051+00:00 app[web.1]: =======
+2017-04-12T21:53:57.637431+00:00 app[web.1]: { id: 'ab304999-e0fe-46c8-b6b4-73321812fd76',
+2017-04-12T21:53:57.637432+00:00 app[web.1]:   timestamp: '2017-04-12T21:53:57.635Z',
+2017-04-12T21:53:57.637433+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:53:57.637433+00:00 app[web.1]:   result:
+2017-04-12T21:53:57.637434+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:53:57.637434+00:00 app[web.1]:      resolvedQuery: 'I feel amazing!',
+2017-04-12T21:53:57.637435+00:00 app[web.1]:      action: 'input.unknown',
+2017-04-12T21:53:57.637435+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:53:57.637435+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:53:57.637436+00:00 app[web.1]:      contexts: [],
+2017-04-12T21:53:57.637436+00:00 app[web.1]:      metadata:
+2017-04-12T21:53:57.637440+00:00 app[web.1]:       { intentId: '3b2a6116-8847-4581-872d-f2076b366b34',
+2017-04-12T21:53:57.637440+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:53:57.637441+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:53:57.637441+00:00 app[web.1]:         intentName: 'Default Fallback Intent' },
+2017-04-12T21:53:57.637442+00:00 app[web.1]:      fulfillment:
+2017-04-12T21:53:57.637442+00:00 app[web.1]:       { speech: 'I didn\'t understand that though....',
+2017-04-12T21:53:57.637443+00:00 app[web.1]:         messages: [Object] },
+2017-04-12T21:53:57.637444+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:53:57.637444+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:53:57.637445+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:53:57.637501+00:00 app[web.1]: undefined
+2017-04-12T21:53:57.638676+00:00 app[web.1]: no attachments
+2017-04-12T21:53:57.709379+00:00 app[web.1]: {
+2017-04-12T21:53:57.709398+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:53:57.709399+00:00 app[web.1]:     "document": {
+2017-04-12T21:53:57.709399+00:00 app[web.1]:       "score": 0.853965,
+2017-04-12T21:53:57.709400+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:53:57.709401+00:00 app[web.1]:     }
+2017-04-12T21:53:57.709401+00:00 app[web.1]:   },
+2017-04-12T21:53:57.709402+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:53:57.709403+00:00 app[web.1]:     "document": {
+2017-04-12T21:53:57.709403+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:53:57.709404+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:53:57.709404+00:00 app[web.1]:         "joy": 0,
+2017-04-12T21:53:57.709405+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:53:57.709405+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:53:57.709405+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:53:57.709406+00:00 app[web.1]:       }
+2017-04-12T21:53:57.709406+00:00 app[web.1]:     }
+2017-04-12T21:53:57.709407+00:00 app[web.1]:   },
+2017-04-12T21:53:57.709407+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:53:57.709408+00:00 app[web.1]: }
+2017-04-12T21:53:57.776188+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW3v_FbZCin7O38c to recipient 1450043748391296
+2017-04-12T21:54:09.318802+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=0937d188-b85a-48c8-8056-0a3284bc1c10 fwd="31.13.110.106" dyno=web.1 connect=1ms service=7ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:09.309085+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034048464 with message:
+2017-04-12T21:54:09.309103+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW4Z0FbZCiTY3O4C","seq":135046,"text":"how ?"}
+2017-04-12T21:54:09.309976+00:00 app[web.1]: save-entry
+2017-04-12T21:54:09.369998+00:00 app[web.1]: Detections:
+2017-04-12T21:54:09.370034+00:00 app[web.1]: how ? => en
+2017-04-12T21:54:09.370356+00:00 app[web.1]: [ { confidence: 0.890625, language: 'en', input: 'how ?' } ]
+2017-04-12T21:54:09.449715+00:00 app[web.1]: =======
+2017-04-12T21:54:09.450662+00:00 app[web.1]: { id: '864aca83-0b32-43f4-80b3-fb16c3593bec',
+2017-04-12T21:54:09.450663+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:09.45Z',
+2017-04-12T21:54:09.450664+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:54:09.450664+00:00 app[web.1]:   result:
+2017-04-12T21:54:09.450665+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:54:09.450665+00:00 app[web.1]:      resolvedQuery: 'how ?',
+2017-04-12T21:54:09.450665+00:00 app[web.1]:      action: '',
+2017-04-12T21:54:09.450666+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:54:09.450666+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:54:09.450667+00:00 app[web.1]:      contexts: [],
+2017-04-12T21:54:09.450667+00:00 app[web.1]:      metadata:
+2017-04-12T21:54:09.450668+00:00 app[web.1]:       { intentId: 'f9c13bf6-54f6-4b09-a8ea-9614f7211cc0',
+2017-04-12T21:54:09.450668+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:54:09.450668+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:54:09.450669+00:00 app[web.1]:         intentName: '3-help' },
+2017-04-12T21:54:09.450669+00:00 app[web.1]:      fulfillment:
+2017-04-12T21:54:09.450670+00:00 app[web.1]:       { speech: 'I\'ve been told I\'m a good \'listener\', just let me know if you\'d like to \'talk\'! There\'s other abilities to uncover though... there\'s only one way to find out!',
+2017-04-12T21:54:09.450671+00:00 app[web.1]:         messages: [Object] },
+2017-04-12T21:54:09.450671+00:00 app[web.1]:      score: 0.27 },
+2017-04-12T21:54:09.450671+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:09.450672+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:09.450731+00:00 app[web.1]: undefined
+2017-04-12T21:54:09.451700+00:00 app[web.1]: no attachments
+2017-04-12T21:54:09.542618+00:00 app[web.1]: {
+2017-04-12T21:54:09.542622+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:09.542622+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:09.542623+00:00 app[web.1]:       "score": 0,
+2017-04-12T21:54:09.542623+00:00 app[web.1]:       "label": "neutral"
+2017-04-12T21:54:09.542624+00:00 app[web.1]:     }
+2017-04-12T21:54:09.542625+00:00 app[web.1]:   },
+2017-04-12T21:54:09.542625+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:09.542626+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:09.542626+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:09.542630+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:54:09.542631+00:00 app[web.1]:         "joy": 0,
+2017-04-12T21:54:09.542631+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:54:09.542632+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:54:09.542633+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:54:09.542633+00:00 app[web.1]:       }
+2017-04-12T21:54:09.542634+00:00 app[web.1]:     }
+2017-04-12T21:54:09.542634+00:00 app[web.1]:   },
+2017-04-12T21:54:09.542635+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:09.542636+00:00 app[web.1]: }
+2017-04-12T21:54:09.569249+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW4eDlbZCjWACE91 to recipient 1450043748391296
+2017-04-12T21:54:20.799398+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034059966 with message:
+2017-04-12T21:54:20.799448+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW5GvlbZCjBZiuVu","seq":135050,"text":"I would like to talk actually"}
+2017-04-12T21:54:20.800572+00:00 app[web.1]: save-entry
+2017-04-12T21:54:20.864442+00:00 app[web.1]: Detections:
+2017-04-12T21:54:20.864447+00:00 app[web.1]: I would like to talk actually => en
+2017-04-12T21:54:20.864767+00:00 app[web.1]: [ { confidence: 0.3184998631477356,
+2017-04-12T21:54:20.864768+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:54:20.864769+00:00 app[web.1]:     input: 'I would like to talk actually' } ]
+2017-04-12T21:54:20.955326+00:00 app[web.1]: ====== inside set action ======
+2017-04-12T21:54:20.955331+00:00 app[web.1]: users[i].action = listen
+2017-04-12T21:54:20.955332+00:00 app[web.1]: =======
+2017-04-12T21:54:20.957249+00:00 app[web.1]: { id: '9a91c319-8812-49e8-920a-251b14709c1b',
+2017-04-12T21:54:20.957250+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:20.953Z',
+2017-04-12T21:54:20.957251+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:54:20.957252+00:00 app[web.1]:   result:
+2017-04-12T21:54:20.957252+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:54:20.957253+00:00 app[web.1]:      resolvedQuery: 'I would like to talk actually',
+2017-04-12T21:54:20.957254+00:00 app[web.1]:      action: 'listen',
+2017-04-12T21:54:20.957254+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:54:20.957255+00:00 app[web.1]:      parameters: { user: 'I' },
+2017-04-12T21:54:20.957255+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:54:20.957256+00:00 app[web.1]:      metadata:
+2017-04-12T21:54:20.957257+00:00 app[web.1]:       { intentId: '8fb413a4-69e2-4dad-b762-14d84d90268c',
+2017-04-12T21:54:20.957257+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:54:20.957258+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:54:20.957258+00:00 app[web.1]:         intentName: '1-listen' },
+2017-04-12T21:54:20.957259+00:00 app[web.1]:      fulfillment: { speech: 'I\'m here, everything OK?', messages: [Object] },
+2017-04-12T21:54:20.957260+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:54:20.957261+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:20.957261+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:20.957312+00:00 app[web.1]: undefined
+2017-04-12T21:54:20.958758+00:00 app[web.1]: no attachments
+2017-04-12T21:54:20.809196+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=98eedb0e-e301-464b-b80e-3172991fc21e fwd="31.13.113.178" dyno=web.1 connect=0ms service=6ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:21.069423+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW5K-1bZCkC8_wrf to recipient 1450043748391296
+2017-04-12T21:54:21.086100+00:00 app[web.1]: {
+2017-04-12T21:54:21.086102+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:21.086103+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:21.086104+00:00 app[web.1]:       "score": 0,
+2017-04-12T21:54:21.086104+00:00 app[web.1]:       "label": "neutral"
+2017-04-12T21:54:21.086105+00:00 app[web.1]:     }
+2017-04-12T21:54:21.086105+00:00 app[web.1]:   },
+2017-04-12T21:54:21.086106+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:21.086107+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:21.086107+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:21.086108+00:00 app[web.1]:         "sadness": 0.267043,
+2017-04-12T21:54:21.086109+00:00 app[web.1]:         "joy": 0.135229,
+2017-04-12T21:54:21.086112+00:00 app[web.1]:         "fear": 0.121063,
+2017-04-12T21:54:21.086112+00:00 app[web.1]:         "disgust": 0.322042,
+2017-04-12T21:54:21.086113+00:00 app[web.1]:         "anger": 0.18494
+2017-04-12T21:54:21.086114+00:00 app[web.1]:       }
+2017-04-12T21:54:21.086114+00:00 app[web.1]:     }
+2017-04-12T21:54:21.086115+00:00 app[web.1]:   },
+2017-04-12T21:54:21.086115+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:21.086116+00:00 app[web.1]: }
+2017-04-12T21:54:26.492161+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=4e577430-94c8-4a02-9d7b-da83c1861805 fwd="31.13.114.75" dyno=web.1 connect=0ms service=5ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:26.481502+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034065640 with message:
+2017-04-12T21:54:26.481514+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW5c6FbZCjbEmazd","seq":135054,"text":"I feel amazing."}
+2017-04-12T21:54:26.483087+00:00 app[web.1]: listen
+2017-04-12T21:54:26.549446+00:00 app[web.1]: Detections:
+2017-04-12T21:54:26.549452+00:00 app[web.1]: I feel amazing. => en
+2017-04-12T21:54:26.549676+00:00 app[web.1]: [ { language: 'en',
+2017-04-12T21:54:26.549677+00:00 app[web.1]:     confidence: 0.2765378952026367,
+2017-04-12T21:54:26.549678+00:00 app[web.1]:     input: 'I feel amazing.' } ]
+2017-04-12T21:54:26.605565+00:00 app[web.1]: =======
+2017-04-12T21:54:26.606531+00:00 app[web.1]: { id: 'c7f0bfc4-73c4-4dfc-ae90-a9dd00f64558',
+2017-04-12T21:54:26.606532+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:26.606Z',
+2017-04-12T21:54:26.606533+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:54:26.606533+00:00 app[web.1]:   result:
+2017-04-12T21:54:26.606534+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:54:26.606535+00:00 app[web.1]:      resolvedQuery: 'I feel amazing.',
+2017-04-12T21:54:26.606535+00:00 app[web.1]:      action: '',
+2017-04-12T21:54:26.606536+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:54:26.606536+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:54:26.606537+00:00 app[web.1]:      contexts: [ [Object] ],
+2017-04-12T21:54:26.606538+00:00 app[web.1]:      metadata:
+2017-04-12T21:54:26.606539+00:00 app[web.1]:       { intentId: 'b706c73e-4e73-408f-9223-b7aa8436b8b7',
+2017-04-12T21:54:26.606539+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:54:26.606540+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:54:26.606540+00:00 app[web.1]:         intentName: '1-listening' },
+2017-04-12T21:54:26.606541+00:00 app[web.1]:      fulfillment: { speech: '', messages: [Object] },
+2017-04-12T21:54:26.606541+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:54:26.606542+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:26.606542+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:26.606585+00:00 app[web.1]: undefined
+2017-04-12T21:54:26.606655+00:00 app[web.1]: no response from API.AI
+2017-04-12T21:54:26.606708+00:00 app[web.1]: no attachments
+2017-04-12T21:54:26.711986+00:00 app[web.1]: {
+2017-04-12T21:54:26.711990+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:26.711990+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:26.711991+00:00 app[web.1]:       "score": 0.899924,
+2017-04-12T21:54:26.711992+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:54:26.711992+00:00 app[web.1]:     }
+2017-04-12T21:54:26.711993+00:00 app[web.1]:   },
+2017-04-12T21:54:26.711993+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:26.711994+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:26.711994+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:26.711995+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:54:26.711996+00:00 app[web.1]:         "joy": 0,
+2017-04-12T21:54:26.711996+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:54:26.711997+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:54:26.711997+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:54:26.711998+00:00 app[web.1]:       }
+2017-04-12T21:54:26.711998+00:00 app[web.1]:     }
+2017-04-12T21:54:26.711999+00:00 app[web.1]:   },
+2017-04-12T21:54:26.711999+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:26.712000+00:00 app[web.1]: }
+2017-04-12T21:54:32.832964+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=a925f154-1b2d-493c-a10e-9015e1783ef3 fwd="31.13.113.187" dyno=web.1 connect=1ms service=4ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:32.816146+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034071977 with message:
+2017-04-12T21:54:32.816181+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW51qVbZCjv5hLPt","seq":135056,"text":"that's it"}
+2017-04-12T21:54:32.817048+00:00 app[web.1]: listen
+2017-04-12T21:54:32.881904+00:00 app[web.1]: Detections:
+2017-04-12T21:54:32.881926+00:00 app[web.1]: that's it => en
+2017-04-12T21:54:32.882194+00:00 app[web.1]: [ { confidence: 0.27791300415992737,
+2017-04-12T21:54:32.882196+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:54:32.882197+00:00 app[web.1]:     input: 'that\'s it' } ]
+2017-04-12T21:54:32.916892+00:00 app[web.1]: ====== inside set action ======
+2017-04-12T21:54:32.916901+00:00 app[web.1]: users[i].action = save-entry
+2017-04-12T21:54:32.917956+00:00 app[web.1]: =======
+2017-04-12T21:54:32.918691+00:00 app[web.1]: { id: 'd2bef057-f14a-44d2-8e4f-553f1f4229ba',
+2017-04-12T21:54:32.918693+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:32.918Z',
+2017-04-12T21:54:32.918694+00:00 app[web.1]:   lang: 'en',
+2017-04-12T21:54:32.918694+00:00 app[web.1]:   result:
+2017-04-12T21:54:32.918695+00:00 app[web.1]:    { source: 'agent',
+2017-04-12T21:54:32.918696+00:00 app[web.1]:      resolvedQuery: 'that\'s it',
+2017-04-12T21:54:32.918696+00:00 app[web.1]:      action: 'save-entry',
+2017-04-12T21:54:32.918697+00:00 app[web.1]:      actionIncomplete: false,
+2017-04-12T21:54:32.918698+00:00 app[web.1]:      parameters: {},
+2017-04-12T21:54:32.918698+00:00 app[web.1]:      contexts: [ [Object], [Object] ],
+2017-04-12T21:54:32.918699+00:00 app[web.1]:      metadata:
+2017-04-12T21:54:32.918700+00:00 app[web.1]:       { intentId: '63c6c0bf-50e6-4078-b0fd-f19df7b4f3a8',
+2017-04-12T21:54:32.918701+00:00 app[web.1]:         webhookUsed: 'false',
+2017-04-12T21:54:32.918701+00:00 app[web.1]:         webhookForSlotFillingUsed: 'false',
+2017-04-12T21:54:32.918702+00:00 app[web.1]:         intentName: '1-listening_done' },
+2017-04-12T21:54:32.918703+00:00 app[web.1]:      fulfillment: { speech: 'Okay got it! entry memorized!', messages: [Object] },
+2017-04-12T21:54:32.918704+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:54:32.918704+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:32.918705+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:32.918747+00:00 app[web.1]: undefined
+2017-04-12T21:54:32.919369+00:00 app[web.1]: no attachments
+2017-04-12T21:54:32.949586+00:00 app[web.1]: { deleted: [ 'listening', 'done-listening' ],
+2017-04-12T21:54:32.949589+00:00 app[web.1]:   status: { code: 200, errorType: 'success' } }
+2017-04-12T21:54:33.035229+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW55uVbZCkxsNSvk to recipient 1450043748391296
+2017-04-12T21:54:33.121103+00:00 app[web.1]: {
+2017-04-12T21:54:33.121113+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:33.121114+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:33.121115+00:00 app[web.1]:       "score": 0,
+2017-04-12T21:54:33.121115+00:00 app[web.1]:       "label": "neutral"
+2017-04-12T21:54:33.121116+00:00 app[web.1]:     }
+2017-04-12T21:54:33.121116+00:00 app[web.1]:   },
+2017-04-12T21:54:33.121117+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:33.121118+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:33.121118+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:33.121119+00:00 app[web.1]:         "sadness": 0.323208,
+2017-04-12T21:54:33.121123+00:00 app[web.1]:         "joy": 0.162459,
+2017-04-12T21:54:33.121123+00:00 app[web.1]:         "fear": 0.17069,
+2017-04-12T21:54:33.121124+00:00 app[web.1]:         "disgust": 0.138661,
+2017-04-12T21:54:33.121124+00:00 app[web.1]:         "anger": 0.184495
+2017-04-12T21:54:33.121125+00:00 app[web.1]:       }
+2017-04-12T21:54:33.121126+00:00 app[web.1]:     }
+2017-04-12T21:54:33.121126+00:00 app[web.1]:   },
+2017-04-12T21:54:33.121127+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:33.121128+00:00 app[web.1]: }
+2017-04-12T21:54:36.688364+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=7666a8cc-0919-4e05-8237-8eac911ae6ca fwd="31.13.113.76" dyno=web.1 connect=0ms service=14ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:36.676238+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034075808 with message:
+2017-04-12T21:54:36.676252+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW6EoFbZCkCyTUj9","seq":135060,"text":"thanks!"}
+2017-04-12T21:54:36.678278+00:00 app[web.1]: save-entry
+2017-04-12T21:54:36.746072+00:00 app[web.1]: Detections:
+2017-04-12T21:54:36.746079+00:00 app[web.1]: thanks! => en
+2017-04-12T21:54:36.746356+00:00 app[web.1]: [ { confidence: 0.9685039520263672,
+2017-04-12T21:54:36.746358+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:54:36.746359+00:00 app[web.1]:     input: 'thanks!' } ]
+2017-04-12T21:54:36.824617+00:00 app[web.1]: =======
+2017-04-12T21:54:36.825323+00:00 app[web.1]: { id: 'ff158444-d6a1-4654-b6d7-4337b2315a97',
+2017-04-12T21:54:36.825325+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:36.816Z',
+2017-04-12T21:54:36.825326+00:00 app[web.1]:   result:
+2017-04-12T21:54:36.825327+00:00 app[web.1]:    { source: 'domains',
+2017-04-12T21:54:36.825327+00:00 app[web.1]:      resolvedQuery: 'thanks!',
+2017-04-12T21:54:36.825328+00:00 app[web.1]:      action: 'smalltalk.appraisal',
+2017-04-12T21:54:36.825329+00:00 app[web.1]:      parameters: { simplified: 'thank you' },
+2017-04-12T21:54:36.825329+00:00 app[web.1]:      metadata: {},
+2017-04-12T21:54:36.825332+00:00 app[web.1]:      fulfillment: { speech: 'It\'s my pleasure to help.' },
+2017-04-12T21:54:36.825333+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:54:36.825334+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:36.825334+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:36.825400+00:00 app[web.1]: undefined
+2017-04-12T21:54:36.826223+00:00 app[web.1]: no attachments
+2017-04-12T21:54:36.911170+00:00 app[web.1]: {
+2017-04-12T21:54:36.911174+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:36.911175+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:36.911175+00:00 app[web.1]:       "score": 0.882397,
+2017-04-12T21:54:36.911176+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:54:36.911176+00:00 app[web.1]:     }
+2017-04-12T21:54:36.911177+00:00 app[web.1]:   },
+2017-04-12T21:54:36.911178+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:36.911178+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:36.911179+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:36.911180+00:00 app[web.1]:         "sadness": 0,
+2017-04-12T21:54:36.911180+00:00 app[web.1]:         "joy": 0.9,
+2017-04-12T21:54:36.911181+00:00 app[web.1]:         "fear": 0,
+2017-04-12T21:54:36.911181+00:00 app[web.1]:         "disgust": 0,
+2017-04-12T21:54:36.911182+00:00 app[web.1]:         "anger": 0
+2017-04-12T21:54:36.911183+00:00 app[web.1]:       }
+2017-04-12T21:54:36.911183+00:00 app[web.1]:     }
+2017-04-12T21:54:36.911184+00:00 app[web.1]:   },
+2017-04-12T21:54:36.911184+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:36.911185+00:00 app[web.1]: }
+2017-04-12T21:54:36.957581+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW6JC1bZClBAowj3 to recipient 1450043748391296
+2017-04-12T21:54:40.311680+00:00 app[web.1]: Received message for user 1450043748391296 and page 1885762838312008 at 1492034079470 with message:
+2017-04-12T21:54:40.311825+00:00 app[web.1]: {"mid":"mid.$cAAazFzNz5GthlW6S7lbZCkRDVdzH","seq":135064,"text":"you're cool!"}
+2017-04-12T21:54:40.313840+00:00 app[web.1]: save-entry
+2017-04-12T21:54:40.376771+00:00 app[web.1]: Detections:
+2017-04-12T21:54:40.376778+00:00 app[web.1]: you're cool! => en
+2017-04-12T21:54:40.377034+00:00 app[web.1]: [ { confidence: 0.1736157238483429,
+2017-04-12T21:54:40.377035+00:00 app[web.1]:     language: 'en',
+2017-04-12T21:54:40.377036+00:00 app[web.1]:     input: 'you\'re cool!' } ]
+2017-04-12T21:54:40.497201+00:00 app[web.1]: =======
+2017-04-12T21:54:40.497960+00:00 app[web.1]: { id: 'a11868a1-f25d-473b-ad96-5ef43c304529',
+2017-04-12T21:54:40.497962+00:00 app[web.1]:   timestamp: '2017-04-12T21:54:40.479Z',
+2017-04-12T21:54:40.497962+00:00 app[web.1]:   result:
+2017-04-12T21:54:40.497963+00:00 app[web.1]:    { source: 'domains',
+2017-04-12T21:54:40.497964+00:00 app[web.1]:      resolvedQuery: 'you\'re cool!',
+2017-04-12T21:54:40.497965+00:00 app[web.1]:      action: 'smalltalk.agent',
+2017-04-12T21:54:40.497968+00:00 app[web.1]:      parameters: { simplified: 'you are good' },
+2017-04-12T21:54:40.497969+00:00 app[web.1]:      metadata: {},
+2017-04-12T21:54:40.497971+00:00 app[web.1]:      fulfillment: { speech: 'Likewise, It\'s great to make new friends, isn\'t it?' },
+2017-04-12T21:54:40.497972+00:00 app[web.1]:      score: 1 },
+2017-04-12T21:54:40.497972+00:00 app[web.1]:   status: { code: 200, errorType: 'success' },
+2017-04-12T21:54:40.497973+00:00 app[web.1]:   sessionId: '1450043748391296' }
+2017-04-12T21:54:40.498063+00:00 app[web.1]: undefined
+2017-04-12T21:54:40.499034+00:00 app[web.1]: no attachments
+2017-04-12T21:54:40.332225+00:00 heroku[router]: at=info method=POST path="/ai" host=chatzer.herokuapp.com request_id=34039048-1001-4390-830e-f1da82a7af0f fwd="31.13.113.183" dyno=web.1 connect=0ms service=9ms status=200 bytes=251 protocol=https
+2017-04-12T21:54:40.609096+00:00 app[web.1]: {
+2017-04-12T21:54:40.609112+00:00 app[web.1]:   "sentiment": {
+2017-04-12T21:54:40.609113+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:40.609114+00:00 app[web.1]:       "score": 0.813365,
+2017-04-12T21:54:40.609115+00:00 app[web.1]:       "label": "positive"
+2017-04-12T21:54:40.609115+00:00 app[web.1]:     }
+2017-04-12T21:54:40.609116+00:00 app[web.1]:   },
+2017-04-12T21:54:40.609116+00:00 app[web.1]:   "emotion": {
+2017-04-12T21:54:40.609117+00:00 app[web.1]:     "document": {
+2017-04-12T21:54:40.609117+00:00 app[web.1]:       "emotion": {
+2017-04-12T21:54:40.609118+00:00 app[web.1]:         "sadness": 0.025269,
+2017-04-12T21:54:40.609119+00:00 app[web.1]:         "joy": 0.792231,
+2017-04-12T21:54:40.609119+00:00 app[web.1]:         "fear": 0.019653,
+2017-04-12T21:54:40.609120+00:00 app[web.1]:         "disgust": 0.044135,
+2017-04-12T21:54:40.609120+00:00 app[web.1]:         "anger": 0.044021
+2017-04-12T21:54:40.609121+00:00 app[web.1]:       }
+2017-04-12T21:54:40.609122+00:00 app[web.1]:     }
+2017-04-12T21:54:40.609122+00:00 app[web.1]:   },
+2017-04-12T21:54:40.609123+00:00 app[web.1]:   "language": "en"
+2017-04-12T21:54:40.609124+00:00 app[web.1]: }
+2017-04-12T21:54:40.621976+00:00 app[web.1]: Successfully sent generic message with id mid.$cAAazFzNz5GthlW6XXVbZClPVJzLA to recipient 1450043748391296
