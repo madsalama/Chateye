@@ -338,18 +338,6 @@ function api_ai(senderID, messageText, app){
       //  ... check if message is ENGLISH ! 
       mtranslate.detectLang(translateClient, messageText, function(result){
           console.log(result);
-    
-    //  | if NOT | = translate to ENGLISH before sending (callback of 'translate')
-
-              // mtranslate.trans2eng(translateClient, input, target, function(){
-              /*
-                  var reqs = app.textRequest(messageText, {
-                  sessionId: senderID });
-
-                }); 
-                      
-              **/  
-              // });
 
         var reqs = app.textRequest(messageText, {
         sessionId: senderID });
@@ -392,11 +380,8 @@ reqs.on('response', function(response) {
   // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
+    setAction(senderID, response.result.action);
 
-
- // extract ACTION from response 
-    // action = response.result.action;
-    // console.log('STORED ACTION IS '+action); 
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
@@ -563,6 +548,7 @@ if (!lookup[senderID]) {
         break;
 
       default:
+           console.log(getAction(senderID));
            if ( getAction(senderID) === '' ) {
              api_ai(senderID, messageText, app);
              console.log("NOT LISTENING..."); }
@@ -573,9 +559,6 @@ if (!lookup[senderID]) {
           else if (getAction(senderID) === 'save-entry'){
             console.log("ENTRY SAVED...");
           }
-           
-
-
     }
 
 
@@ -584,10 +567,6 @@ if (!lookup[senderID]) {
 
 
   else if (messageAttachments) { 
-
-
-
-   
 
 
     // THIS always matches to TRUE which is insane!!!?
