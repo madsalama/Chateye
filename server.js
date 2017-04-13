@@ -361,28 +361,29 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
    
-
-
-      mtranslate.detectLang(translateClient, messageText, function(result){ 
-        
-        var reqs ;
-        var languageName = getLanguageName(langnames, result); 
-
+     //  mtranslate.detectLang(translateClient, messageText, function(result){
+      // });
+           
+    ///    var reqs ;
+    ///    var languageName = getLanguageName(langnames, result); 
+    
 // ======================================================================================================
 
-        if (result !== 'en' && (getAction() !== 'listen')){
+//        if (result !== 'en' && (getAction() !== 'listen')){
 
-            sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
-            sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
-            console.log("I don't understand " + languageName + ' yet!');     
+            //sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
+            //sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
+            //console.log("I don't understand " + languageName + ' yet!');     
 
-        }
+        //}
 
-        if (result === 'en' || (getAction() === 'play-selfie')){
+       // if (result === 'en' || (getAction() === 'play-selfie')){
+
           reqs = app.textRequest(messageText, {
           sessionId: senderID });
-          console.log(reqs);
-        }
+
+         // console.log(reqs);
+       // }
 
 // ======================================================================================================
 
@@ -467,7 +468,8 @@ reqs.end();
 }
 
 
-      }); 
+
+
             
 
 
