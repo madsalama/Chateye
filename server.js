@@ -427,11 +427,8 @@ if (reqs){
   // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
+    if (response.result.action !== 'listen') 
     setAction(senderID, response.result.action);
-
-// if (response.result.action === 'listen' | response.result.action === 'save-entry'){
-//  setAction(senderID, response.result.action);
-// }
 
 if (response.result.action === 'save-entry') { 
   resetContexts(app, senderID);
@@ -554,7 +551,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-resetContexts(app, senderID); 
+ resetContexts(app, senderID); 
 
 // ===========================
 //   HANDLING USER/SESSIONS
