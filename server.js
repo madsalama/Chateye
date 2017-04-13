@@ -378,7 +378,7 @@ function api_ai(senderID, messageText, app){
 
         }
 
-        if (result === 'en'){
+        if (result === 'en' || (getAction() === 'play-selfie')){
           reqs = app.textRequest(messageText, {
           sessionId: senderID });
           console.log(reqs);
