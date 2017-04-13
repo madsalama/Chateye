@@ -12,9 +12,7 @@ module.exports = {
 
     detectLang:function(translateClient, input, callback){
 
-            return translateClient.detect(input)
-            .then((results) => {
-      
+            return translateClient.detect(input).then((results) => {   
       let detections = results[0];
 
       if (!Array.isArray(detections)) {
