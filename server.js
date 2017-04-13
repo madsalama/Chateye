@@ -558,7 +558,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
- resetContexts(app, senderID); 
+// resetContexts(app, senderID); 
 
 // ===========================
 //   HANDLING USER/SESSIONS
