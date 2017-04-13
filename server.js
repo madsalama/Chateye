@@ -74,25 +74,18 @@ const fs      = require('fs');
 const cors = require('cors');
 const request = require('request');
 
-const language = require('@google-cloud/language');
 const vision = require('@google-cloud/vision');
-const translate = require('@google-cloud/translate');
-
 const visionClient = vision({
 projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
-const translateClient = translate({
-projectId: 'nlpi-162211',
-keyFilename: './NLPI-c6ba16b1d273.json'
-});
 
 const mvision = require('./modules/vision');
 const mkairos = require('./modules/kairos');
 const mgiphy = require('./modules/giphy');
 const maudio = require('./modules/audio');
-const mtranslate = require('./modules/translate');
+
 const mgraph = require('./modules/graph');
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
@@ -102,14 +95,7 @@ const bodyParser = require("body-parser");
 const apiai = require('apiai');
 const app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
 
-const languageClient = language({
-  projectId: 'nlpi-162211',
-  keyFilename:'./NLPI-c6ba16b1d273.json'
-});
-
-
 const mwatson = require('./modules/watsonNLU');
-
 const watsonNLU = require('watson-developer-cloud/natural-language-understanding/v1.js');
 const watsonNLUClient = new watsonNLU({
         'username': 'e1ca4da7-3cec-4720-9557-e6d211560e4a',
@@ -122,10 +108,8 @@ const speech2text = new watsonSpeech2text({
         'password': 'mlunTdSmsGJU' });
 
 
-var users = [];
-
-const langnames = JSON.parse(fs.readFileSync('./languages.json', 'utf8'));   
-
+// USER SESSION INFO | MEMORY
+var users = [];             
 
 var App = function() {
 
@@ -411,7 +395,7 @@ if (reqs){
      response.result.action === 'play-selfie'    
      ){       
   setAction(senderID, response.result.action);
-  sendTextMessage(senderID, "action = " + response.result.action); 
+  // sendTextMessage(senderID, "action = " + response.result.action); 
  }
 
 if (response.result.action === 'save-entry') { 
@@ -586,10 +570,6 @@ if (!lookup[senderID]) {
 
   if (messageText) {
 
-  // analyzegoogleNLP(messageText);
-
-  // =============== analyzeIBM  =====================
-  // only ANALYZE if in context LISTEN - or back to context LISTEN 
   mwatson.manalyze(watsonNLUClient, messageText, function(response){
     var response = response;
     console.log(response);

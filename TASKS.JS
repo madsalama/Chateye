@@ -1,7 +1,16 @@
 
 /*
  * =============================================  TASK LIST | DUE 20/4/2017  ===================================================
- * 
+  
+      // ============================================
+     //      THESE SHOULD MAP TO FOUR FUNCTIONS
+    // ==============================================
+            //   response.result.action === 'listen'            // concatenate text into a block of text (users[] based)
+            //   response.result.action === 'save-entry'        // commit block of text to DATABASE
+            //   response.result.action === 'get-media'         // call GET MEDIA FUNCTION 
+            //   response.result.action === 'get-entries'       // load recent entries from DB into a UI Carousell 
+            //   response.result.action === 'play-selfie'       // start selfie game (call selfie function)
+
  *     0- GETSTARTED introductory button for explaining the UX in not-so-boring detail! 
  * 
  *     1- create and integrate mongoDB database for entries/user information.
