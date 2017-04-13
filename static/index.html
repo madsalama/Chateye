@@ -33,26 +33,7 @@
             var black2 = drawCircle(stage, "black", size-60);
             var cyan = drawCircle(stage, "cyan", size-80);
             var black3 = drawCircle(stage, "black", size-110); 
-        
-            // ==================================================================== 
-            
-            black3.addEventListener("mouseover", function() {   
-                // do something on mouseover                              
-                stage.update();
-            });
-
-
-            cyan.addEventListener("mouseout", function() {    
-                // do something on mouseout          
-                stage.update();
-            });
-
-
-
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", stage);
                 
-            // ==================================================================== 
         }
 
     </script>
