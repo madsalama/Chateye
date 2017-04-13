@@ -358,7 +358,7 @@ function api_ai(senderID, messageText, app){
 
       //  ... check if message is ENGLISH ! 
       mtranslate.detectLang(translateClient, messageText, function(result){
-          console.log(result);
+          console.log(result.language);
          
          // detect the laguage - tell user that i don't understand that language yet. 
 

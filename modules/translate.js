@@ -24,11 +24,11 @@ module.exports = {
       console.log('Detections:');
       
       detections.forEach((detection) => {
-        console.log(`${detection.input} => ${detection.language}`);
-
+        // console.log(`${detection.input} => ${detection.language}`);
+        callback(module.exports.returnData(detections)); 
       });
 
-      callback(module.exports.returnData(detections)); 
+      
       
     });
 
