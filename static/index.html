@@ -27,22 +27,22 @@
 
             var size = 150; 
             
-            var circle1 = drawCircle(stage, "orange", size);
-            var circle2 = drawCircle(stage, "black", size-20);
-            var circle3 = drawCircle(stage, "yellow", size-45);
-            var circle4 = drawCircle(stage, "black", size-60);
-            var circle5 = drawCircle(stage, "cyan", size-80);
-            var circle6 = drawCircle(stage, "black", size-110); 
+            var orange = drawCircle(stage, "orange", size);
+            var black1 = drawCircle(stage, "black", size-20);
+            var yellow = drawCircle(stage, "yellow", size-45);
+            var black2 = drawCircle(stage, "black", size-60);
+            var cyan = drawCircle(stage, "cyan", size-80);
+            var black3 = drawCircle(stage, "black", size-110); 
         
             // ==================================================================== 
             
-            circle5.addEventListener("mouseover", function() {   
+            black3.addEventListener("mouseover", function() {   
                 // do something on mouseover                              
                 stage.update();
             });
 
 
-            circle5.addEventListener("mouseout", function() {    
+            cyan.addEventListener("mouseout", function() {    
                 // do something on mouseout          
                 stage.update();
             });
