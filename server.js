@@ -377,8 +377,48 @@ function api_ai(senderID, messageText, app){
         }
 
         if (result === 'en'){
+          
           reqs = app.textRequest(messageText, {
           sessionId: senderID });
+
+          reqs.on('response', function(response) {
+
+          // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
+          // TRANSLATE the API.AI response to ORIGINAL language
+
+            setAction(senderID, response.result.action);
+
+        // if (response.result.action === 'listen' | response.result.action === 'save-entry'){
+        //  setAction(senderID, response.result.action);
+        // }
+
+        if (response.result.action === 'save-entry') { 
+          resetContexts(app, senderID);
+        };
+
+        var mediaObj; 
+        if (response.result.fulfillment.messages){
+          mediaObj = response.result.fulfillment.messages[1]; 
+        }
+
+        var textObj = response.result.fulfillment.speech; 
+        var textObj = response.result.fulfillment.speech; 
+
+        console.log("=======");
+        console.log(response); 
+        console.log(mediaObj);
+
+        textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
+        mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
+
+        });  
+        
+        reqs.on('error', function(error) {
+            console.log(error);
+        });
+        
+        reqs.end();
+
         }
 
 // ======================================================================================================
@@ -420,43 +460,7 @@ result: {
 
 if (reqs){
 
-  reqs.on('response', function(response) {
 
-  // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
-  // TRANSLATE the API.AI response to ORIGINAL language
-
-    setAction(senderID, response.result.action);
-
-// if (response.result.action === 'listen' | response.result.action === 'save-entry'){
-//  setAction(senderID, response.result.action);
-// }
-
-if (response.result.action === 'save-entry') { 
-  resetContexts(app, senderID);
-};
-
-var mediaObj; 
-if (response.result.fulfillment.messages){
-  mediaObj = response.result.fulfillment.messages[1]; 
-}
-
-var textObj = response.result.fulfillment.speech; 
-var textObj = response.result.fulfillment.speech; 
-
-console.log("=======");
-console.log(response); 
-console.log(mediaObj);
-
-textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
-mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
-
-});  
- 
-reqs.on('error', function(error) {
-    console.log(error);
-});
- 
-reqs.end();
 
 }
 
