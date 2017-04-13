@@ -370,7 +370,7 @@ function api_ai(senderID, messageText, app){
 
 // ======================================================================================================
 
-        if (result !== 'en'){
+        if (result !== 'en' && getAction !== 'listen' ){
             sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
             sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
             console.log("I don't understand " + languageName + ' yet!');        
