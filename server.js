@@ -374,7 +374,8 @@ function api_ai(senderID, messageText, app){
 
             sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
             sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
-            console.log("I don't understand " + languageName + ' yet!');        
+            console.log("I don't understand " + languageName + ' yet!');     
+
         }
 
         if (result === 'en'){
@@ -427,8 +428,14 @@ if (reqs){
   // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
-    if (response.result.action !== 'listen') 
-    setAction(senderID, response.result.action);
+ if (response.result.action === 'listen'       | 
+     response.result.action === 'save-entry'   | 
+     response.result.action === 'get-media'    | 
+     response.result.action === 'get-entries'  |
+     response.result.action === 'play-selfie'    
+     ){       
+  setAction(senderID, response.result.action);
+ }
 
 if (response.result.action === 'save-entry') { 
   resetContexts(app, senderID);
