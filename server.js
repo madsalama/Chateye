@@ -364,7 +364,8 @@ function api_ai(senderID, messageText, app){
         var languageName = getLanguageName(langnames, result); 
 
         if (result !== 'en'){
-            sendTextMessage(senderID, "I don't understand " + languageName + " yet!");
+            sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
+            sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
             console.log("I don't understand " + languageName + ' yet!');}
 
         if (result === 'en'){
@@ -474,7 +475,7 @@ function getAction(senderID) {
 }
 
 
-function getLanguageName(langlist, language) {
+function getLanguageName(langlist, language) {  
    for (var i in langlist) {
      if (langlist[i].alpha2 == language) {        
         return langlist[i].English;
