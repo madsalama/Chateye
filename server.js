@@ -361,10 +361,11 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
    
-   var reqs ;
+
 
       mtranslate.detectLang(translateClient, messageText, function(result){ 
         
+        var reqs ;
         var languageName = getLanguageName(langnames, result); 
 
 // ======================================================================================================
@@ -378,7 +379,7 @@ function api_ai(senderID, messageText, app){
           reqs = app.textRequest(messageText, {
           sessionId: senderID });
         }
-        
+
 // ======================================================================================================
 
 
@@ -420,7 +421,7 @@ result: {
   // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
-setAction(senderID, response.result.action);
+    setAction(senderID, response.result.action);
 
 // if (response.result.action === 'listen' | response.result.action === 'save-entry'){
 //  setAction(senderID, response.result.action);
@@ -457,7 +458,7 @@ reqs.end();
             
 
 
-}
+}       // API.AI END 
 
 
 function setAction(senderID, actionValue) {
