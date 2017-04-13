@@ -361,10 +361,10 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
       mtranslate.detectLang(translateClient, messageText, function(result){ 
-    
-    /**
-     * 
-     *         var languageName = getLanguageName(langnames, result); 
+        
+        // var languageName = getLanguageName(langnames, result); 
+
+        var languageName = 'this language'; 
 
         if (result !== 'en'){
             sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
@@ -375,14 +375,6 @@ function api_ai(senderID, messageText, app){
           var reqs = app.textRequest(messageText, {
           sessionId: senderID });
         }
-     * 
-     */
-
-
-
-
-var reqs = app.textRequest(messageText, {
-          sessionId: senderID });
 
 
 
