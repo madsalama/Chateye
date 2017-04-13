@@ -309,18 +309,6 @@ function sendGiphy(request,messageText,limit, senderID)
 
 };
 
-function analyzegoogleNLP(messageText){
-
-    var document = languageClient.document(messageText);
-    document.detectSentiment(function(err, sentiment) { 
-
-    var score = JSON.stringify(sentiment.score);          
-    var magnitude = JSON.stringify(sentiment.magnitude);  
-
-    console.log("Score = " + score + " | Magnitude = " + magnitude);
-
-});
-}
 
 
 function resetContexts (app,senderID){
@@ -385,22 +373,36 @@ if (reqs){
 
   reqs.on('response', function(response) {
 
-  // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
-  // TRANSLATE the API.AI response to ORIGINAL language
-
  if (response.result.action === 'listen'       | 
      response.result.action === 'save-entry'   | 
      response.result.action === 'get-media'    | 
      response.result.action === 'get-entries'  |
      response.result.action === 'play-selfie'    
-     ){       
-  setAction(senderID, response.result.action);
-  // sendTextMessage(senderID, "action = " + response.result.action); 
+     ){
+  setAction(senderID, response.result.action); 
  }
 
 if (response.result.action === 'save-entry') { 
   resetContexts(app, senderID);
+  // call commit entry
 };
+
+if (response.result.action === 'get-media') { 
+
+      // collect request information (names/media-types/etc)
+      // formulate a query string with non empty info 
+
+      // call get media with keywords 
+
+};
+
+if (response.result.action === 'get-entries') { 
+
+};
+
+if (response.result.action === 'play-selfie') {        
+};
+
 
 var mediaObj; 
 if (response.result.fulfillment.messages){
@@ -460,13 +462,6 @@ function getAction(senderID) {
 }
 
 
-function getLanguageName(langlist, language) {  
-   for (var i in langlist) {
-     if (langlist[i].alpha2 == language) {        
-        return langlist[i].English;
-     }
-   }
-};
 
 
 function conCatEntry(senderID, value) {

@@ -31,3 +31,47 @@
  * =============================================================================================================================
  */
 
+/**   ========================= DATA DESIGN - TWO COLLECTIONS ================================
+ * 
+ * 
+ * 	< users > 
+		user
+			- userid
+			- userSession 
+				
+			- userCurrentEmotionalStatus
+			- userPreviousEmotionalStatus 
+			
+			- userPreviousEntry: entryID 		
+			- userCurrentEntry: entryID
+			
+			- userPreferences:
+				- movies -> actors
+				- music -> musician
+				
+	< entries > 
+		- entry - 
+			- entryID = userID_sessionID			// index here for speed 
+			- entryText 
+			- entryAnalysis 
+					- anger
+					- sadness
+					- disgust 
+					- joy							
+
+> db.person.findOne()
+{
+  name: 'Mahmoud Salama',
+  userID: '79384759384705',
+  entries : [
+     { entryID: '', content: '', analysis: '' },
+     { entryID: '', content: '', analysis: '' },
+	 .... 
+  ]
+
+  
+  
+  
+ * 
+ * 
+ */
