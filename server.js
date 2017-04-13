@@ -361,40 +361,15 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
    
-     //  mtranslate.detectLang(translateClient, messageText, function(result){
-      // });
-           
-    ///    var reqs ;
-    ///    var languageName = getLanguageName(langnames, result); 
-    
-// ======================================================================================================
-
-//        if (result !== 'en' && (getAction() !== 'listen')){
-
-            //sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
-            //sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
-            //console.log("I don't understand " + languageName + ' yet!');     
-
-        //}
-
-       // if (result === 'en' || (getAction() === 'play-selfie')){
-
-          reqs = app.textRequest(messageText, {
+          var reqs = app.textRequest(messageText, {
           sessionId: senderID });
-
-         // console.log(reqs);
-       // }
-
-// ======================================================================================================
-
-
+          
 // =====================================
 //   HANDLE THE RESPONSE FROM API.AI 
 // =====================================
 
  /**
   * 
-
 result: { 
 
   source: 'agent',
@@ -436,6 +411,7 @@ if (reqs){
      response.result.action === 'play-selfie'    
      ){       
   setAction(senderID, response.result.action);
+  sendTextMessage(senderID, "context = " + response.result.action); 
  }
 
 if (response.result.action === 'save-entry') { 
