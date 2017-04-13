@@ -42,10 +42,11 @@ module.exports = {
             uri: 'https://graph.facebook.com/v2.6/me/messenger_codes',
             method: 'POST',   
             headers:module.exports.headers,         
-            qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
+            qs: { 
+                access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
             json: {
-                    "type": "standard",
-                    "image_size": 1000 }
+                    type: "standard",
+                    image_size: 1000 }
             
 
     }; 
@@ -54,7 +55,7 @@ module.exports = {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {     
                       
-               callback(module.exports.returnData(data));
+               callback(module.exports.returnData(body));
                
         }
         else
