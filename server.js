@@ -411,7 +411,7 @@ if (reqs){
      response.result.action === 'play-selfie'    
      ){       
   setAction(senderID, response.result.action);
-  sendTextMessage(senderID, "context = " + response.result.action); 
+  sendTextMessage(senderID, "action = " + response.result.action); 
  }
 
 if (response.result.action === 'save-entry') { 
