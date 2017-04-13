@@ -359,7 +359,9 @@ function api_ai(senderID, messageText, app){
       //  ... check if message is ENGLISH ! 
       mtranslate.detectLang(translateClient, messageText, function(result){
           console.log(result);
-          // if language is not ENGLISH - translate it first before sending it to API.AI
+         
+         // detect the laguage - tell user that i don't understand that language yet. 
+
 
 
 
@@ -445,10 +447,6 @@ var textObj = response.result.fulfillment.speech;
 console.log("=======");
 console.log(response); 
 console.log(mediaObj);
-
-
-
-// IF language is not ENGLISH - translate it first before sending it to MESSENGER 
 
 textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  

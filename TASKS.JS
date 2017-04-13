@@ -14,6 +14,7 @@
  *     6- handling emojis + emoji sentiment? (outside diary context/ inside diary context). 
  *     7- create animated visual response (animating GIF for CHATZER EYE) | In response to what though?
  *     8- translating from any input language to ENGLISH back and forth between messenger/API.AI 
+ *     9- putting a GIPHY in proper card showing the BANNER. 
  * 
  * =============================================================================================================================
  */
