@@ -1,5 +1,16 @@
 module.exports={
 
+
+// This module does the following sequence:
+/**
+ *  1- Downloads the audio from FB
+ *  2- Uploads the audio to be converted from mp4 to wav by cloudconvert service 
+ *  3- Downloads the converted audio (wav)
+ *  4- Uploads the converted audio to IBM speech to text service
+ * 
+ *  All above does not take much time as the audio is pretty small (max size after conversion ~< 500KB)
+ * 
+ */
     returnData:function(data){
         return data;
     },

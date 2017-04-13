@@ -48,7 +48,6 @@
   // 5- Instagram         = 
   // 6- Twitter           = DONE 
   // 7- GIPHY             = DONE
-  // 8- MusicXmatch       = 
 
   // 9- Speech API/translateAPI = a SLOW WIP (Speech is in BETA on only works with .raw audio files - messenger works with MP4 audio)
 
@@ -645,11 +644,16 @@ if (!lookup[senderID]) {
           function(values){        
             faces=values;
 
+
             // Handle an exception where no faces are detected in image! 
             // Send faceinfo to user for DEBUG!          
             faces? faces.forEach((face, i) => {
               sendTextMessage(senderID, JSON.stringify(face));
-            }):sendTextMessage(senderID, "no faces detected!");});
+            }):sendTextMessage(senderID, "no faces detected!");
+          
+      fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
+
+      });
             
             // INTENT:CONTEXT = SELFIE 
 
@@ -662,6 +666,7 @@ if (!lookup[senderID]) {
 
             // GUESS AGE/GENDER/GLASSES 
            console.log(JSON.stringify(faces));
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
           });
 
@@ -712,6 +717,10 @@ if (!lookup[senderID]) {
 
                 sendTextMessage(senderID, "I heard you say: " + transcript);
                 api_ai(senderID, transcript, app);
+
+              // Remove transcribed audio files 
+               fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.mp4') ;
+               fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.wav') ;
 
 
 
