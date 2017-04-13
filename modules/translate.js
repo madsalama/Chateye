@@ -25,7 +25,7 @@ module.exports = {
       
       detections.forEach((detection) => {
         // console.log(`${detection.input} => ${detection.language}`);
-        callback(module.exports.returnData(`${detection.input} => ${detection.language}`)); 
+        callback(module.exports.returnData(`${detection.language}`)); 
 
       });
 
