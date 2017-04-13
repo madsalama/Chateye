@@ -2,14 +2,7 @@
 #label1 {
     font-family: 'Merriweather', serif;
     color: #4c4c4c; 
-    font-size: 30px;
-    position: relative;
-
-    top:500px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+    font-size: 35px;
 
 }
 
@@ -29,104 +22,5 @@
     right: 0;
     margin: auto;
 
-    -webkit-tap-highlight-color: transparent;
-
 }
 
-#first-ring {
-    position: absolute;
-    border: 5px solid orange;
-    border-top-color: #191919;
-    margin: 0 auto;
-    text-align: center;
-    width: 280px;
-    height: 280px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-animation: turn_clockwise 1s infinite;
-    -moz-animation: turn_clockwise 1s infinite;
-    animation: turn_clockwise 1s infinite;   
-}
-
-#second-ring {
-    position: relative;
-    border: 10px solid yellow;
-    border-top-color: #191919;
-    border-bottom-color: #191919;
-    width: 250px;
-    height: 250px;
-    margin: 5px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%; 
-}
-
-#third-ring {
-    position: absolute;
-    border: 1px solid cyan;
-    border-bottom-color: #191919;
-    margin: 5px;
-    width: 236px;
-    height: 236px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-}       
-
-
-
-
-@-webkit-keyframes turn_clockwise {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes turn_clockwise {
-    0% {
-        -moz-transform: rotate(0deg);
-    }
-    100% {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@keyframes turn_clockwise {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes turn_counter_clockwise {
-    0% {
-        -webkit-transform: rotate(360deg);
-    }
-    100% {
-        -webkit-transform: rotate(0deg);
-    }
-}
-
-@-moz-keyframes turn_counter_clockwise {
-    0% {
-        -moz-transform: rotate(360deg);
-    }
-    100% {
-        -moz-transform: rotate(0deg);
-    }
-}
-
-@keyframes turn_counter_clockwise {
-    0% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(0deg);   
-    }   
-}   
