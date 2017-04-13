@@ -373,7 +373,8 @@ function api_ai(senderID, messageText, app){
         if (result !== 'en'){
             sendTextMessage(senderID, "I'm sorry, but I don't understand " + languageName + "!");
             sendTextMessage(senderID, "I only speak fluent English for now though ;) !");
-            console.log("I don't understand " + languageName + ' yet!');}
+            console.log("I don't understand " + languageName + ' yet!');        
+        }
 
         if (result === 'en'){
           reqs = app.textRequest(messageText, {
@@ -416,6 +417,9 @@ result: {
 
   */
 
+
+if (reqs){
+
   reqs.on('response', function(response) {
 
   // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
@@ -453,6 +457,9 @@ reqs.on('error', function(error) {
 });
  
 reqs.end();
+
+}
+
 
       }); 
             
