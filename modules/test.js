@@ -1,17 +1,11 @@
 
 
 
-// search users array for a user whose ID is senderID
-        // when found, change the value of action on that user to action 
-
-function setAction(senderID, actionValue) {
-   for (var i in users) {
-     if (users[i].id == senderID) {
-        users[i].action = actionValue;
-        break;             //Stop this loop, we found it!
+function getLanguageName(langlist, language) {
+   for (var i in langlist) {
+     if (langlist[i].alpha2 == language) {
+        return users[i].English;
      }
    }
-}
-
-
+};
 

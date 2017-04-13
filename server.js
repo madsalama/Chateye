@@ -147,8 +147,13 @@ var App = function() {
 
 
 
+// ====================================
+//     LOCAL START UP TESTS GO HERE 
+// ====================================
 
-// START UP TESTS GO HERE 
+
+
+
 
 
 function callSendAPI(messageData) {
@@ -354,56 +359,22 @@ function resetContexts (app,senderID){
 
 
 
-function api_ai(senderID, messageText, app){
-      
+function api_ai(senderID, messageText, app){    
+      mtranslate.detectLang(translateClient, messageText, function(result){ 
+        languageName = getLanguageName(langnames, result);           
 
-      mtranslate.detectLang(translateClient, messageText, function(result){                      
-          
-          console.log("========= LANGUAGE DETECTED IS ======= ");
-          console.log(result);          
+        if (languageName !== 'en'){
+            sendTextMessage(senderID, "I don't understand " + languageName + " yet!");
+            console.log("I don't understand " + languageName + ' yet!');}
 
-          console.log("========= langnames JS OBJECT ======= ");
-          console.log(langnames);
-
-
-          var language = ''+result ;
-          console.log("===== LANG STRING = " + language);
-
-          // langnames is a JS object
-          var langname = langnames.language.English; 
-          
-          console.log("I don't understand " + langname + ' yet!');
-
-         // detect the laguage - tell user that i don't understand that language yet. 
-
-
-        // ========================
-       //      RESET CONTEXTS 
-       // ========================
-/**
- *      var reqdel = app.deleteContextsRequest({ sessionId: senderID });
-        reqdel.on('response', function(response) {
-            console.log(response);
-        }); 
-
-        reqdel.on('error', function(error) {
-        console.log(error); 
-       
-        });
- 
-        reqdel.end();
-
- * 
- * 
- */
-
-
-        var reqs = app.textRequest(messageText, {
-        sessionId: senderID });
-
- // =====================================
-  //   HANDLE THE RESPONSE FROM API.AI 
-  // =====================================
+        if (languageName === 'en'){
+          var reqs = app.textRequest(messageText, {
+          sessionId: senderID });
+        }
+                
+// =====================================
+//   HANDLE THE RESPONSE FROM API.AI 
+// =====================================
 
  /**
   * 
@@ -436,13 +407,14 @@ result: {
 
   reqs.on('response', function(response) {
 
-  // if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
+  // FUTURE : if message was not in ENGLISH - we also need the RESPONSE to be in the ORIGINAL language 
   // TRANSLATE the API.AI response to ORIGINAL language
 
+setAction(senderID, response.result.action);
 
-if (response.result.action === 'listen' | response.result.action === 'save-entry'){
-  setAction(senderID, response.result.action);
-}
+// if (response.result.action === 'listen' | response.result.action === 'save-entry'){
+//  setAction(senderID, response.result.action);
+// }
 
 if (response.result.action === 'save-entry') { 
   resetContexts(app, senderID);
@@ -500,6 +472,15 @@ function getAction(senderID) {
      }
    }
 }
+
+
+function getLanguageName(langlist, language) {
+   for (var i in langlist) {
+     if (langlist[i].alpha2 == language) {        
+        return users[i].English;
+     }
+   }
+};
 
 
 function conCatEntry(senderID, value) {
@@ -610,23 +591,15 @@ if (!lookup[senderID]) {
     console.log(response);
   });
 
-    // If we receive a text message, check to see if it matches a keyword
-    // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
-      case 'generic':
+      case 'introduce...':
         sendGenericMessage(senderID);
         break;
 
       default:  
            console.log(getAction(senderID));                      
            api_ai(senderID, messageText, app);
-
-
-
     }
-
-
-
   } 
 
 
