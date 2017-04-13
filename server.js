@@ -355,14 +355,15 @@ function api_ai(senderID, messageText, app){
       
 
       mtranslate.detectLang(translateClient, messageText, function(result){                      
+          
+          console.log("========= LANGUAGE DETECTED IS ======= ");
           console.log(result); 
 
           // console.log(result.language);
 
-          // var language = JSON.stringify(result.language);
-
-          // var langnames = JSON.parse('./languages.json');          
-          // var langname = langnames.().English; 
+          var language = JSON.stringify(result);
+          var langnames = JSON.parse('./languages.json');          
+          var langname = langnames.language.English; 
           
           // console.log("LANGUAGE IS = " + langname);
 

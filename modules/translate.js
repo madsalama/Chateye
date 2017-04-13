@@ -20,9 +20,7 @@ module.exports = {
       if (!Array.isArray(detections)) {
         detections = [detections];
       }
-
-      console.log('Detections:');
-      
+   
       detections.forEach((detection) => {
         // console.log(`${detection.input} => ${detection.language}`);
         callback(module.exports.returnData(`${detection.language}`)); 
