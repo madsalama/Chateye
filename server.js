@@ -518,14 +518,6 @@ function receivedMessage(event) {
 // resetContexts(app, senderID); 
 
 
-mgraph.getcode(request, function(url){
-
-    console.log(" ===== MESSENGER CODE ==== ");
-    console.log(url);
-
-
-}); 
-
 // ===========================
 //   HANDLING USER/SESSIONS
 // ===========================
