@@ -124,6 +124,9 @@ const speech2text = new watsonSpeech2text({
 
 var users = [];
 
+const langnames = JSON.parse(fs.readFileSync('./languages.json', 'utf8'));   
+
+
 var App = function() {
 
     var self = this; 
@@ -361,15 +364,12 @@ function api_ai(senderID, messageText, app){
 
           // console.log(result.language);
 
-          var language = JSON.stringify(result);
-          var langnames = JSON.parse('./languages.json');          
+          var language = JSON.stringify(result);                                            
           var langname = langnames.language.English; 
           
-          // console.log("LANGUAGE IS = " + langname);
+          console.log("I don't understand " + langname + ' yet!');
 
          // detect the laguage - tell user that i don't understand that language yet. 
-
-
 
 
         // ========================
