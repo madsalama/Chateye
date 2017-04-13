@@ -3,39 +3,63 @@
     <head>
         <link rel="stylesheet" href="./css/index.css">
         <link rel="shortcut icon" type="image/png" href="./images/chatzer.png"/>   
-
         <link href="https://fonts.googleapis.com/css?family=Merriweather:700,900" rel="stylesheet">
-
+        
         <title>Welcome | Chatzer.ai</title>
 
-        <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
     <script>    
 
-   function drawCircle(stage, color, radius){
-        var circle = new createjs.Shape();        
-        circle.x = 250;
-        circle.y = 250;
-        circle.graphics.beginFill(color).drawCircle(0, 0, radius);    
-        stage.addChild(circle);
-        stage.update();
-    };
+    function drawCircle(stage, color, radius){
+            var circle = new createjs.Shape();        
+            circle.x = 250;
+            circle.y = 250;
+            circle.graphics.beginFill(color).drawCircle(0, 0, radius);    
+            stage.addChild(circle);
+            stage.update();
+            return circle; 
+        };
 
-      function init() {
-        var stage = new createjs.Stage("rings");
-        var size = 150; 
-        drawCircle(stage, "orange", size);
-        drawCircle(stage, "#191919", size-20);
-        drawCircle(stage, "yellow", size-45);
-        drawCircle(stage, "#191919", size-60);
-        drawCircle(stage, "cyan", size-80);
-        drawCircle(stage, "#191919", size-110);
-    
-      }
+        function init() {
+            var stage = new createjs.Stage("rings");
+            stage.enableMouseOver(60); 
+            
+
+            var size = 150; 
+            
+            var circle1 = drawCircle(stage, "orange", size);
+            var circle2 = drawCircle(stage, "black", size-20);
+            var circle3 = drawCircle(stage, "yellow", size-45);
+            var circle4 = drawCircle(stage, "black", size-60);
+            var circle5 = drawCircle(stage, "cyan", size-80);
+            var circle6 = drawCircle(stage, "black", size-110); 
+        
+            // ==================================================================== 
+            
+            circle5.addEventListener("mouseover", function() {   
+                // do something on mouseover                              
+                stage.update();
+            });
+
+
+            circle5.addEventListener("mouseout", function() {    
+                // do something on mouseout          
+                stage.update();
+            });
+
+
+
+            createjs.Ticker.setFPS(60);
+            createjs.Ticker.addEventListener("tick", stage);
+                
+            // ==================================================================== 
+        }
+
     </script>
-
     </head>
 
- <body onload="init();" bgcolor="#191919">
+ <body onload="init();" bgcolor="black">
     <canvas id="rings" width="500" height="500"></canvas>
-    </body>
+</body>
+
 </html>
