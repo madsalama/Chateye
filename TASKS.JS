@@ -2,6 +2,8 @@
 /*
  * =============================================  TASK LIST | DUE 20/4/2017  ===================================================
  * 
+ *     0- GETSTARTED introductory button for explaining the UX in not-so-boring detail! 
+ * 
  *     1- create and integrate mongoDB database for entries/user information.
  *     2- create selfie game rules and responses.
  *     3- create multimedia interactions rules and responses.
