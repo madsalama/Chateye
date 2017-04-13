@@ -83,7 +83,6 @@ projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
 });
 
-
 const translateClient = translate({
 projectId: 'nlpi-162211',
 keyFilename: './NLPI-c6ba16b1d273.json'
@@ -360,6 +359,8 @@ function api_ai(senderID, messageText, app){
       //  ... check if message is ENGLISH ! 
       mtranslate.detectLang(translateClient, messageText, function(result){
           console.log(result);
+          // if language is not ENGLISH - translate it first before sending it to API.AI
+
 
 
         // ========================
@@ -444,6 +445,10 @@ var textObj = response.result.fulfillment.speech;
 console.log("=======");
 console.log(response); 
 console.log(mediaObj);
+
+
+
+// IF language is not ENGLISH - translate it first before sending it to MESSENGER 
 
 textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
 mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
