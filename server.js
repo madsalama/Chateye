@@ -155,23 +155,25 @@ var App = function() {
 // add entry should take entryText (directly OR converted from an image) - then add it for a certain user. 
 // var addEntry = function(db, entryText, userID, callback)
 
-var addEntry = function(db, callback) {
+var addEntry = function(db, entryText, entryDate, entryAnalysis, userID, callback) {
 
    // Get the documents collection
   var collection = db.collection('entries');
   // Insert some documents
   collection.insertOne(
 
-    // an indexed entryID '_id' is generated automatically...
-    { entryText: "I feel like crap!", userID: "1234", entryDate: "14/4/2017", analysis: "" }    
+    // an indexed entryID '_id' is generated automatically...    
+    { entryText: entryText, 
+      entryDate: entryDate,
+      entryAnalysis: entryAnalysis, 
+      userID: userID }
 
   , function(err, result) {
-    assert.equal(err, null);
-    assert.equal(1, result.result.n);
-    assert.equal(1, result.ops.length);
-    console.log("Inserted a document into the collection");
-    
+    console.log("====== MONGO DB LOGGER ========= ");
+    console.log("inserted a document/ entry into the collection!");
+
     callback(result);
+    
   });
 
 }
@@ -196,7 +198,8 @@ function connectAdd(){
 MongoClient.connect(db_url, function(err, db) {
   assert.equal(null, err);
 
-addEntry(db, function(result){
+addEntry(db, '7amada','14/11/1991','sad as fuck' , 34563456356, function(result){
+  console.log("ENTRY ADDED TO DB!");
   db.close(); 
 });
 
