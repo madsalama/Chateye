@@ -162,9 +162,9 @@ var addEntry = function(db, callback) {
   // Insert some documents
   collection.insertMany([
     
-    { entryText: "asdasd", userID: "1234" },
-    { entryText: "asdasasdfasdfasdfd", userID: "156456234" },
-    { entryText: "asdasjnksdfjnkasfjnkd", userID: "1237867857684" }
+    { entryText: "asdasd", userID: "1234", entryDate: "14/4/2017" },
+    { entryText: "asdasasdfasdfasdfd", userID: "156456234", entryDate: "14/4/2017" },
+    { entryText: "asdasjnksdfjnkasfjnkd", userID: "1237867857684", entryDate: "14/4/2017"}
 
   ], function(err, result) {
     assert.equal(err, null);
