@@ -111,6 +111,14 @@ const speech2text = new watsonSpeech2text({
 // USER SESSION INFO | MEMORY
 var users = [];             
 
+
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
+
+// Connection URL
+var db_url = 'mongodb://chatzer:ch@tzer@ds137760.mlab.com:37760/heroku_n6s5058w';
+
+
 var App = function() {
 
     var self = this; 
@@ -137,7 +145,19 @@ var App = function() {
 
 
 
-// resetContexts(app,senderID); 
+// ====================================
+
+
+
+function connectToDb(){
+MongoClient.connect(db_url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+  db.close();
+});
+};
+
+connectToDb(); 
 
 
 function callSendAPI(messageData) {
@@ -585,11 +605,16 @@ if (!lookup[senderID]) {
 
   else if (messageAttachments) { 
 
-
     // THIS always matches to TRUE which is insane!!!?
 
     if (messageAttachments[0].type=="image")     // STILL matches to true?
   {
+
+
+// if action is LISTEN - convert image text into text
+// store text | send 'that's all' to API.AI to finalize. 
+
+// if action is SELFIE - do selfie game
 
 // =================================================
 // |    STARTS A SELFIE GAME > INTENT = SELFIE     |
@@ -637,42 +662,17 @@ if (!lookup[senderID]) {
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
           });
-
-
-
-/*
-        mkairos.media(senderID, timeOfMessage, fs, request, image, 
-          function(values){        
-            faces=values;
-
-            // Handle an exception where no faces are detected in image! 
-            // Send faceinfo to user for DEBUG!          
-            // faces? faces.forEach((face, i) => {sendTextMessage(senderID, JSON.stringify(face))})
-           // :sendTextMessage(senderID, "no faces detected!");
-
-           console.log(faces);
-           console.log(JSON.stringify(faces));
-
-          });
-
-*/        
         }
+
+
+
         else if (messageAttachments[0].type=="audio"){                          
 
-          
   var audio = messageAttachments[0].payload.url;    
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){              
               
                 var mresult = JSON.parse(result);
-
-                // CHECK all alternatives and choose the one with largest confidence! 
-                /**
-                 * get size of alternatives
-                 * for i in 
-                 *  mresult.results.alternatives
-                 * 
-                */
 
                 console.log(mresult);
                 console.log(mresult.results[0]);
@@ -681,7 +681,6 @@ if (!lookup[senderID]) {
 
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
-
 
                 sendTextMessage(senderID, "I heard you say: " + transcript);
                 api_ai(senderID, transcript, app);

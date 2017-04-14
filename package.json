@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {      
+  "dependencies": {
     "@google-cloud/vision": "^0.11.0",
     "apiai": "^4.0.1",
     "base-64": "^0.1.0",
@@ -12,6 +12,7 @@
     "cors": "^2.8.1",
     "express": "^3.4.8",
     "fs": "^0.0.1-security",
+    "mongodb": "^2.2.25",
     "newrelic": "^1.38.1",
     "request": "^2.81.0",
     "twitter": "^1.7.0",

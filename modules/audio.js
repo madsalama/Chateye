@@ -66,6 +66,7 @@ convert:function(fs, senderID, timeOfMessage, cloudconvert, callback){
 },
     transcribe:function(senderID, timeOfMessage, fs, request, file, speech2text, cloudconvert, callback){
 
+
                 // 1- DOWNLOAD THE FILE and CONVERT to WAV 
                 var download = function(uri, filename, callback){
                 request.head(uri, function(err, res, body){
