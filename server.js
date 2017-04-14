@@ -4,6 +4,11 @@
 //       Chatzer - A friendly AI
 // ========================================
     
+    // CHATZER SEES and sympathizes.
+            // your text entries ... 
+            // your photos | selfies ... 
+            // your photos of a diary entry (handwritten) .... 
+
     // Chatzer learns to be your bestfriend, who you would talk to when you're bored/not feeling well/in a good sharing mood
     // it will sympathize and listen then try to make you feel better or celebrate with you!
 
@@ -148,18 +153,58 @@ var App = function() {
 // ====================================
 
 
+var addEntry = function(db, callback) {
 
-function connectToDb(){
+  var collection = db.collection('entries');
+
+  collection.insertOne([    
+    {
+      entryID : 1,
+      entryContents: '7amada is coool !!'
+    }
+  ], function(err, result) {
+    
+    assert.equal(err, null);
+    assert.equal(1, result.result.n);
+    assert.equal(1, result.ops.length);
+    console.log("Inserted 1 document into the collection");
+
+    callback(result);
+
+  });
+
+}
+
+
+
+function connectAdd(){
+
 MongoClient.connect(db_url, function(err, db) {
   assert.equal(null, err);
+  
   console.log("============================");
   console.log("Connected to MONGODB Serer! ");
   console.log("============================");
-  db.close();
+
+  // db.close();
+
+addEntry(db, function(result){
+  console.log(result);
+});
+
+db.close();
+
 });
 };
 
-connectToDb(); 
+
+connectAdd(); 
+
+
+
+
+
+
 
 
 function callSendAPI(messageData) {
