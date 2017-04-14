@@ -160,52 +160,52 @@ var addEntry = function(db, callback) {
    // Get the documents collection
   var collection = db.collection('entries');
   // Insert some documents
-  collection.insertMany([
-    
-    { entryText: "asdasd", userID: "1234", entryDate: "14/4/2017" },
-    { entryText: "asdasasdfasdfasdfd", userID: "156456234", entryDate: "14/4/2017" },
-    { entryText: "asdasjnksdfjnkasfjnkd", userID: "1237867857684", entryDate: "14/4/2017"}
+  collection.insertOne(
 
-  ], function(err, result) {
+    // an indexed entryID '_id' is generated automatically...
+    { entryText: "I feel like crap!", userID: "1234", entryDate: "14/4/2017", analysis: "" }    
+
+  , function(err, result) {
     assert.equal(err, null);
-    assert.equal(3, result.result.n);
-    assert.equal(3, result.ops.length);
-    console.log("Inserted 3 documents into the collection");
+    assert.equal(1, result.result.n);
+    assert.equal(1, result.ops.length);
+    console.log("Inserted a document into the collection");
+    
     callback(result);
   });
 
 }
 
+var getEntries = function(db, callback) {
+
+  // Get the documents collection
+  var collection = db.collection('entries');
+  // Find some documents
+  collection.find({}).toArray(function(err, docs) {
+    assert.equal(err, null);
+    console.log("Found the following records... ");
+    console.log(docs)
+    callback(docs);
+  });
+
+}
 
 
 function connectAdd(){
 
 MongoClient.connect(db_url, function(err, db) {
   assert.equal(null, err);
-  
-  console.log("============================");
-  console.log("Connected to MONGODB Serer! ");
-  console.log("============================");
-
-  // db.close();
 
 addEntry(db, function(result){
-  console.log(result);
+  db.close(); 
 });
 
-// db.close();
 
 });
 };
 
 
 connectAdd(); 
-
-
-
-
-
-
 
 
 function callSendAPI(messageData) {
