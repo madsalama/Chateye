@@ -152,7 +152,9 @@ var App = function() {
 function connectToDb(){
 MongoClient.connect(db_url, function(err, db) {
   assert.equal(null, err);
-  console.log("Connected successfully to server");
+  console.log("============================");
+  console.log("Connected to MONGODB Serer! ");
+  console.log("============================");
   db.close();
 });
 };
