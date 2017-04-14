@@ -152,11 +152,11 @@ var App = function() {
 //
 // ====================================
 
-
+// add entry should take entryText (direct or converted from an image) - and add it for a certain user. 
 var addEntry = function(db, callback) {
 
    // Get the documents collection
-  var collection = db.collection('documents');
+  var collection = db.collection('entries');
   // Insert some documents
   collection.insertMany([
     {a : 1}, {a : 2}, {a : 3}
