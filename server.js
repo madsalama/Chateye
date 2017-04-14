@@ -152,7 +152,7 @@ var App = function() {
 //
 // ====================================
 
-// add entry should take entryText (direct or converted from an image) - and add it for a certain user. 
+// add entry should take entryText (directly OR converted from an image) - then add it for a certain user. 
 // var addEntry = function(db, entryText, userID, callback)
 
 var addEntry = function(db, callback) {
@@ -161,7 +161,11 @@ var addEntry = function(db, callback) {
   var collection = db.collection('entries');
   // Insert some documents
   collection.insertMany([
-    {a : 1}, {a : 2}, {a : 3}
+    
+    { entryText: "asdasd", userID: "1234" },
+    { entryText: "asdasasdfasdfasdfd", userID: "156456234" },
+    { entryText: "asdasjnksdfjnkasfjnkd", userID: "1237867857684" }
+
   ], function(err, result) {
     assert.equal(err, null);
     assert.equal(3, result.result.n);
