@@ -153,6 +153,8 @@ var App = function() {
 // ====================================
 
 // add entry should take entryText (direct or converted from an image) - and add it for a certain user. 
+// var addEntry = function(db, entryText, userID, callback)
+
 var addEntry = function(db, callback) {
 
    // Get the documents collection
@@ -187,7 +189,7 @@ addEntry(db, function(result){
   console.log(result);
 });
 
-db.close();
+// db.close();
 
 });
 };
