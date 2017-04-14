@@ -116,7 +116,7 @@ var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 
 // Connection URL
-var db_url = 'mongodb://chatzer:ch@tzer@ds137760.mlab.com:37760/heroku_n6s5058w';
+var db_url = 'mongodb://chatzer:chatzer2009@ds137760.mlab.com:37760/heroku_n6s5058w';
 
 
 var App = function() {
