@@ -5,8 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "@google-cloud/vision": "^0.11.0",
-    "apiai": "^4.0.1",
-    "base-64": "^0.1.0",
+    "apiai": "^4.0.1",    
     "cloudconvert": "^1.1.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
