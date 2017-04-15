@@ -446,6 +446,10 @@ if (response.result.action === 'get-media') {
 
 if (response.result.action === 'get-entries') { 
 
+// query DB for aa user entries
+// show up in a carousell 
+
+
 };
 
 if (response.result.action === 'play-selfie') {        

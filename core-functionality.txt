@@ -11,12 +11,8 @@
 
 ==========================================================================
 >  functionality for sentiment/emotion analysis IBM. 
->  tone analysis IBM. 
 ==========================================================================
 
 3 - Contexually relevant multimedia (twitter, instagram, giphy, youtube).
 4 - SELFIE game!
 
-		
-		
-	
