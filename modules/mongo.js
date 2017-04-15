@@ -19,7 +19,7 @@ module.exports = {
                     , function(err, result) {
                         db.close();           
                         console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
-                        callback(module.exports.returnData(data));                        
+                        callback(module.exports.returnData(result));                        
                     });
             });
     },
