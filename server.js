@@ -151,7 +151,7 @@ var App = function() {
 // ====================================
 // 
 
-createGetStarted(request, function(result){
+mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
