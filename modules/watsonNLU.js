@@ -11,14 +11,24 @@ module.exports = {
             'html': messageText, 
             'features': {
             'emotion': {
-            // 'targets': [
-            //   'apples',
-            //   'oranges' ]
+             'targets': [
+               'me',
+               'myself',
+               'I',
+               'He',
+               'She',
+               'It',
+               'They' ]
         },
         'sentiment':{
-            // 'targets': [
-            //   'apples',
-            //   'oranges' ]
+             'targets': [
+               'me',
+               'myself',
+               'I',
+               'He',
+               'She',
+               'It',
+               'They' ]
         }
 
     }

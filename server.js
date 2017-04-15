@@ -706,13 +706,36 @@ if (!lookup[senderID]) {
       // =================
         mkairos.detect(senderID, timeOfMessage, fs, request, image, 
           function(values){        
-            faces=values;
+            faces = values;
 
-            // GUESS AGE/GENDER/GLASSES 
+            // GUESS AGE/GENDER/GLASSES             
+           console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+
+                  mkairos.media(senderID, timeOfMessage, fs, request, image, 
+                  function(values){        
+                    faces = values;
+
+                  // GUESS EMOTION
+                  console.log("========= KAIROS MEDIA =========");
+                  console.log(faces);
+                  console.log(JSON.stringify(faces));
+
+                  fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+
+                  });
+
+           
 
           });
+
+                 
+
+
+
+
+
+
         }
 
 
