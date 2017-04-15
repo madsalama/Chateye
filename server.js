@@ -150,7 +150,11 @@ var App = function() {
 //     LOCAL START UP TESTS GO HERE 
 // ====================================
 // 
-//
+
+createGetStarted(request, function(result){
+  console.log(result);
+});
+
 //
 // ====================================
 
@@ -538,8 +542,6 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-// resetContexts(app, senderID); 
-
 
 // ===========================
 //   HANDLING USER/SESSIONS
@@ -569,7 +571,7 @@ if (!lookup[senderID]) {
 
   // commit user information in the DB
   // maybe ONLY add this in the GETSTARTED button! 
-  
+
   mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);

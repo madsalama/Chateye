@@ -31,7 +31,9 @@ module.exports = {
 
                     , function(err, result) {    
                         db.close();   
-                        console.log("====== MONGO_LOGGER: USER ADDED COMMITTED! =====");
+                        result? console.log("====== MONGO_LOGGER: USER ADDED COMMITTED! =====")
+                        :console.log(err);
+
                         callback(module.exports.returnData(result));                        
                     });
 
