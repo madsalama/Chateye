@@ -91,13 +91,10 @@ module.exports = {
                     var entries = db.collection('entries');  
                     var users = db.collection('users');  
 
-                    // do an application-level join                 
+                    // do an application-level join...              
                     users.findOne({_id: userID}, function(err, result){     
-                        entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){
-                            
-                            console.log("===== ENTRIEZ =====");
-                            console.log(result);
-                            
+                        entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){                                                                    
+                            callback(module.exports.returnData(result));
                         });
 
 
