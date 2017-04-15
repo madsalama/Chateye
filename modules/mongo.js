@@ -63,7 +63,7 @@ module.exports = {
 
                        users.update(
                         { _id: userID },
-                        { $push: { user_entries: entry_id  } } );
+                        { $addToSet: { user_entries: entry_id  } } );
 
                         db.close();
                         console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
