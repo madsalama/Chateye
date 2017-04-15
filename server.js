@@ -552,8 +552,11 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
-
-  var postback = event.postback.payload; 
+  var postback; 
+  
+  event.postback.payload?
+    postback =event.postback.payload
+    :console.log("no postback defined") ; 
   
 // ===========================
 //   HANDLING USER/SESSIONS
