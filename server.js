@@ -540,14 +540,17 @@ return lookup;    /* 'lookup' object == { 'id1':object1, 'id2':object2, ... } */
 
 function receivedMessage(event) {
 
-  var senderID = event.sender.id;
+    var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  var postback = 'null' ; 
-  
-  event.postback? postback = event.postback.payload :console.log("no postback defined") ; 
+  // CHECK POSTBACK 
+
+  var postback; 
+  if (event.postback){
+    postback = event.postback.payload;
+  }
   
 // ===========================
 //   HANDLING USER/SESSIONS
@@ -556,12 +559,13 @@ function receivedMessage(event) {
 var lookup = getLookupSessions(users);
 
 // If there's no object for that user... 
-if (!lookup[senderID]) {
+if (!lookup[senderID] || postback === "getStarted") {
   
    // get user information | store it 
    mgraph.getuser(request, senderID, function(results){    
      
-     console.log("====== USER INFORMATION =======");            
+     console.log("====== GETTING USER INFORMATION =======");    
+
       var first_name = results.first_name;
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
@@ -571,26 +575,22 @@ if (!lookup[senderID]) {
    users.push( { id:senderID, action:'', currentEntry:'',
                 first_name:first_name, last_name:last_name, 
                 profile_pic:profile_pic, gender:gender } );
-
-
-// SELFIE GAME HERE 
-// if postback === <selfie-related-action>
-
- if (postback === "getStarted"){
-      console.log("getStartedClicked!");
-
+    
+    // HANDLE TODO: ONLY IF USER IS NOT IN DB
     mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
+
     introduce(senderID);
-  }
 
-  if (message.mid)
-  {
+   });
 
+}
+else { 
+    
   console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
+  senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
   var messageId = message.mid;
@@ -720,23 +720,9 @@ if (!lookup[senderID]) {
 
           });
 
-        } ///// 
-
-
-        
-
-    // messenger orginating media message (from user)
-    // sendMediaMessage(senderID, message); 
-    // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
-
+        } 
   } 
-
 }
-
-
-   }); 
-}
-
 
 
 
