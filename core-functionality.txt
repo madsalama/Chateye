@@ -17,18 +17,6 @@
 3 - Contexually relevant multimedia (twitter, instagram, giphy, youtube).
 4 - SELFIE game!
 
-create a memory persistent user object that has session information	
-	
-	
-	var users = []; // new Array
-	users.insert({ uid:'',{action: '' }});
-	
-	getuseraction(userid='')
-		this user action = users.uid("").action ; 
-		
-		
-		
-		
 		
 		
 	
