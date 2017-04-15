@@ -599,7 +599,7 @@ if (!lookup[senderID]) {
   // commit user information in the DB
   // maybe ONLY add this in the GETSTARTED button! 
 
-  // to be deleted when app is LIVE.... 
+  // to be deleted... 
 
   mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
@@ -800,6 +800,7 @@ var data = req.body;
           receivedMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);
+          receivedMessage(event);
         }
       });
     });
