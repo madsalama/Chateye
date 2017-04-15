@@ -632,11 +632,20 @@ else {
     if (messageAttachments[0].type=="image")     
   {
 
+// 
+// var image_action = getAction(senderID);
+// if (image_action === "listen") {
+// 
+//
+//      'convert handwritten entry to text - commit it to DB' 
+//      'send a 'that's it' text to API.AI
+// 
+// }
+// else {
+  // show buttons for selfie game
+  // <selfie opinion> <guess-age> <>
+// }
 
-// if action is LISTEN - convert image text into text
-// store text | send 'that's all' to API.AI to finalize. 
-
-// if action is SELFIE - do selfie game
 
 // =================================================
 // |    STARTS A SELFIE GAME > INTENT = SELFIE     |
