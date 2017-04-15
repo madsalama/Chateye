@@ -239,7 +239,7 @@ function sendMediaMessage(recipientId, message) {
 
 }
 
-function sendTextMessage(recipientId, messageText) {
+function sendTextMessage(recipientId, messageText, callback) {
 
   var messageData = {
     recipient: {
@@ -251,7 +251,31 @@ function sendTextMessage(recipientId, messageText) {
   };
 
   callSendAPI(messageData);
+  callback();
 }
+
+
+
+function introduce(senderID){
+
+      // CHATZER INTRODUCTION 
+    sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI!", function(){
+      sendTextMessage(senderID, "I listen on your command, and keep listening until you tell me that you're done talking!", function(){
+        sendTextMessage(senderID, "I'll memorize your entries for you - you can also send me handwritten diary entries and I'll read it!", function(){
+          sendTextMessage(senderID, ".. your secrets are safe with me!", function(){
+            sendTextMessage(senderID, "I can suggest fun stuff too or we can play 'the selfie game!' \
+            - Just let me know what you'd like me to do or ask me anything you'd like ! ;) ", function(){
+              console.log("greetings sent!");
+            });
+          });
+        });
+      });
+    });
+
+}; 
+
+
+
 
 function sendGenericMessage(recipientId, url) {
   var messageData = {
@@ -493,7 +517,7 @@ function getAction(senderID) {
 
 function conCatEntry(senderID, value) {
    for (var i in users) {
-     if (users[i].id == senderID) {
+     if (users[i].id === senderID) {
         users[i].currentEntry = users[i].currentEntry + " - " + value;
         break;            
      }
@@ -502,24 +526,11 @@ function conCatEntry(senderID, value) {
 
 function getEntry(senderID) {
    for (var i in users) {
-     if (users[i].id == senderID) {
-        return users[i].action;         
+     if (users[i].id === senderID) {
+        return users[i].currentEntry;         
      }
    }
 }
-
-function commitEntry(senderID) {
-   for (var i in users) {
-     if (users[i].id == senderID) {
-
-         // STORE users[i].currentEntry in a database 
-
-     }
-   }
-}
-
-
-
 
 
 
@@ -542,6 +553,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
+  var postback = event.postback.payload; 
 
 // ===========================
 //   HANDLING USER/SESSIONS
@@ -549,6 +561,38 @@ function receivedMessage(event) {
 
 // ASYNC HELL
 // WHAT IF TWO RACING USER MESSAGES ARE RECEIVED AND THE FOR LOOP TAKES TIME....?
+
+   if (postback === "getStarted"){
+      console.log("getStartedClicked!");
+
+    mmongo.addUser(MongoClient, assert, db_url, 
+    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
+        console.log(result);
+    }); 
+
+    // CHATZER INTRODUCTION 
+    sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI!", function(){
+      sendTextMessage(senderID, "I listen on your command, and keep listening until you tell me that you're done talking!", function(){
+        sendTextMessage(senderID, "I'll memorize your entries for you - you can also send me handwritten diary entries and I'll read it!", function(){
+          sendTextMessage(senderID, ".. your secrets are safe with me!", function(){
+            sendTextMessage(senderID, "I can suggest fun stuff too or we can play 'the selfie game!' \
+            - Just let me know what you'd like me to do or ask me anything you'd like ! ;) ", function(){
+              console.log("greetings sent!");
+            });
+          });
+        });
+      });
+    
+
+    }
+    
+    
+    
+    
+    );
+
+    
+  }; 
 
 var lookup = getLookupSessions(users);
 
@@ -572,10 +616,15 @@ if (!lookup[senderID]) {
   // commit user information in the DB
   // maybe ONLY add this in the GETSTARTED button! 
 
+  // to be deleted when app is LIVE.... 
+
   mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
+  
+  // }
+
 
   console.log(users);
 
@@ -605,8 +654,9 @@ if (!lookup[senderID]) {
   });
 
     switch (messageText) {
-      case 'introduce...':
-        sendGenericMessage(senderID);
+      case 'introduce':
+          introduce();
+        // sendGenericMessage(senderID);
         break;
 
       default:  
