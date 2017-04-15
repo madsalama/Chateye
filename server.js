@@ -262,7 +262,7 @@ function introduce(senderID, username){
 
     sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer... an entertaining, interactive note-logging A.I.", function(){  
     sendTextMessage(senderID, "I 'listen' when you wanna 'talk', \
-and will save your diary entry when you're 'done' or have asked me to 'stop listening'. \
+and will save your note when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
 
     sendTextMessage(senderID, "I can show you awesome media stuff, or we can play 'the selfie game' - Just ask me anything! ;)", function(){});
