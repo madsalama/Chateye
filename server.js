@@ -426,7 +426,7 @@ if (reqs){
 
 // GET ENTRIES - SEND TO USER IN A CAROUSELL 
 if (response.result.action === 'get-entries'){
-    mmongo.getUserEntries(MongoClient, assert, db_url, userID, function(result){
+    mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(result){
       console.log("=========== ENTRIES ===========");
       console.log(result);
     });
