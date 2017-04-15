@@ -553,7 +553,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  // var postback = event.postback.payload; 
+  var postback = event.postback.payload; 
   
   console.log(" ======= POST BACK IS INVOKED =======");
   console.log(event.postback.payload);
@@ -561,21 +561,6 @@ function receivedMessage(event) {
 // ===========================
 //   HANDLING USER/SESSIONS
 // ===========================
-
-/**
- * 
- *    if (postback === "getStarted"){
-      console.log("getStartedClicked!");
-
-    mmongo.addUser(MongoClient, assert, db_url, 
-    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
-        console.log(result);
-    }); 
-    introduce(senderID);
-  }; 
-
- */
-
 
 var lookup = getLookupSessions(users);
 
@@ -613,6 +598,26 @@ if (!lookup[senderID]) {
 
    }); 
 }
+
+
+
+ if (postback === "getStarted"){
+      console.log("getStartedClicked!");
+
+    mmongo.addUser(MongoClient, assert, db_url, 
+    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
+        console.log(result);
+    }); 
+    introduce(senderID);
+
+  }
+  else
+  {
+
+
+
+
+
 
 
 
@@ -763,6 +768,9 @@ if (!lookup[senderID]) {
     // send the media message to the appropriate HANDLER (AI or Face recognition, etc.)
 
   } 
+
+  }
+
 
 
 }
