@@ -4,7 +4,7 @@ module.exports = {
         return data;
     },
 
-    commitEntry: function (MongoClient, assert, entryText, entryDate, entryAnalysis, userID, callback){
+    commitEntry: function (MongoClient, assert, db_url, entryText, entryDate, entryAnalysis, userID, callback){
 
                 MongoClient.connect(db_url, function(err, db) {
                     assert.equal(null, err);

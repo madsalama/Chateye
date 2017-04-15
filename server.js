@@ -401,7 +401,7 @@ if (reqs){
 if (response.result.action === 'save-entry') { 
 
   resetContexts(app, senderID);
-  mmongo.commitEntry(MongoClient, assert, 
+  mmongo.commitEntry(MongoClient, assert, db_url, 
 messageText, "15/4/2017", "happy", senderID, 
   function commitCallBack(result){
     console.log(result);
