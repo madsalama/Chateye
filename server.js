@@ -92,6 +92,8 @@ const mgiphy = require('./modules/giphy');
 const maudio = require('./modules/audio');
 
 const mgraph = require('./modules/graph');
+const mmongo = require('./modules/mongo');
+
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
@@ -399,11 +401,11 @@ if (reqs){
 if (response.result.action === 'save-entry') { 
 
   resetContexts(app, senderID);
-  commitEntry(MongoClient, assert, 
+  mmongo.commitEntry(MongoClient, assert, 
 messageText, "15/4/2017", "happy", senderID, 
   function commitCallBack(result){
     console.log(result);
-    
+
 });
 
 };
