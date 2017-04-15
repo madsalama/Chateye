@@ -93,10 +93,13 @@ module.exports = {
 
                     // do an application-level join                 
                     users.findOne({_id: userID}, function(err, result){     
+                        entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){
+                            
+                            console.log("===== ENTRIEZ =====");
+                            console.log(result);
+                            
+                        });
 
-                        var user_entries = entries.find({_id: { $in : result.user_entries } } ).toArray();
-                        console.log("===== ENTRIEZ =====");
-                        console.log(user_entries);
 
                     }); 
 
