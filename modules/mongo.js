@@ -58,7 +58,7 @@ module.exports = {
                     var entries = db.collection('entries');  
                     var users = db.collection('users');  
 
-                    entries.insertOne(   
+                    entries.insertOne(  
                         { entryText: entryText, 
                         entryDate: entryDate,
                         entryAnalysis: entryAnalysis, 
@@ -82,6 +82,26 @@ module.exports = {
 
             }); //  
     },
+
+
+    getUserEntries: function(MongoClient, assert, db_url, userID, callback){
+
+
+                MongoClient.connect(db_url, function(err, db) {   //
+
+                    assert.equal(null, err);
+
+                    var entries = db.collection('entries');  
+                    var users = db.collection('users');  
+
+                    // do an application-level join                 
+                    user = users.findOne({_id: userID});                
+                    user_entries = entries.find({_id: { $in : user.user_entries } } ).toArray() ;
+                    callback(module.exports.returnData(user_entries));
+
+                });
+
+    }
 
         // ... an index on USERID in the users collection is REQUIRED for efficient operation!
 

@@ -423,6 +423,16 @@ if (reqs){
   setAction(senderID, response.result.action); 
  }
 
+
+// GET ENTRIES - SEND TO USER IN A CAROUSELL 
+if (response.result.action === 'get-entries'){
+    mmongo.getUserEntries(MongoClient, assert, db_url, userID, function(result){
+      console.log(result);
+    });
+}
+
+
+
 if (response.result.action === 'save-entry') { 
 
   resetContexts(app, senderID);
