@@ -553,7 +553,7 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  var postback = event.postback.payload; 
+  // var postback = event.postback.payload; 
   
   console.log(" ======= POST BACK IS INVOKED =======");
   console.log(event.postback);
@@ -562,40 +562,20 @@ function receivedMessage(event) {
 //   HANDLING USER/SESSIONS
 // ===========================
 
-// ASYNC HELL
-// WHAT IF TWO RACING USER MESSAGES ARE RECEIVED AND THE FOR LOOP TAKES TIME....?
-
-   if (postback === "getStarted"){
+/**
+ * 
+ *    if (postback === "getStarted"){
       console.log("getStartedClicked!");
 
     mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
-
-    // CHATZER INTRODUCTION 
-    sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI!", function(){
-      sendTextMessage(senderID, "I listen on your command, and keep listening until you tell me that you're done talking!", function(){
-        sendTextMessage(senderID, "I'll memorize your entries for you - you can also send me handwritten diary entries and I'll read it!", function(){
-          sendTextMessage(senderID, ".. your secrets are safe with me!", function(){
-            sendTextMessage(senderID, "I can suggest fun stuff too or we can play 'the selfie game!' \
-            - Just let me know what you'd like me to do or ask me anything you'd like ! ;) ", function(){
-              console.log("greetings sent!");
-            });
-          });
-        });
-      });
-    
-
-    }
-    
-    
-    
-    
-    );
-
-    
+    introduce(senderID);
   }; 
+
+ */
+
 
 var lookup = getLookupSessions(users);
 
