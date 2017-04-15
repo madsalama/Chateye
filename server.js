@@ -555,9 +555,6 @@ function receivedMessage(event) {
 
   var postback = event.postback.payload; 
   
-  console.log(" ======= POST BACK IS INVOKED =======");
-  console.log(event.postback.payload);
-
 // ===========================
 //   HANDLING USER/SESSIONS
 // ===========================
@@ -581,25 +578,9 @@ if (!lookup[senderID]) {
                 first_name:first_name, last_name:last_name, 
                 profile_pic:profile_pic, gender:gender } );
 
-  // commit user information in the DB
-  // maybe ONLY add this in the GETSTARTED button! 
 
-  // to be deleted... 
-
-  mmongo.addUser(MongoClient, assert, db_url, 
-    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
-        console.log(result);
-    }); 
-  
-  // }
-
-
-  console.log(users);
-
-   }); 
-}
-
-
+// SELFIE GAME HERE 
+// if postback === <selfie-related-action>
 
  if (postback === "getStarted"){
       console.log("getStartedClicked!");
@@ -609,20 +590,9 @@ if (!lookup[senderID]) {
         console.log(result);
     }); 
     introduce(senderID);
-
   }
   else
   {
-
-
-
-
-
-
-
-
-
-
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
@@ -769,7 +739,15 @@ if (!lookup[senderID]) {
 
   } 
 
-  }
+}
+
+
+   }); 
+}
+
+
+
+
 
 
 
