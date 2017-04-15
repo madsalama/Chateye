@@ -59,13 +59,14 @@ module.exports = {
 
                         // add a reference to entry in the user's document
                        var entry_id = result.ops._id; 
-                       db.users.update(
+                       users.update(
                         { _id: userID },
                         { $push: { user_entries: entry_id  } } );
 
                         db.close();   
                         console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
-                        callback(module.exports.returnData(result));                        
+                        callback(module.exports.returnData(result));   
+
                     });
 
             }); //  
