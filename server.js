@@ -160,7 +160,7 @@ mgraph.createGetStarted(request, function(result){
 
  
 
-function callSendAPI(messageData) {
+function callSendAPI(messageData, callback) {
 // Set the headers
 var headers = {
     'User-Agent':       'Super Agent/0.0.1',
@@ -176,6 +176,8 @@ var options = {
 
 request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
+
+      callback();
 
       var recipientId = body.recipient_id;
       var messageId = body.message_id;
@@ -207,7 +209,7 @@ function checkObject(data){
 
 }
 
-function sendMediaMessage(recipientId, message) {
+function sendMediaMessage(recipientId, message, callback) {
 
   var messageAttachments ;
   
@@ -235,11 +237,11 @@ function sendMediaMessage(recipientId, message) {
 
 
 
- callSendAPI(messageData);            
+ callSendAPI(messageData, callback);            
 
 }
 
-function sendTextMessage(recipientId, messageText) {
+function sendTextMessage(recipientId, messageText, callback) {
 
   var messageData = {
     recipient: {
@@ -250,22 +252,25 @@ function sendTextMessage(recipientId, messageText) {
     }
   };
 
-  callSendAPI(messageData);
+  callSendAPI(messageData, callback);
 
 }
 
 
 
-function introduce(senderID, callback){
+function introduce(senderID){
     sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI! -\
-     I 'listen' on your command when you wanna 'talk' - and will save your diary entry for you when you're done! ");
-     callback();     
+     I 'listen' on your command when you wanna 'talk' - and will save your diary entry for you when you're done! ", function(){
+       
+       sendTextMessage(senderID, "Let me know what you want to do!", function(){});    
+    });
+
 }; 
 
 
 
 
-function sendGenericMessage(recipientId, url) {
+function sendGenericMessage(recipientId, url, callback) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -309,7 +314,7 @@ function sendGenericMessage(recipientId, url) {
     }
   };  
 
-  callSendAPI(messageData);
+  callSendAPI(messageData, callback);
 
 }
 
@@ -334,8 +339,8 @@ function sendGiphy(request,messageText,limit, senderID)
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             
-            url?sendMediaMessage(senderID, message1):console.log("GIPHY NOT FOUND!");       
-            url?sendTextMessage(senderID,'Powered by GIPHY'):console.log("==============");
+            url?sendMediaMessage(senderID, message1, function(){}):console.log("GIPHY NOT FOUND!");       
+            url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log("==============");
 
         });
 
@@ -455,8 +460,8 @@ console.log("=======");
 console.log(response); 
 console.log(mediaObj);
 
-textObj?  sendTextMessage(senderID, textObj):console.log("no response from API.AI");
-mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook):console.log("no attachments");  
+textObj?  sendTextMessage(senderID, textObj, function(){}):console.log("no response from API.AI");
+mediaObj? sendMediaMessage(senderID, mediaObj.payload.facebook, function(){}):console.log("no attachments");  
 
 });  
  
@@ -579,10 +584,7 @@ if (!lookup[senderID]) {
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
-    introduce(senderID, function(){
-      sendTextMessage(senderID, "I can suggest fun stuff if you like, or we can play a selfie game. \
-      Let me know what you like or ask me anything!");
-    });
+    introduce(senderID);
   }
 
   else if (postback === 'null')
@@ -653,8 +655,8 @@ if (!lookup[senderID]) {
             // Handle an exception where no faces are detected in image! 
             // Send faceinfo to user for DEBUG!          
             faces? faces.forEach((face, i) => {
-              sendTextMessage(senderID, JSON.stringify(face));
-            }):sendTextMessage(senderID, "no faces detected!");
+              sendTextMessage(senderID, JSON.stringify(face), function(){});
+            }):sendTextMessage(senderID, "no faces detected!", function(){});
           
       fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
 
@@ -708,7 +710,7 @@ if (!lookup[senderID]) {
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
 
-                sendTextMessage(senderID, "I heard you say: " + transcript);
+                sendTextMessage(senderID, "I heard you say: " + transcript, function(){});
                 api_ai(senderID, transcript, app);
 
               // Remove transcribed audio files 
