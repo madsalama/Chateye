@@ -260,7 +260,7 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer! An emotional, media-interactive diary logging A.I.", function(){  
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer, an entertaining, media-interactive diary logging A.I.", function(){  
     sendTextMessage(senderID, "I 'listen' when you wanna 'talk', \
 and will save your diary entry when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
