@@ -56,15 +56,12 @@ module.exports = {
                         userID: userID }
 
                     , function(err, result) {                                                                    
-                        
-                        // 1- get '_id' of the stored entry...   
-                      //   var _id = result.ops._id; 
 
-                        // 2- add the '_id' to the entries in user's document in users collection
-                        
-
-
-
+                        // add a reference to entry in the user's document
+                       var entry_id = result.ops._id; 
+                       db.users.update(
+                        { _id: userID },
+                        { $push: { user_entries: entry_id  } } );
 
                         db.close();   
                         console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
