@@ -569,7 +569,7 @@ if (!lookup[senderID]) {
 
   // commit user information in the DB
   mmongo.addUser(MongoClient, assert, db_url, 
-    userID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
+    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
 
