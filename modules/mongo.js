@@ -31,10 +31,12 @@ module.exports = {
 
                     , function(err, result) {    
                         db.close();   
+
                         if (result){
                             console.log("====== MONGO_LOGGER: USER ADDED COMMITTED! =====");
                             callback(module.exports.returnData(result));
                         }
+                        
                         else {
                             console.log(err);
                         }

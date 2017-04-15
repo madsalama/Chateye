@@ -554,9 +554,7 @@ function receivedMessage(event) {
   var message = event.message;
   var postback; 
   
-  event.postback?
-    postback =event.postback.payload
-    :console.log("no postback defined") ; 
+  event.postback? postback = event.postback.payload :console.log("no postback defined") ; 
   
 // ===========================
 //   HANDLING USER/SESSIONS
