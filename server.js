@@ -556,7 +556,7 @@ function receivedMessage(event) {
   // var postback = event.postback.payload; 
   
   console.log(" ======= POST BACK IS INVOKED =======");
-  console.log(event.postback);
+  console.log(event.postback.payload);
 
 // ===========================
 //   HANDLING USER/SESSIONS
