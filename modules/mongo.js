@@ -92,11 +92,21 @@ module.exports = {
                     var users = db.collection('users');  
 
                     // do an application-level join                 
-                    user = users.findOne({_id: userID});  
-                    console.log(user);
-                    
-                    user_entries = entries.find({_id: { $in : user.user_entries } } ).toArray() ;
-                    callback(module.exports.returnData(user_entries));
+                    users.findOne({_id: userID}, function(err, result){
+                            console.log(" ===== RESULTZ ===== ");
+                            console.log(result);                            
+                    }); 
+
+                    //var user_entries = entries.find({_id: { $in : user.user_entries } } ).toArray(
+                     //   function(err, docs) {
+                     //               assert.equal(null, err);
+                     //               console.log(docs);
+                     //               console.log(err);
+                    //                db.close();
+                    //    }
+
+                   // ) ;
+                   // callback(module.exports.returnData(user_entries));
 
                 });
 
