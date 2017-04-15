@@ -9,27 +9,20 @@ module.exports = {
             'Content-Type':     'application/x-www-form-urlencoded', 
         },
 
-
-
-
-
-
-
 createGetStarted:function(request, callback){
 
         var data = {
             setting_type: "call_to_actions",
             thread_state: "new_thread",
-            call_to_actions: [
-                { payload:"getStarted" }]
+            call_to_actions: [{ payload:"getStarted" }]
         }; 
 
         var options = {    
                     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
-                    method: 'POST',
-                    headers:module.exports.headers,         
+                    method: 'POST',                           
                     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
                     json: { setting_type: 'call_to_actions' }
+
         };
 
                 request(options, function (error, response, body) {
