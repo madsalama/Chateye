@@ -36,9 +36,9 @@ module.exports = {
                             console.log("====== MONGO_LOGGER: USER ADDED COMMITTED! =====");
                             callback(module.exports.returnData(result));
                         }
-                        
+
                         else {
-                            console.log(err);
+                            // console.log(err);
                         }
 
                         

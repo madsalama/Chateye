@@ -260,14 +260,19 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer! An emotionally-interactive diary logging A.I.", function(){
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer! An emotionally-interactive diary logging A.I.", function(){  
     sendTextMessage(senderID, "I 'listen' on your command when you wanna 'talk', \
-and will save your diary entry for you when you're done or have asked me to 'stop listening'.", function(){
-  sendTextMessage(senderID, "I'll show you some fun stuff if you want me to, or we can play 'the selfie game' - Just ask anything! ;)", function(){});
-});
-});
+and will save your diary entry for you when you're done or have asked me to 'stop listening'. \
+I can read it as text or a handwritten page too!", function(){
+
+    sendTextMessage(senderID, "I'll show you some fun stuff if you want me to, or we can play 'the selfie game' - Just ask anything! ;)", function(){});
+
+});  // 2 
+
+}); // 1 
+
 }
-  
+
 
 function sendGenericMessage(recipientId, url, callback) {
   var messageData = {
