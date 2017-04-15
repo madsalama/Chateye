@@ -239,7 +239,7 @@ function sendMediaMessage(recipientId, message) {
 
 }
 
-function sendTextMessage(recipientId, messageText, callback) {
+function sendTextMessage(recipientId, messageText) {
 
   var messageData = {
     recipient: {
@@ -251,27 +251,15 @@ function sendTextMessage(recipientId, messageText, callback) {
   };
 
   callSendAPI(messageData);
-  callback();
+
 }
 
 
 
-function introduce(senderID){
-
-      // CHATZER INTRODUCTION 
-    sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI!", function(){
-      sendTextMessage(senderID, "I listen on your command, and keep listening until you tell me that you're done talking!", function(){
-        sendTextMessage(senderID, "I'll memorize your entries for you - you can also send me handwritten diary entries and I'll read it!", function(){
-          sendTextMessage(senderID, ".. your secrets are safe with me!", function(){
-            sendTextMessage(senderID, "I can suggest fun stuff too or we can play 'the selfie game!' \
-            - Just let me know what you'd like me to do or ask me anything you'd like ! ;) ", function(){
-              console.log("greetings sent!");
-            });
-          });
-        });
-      });
-    });
-
+function introduce(senderID, callback){
+    sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI! -\
+     I 'listen' on your command when you wanna 'talk' - and will save your diary entry for you when you're done! ");
+     callback();     
 }; 
 
 
@@ -552,6 +540,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+
   var postback = 'null' ; 
   
   event.postback? postback = event.postback.payload :console.log("no postback defined") ; 
@@ -590,7 +579,10 @@ if (!lookup[senderID]) {
     senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
         console.log(result);
     }); 
-    introduce(senderID);
+    introduce(senderID, function(){
+      sendTextMessage(senderID, "I can suggest fun stuff if you like, or we can play a selfie game. \
+      Let me know what you like or ask me anything!");
+    });
   }
 
   else if (postback === 'null')
@@ -627,10 +619,7 @@ if (!lookup[senderID]) {
 
 
   else if (messageAttachments) { 
-
-    // THIS always matches to TRUE which is insane!!!?
-
-    if (messageAttachments[0].type=="image")     // STILL matches to true?
+    if (messageAttachments[0].type=="image")     
   {
 
 
