@@ -260,8 +260,7 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 function introduce(senderID){
     sendTextMessage(senderID, "Welcome! I'm Chatzer, an entertaining diary logging AI! -\
-     I 'listen' on your command when you wanna 'talk' - and will save your diary entry for you when you're done! ", function(){
-       
+     I 'listen' on your command when you wanna 'talk' - and will save your diary entry for you when you're done! ", function(){       
        sendTextMessage(senderID, "Let me know what you want to do!", function(){});    
     });
 
@@ -587,7 +586,7 @@ if (!lookup[senderID]) {
     introduce(senderID);
   }
 
-  else if (postback === 'null')
+  if (message.mid)
   {
 
   console.log("Received message for user %d and page %d at %d with message:", 
