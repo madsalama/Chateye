@@ -259,19 +259,15 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 
 function introduce(senderID, username){
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer! An emotionally-interactive diary logging A.I. \
-who will 'listen' on your command when you wanna 'talk', and will save your diary entry for you when you're done or \
-have asked me to 'stop listening'.", function(){
-    sendTextMessage(senderID, "I'll show you some fun stuff if you want me to, or we can play 'the selfie game'", function(){
-      sendTextMessage(senderID, "Let me know what you wanna do or ask me anything ;) !", function(){        
-      });
-    });    
-    });
 
-}; 
-
-
-
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer! An emotionally-interactive diary logging A.I.", function(){
+    sendTextMessage(senderID, "I 'listen' on your command when you wanna 'talk', \
+and will save your diary entry for you when you're done or have asked me to 'stop listening'.", function(){
+  sendTextMessage(senderID, "I'll show you some fun stuff if you want me to, or we can play 'the selfie game'", function(){});
+});
+});
+}
+  
 
 function sendGenericMessage(recipientId, url, callback) {
   var messageData = {
