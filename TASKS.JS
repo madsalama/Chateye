@@ -64,12 +64,14 @@
   name: 'Mahmoud Salama',
   userID: '79384759384705',
   entries : [
-     { entryID: '', content: '', analysis: '' },
-     { entryID: '', content: '', analysis: '' },
-	 .... 
+
   ]
 
-  
+     users.push( { id:senderID, action:'', currentEntry:'',
+                first_name:first_name, last_name:last_name, 
+                profile_pic:profile_pic, gender:gender } );
+
+				
   
   
  * 

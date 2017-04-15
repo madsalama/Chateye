@@ -567,6 +567,12 @@ if (!lookup[senderID]) {
                 first_name:first_name, last_name:last_name, 
                 profile_pic:profile_pic, gender:gender } );
 
+  // commit user information in the DB
+  mmongo.addUser(MongoClient, assert, db_url, 
+    userID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
+        console.log(result);
+    }); 
+
   console.log(users);
 
    }); 
