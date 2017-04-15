@@ -57,9 +57,9 @@ module.exports = {
 
                     , function(err, result) {                                                                    
 
-                        // add a reference to entry in the user's document
-                       var entry_id = assert.equal(1, result.ops._id); 
-                       console.log("==== ENTRY ID: " + entry_id);
+                     // add a reference to entry in the user's document
+                      var entry_id = assert.equal(1, result.ops[0]._id); 
+                       console.log("==== ENTRY ID: " + entry_id );
 
                        users.update(
                         { _id: userID },
