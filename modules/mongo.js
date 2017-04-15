@@ -85,12 +85,9 @@ module.exports = {
 
 
     getUserEntries: function(MongoClient, assert, db_url, userID, callback){
-
-
                 MongoClient.connect(db_url, function(err, db) {   //
-
+                    
                     assert.equal(null, err);
-
                     var entries = db.collection('entries');  
                     var users = db.collection('users');  
 
