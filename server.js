@@ -152,64 +152,7 @@ var App = function() {
 //
 // ====================================
 
-// add entry should take entryText (directly OR converted from an image) - then add it for a certain user. 
-// var addEntry = function(db, entryText, userID, callback)
-
-var addEntry = function(db, entryText, entryDate, entryAnalysis, userID, callback) {
-
-   // Get the documents collection
-  var collection = db.collection('entries');
-  // Insert some documents
-  collection.insertOne(
-
-    // an indexed entryID '_id' is generated automatically...    
-    { entryText: entryText, 
-      entryDate: entryDate,
-      entryAnalysis: entryAnalysis, 
-      userID: userID }
-
-  , function(err, result) {
-    console.log("====== MONGO DB LOGGER ========= ");
-    console.log("inserted a document/ entry into the collection!");
-
-    callback(result);
-    
-  });
-
-}
-
-var getEntries = function(db, callback) {
-
-  // Get the documents collection
-  var collection = db.collection('entries');
-  // Find some documents
-  collection.find({}).toArray(function(err, docs) {
-    assert.equal(err, null);
-    console.log("Found the following records... ");
-    console.log(docs)
-    callback(docs);
-  });
-
-}
-
-
-function connectAdd(){
-
-MongoClient.connect(db_url, function(err, db) {
-  assert.equal(null, err);
-
-addEntry(db, '7amada','14/11/1991','sad as fuck' , 34563456356, function(result){
-  console.log("ENTRY ADDED TO DB!");
-  db.close(); 
-});
-
-
-});
-};
-
-
-connectAdd(); 
-
+ 
 
 function callSendAPI(messageData) {
 // Set the headers
@@ -454,8 +397,15 @@ if (reqs){
  }
 
 if (response.result.action === 'save-entry') { 
+
   resetContexts(app, senderID);
-  // call commit entry
+  commitEntry(MongoClient, assert, 
+messageText, "15/4/2017", "happy", senderID, 
+  function commitCallBack(result){
+    console.log(result);
+    
+});
+
 };
 
 if (response.result.action === 'get-media') { 
@@ -712,18 +662,9 @@ if (!lookup[senderID]) {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
-                  mkairos.media(senderID, timeOfMessage, fs, request, image, 
-                  function(values){        
-                    faces = values;
 
-                  // GUESS EMOTION
-                  console.log("========= KAIROS MEDIA =========");
-                  console.log(faces);
-                  console.log(JSON.stringify(faces));
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
-                  fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-
-                  });
 
            
 

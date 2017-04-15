@@ -12,14 +12,15 @@ module.exports = {
             'features': {
             'emotion': {
  //            'targets': [
-  //             'me',
-   //            'myself',
-    //           'I',
+   //             'me',
+    //            'myself',
+     //           'I',
       //         'He',
-     //          'She',
-      //         'It',
-       //        'They' ]
+       //          'She',
+        //         'It',
+         //        'They' ]
         },
+
         'sentiment':{
 //             'targets': [
  //              'me',
@@ -29,7 +30,8 @@ module.exports = {
      //          'She',
       //         'It',
        //        'They' ]
-        }
+        
+    }
 
     }
             }, function(err, response) {
