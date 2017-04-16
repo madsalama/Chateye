@@ -479,13 +479,13 @@ if (response.result.action === 'get-media') {
        var adjective  = adjectives[Math.floor(Math.random() * (adjectives.length-1))];
 
        var given_names = response.result.parameters.given_name;
-       var given_name  = given-names[Math.floor(Math.random() * (given_names.length-1))];
+       var given_name  = given_names[Math.floor(Math.random() * (given_names.length-1))];
 
        var last_names = response.result.parameters.last_name;
-       var last_name = last-names[Math.floor(Math.random() * (last_names.length-1))];
+       var last_name = last_names[Math.floor(Math.random() * (last_names.length-1))];
 
        var music_artists = response.result.parameters.music_artist;
-       var music_artist = music-artists[Math.floor(Math.random() * (music_artists.length-1))];
+       var music_artist = music_artists[Math.floor(Math.random() * (music_artists.length-1))];
 
 // ======================================================================================================    
 
