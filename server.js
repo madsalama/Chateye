@@ -512,7 +512,7 @@ console.log(" ========= KEY WORDS LOGGER ========= ");
 
 console.log(keywords);
 
-if (keywords === undefined){
+if (keywords === undefined || keywords === ""){
   keywords = response.result.resolvedQuery;
 }
 
