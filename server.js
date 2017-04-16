@@ -95,11 +95,6 @@ const mgraph = require('./modules/graph');
 const mmongo = require('./modules/mongo');
 const myoutube = require('./modules/youtube');
 
-const googleapis = require('googleapis');
-googleapis.client.setApiKey('AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4');
-const youtube = googleapis.youtube;
-
-
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
@@ -161,12 +156,11 @@ mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
-
-myoutube.getVideo(request, youtube, "lady gaga", function(data){
+var keywords = 'funny cat and dog'; 
+myoutube.getVideo(request, keywords, 20, function(data){
     console.log(data);
 });
 
-//
 // ====================================
 
  

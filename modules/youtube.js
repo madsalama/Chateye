@@ -4,33 +4,42 @@ module.exports = {
         return data;                
     },
 
+getVideo: function(request, keywords, limit, callback){
+        var keywords = encodeURIComponent(keywords);        
+        var options = {
+                url: 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4&part=snippet\
+&q='+keywords+'&order=viewCount&maxResults='+limit,
+                method: 'GET' }; 
 
-// API KEY = AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4
+                request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
 
-getVideo: function(request, youtube, keywords, callback){
+                var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)
 
-     youtube.search.list({
-    part: 'id,snippet',
-    q: keywords,
-    order: 'viewCount',
-    maxResults: '10'
+                var url;
+                var videoId;  
 
-  }, function (err, data) {
+                var object = JSON.parse(body);
 
-      console.log(" ====== YOUTUBE RESULTS ====== ");
-      callback(module.exports.returnData(data));
+                object.items[choice]? videoId = object.items[choice].id.videoId:console.log("VIDEO NOT FOUND!");                 
+                url = "https://www.youtube.com/watch?v="+videoId ;
 
-    if (err) {
-      console.error('Error: ' + err);
-    }
-    if (data) {
-      console.log(" ====== YOUTUBE RESULTS ====== ");
-      callback(module.exports.returnData(data));
+                console.log("=== suggested video ===");
+                callback(module.exports.returnData(url));
 
-      // console.log(util.inspect(data, false, null));
+            }
 
-    }
-  });
+       else
+       {        
+            console.log(body);
+       }
+
+
+        
+    
+
+}
+            );
 
 
 }
