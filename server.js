@@ -663,8 +663,17 @@ function receivedMessage(event) {
 
 var lookup = getLookupSessions(users);
 
+if (!lookup[senderID]){
+
+   // create an object for the user...    
+   users.push( { id:senderID, action:'', currentEntry:''} );
+   console.log("=== user information ===");
+   console.log(users);
+   
+}
+
 // If there's no object for that user... 
-if (!lookup[senderID] || postback === "getStarted") {
+if (postback === "getStarted") {
   
    // get user information | store it 
    mgraph.getuser(request, senderID, function(results){    
@@ -678,11 +687,6 @@ if (!lookup[senderID] || postback === "getStarted") {
       var locale = results.locale; 
       var timezone = results.timezone;
 
-   // create an object for the user...    
-   users.push( { id:senderID, action:'', currentEntry:'',
-                first_name:first_name, last_name:last_name, 
-                profile_pic:profile_pic, gender:gender, locale:locale, timezone:timezone } );
-    
     // HANDLE TODO: ONLY IF USER IS NOT IN DB
     mmongo.addUser(MongoClient, assert, db_url, 
     senderID, first_name, last_name, profile_pic, gender, locale, timezone, function adduserCallback(result){
