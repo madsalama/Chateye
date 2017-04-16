@@ -292,87 +292,41 @@ I can read it as text, an audio message or even a handwritten note!", function()
 }
 
 
-function sendGenericMessage(recipientId, entries, callback) {
+function sendNotes(recipientId, entries, callback) {
+  
+
+
+  var elements = []; 
+
+   for (var i in entries) {
+
+     var number = i+1 ; 
+     var text = entries[i].entryText ; 
+     var analysis = entries[i].entryAnalysis;
+     var entryDate = entries[i].entryDate;
+
+elements.push( 
+  {
+            title: " NOTE # " + number + " | " + entryDate,            
+            subtitle: "NOTE MOOD: " + analysis ,
+            image_url: ""    // image defined according to note mood 
+  }
+  );
+   }
+
+
+
   var messageData = {
     recipient: {
       id: recipientId
     },
-
-/**
- 
- var elements = [];  
-   for (var i in entries) {
-
-     if (users[i].id == senderID) {
-        return users[i].action;         
-     }
-
-elements.push( 
-  { 
-    title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",               
-            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
-            }]
-  } 
-  );
-
- * 
- * 
-
-
-   }
- * 
- * 
- */
 
     message: {
       attachment: {
         type: "template",
         payload: {
           template_type: "generic",
-          elements: 
-          [         // ELEMENTS 
-
-            {     // ELEMENT 1 
-            title: "rift",       
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for first bubble",
-            }],
-          }, 
-          
-          {     // ELEMENT 2
-            title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",               
-            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
-            }]
-          }
-          
-
-          ] // ELEMENTS 
+          elements:elements
         }
       }
     }
@@ -493,7 +447,10 @@ if (reqs){
 
 if (response.result.action === 'get-entries'){
     mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(user_entries){         
+     
+     sendNotes(recipientId, user_entries, function(){});
      console.log(user_entries);
+
     });
 }
 
@@ -772,7 +729,7 @@ else {
         break;
 
       case 'generic':
-        sendGenericMessage(senderID, function(){});
+        // sendGenericMessage(senderID, function(){});
       default:  
            console.log(getAction(senderID));                      
            api_ai(senderID, messageText, app);
