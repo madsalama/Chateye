@@ -277,12 +277,12 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer... your entertaining, interactive, note-logging A.I friend!", function(){  
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm gonna be your own entertaining, interactive, note-logging A.I friend!", function(){  
     sendTextMessage(senderID, "I 'listen' when you wanna 'talk', \
 and will save your note when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
 
-    sendTextMessage(senderID, "I'll show you stuff from many media if you want, or we can play 'the selfie game'\
+    sendTextMessage(senderID, "I can show you random media stuff if you want, or we can play 'the selfie game'\
 - ask me anything! for more info: https://chatzer.herokuapp.com/ :P !", function(){});
 
 });  // 2 
