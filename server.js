@@ -276,7 +276,7 @@ function sendTextMessage(recipientId, messageText, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer... an entertaining, interactive note-logging A.I.", function(){  
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm Chatzer... your entertaining, interactive, note-logging A.I friend!", function(){  
     sendTextMessage(senderID, "I 'listen' when you wanna 'talk', \
 and will save your note when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
@@ -502,7 +502,7 @@ if (response.result.action === 'get-media') {
 
 // ======================================================================================================    
 
-var keywords = formulateKeywords(adjective, given_name, last_name, music_artist);
+var keywords = formulateKeywords(adjective, given_name, last_name, music_artist, animal);
 console.log(keywords);
 
 switch(media_type) {
