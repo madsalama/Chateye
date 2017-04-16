@@ -93,6 +93,12 @@ const maudio = require('./modules/audio');
 
 const mgraph = require('./modules/graph');
 const mmongo = require('./modules/mongo');
+const myoutube = require('./modules/myoutube');
+
+const googleapis = require('googleapis');
+googleapis.client.setApiKey('AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4');
+const youtube = googleapis.youtube;
+
 
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
@@ -153,6 +159,11 @@ var App = function() {
 
 mgraph.createGetStarted(request, function(result){
   console.log(result);
+});
+
+
+myoutube.getVideo(request, youtube, "lady gaga", function(data){
+    console.log(data);
 });
 
 //
@@ -424,11 +435,13 @@ if (reqs){
  }
 
 
-// GET ENTRIES - SEND TO USER IN A CAROUSELL 
+// ==== GET ENTRIES | SEND TO USER IN A CAROUSELL =====
+// carousell item = entryDate, overallEmotion, image specifies color coded emotional state
+      // tap item? postback is a message with the entry content!
+
 if (response.result.action === 'get-entries'){
-    mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(result){    
-     console.log("=========== ENTRIES ===========");
-     console.log(result);
+    mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(user_entries){         
+     console.log(user_entries); 
     });
 }
 

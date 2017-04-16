@@ -96,25 +96,7 @@ module.exports = {
                         entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){                                                                    
                             callback(module.exports.returnData(result));
                         });
-
-
                     }); 
-
-                    //var user_entries = entries.find({_id: { $in : user.user_entries } } ).toArray(
-                     //   function(err, docs) {
-                     //               assert.equal(null, err);
-                     //               console.log(docs);
-                     //               console.log(err);
-                    //                db.close();
-                    //    }
-
-                   // ) ;
-                   // callback(module.exports.returnData(user_entries));
-
-                });
-
+                }); //
     }
-
-        // ... an index on USERID in the users collection is REQUIRED for efficient operation!
-
 };
