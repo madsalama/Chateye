@@ -11,8 +11,10 @@ getVideo: function(request, youtube, keywords, callback){
 
      youtube.search.list({
     part: 'id,snippet',
-    q: keywords
-    
+    q: keywords,
+    order: 'viewCount',
+    maxResults: '10'
+
   }, function (err, data) {
 
       console.log(" ====== YOUTUBE RESULTS ====== ");
