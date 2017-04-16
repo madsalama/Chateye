@@ -361,8 +361,9 @@ function sendGiphy(request,messageText,limit, senderID)
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             
-            url?sendMediaMessage(senderID, message1, function(){}):console.log("GIPHY NOT FOUND!");       
-            url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log("==============");
+            url?sendMediaMessage(senderID, message1, function(){})
+            :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;       
+            url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
 
             return url; 
         });
@@ -513,14 +514,13 @@ switch(media_type) {
             // =========================================================
             myoutube.getVideo(request, keywords, 20, function(data){              
                 data?sendTextMessage(senderID, data, function(){})
-                :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
+                :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
             });
             // ==========================================================            
         break;
 
-    case "#giphy":
-        sendGiphy(request, keywords, 20, senderID)?sendGiphy(request, keywords, 20, senderID)
-        :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
+    case "#giphy":      
+        sendGiphy(request, keywords, 20, senderID);
         break;
 
     default:
