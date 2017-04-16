@@ -494,6 +494,12 @@ if (response.result.action === 'get-media') {
        var music_artist = music_artists[Math.floor(Math.random() * (music_artists.length-1))];
        console.log(music_artist + " | ");
 
+       var animals = response.result.parameters.animal;
+       var animal = animals[Math.floor(Math.random() * (animals.length-1))];
+       console.log(animals+ " | ");
+
+
+
 // ======================================================================================================    
 
 var keywords = formulateKeywords(adjective, given_name, last_name, music_artist);
