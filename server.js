@@ -303,10 +303,7 @@ function sendGenericMessage(recipientId, callback) {
         payload: {
           template_type: "generic",
           elements: [{
-            title: "rift",
-            subtitle: url,
-            item_url: url,               
-            image_url: url,
+            title: "rift",       
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/rift/",
