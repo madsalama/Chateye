@@ -307,17 +307,16 @@ elements.push(
   {
             title: "Note#" + n + " | " + entryDate,            
             subtitle: "Note mood: " + analysis,
-            // image_url: "",    // image defined according to note mood 
+            image_url: "",    // image defined according to note mood 
             "buttons":[
               { type:"postback",
-                title: "view", 
+                title: "view note", 
                 payload:"show_note_number_"+n
-              }]          
-
+              }]                                       // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
   }
   );
 
-  n++;
+  n++ ;
 
    }
 
