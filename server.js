@@ -518,10 +518,7 @@ switch(media_type) {
         break;
 
     case "#giphy":
-        mgiphy.get(request, keywords, 20, function(){
-          data?sendTextMessage(senderID, data, function(){})
-          :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
-        });
+        sendGiphy(request, keywords, 20, senderID);
         break;
 
     default:
