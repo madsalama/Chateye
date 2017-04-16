@@ -297,10 +297,10 @@ function sendNotes(recipientId, entries, callback) {
 
 
   var elements = []; 
+  var n = 1;
 
    for (var i in entries) {
-
-     var n = 1; 
+     
      var text = entries[i].entryText ; 
      var analysis = entries[i].entryAnalysis;
      var entryDate = entries[i].entryDate;
@@ -313,7 +313,8 @@ elements.push(
   }
   );
 
-  n++; 
+  n++;
+
    }
 
 
