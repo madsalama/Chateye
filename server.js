@@ -307,7 +307,10 @@ elements.push(
   {
             title: "Note#" + n + " | " + entryDate,            
             subtitle: "Note mood: " + analysis,
-            image_url: ""    // image defined according to note mood 
+            // image_url: "",    // image defined according to note mood 
+            type:"postback",
+            payload:"show_note_number_"+n
+
   }
   );
 
@@ -390,13 +393,10 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
    
-
-
     if (getAction(senderID) === 'listen' | 
      getAction(senderID) === 'listening'    ){
         conCatEntry(senderID, messageText);      
      }
-
 
           var reqs = app.textRequest(messageText, {
           sessionId: senderID });
