@@ -294,8 +294,6 @@ I can read it as text, an audio message or even a handwritten note!", function()
 
 function sendNotes(recipientId, entries, callback) {
   
-
-
   var elements = []; 
   var n = 1;
 
@@ -308,7 +306,7 @@ function sendNotes(recipientId, entries, callback) {
 elements.push( 
   {
             title: "Note#" + n + " | " + entryDate,            
-            subtitle: "Note Mood: " + analysis,
+            subtitle: "Note mood: " + analysis,
             image_url: ""    // image defined according to note mood 
   }
   );
@@ -392,6 +390,14 @@ function resetContexts (app,senderID){
 
 function api_ai(senderID, messageText, app){    
    
+
+
+    if (response.result.action === 'listen' | 
+     response.result.action === 'listening'    ){
+        conCatEntry(senderID, messageText);      
+     }
+
+
           var reqs = app.textRequest(messageText, {
           sessionId: senderID });
           
@@ -434,13 +440,19 @@ if (reqs){
 
 
  if (response.result.action === 'listen'       | 
+     response.result.action === 'listening'    |
      response.result.action === 'save-entry'   | 
      response.result.action === 'get-media'    | 
      response.result.action === 'get-entries'  |
-     response.result.action === 'play-selfie'    
+     response.result.action === 'play-selfie'  
      ){
   setAction(senderID, response.result.action); 
  }
+
+
+
+
+
 
 
 // ==== GET ENTRIES | SEND TO USER IN A CAROUSELL =====
@@ -467,8 +479,10 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+' '+time;
 
+
+var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
-messageText, dateTime, "happy", senderID, 
+entry, dateTime, "happy", senderID, 
   function commitCallBack(result){
     console.log(result);
 
