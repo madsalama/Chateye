@@ -507,9 +507,15 @@ if (response.result.action === 'get-media') {
 // ======================================================================================================    
 
 var keywords = formulateKeywords(adjective, given_name, last_name, music_artist, animal);
+
+console.log(" ========= KEY WORDS LOGGER ========= ");
+
+console.log(keywords);
+
 if (keywords === undefined){
   keywords = response.result.resolvedQuery;
 }
+
 console.log(keywords);
 
 switch(media_type) {
