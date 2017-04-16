@@ -211,6 +211,17 @@ function checkObject(data){
 
 }
 
+function formulateKeywords(){
+  var str; 
+  for (var i = 0; i < arguments.length; i++) {
+    if (arguments[i] !== 'undefined' || arguments[i] !== ''){
+        str = str+' '+arguments[i];
+    } 
+  }
+
+return str; 
+}
+
 function sendMediaMessage(recipientId, message, callback) {
 
   var messageAttachments ;
@@ -417,11 +428,6 @@ if (reqs){
   reqs.on('response', function(response) {
 
 
-// ================= DEBUG =====================
-console.log("==== API.AI RESULTS ==== ");
-console.log(response.result);
-// =============================================
-
  if (response.result.action === 'listen'       | 
      response.result.action === 'save-entry'   | 
      response.result.action === 'get-media'    | 
@@ -464,17 +470,44 @@ messageText, dateTime, "happy", senderID,
 
 if (response.result.action === 'get-media') { 
 
-      // extract information from request (names/media-types/etc)
-      // media-type 
-      // given-name/last-name/artist-name/animal/adjective
-      
-      // formulate a query string with non empty info 
+       var media_types = response.result.parameters.media_type; 
+       var media_type = media_types[Math.floor(Math.random() * (media_types.length-1))];
 
-var keywords = 'lady gaga funny interview'; 
-myoutube.getVideo(request, keywords, 20, function(data){
-    console.log(data);
-    sendTextMessage(senderID, data, function(){});
-});
+// =======================================================================================================
+       
+       var adjectives = response.result.parameters.adjective;
+       var adjective  = adjectives[Math.floor(Math.random() * (adjectives.length-1))];
+
+       var given_names = response.result.parameters.given-name;
+       var given_name  = given-names[Math.floor(Math.random() * (given-names.length-1))];
+
+       var last_names = response.result.parameters.last-name;
+       var last_name = last-names[Math.floor(Math.random() * (last-names.length-1))];
+
+       var music_artists = response.result.parameters.music-artist;
+       var music_artist = music-artists[Math.floor(Math.random() * (music-artists.length-1))];
+
+// ======================================================================================================    
+
+var keywords = formulateKeywords(media_type, adjective, given_name, last_name, music_artist);
+
+switch(media_type) {
+    case "#youtube":
+            // =========================================================
+            myoutube.getVideo(request, keywords, 20, function(data){
+                console.log(data);
+                sendTextMessage(senderID, data, function(){});
+            });
+            // ==========================================================            
+        break;
+    case n:
+        break;
+    default:
+}
+
+
+
+
 
       // call get media with keywords 
 
