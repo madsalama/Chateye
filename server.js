@@ -392,8 +392,8 @@ function api_ai(senderID, messageText, app){
    
 
 
-    if (response.result.action === 'listen' | 
-     response.result.action === 'listening'    ){
+    if (getAction(senderID) === 'listen' | 
+     getAction(senderID) === 'listening'    ){
         conCatEntry(senderID, messageText);      
      }
 
