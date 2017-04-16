@@ -308,8 +308,10 @@ elements.push(
             title: "Note#" + n + " | " + entryDate,            
             subtitle: "Note mood: " + analysis,
             // image_url: "",    // image defined according to note mood 
-            type:"postback",
-            payload:"show_note_number_"+n
+            "buttons":[
+              { type:"postback",
+                payload:"show_note_number_"+n
+              }]          
 
   }
   );
