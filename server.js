@@ -300,15 +300,15 @@ function sendNotes(recipientId, entries, callback) {
   var n = 1;
 
    for (var i in entries) {
-     
+
      var text = entries[i].entryText ; 
      var analysis = entries[i].entryAnalysis;
      var entryDate = entries[i].entryDate;
 
 elements.push( 
   {
-            title: " Note#" + n + " | " + entryDate,            
-            subtitle: "NOTE MOOD: " + analysis ,
+            title: "Note#" + n + " | " + entryDate,            
+            subtitle: "Note Mood: " + analysis,
             image_url: ""    // image defined according to note mood 
   }
   );
