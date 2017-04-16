@@ -343,7 +343,7 @@ function sendGenericMessage(recipientId, callback) {
 function sendGiphy(request,messageText,limit, senderID)
 {
 
-  mgiphy.get(request, messageText, 25, function(url){
+  mgiphy.get(request, messageText, limit, function(url){
           
           console.log(JSON.stringify(messageText));            
 
@@ -507,6 +507,9 @@ if (response.result.action === 'get-media') {
 // ======================================================================================================    
 
 var keywords = formulateKeywords(adjective, given_name, last_name, music_artist, animal);
+if (keywords === undefined){
+  keywords = response.result.resolvedQuery;
+}
 console.log(keywords);
 
 switch(media_type) {
@@ -520,7 +523,7 @@ switch(media_type) {
         break;
 
     case "#giphy":      
-        sendGiphy(request, keywords, 20, senderID);
+        sendGiphy(request,keywords,20, senderID);
         break;
 
     default:
