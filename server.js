@@ -458,6 +458,7 @@ if (response.result.action === 'get-media') {
 var keywords = 'lady gaga funny interview'; 
 myoutube.getVideo(request, keywords, 20, function(data){
     console.log(data);
+    sendTextMessage(senderID, data, function(){});
 });
 
       // call get media with keywords 
