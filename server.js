@@ -156,7 +156,7 @@ mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
-var keywords = 'funny cat and dog'; 
+var keywords = 'lady gaga funny interview'; 
 myoutube.getVideo(request, keywords, 20, function(data){
     console.log(data);
 });
