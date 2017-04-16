@@ -292,7 +292,7 @@ I can read it as text, an audio message or even a handwritten note!", function()
 }
 
 
-function sendGenericMessage(recipientId, url, callback) {
+function sendGenericMessage(recipientId, callback) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -510,15 +510,20 @@ console.log(keywords);
 switch(media_type) {
     case "#video":
             // =========================================================
-            myoutube.getVideo(request, keywords, 20, function(data){                
+            myoutube.getVideo(request, keywords, 20, function(data){              
                 data?sendTextMessage(senderID, data, function(){})
                 :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
             });
             // ==========================================================            
         break;
 
-    case n:
+    case "#giphy":
+        mgiphy.get(request, keywords, 20, function(){
+          data?sendTextMessage(senderID, data, function(){})
+          :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
+        });
         break;
+
     default:
 }
 
@@ -707,6 +712,8 @@ else {
         // sendGenericMessage(senderID);
         break;
 
+      case 'generic':
+        sendGenericMessage(senderID, function(){});
       default:  
            console.log(getAction(senderID));                      
            api_ai(senderID, messageText, app);
