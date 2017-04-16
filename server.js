@@ -213,8 +213,9 @@ function checkObject(data){
 
 function formulateKeywords(){
   var str = ''; 
+
   for (var i = 0; i < arguments.length; i++) {
-    if (arguments[i] !== undefined || arguments[i] !== ''){
+    if (arguments[i] != undefined && arguments[i] !== ''){
         str = str+' '+arguments[i];
     }
 
@@ -281,7 +282,8 @@ function introduce(senderID, username){
 and will save your note when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
 
-    sendTextMessage(senderID, "I can show you awesome media stuff, or we can play 'the selfie game' - Just ask me anything! ;)", function(){});
+    sendTextMessage(senderID, "I'll show you stuff from many media if you want, or we can play 'the selfie game'\
+- Just ask me anything! ;)", function(){});
 
 });  // 2 
 
@@ -496,7 +498,7 @@ if (response.result.action === 'get-media') {
 
        var animals = response.result.parameters.animal;
        var animal = animals[Math.floor(Math.random() * (animals.length-1))];
-       console.log(animals+ " | ");
+       console.log(animal+ " | ");
 
 
 
@@ -515,6 +517,7 @@ switch(media_type) {
             });
             // ==========================================================            
         break;
+
     case n:
         break;
     default:
