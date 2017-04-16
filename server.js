@@ -292,17 +292,57 @@ I can read it as text, an audio message or even a handwritten note!", function()
 }
 
 
-function sendGenericMessage(recipientId, callback) {
+function sendGenericMessage(recipientId, entries, callback) {
   var messageData = {
     recipient: {
       id: recipientId
     },
+
+/**
+ 
+ var elements = [];  
+   for (var i in entries) {
+
+     if (users[i].id == senderID) {
+        return users[i].action;         
+     }
+
+elements.push( 
+  { 
+    title: "touch",
+            subtitle: "Your Hands, Now in VR",
+            item_url: "https://www.oculus.com/en-us/touch/",               
+            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/touch/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for second bubble",
+            }]
+  } 
+  );
+
+ * 
+ * 
+
+
+   }
+ * 
+ * 
+ */
+
     message: {
       attachment: {
         type: "template",
         payload: {
           template_type: "generic",
-          elements: [{
+          elements: 
+          [         // ELEMENTS 
+
+            {     // ELEMENT 1 
             title: "rift",       
             buttons: [{
               type: "web_url",
@@ -313,7 +353,9 @@ function sendGenericMessage(recipientId, callback) {
               title: "Call Postback",
               payload: "Payload for first bubble",
             }],
-          }, {
+          }, 
+          
+          {     // ELEMENT 2
             title: "touch",
             subtitle: "Your Hands, Now in VR",
             item_url: "https://www.oculus.com/en-us/touch/",               
@@ -327,7 +369,10 @@ function sendGenericMessage(recipientId, callback) {
               title: "Call Postback",
               payload: "Payload for second bubble",
             }]
-          }]
+          }
+          
+
+          ] // ELEMENTS 
         }
       }
     }
