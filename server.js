@@ -307,16 +307,14 @@ function sendNotes(recipientId, entries, callback) {
 
 elements.push( 
   {
-            title: " NOTE # " + n + " | " + entryDate,            
+            title: " Note#" + n + " | " + entryDate,            
             subtitle: "NOTE MOOD: " + analysis ,
             image_url: ""    // image defined according to note mood 
   }
   );
 
   n++; 
-  
    }
-
 
 
   var messageData = {
