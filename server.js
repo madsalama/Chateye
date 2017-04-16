@@ -478,21 +478,21 @@ if (response.result.action === 'get-media') {
        var adjectives = response.result.parameters.adjective;
        var adjective  = adjectives[Math.floor(Math.random() * (adjectives.length-1))];
 
-       var given_names = response.result.parameters.given-name;
-       var given_name  = given-names[Math.floor(Math.random() * (given-names.length-1))];
+       var given_names = response.result.parameters.given_name;
+       var given_name  = given-names[Math.floor(Math.random() * (given_names.length-1))];
 
-       var last_names = response.result.parameters.last-name;
-       var last_name = last-names[Math.floor(Math.random() * (last-names.length-1))];
+       var last_names = response.result.parameters.last_name;
+       var last_name = last-names[Math.floor(Math.random() * (last_names.length-1))];
 
-       var music_artists = response.result.parameters.music-artist;
-       var music_artist = music-artists[Math.floor(Math.random() * (music-artists.length-1))];
+       var music_artists = response.result.parameters.music_artist;
+       var music_artist = music-artists[Math.floor(Math.random() * (music_artists.length-1))];
 
 // ======================================================================================================    
 
 var keywords = formulateKeywords(media_type, adjective, given_name, last_name, music_artist);
 
 switch(media_type) {
-    case "#youtube":
+    case "#video":
             // =========================================================
             myoutube.getVideo(request, keywords, 20, function(data){
                 console.log(data);
