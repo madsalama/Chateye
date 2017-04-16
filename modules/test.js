@@ -1,60 +1,7 @@
 
-function getMedia(keywords, mediatype, mgiphy){
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
 
-    var type; 
-    var types = ['#giphy','#tweet','#youtube','#insta']; 
-    var randType = types[Math.floor(Math.random() * (length(types)-1))];
-
-    (mediatype ==='undefined')? type=randType: type=mediatype; 
-
-    if (mediatype === '#giphy'){
-            mgiphy.get(request, keywords, 15, function(url){
-                    return url; 
-            }));
-    }
-
-    if (mediatype === '#tweet'){
-           
-           return url; 
-    }
-
-
-
-
-
-
-
-
-    return media; 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////
+console.log(dateTime);

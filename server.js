@@ -416,6 +416,12 @@ if (reqs){
 
   reqs.on('response', function(response) {
 
+
+// ================= DEBUG =====================
+console.log("==== API.AI RESULTS ==== ");
+console.log(response.result);
+// =============================================
+
  if (response.result.action === 'listen'       | 
      response.result.action === 'save-entry'   | 
      response.result.action === 'get-media'    | 
@@ -432,7 +438,7 @@ if (reqs){
 
 if (response.result.action === 'get-entries'){
     mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(user_entries){         
-     console.log(user_entries); 
+     console.log(user_entries);
     });
 }
 
@@ -441,8 +447,14 @@ if (response.result.action === 'get-entries'){
 if (response.result.action === 'save-entry') { 
 
   resetContexts(app, senderID);
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
-messageText, "15/4/2017", "happy", senderID, 
+messageText, dateTime, "happy", senderID, 
   function commitCallBack(result){
     console.log(result);
 
@@ -452,7 +464,10 @@ messageText, "15/4/2017", "happy", senderID,
 
 if (response.result.action === 'get-media') { 
 
-      // collect request information (names/media-types/etc)
+      // extract information from request (names/media-types/etc)
+      // media-type 
+      // given-name/last-name/artist-name/animal/adjective
+      
       // formulate a query string with non empty info 
 
 var keywords = 'lady gaga funny interview'; 
