@@ -93,7 +93,7 @@ const maudio = require('./modules/audio');
 
 const mgraph = require('./modules/graph');
 const mmongo = require('./modules/mongo');
-const myoutube = require('./modules/myoutube');
+const myoutube = require('./modules/youtube');
 
 const googleapis = require('googleapis');
 googleapis.client.setApiKey('AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4');
