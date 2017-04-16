@@ -22,7 +22,8 @@ getVideo: function(request, keywords, limit, callback){
                 var object = JSON.parse(body);
 
                 object.items[choice]? videoId = object.items[choice].id.videoId:console.log("VIDEO NOT FOUND!");                 
-                url = "https://www.youtube.com/watch?v="+videoId ;
+                
+                videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
 
                 console.log("=== suggested video ===");
                 callback(module.exports.returnData(url));

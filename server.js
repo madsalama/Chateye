@@ -482,23 +482,23 @@ if (response.result.action === 'get-media') {
        
        var adjectives = response.result.parameters.adjective;
        var adjective  = adjectives[Math.floor(Math.random() * (adjectives.length-1))];
-       console.log(adjective + " | ");
+       // console.log(adjective + " | ");
 
        var given_names = response.result.parameters.given_name;
        var given_name  = given_names[Math.floor(Math.random() * (given_names.length-1))];
-       console.log(given_name + " | ");
+       // console.log(given_name + " | ");
 
        var last_names = response.result.parameters.last_name;
        var last_name = last_names[Math.floor(Math.random() * (last_names.length-1))];
-       console.log(last_name + " | ");
+       // console.log(last_name + " | ");
 
        var music_artists = response.result.parameters.music_artist;
        var music_artist = music_artists[Math.floor(Math.random() * (music_artists.length-1))];
-       console.log(music_artist + " | ");
+       // console.log(music_artist + " | ");
 
        var animals = response.result.parameters.animal;
        var animal = animals[Math.floor(Math.random() * (animals.length-1))];
-       console.log(animal+ " | ");
+       // console.log(animal+ " | ");
 
 
 
@@ -510,8 +510,7 @@ console.log(keywords);
 switch(media_type) {
     case "#video":
             // =========================================================
-            myoutube.getVideo(request, keywords, 20, function(data){
-                console.log(data);
+            myoutube.getVideo(request, keywords, 20, function(data){                
                 data?sendTextMessage(senderID, data, function(){})
                 :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
             });
