@@ -283,7 +283,7 @@ and will save your note when you're 'done' or have asked me to 'stop listening'.
 I can read it as text, an audio message or even a handwritten note!", function(){
 
     sendTextMessage(senderID, "I'll show you stuff from many media if you want, or we can play 'the selfie game'\
-- Just ask me anything! https://chatzer.herokuapp.com/ ;)", function(){});
+- Just ask me anything | more info at: https://chatzer.herokuapp.com/ ;)", function(){});
 
 });  // 2 
 
