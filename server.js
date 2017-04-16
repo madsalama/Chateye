@@ -212,11 +212,14 @@ function checkObject(data){
 }
 
 function formulateKeywords(){
-  var str; 
+  var str = ''; 
   for (var i = 0; i < arguments.length; i++) {
-    if (arguments[i] !== 'undefined' || arguments[i] !== ''){
+    if (arguments[i] !== undefined || arguments[i] !== ''){
         str = str+' '+arguments[i];
-    } 
+    }
+
+
+
   }
 
 return str; 
@@ -501,7 +504,8 @@ switch(media_type) {
             // =========================================================
             myoutube.getVideo(request, keywords, 20, function(data){
                 console.log(data);
-                data?sendTextMessage(senderID, data, function(){}):sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
+                data?sendTextMessage(senderID, data, function(){})
+                :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
             });
             // ==========================================================            
         break;
