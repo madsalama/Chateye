@@ -448,7 +448,7 @@ if (reqs){
 if (response.result.action === 'get-entries'){
     mmongo.getUserEntries(MongoClient, assert, db_url, senderID, function(user_entries){         
      
-     sendNotes(recipientId, user_entries, function(){});
+     sendNotes(senderID, user_entries, function(){});
      console.log(user_entries);
 
     });
