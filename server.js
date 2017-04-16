@@ -364,6 +364,7 @@ function sendGiphy(request,messageText,limit, senderID)
             url?sendMediaMessage(senderID, message1, function(){}):console.log("GIPHY NOT FOUND!");       
             url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log("==============");
 
+            return url; 
         });
 
 };
@@ -518,7 +519,8 @@ switch(media_type) {
         break;
 
     case "#giphy":
-        sendGiphy(request, keywords, 20, senderID);
+        sendGiphy(request, keywords, 20, senderID)?sendGiphy(request, keywords, 20, senderID)
+        :sendTextMessage("bummer... can't seem to find anything relevant! :(", data, function(){});
         break;
 
     default:
