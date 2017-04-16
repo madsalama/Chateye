@@ -678,15 +678,17 @@ if (!lookup[senderID] || postback === "getStarted") {
       var last_name = results.last_name; 
       var profile_pic = results.profile_pic;
       var gender = results.gender; 
+      var locale = results.locale; 
+      var timezone = results.timezone;
 
    // create an object for the user...    
    users.push( { id:senderID, action:'', currentEntry:'',
                 first_name:first_name, last_name:last_name, 
-                profile_pic:profile_pic, gender:gender } );
+                profile_pic:profile_pic, gender:gender, locale:locale, timezone:timezone } );
     
     // HANDLE TODO: ONLY IF USER IS NOT IN DB
     mmongo.addUser(MongoClient, assert, db_url, 
-    senderID, first_name, last_name, profile_pic, gender, function adduserCallback(result){
+    senderID, first_name, last_name, profile_pic, gender, locale, timezone, function adduserCallback(result){
         console.log(result);
     }); 
 

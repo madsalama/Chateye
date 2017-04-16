@@ -9,7 +9,7 @@ module.exports = {
     // in the 'users' collection for the user where : 'userID' = userID... 
 
 
-    addUser: function(MongoClient, assert, db_url, userID, first_name, last_name, profile_pic, gender, callback){
+    addUser: function(MongoClient, assert, db_url, userID, first_name, last_name, profile_pic, gender, locale, timezone, callback){
         MongoClient.connect(db_url, function(err, db) {   //
 
                     assert.equal(null, err);
@@ -21,7 +21,7 @@ module.exports = {
                         // TODO2: handle if user already exists (server restarted and session deleted)...
 
                         { _id:userID, first_name:first_name, last_name:last_name, 
-                          profile_pic:profile_pic, gender:gender, 
+                          profile_pic:profile_pic, gender:gender, locale:locale, timezone:timezone,
                           user_entries:[    // use $push to update value 
                              // _id1 ,
                             // _id2 , 
