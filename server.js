@@ -156,10 +156,7 @@ mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
-var keywords = 'lady gaga funny interview'; 
-myoutube.getVideo(request, keywords, 20, function(data){
-    console.log(data);
-});
+
 
 // ====================================
 
@@ -457,6 +454,11 @@ if (response.result.action === 'get-media') {
 
       // collect request information (names/media-types/etc)
       // formulate a query string with non empty info 
+
+var keywords = 'lady gaga funny interview'; 
+myoutube.getVideo(request, keywords, 20, function(data){
+    console.log(data);
+});
 
       // call get media with keywords 
 
