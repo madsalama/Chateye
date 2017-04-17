@@ -98,5 +98,23 @@ module.exports = {
                         });
                     }); 
                 }); //
-    }
+    }, 
+
+
+getUserLocale: function(MongoClient, assert, db_url, userID, callback){
+                MongoClient.connect(db_url, function(err, db) {   //
+                        assert.equal(null, err);                    
+                    var users = db.collection('users');  
+
+                        users.findOne({_id: userID}, function(err, result){ 
+                            console.log("USER LOCAL IS = " + result.locale);    
+                            callback(module.exports.returnData(result.locale)); 
+                    });                     
+                });
+
+}
+
+
+
+
 };

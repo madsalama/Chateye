@@ -529,9 +529,29 @@ if (response.result.action === 'save-entry') {
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' | '+time;
 
+var minutes = today.getMinutes() ; 
+var seconds = today.getSeconds() ; 
+var hours = today.getHours() ;
+
+if ( minutes < 10 ){
+  minutes="0"+minutes ;
+};
+
+if ( seconds < 10 ){
+  seconds="0"+seconds ; 
+};
+
+
+
+mmongo.getUserLocale(MongoClient, assert, db_url, userID, function(local){
+  var local = local; 
+  hours = hours + locale; 
+
+});
+
+var time = + ":" + minutes + ":" + seconds;
+var dateTime = date+' | '+time;
 
 var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
