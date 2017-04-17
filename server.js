@@ -559,7 +559,7 @@ var dateTime = date+' @ '+time;
 
 var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
-entry, dateTime, "happy", senderID, 
+entry, dateTime, "happy :)", senderID, 
   function commitCallBack(result){
     console.log(result);
 
