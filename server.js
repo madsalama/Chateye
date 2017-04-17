@@ -447,7 +447,7 @@ function resetContexts (app, senderID, context){
 function api_ai(senderID, messageText, app){    
    
     if (getAction(senderID) === 'listening'){
-        clearEntry();
+        clearEntry(senderID);
         conCatEntry(senderID, messageText);      
      }
 
