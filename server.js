@@ -283,8 +283,8 @@ function introduce(senderID, username){
 and will save your note when you're 'done' or have asked me to 'stop listening'. \
 I can read it as text, an audio message or even a handwritten note!", function(){
 
-    sendTextMessage(senderID, "I can suggest you random media stuff if you want, or we can play 'the selfie game'\
- - ask me anything! more info > https://chatzer.herokuapp.com/ :P !", function(){});
+    sendTextMessage(senderID, "SO MUCH FUN! I can send you random videos, gifs and more, or we can play 'the selfie game'\
+ - ask me anything ! more info > https://chatzer.herokuapp.com/ :P !", function(){});
 
 });  // 2
 }); // 1 
