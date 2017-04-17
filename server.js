@@ -563,7 +563,10 @@ var entry = getEntry(senderID);
 // ================ EMOTIONAL ANALYSIS OF THE NOTE =================
   mwatson.manalyze(watsonNLUClient, entry, function(response){
     var response = response;
+    
+    console.log(" === NLU RESPONSE === ");
     console.log(response);
+    console.log(" ==================== ");
 
     var analysis = response.sentiment.document.label;    // +ve | -ve 
 
