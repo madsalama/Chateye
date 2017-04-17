@@ -146,17 +146,14 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
-
-// ====================================
-//     LOCAL START UP TESTS GO HERE 
-// ====================================
-// 
-
 mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
 
+// ====================================
+//     LOCAL START UP TESTS GO HERE 
+// ====================================
 
 
  var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
@@ -172,7 +169,7 @@ mgraph.createGetStarted(request, function(result){
 
         reqdel.end();
 
-}
+
 
 
 // ====================================
