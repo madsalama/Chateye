@@ -446,8 +446,7 @@ function resetContexts (app, senderID, context){
 
 function api_ai(senderID, messageText, app){    
    
-    if (getAction(senderID) === 'listening'){
-        clearEntry(senderID);
+    if (getAction(senderID) === 'listening'){        
         conCatEntry(senderID, messageText);      
      }
 
@@ -560,6 +559,7 @@ var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy :)", senderID, 
   function commitCallBack(result){
+    clearEntry(senderID);
     console.log(result);
 
 });
