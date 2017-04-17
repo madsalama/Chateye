@@ -390,19 +390,29 @@ function sendGiphy(request,messageText,limit, senderID)
 
 
 
-function resetContexts (app,senderID, context){
+function resetContexts (app, senderID, context){
 
- var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
-        reqdel.on('response', function(response) {
-            console.log(JSON.stringify(response));
-        }); 
+   var headers = {
+            'Accept':       'application/json',
+            'Content-Type':     'application/json',
+            'Authorization': 'Bearer 686ce1c23e2d49fb9036a728a6ec8b3f' }
 
-        reqdel.on('error', function(error) {
-        console.log(error); 
-       
-        });
+   
+   var options = {
+                url: "https://api.api.ai/v1/contexts/"+context+"?sessionId='+senderID",
+                method: 'DELETE',
+                headers: headers
+            }; 
 
-        reqdel.end();
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+              console.log(JSON.stringify(body));
+         }
+
+         else{
+           console.log(JSON.stringify(error));
+         }
+      });
 
 
 }
@@ -490,7 +500,7 @@ if (response.result.action === 'get-entries'){
 
 if (response.result.action === 'save-entry') { 
 
-  resetContexts(app, senderID, '7amada');
+  resetContexts(app, senderID, 'listening');
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
