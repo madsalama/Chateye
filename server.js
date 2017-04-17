@@ -158,6 +158,23 @@ mgraph.createGetStarted(request, function(result){
 
 
 
+
+ var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
+
+     reqdel.on('response', function(response) {
+            console.log(response); 
+        }); 
+
+        reqdel.on('error', function(error) {
+        console.log(error); 
+       
+        });
+
+        reqdel.end();
+
+}
+
+
 // ====================================
 
  
