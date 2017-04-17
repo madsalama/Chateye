@@ -881,16 +881,20 @@ if (postback === "getStarted") {
 
 }
 
- else if (postback.startsWith("read_"))
- {
-
-  // Get whichever in postback after 'read_'
-   var id = substring(postback.indexOf("_") + 1);
-   console.log("POST BACK | NOTE ID =" + id);   
- }
-
 else { 
-    
+
+console.log("OBJECT TYPE");
+checkObject(postback);
+
+ //else if (postback.startsWith("read_"))
+// {
+
+  // Get whichever in postback after 'read_' 
+//   var id = substring(postback.indexOf("_") + 1);
+//   console.log("POST BACK | NOTE ID =" + id);  
+
+// }
+
   console.log("Received message for user %d and page %d at %d with message:", 
   senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
