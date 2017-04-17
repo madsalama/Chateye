@@ -545,8 +545,13 @@ if ( seconds < 10 ){
 
 
 mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
-  var timezone = timezone; 
-  hours = hours + timezone; 
+  
+  var timezone = parseInt(timezone); 
+  
+  console.log(" ========== HOUR BEFORE TIMEZONE CONVERSION ========== " + hours);
+  hours=hours+timezone;
+  
+  console.log(" ========== HOUR AFTER CONVERSION ========== " + hours);
 
 });
 
