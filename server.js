@@ -316,13 +316,12 @@ elements.push(
               { type:"postback",
                 title: "Read", 
                 payload:"read_note_number_"+n
-              },
+              }
 
-              { type:"postback",
-                title: "Delete", 
-                payload:"delete_note_number_"+n
-              },
-
+             // { type:"postback",
+             //   title: "Delete", 
+             //   payload:"delete_note_number_"+n
+            //  },
               
               ]                                       // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
   }
