@@ -155,19 +155,6 @@ mgraph.createGetStarted(request, function(result){
 //     LOCAL START UP TESTS GO HERE 
 // ====================================
 
-   var reqdel = app.deleteContextsRequest({ sessionId: 1450043748391296 } );
-
-     reqdel.on('response', function(response) {
-            console.log(response); 
-        }); 
-
-        reqdel.on('error', function(error) {
-        console.log(error); 
-       
-        });
-
-        reqdel.end();
-
 
 
 
@@ -404,18 +391,16 @@ function sendGiphy(request,messageText,limit, senderID)
 
 
 
-function resetContexts (app,senderID, context, callback){
+function resetContexts (app, senderID, context){
 
-
-/**
- *    var headers = {
+    var headers = {
             'Accept':       'application/json',
             'Content-Type':     'application/json',
             'Authorization': 'Bearer 686ce1c23e2d49fb9036a728a6ec8b3f' }
 
    
    var options = {
-                url: "https://api.api.ai/v1/contexts/"+context+"?sessionId='+senderID",
+                url: "https://api.api.ai/v1/contexts/"+context+"?sessionId="+senderID,
                 method: 'DELETE',
                 headers: headers
             }; 
@@ -429,10 +414,10 @@ function resetContexts (app,senderID, context, callback){
            console.log(JSON.parse(error));
          }
       });
- * 
- */
+ 
+ 
 
-
+/*
  var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
 
      reqdel.on('response', function(response) {
@@ -445,6 +430,8 @@ function resetContexts (app,senderID, context, callback){
         });
 
         reqdel.end();
+
+   */     
 
 }
 
