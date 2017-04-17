@@ -570,9 +570,9 @@ var entry = getEntry(senderID);
     console.log(response);
     console.log(" ==================== ");
 
-    // var analysis = response.sentiment.document.label;    // +ve | -ve 
+    // var analysis = response[0].sentiment.document.label;    // +ve | -ve 
     var analysis = 'blurgh';
-    
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
   function commitCallBack(result){
@@ -880,6 +880,15 @@ if (postback === "getStarted") {
    });
 
 }
+
+ else if (postback.startsWith("read_"))
+ {
+
+  // Get whichever in postback after 'read_'
+   var id = substring(postback.indexOf("_") + 1);
+   console.log("POST BACK | NOTE ID =" + id);   
+ }
+
 else { 
     
   console.log("Received message for user %d and page %d at %d with message:", 
