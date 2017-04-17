@@ -727,7 +727,7 @@ function receivedMessage(event) {
 
 
 
-   var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
+   var reqdel = app.deleteContextsRequest({ sessionId: senderID } );
 
      reqdel.on('response', function(response) {
             console.log(response); 
@@ -741,7 +741,7 @@ function receivedMessage(event) {
         reqdel.end();
 
 
-        
+
 // ===========================
 //   HANDLING USER/SESSIONS
 // ===========================
