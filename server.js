@@ -886,12 +886,11 @@ if (postback === "getStarted") {
 
 else if (postback !== undefined && postback.startsWith("read_")){
       var id = postback.substring(postback.indexOf("_") + 1);
-      console.log("POST BACK | NOTE ID =" + id);  
+      console.log("===== POST BACK | NOTE ID ======> " + id);  
 }
+
 // console.log("=== OBJECT TYPE === ");
 // checkObject(postback);
-
-
 
 else { 
 
