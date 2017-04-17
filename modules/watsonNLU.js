@@ -35,8 +35,11 @@ module.exports = {
 
     }
             }, function(err, response) {
-                if (err)
-                console.log('error:', err);
+                if (err)                
+                { 
+                    callback(module.exports.returnData(JSON.stringify(response, null, 2)));
+                    console.log('error:', err); 
+                }
                 else
                 {
                     // console.log(JSON.stringify(response, null, 2));

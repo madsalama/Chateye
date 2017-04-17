@@ -570,7 +570,44 @@ var entry = getEntry(senderID);
     console.log(response);
     console.log(" ==================== ");
 
-     var analysis = response[0];    // +ve | -ve     
+
+/* 
+2017-04-17T17:19:27.300179+00:00 app[web.1]: {
+
+      2017-04-17T17:19:27.300180+00:00 app[web.1]:   "sentiment": {     // sentiment 
+
+      2017-04-17T17:19:27.300181+00:00 app[web.1]:     "document": {
+      2017-04-17T17:19:27.300182+00:00 app[web.1]:       "score": -0.852204,
+      2017-04-17T17:19:27.300183+00:00 app[web.1]:       "label": "negative"
+      2017-04-17T17:19:27.300183+00:00 app[web.1]:     }
+
+      2017-04-17T17:19:27.300184+00:00 app[web.1]:   },       // sentiment 
+
+      2017-04-17T17:19:27.300184+00:00 app[web.1]:   "emotion": {   // emotion  
+
+      2017-04-17T17:19:27.300185+00:00 app[web.1]:     "document": {
+      2017-04-17T17:19:27.300186+00:00 app[web.1]:       "emotion": {
+      2017-04-17T17:19:27.300186+00:00 app[web.1]:         "sadness": 0.705762,
+      2017-04-17T17:19:27.300187+00:00 app[web.1]:         "joy": 0.000004,
+      2017-04-17T17:19:27.300187+00:00 app[web.1]:         "fear": 0.055549,
+      2017-04-17T17:19:27.300188+00:00 app[web.1]:         "disgust": 0.082278,
+      2017-04-17T17:19:27.300189+00:00 app[web.1]:         "anger": 0.288249
+      2017-04-17T17:19:27.300189+00:00 app[web.1]:       }
+      2017-04-17T17:19:27.300190+00:00 app[web.1]:     }
+
+      2017-04-17T17:19:27.300190+00:00 app[web.1]:   },      // emotion 
+
+      2017-04-17T17:19:27.300191+00:00 app[web.1]:   "language": "en"
+
+      2017-04-17T17:19:27.300191+00:00 app[web.1]: }
+
+
+
+*/
+    // if there's no analysis - set it to N/A
+    // var analysis = response.sentiment.document.label;    // +ve | -ve     
+    
+    var analysis = 'gaga'; 
 
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
