@@ -560,13 +560,26 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
      
 var entry = getEntry(senderID);
 
+// ================ EMOTIONAL ANALYSIS OF THE NOTE =================
+  mwatson.manalyze(watsonNLUClient, entry, function(response){
+    var response = response;
+    console.log(response);
+
+    var analysis = response.sentiment.label;    // +ve / -ve 
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
-entry, dateTime, "happy :)", senderID, 
+entry, dateTime, analysis, senderID, 
   function commitCallBack(result){
     clearEntry(senderID);
     console.log(result);
-
 });
+
+
+
+  });
+// ==================================================================
+
+
 
 
 });
@@ -876,10 +889,7 @@ else {
 
   if (messageText) {
 
-  mwatson.manalyze(watsonNLUClient, messageText, function(response){
-    var response = response;
-    console.log(response);
-  });
+
 
     switch (messageText) {
       case 'introduce':
