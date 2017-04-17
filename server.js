@@ -401,7 +401,7 @@ function resetContexts (app,senderID, context){
         console.log(error); 
        
         });
- 
+
         reqdel.end();
 
 
@@ -490,7 +490,7 @@ if (response.result.action === 'get-entries'){
 
 if (response.result.action === 'save-entry') { 
 
-  resetContexts(app, senderID, 'listening');
+  resetContexts(app, senderID, '');
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
