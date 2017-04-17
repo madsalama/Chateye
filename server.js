@@ -314,12 +314,12 @@ elements.push(
             // image_url: "",    // image defined according to note mood 
             "buttons":[
               { type:"postback",
-                title: "READ", 
+                title: "Read", 
                 payload:"read_note_number_"+n
               },
 
               { type:"postback",
-                title: "DELETE", 
+                title: "Delete", 
                 payload:"delete_note_number_"+n
               },
 
