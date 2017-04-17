@@ -155,7 +155,18 @@ mgraph.createGetStarted(request, function(result){
 //     LOCAL START UP TESTS GO HERE 
 // ====================================
 
+   var reqdel = app.deleteContextsRequest({ sessionId: 1450043748391296 } );
 
+     reqdel.on('response', function(response) {
+            console.log(response); 
+        }); 
+
+        reqdel.on('error', function(error) {
+        console.log(error); 
+       
+        });
+
+        reqdel.end();
 
 
 
@@ -723,22 +734,8 @@ function receivedMessage(event) {
     postback = event.postback.payload;
     console.log(postback);
   }
-  
 
 
-
-   var reqdel = app.deleteContextsRequest({ sessionId: senderID } );
-
-     reqdel.on('response', function(response) {
-            console.log(response); 
-        }); 
-
-        reqdel.on('error', function(error) {
-        console.log(error); 
-       
-        });
-
-        reqdel.end();
 
 
 
