@@ -390,9 +390,11 @@ function sendGiphy(request,messageText,limit, senderID)
 
 
 
-function resetContexts (app, senderID, context){
+function resetContexts (app,senderID, context, callback){
 
-   var headers = {
+
+/**
+ *    var headers = {
             'Accept':       'application/json',
             'Content-Type':     'application/json',
             'Authorization': 'Bearer 686ce1c23e2d49fb9036a728a6ec8b3f' }
@@ -413,7 +415,22 @@ function resetContexts (app, senderID, context){
            console.log(JSON.parse(error));
          }
       });
+ * 
+ */
 
+
+ var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
+
+     reqdel.on('response', function(response) {
+            console.log(response); 
+        }); 
+
+        reqdel.on('error', function(error) {
+        console.log(error); 
+       
+        });
+
+        reqdel.end();
 
 }
 
@@ -512,7 +529,8 @@ var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy", senderID, 
   function commitCallBack(result){
-    console.log(JSON.stringify(result));
+    console.log(result);
+
 });
 
 };
