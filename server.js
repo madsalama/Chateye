@@ -345,8 +345,16 @@ elements.push(
     }
   };  
 
-  (elements.length > 0)?
-  callSendAPI(messageData, callback):sendTextMessage(recipientId, "No notes were found!", function(){} );;
+  if(elements.length > 0){
+  sendTextMessage(recipientId, "Gladly! Here are your recent entries...", function(){
+        callSendAPI(messageData, callback);
+  });
+}
+else {
+  sendTextMessage(recipientId, "Apologies, but no notes were found!", function(){});
+}
+
+  
 
 }
 
