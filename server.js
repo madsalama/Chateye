@@ -578,6 +578,7 @@ var entry = getEntry(senderID);
     var response = response;
     var analysis; 
 
+    console.log(response);
     response? analysis = response.sentiment.document.label:analysis = 'N/A'; 
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
