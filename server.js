@@ -100,7 +100,6 @@ const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzR
 
 const bodyParser = require("body-parser");
 
-const apiai = require('apiai');
 const app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
 
 const mwatson = require('./modules/watsonNLU');
