@@ -345,7 +345,8 @@ elements.push(
     }
   };  
 
-  callSendAPI(messageData, callback);
+  (elements.length > 0)?
+  callSendAPI(messageData, callback):sendTextMessage("No notes were found!", senderID);;
 
 }
 
