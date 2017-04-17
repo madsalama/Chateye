@@ -879,19 +879,27 @@ if (postback === "getStarted") {
 
    });
 
+
+
 }
 
-else { 
 
-console.log("OBJECT TYPE");
-checkObject(postback);
+else if (postback !== undefined && postback.startsWith("read_")){
+      var id = substring(postback.indexOf("_") + 1);
+      console.log("POST BACK | NOTE ID =" + id);  
+}
+// console.log("=== OBJECT TYPE === ");
+// checkObject(postback);
+
+
+
+else { 
 
  //else if (postback.startsWith("read_"))
 // {
 
   // Get whichever in postback after 'read_' 
-//   var id = substring(postback.indexOf("_") + 1);
-//   console.log("POST BACK | NOTE ID =" + id);  
+
 
 // }
 
