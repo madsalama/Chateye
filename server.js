@@ -100,6 +100,7 @@ const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzR
 
 const bodyParser = require("body-parser");
 
+const apiai = require('apiai');
 const app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
 
 const mwatson = require('./modules/watsonNLU');
@@ -489,7 +490,7 @@ if (response.result.action === 'get-entries'){
 
 if (response.result.action === 'save-entry') { 
 
-  resetContexts(app, senderID, '');
+  resetContexts(app, senderID, '7amada');
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
