@@ -559,7 +559,7 @@ var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy :)", senderID, 
   function commitCallBack(result){
-    clearEntry(senderID);
+    // clearEntry(senderID);
     console.log(result);
 
 });
