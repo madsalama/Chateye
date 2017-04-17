@@ -248,7 +248,7 @@ function sendMediaMessage(recipientId, message, callback) {
     recipient: {
       id: recipientId
     },
-    message: { 
+    message: {  
       attachment: JSON.stringify(messageAttachments) 
     }
   };
@@ -300,11 +300,13 @@ function sendNotes(recipientId, entries, callback) {
 
    for (var i in entries) {
 
+   
+
 if (n<=10){
-  
-     var text = entries[i].entryText ; 
-     var analysis = entries[i].entryAnalysis;
-     var entryDate = entries[i].entryDate;
+
+     var text = entries[(entries.length)-i].entryText ; 
+     var analysis = entries[(entries.length)-i].entryAnalysis;
+     var entryDate = entries[(entries.length)-i].entryDate;
 
 elements.push( 
   {
