@@ -304,9 +304,9 @@ function sendNotes(recipientId, entries, callback) {
 
 if (n<=10){
 
-     var text = entries[(entries.length)-i].entryText ; 
-     var analysis = entries[(entries.length)-i].entryAnalysis;
-     var entryDate = entries[(entries.length)-i].entryDate;
+     var text = entries[(entries.length-1)-i].entryText ; 
+     var analysis = entries[(entries.length-1)-i].entryAnalysis;
+     var entryDate = entries[(entries.length-1)-i].entryDate;
 
 elements.push( 
   {
