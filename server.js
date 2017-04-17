@@ -346,7 +346,7 @@ elements.push(
   };  
 
   (elements.length > 0)?
-  callSendAPI(messageData, callback):sendTextMessage("No notes were found!", recipientId);;
+  callSendAPI(messageData, callback):sendTextMessage(recipientId, "No notes were found!", function(){} );;
 
 }
 
