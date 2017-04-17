@@ -550,13 +550,12 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
   
   console.log(" ========== HOUR BEFORE TIMEZONE CONVERSION ========== " + hours);
   hours=hours+timezone;
-  
   console.log(" ========== HOUR AFTER CONVERSION ========== " + hours);
 
 });
 
 var time = hours + ":" + minutes + ":" + seconds;
-var dateTime = date+' | '+time;
+var dateTime = date+' @ '+time;
 
 var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
