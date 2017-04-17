@@ -311,7 +311,7 @@ elements.push(
   {
             title: "Note#" + n + " | " + entryDate,            
             subtitle: "Note mood: " + analysis,
-            image_url: "",    // image defined according to note mood 
+            // image_url: "",    // image defined according to note mood 
             "buttons":[
               { type:"postback",
                 title: "read note", 
@@ -447,6 +447,7 @@ function resetContexts (app, senderID, context){
 function api_ai(senderID, messageText, app){    
    
     if (getAction(senderID) === 'listening'){
+        clearEntry();
         conCatEntry(senderID, messageText);      
      }
 
@@ -758,6 +759,15 @@ function conCatEntry(senderID, value) {
    for (var i in users) {
      if (users[i].id === senderID) {
         users[i].currentEntry = users[i].currentEntry + " - " + value;
+        break;            
+     }
+   }
+}
+
+function clearEntry(senderID){
+   for (var i in users) {
+     if (users[i].id === senderID) {
+        users[i].currentEntry = "";
         break;            
      }
    }
