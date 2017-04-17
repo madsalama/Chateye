@@ -550,31 +550,26 @@ var dateTime;
 mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
   
   var timezone = parseInt(timezone); 
-  
-  console.log(" ========== HOUR BEFORE TIMEZONE CONVERSION ========== " + hours);
+
   hours=hours+timezone;
-  console.log(" ========== HOUR AFTER CONVERSION ========== " + hours);
-
-     time = hours + ":" + minutes + ":" + seconds;
-     console.log(" ========== TIME AFTER CONVERSION ========== " + time);
-
-     console.log(" ========== DATE AFTER CONVERSION ========== " + date);
+  time = hours + ":" + minutes + ":" + seconds;
+  dateTime = date+' @ '+time;
      
-     dateTime = date+' @ '+time;
-     console.log(" ========== dateTime AFTER CONVERSION ========== " + dateTime);
-
-
-});
-
-
-
 var entry = getEntry(senderID);
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy :)", senderID, 
   function commitCallBack(result){
     console.log(result);
 
 });
+
+
+});
+
+
+
+
 
 };
 
