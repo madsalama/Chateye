@@ -392,9 +392,9 @@ function sendGiphy(request,messageText,limit, senderID)
 
 function resetContexts (app,senderID, context){
 
- var reqdel = app.deleteContextsRequest({ sessionId: senderID },context );
+ var reqdel = app.deleteContextsRequest({ sessionId: senderID }, context );
         reqdel.on('response', function(response) {
-            console.log(response);
+            console.log(JSON.stringify(response));
         }); 
 
         reqdel.on('error', function(error) {
