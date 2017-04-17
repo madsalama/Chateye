@@ -284,10 +284,9 @@ and will save your note when you're 'done' or have asked me to 'stop listening'.
 I can read it as text, an audio message or even a handwritten note!", function(){
 
     sendTextMessage(senderID, "I can show you random media stuff if you want, or we can play 'the selfie game'\
-- ask me anything! for more info: https://chatzer.herokuapp.com/ :P !", function(){});
+ - ask me anything! more info > https://chatzer.herokuapp.com/ :P !", function(){});
 
-});  // 2 
-
+});  // 2
 }); // 1 
 
 }
@@ -619,7 +618,49 @@ console.log(keywords);
 switch(media_type) {
     case "#video":
             // =========================================================
-            myoutube.getVideo(request, keywords, 20, function(data){              
+            myoutube.getVideo(request, keywords, 20, function(data){ 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+var element = []; 
+element.push( 
+  {
+            title: url_title,  
+            subtitle: url_subtitle,
+            image_url: video_thumbnail,    
+            
+                                     
+  }
+  );
+
+
+  var messageData = {
+    recipient: {
+      id: senderID
+    },
+
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements:element
+        }
+      }
+    }
+  };  
+
+
+*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
                 data?sendTextMessage(senderID, data, function(){})
                 :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
             });
