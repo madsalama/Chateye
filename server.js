@@ -565,7 +565,7 @@ var entry = getEntry(senderID);
     var response = response;
     console.log(response);
 
-    var analysis = response.sentiment.label;    // +ve / -ve 
+    var analysis = response.sentiment.document.label;    // +ve | -ve 
 
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
