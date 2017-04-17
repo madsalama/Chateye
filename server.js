@@ -412,8 +412,7 @@ function resetContexts (app,senderID, context){
 
 function api_ai(senderID, messageText, app){    
    
-    if (getAction(senderID) === 'listen' | 
-     getAction(senderID) === 'listening'    ){
+    if (getAction(senderID) === 'listening'){
         conCatEntry(senderID, messageText);      
      }
 
