@@ -665,7 +665,7 @@ return lookup;    /* 'lookup' object == { 'id1':object1, 'id2':object2, ... } */
 
 function receivedMessage(event) {
 
-    var senderID = event.sender.id;
+  var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
@@ -675,6 +675,7 @@ function receivedMessage(event) {
   var postback; 
   if (event.postback){
     postback = event.postback.payload;
+    console.log(postback);
   }
   
 // ===========================
