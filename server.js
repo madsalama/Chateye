@@ -445,10 +445,7 @@ function resetContexts (app, senderID, context){
 
 
 function api_ai(senderID, messageText, app){    
-   
-    if (getAction(senderID) === 'listening'){        
-        conCatEntry(senderID, messageText);      
-     }
+
 
           var reqs = app.textRequest(messageText, {
           sessionId: senderID });
@@ -499,6 +496,14 @@ if (reqs){
      response.result.action === 'play-selfie'  
      ){
   setAction(senderID, response.result.action); 
+
+  if (response.result.action === 'listening'){
+
+      conCatEntry(senderID, messageText); 
+ 
+ }
+
+
  }
 
 
@@ -559,7 +564,7 @@ var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy :)", senderID, 
   function commitCallBack(result){
-    // clearEntry(senderID);
+    clearEntry(senderID);
     console.log(result);
 
 });
