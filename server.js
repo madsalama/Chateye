@@ -390,9 +390,9 @@ function sendGiphy(request,messageText,limit, senderID)
 
 
 
-function resetContexts (app,senderID){
+function resetContexts (app,senderID, context){
 
- var reqdel = app.deleteContextsRequest({ sessionId: senderID });
+ var reqdel = app.deleteContextsRequest({ sessionId: senderID },context );
         reqdel.on('response', function(response) {
             console.log(response);
         }); 
@@ -491,7 +491,7 @@ if (response.result.action === 'get-entries'){
 
 if (response.result.action === 'save-entry') { 
 
-  resetContexts(app, senderID);
+  resetContexts(app, senderID, 'listening');
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
