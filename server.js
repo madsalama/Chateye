@@ -284,7 +284,7 @@ and will save your note when you're 'done' or have asked me to 'stop listening'.
 I can read it as text, an audio message or even a handwritten note!", function(){
 
     sendTextMessage(senderID, "SO MUCH FUN! I can send you random videos, gifs and more, or we can play 'the selfie game'\
- - ask me anything ! more info > https://chatzer.herokuapp.com/ :P !", function(){});
+ - ask me anything! more info > https://chatzer.herokuapp.com/ :P !", function(){});
 
 });  // 2
 }); // 1 
@@ -317,14 +317,14 @@ elements.push(
               { type:"postback",
                 title: "Read", 
                 payload:"read_"+text
-              }
+              },
 
-             // { type:"postback",
-             //   title: "Delete", 
-             //   payload:"delete_note_number_"+n
-            //  },
+              { type:"postback",
+                title: "Delete", 
+                payload:"delete_"+id
+              },
               
-              ]                                       // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
+              ]                                     // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
   }
   );
 
@@ -539,6 +539,17 @@ var seconds = today.getSeconds() ;
 var hours = today.getHours() ;
 
 
+var weekday = new Array(7);
+weekday[0] =  "Sun";
+weekday[1] = "Mon";
+weekday[2] = "Tue";
+weekday[3] = "Wed";
+weekday[4] = "Thu";
+weekday[5] = "Fri";
+weekday[6] = "Sat";
+
+var day = weekday[today.getDay()];
+
 
 if ( minutes < 10 ){
   minutes="0"+minutes ;
@@ -557,7 +568,7 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
 
   hours=hours+timezone;
   time = hours + ":" + minutes + ":" + seconds;
-  dateTime = date+' @ '+time;
+  dateTime = 'day' + date+' at '+time;
      
 var entry = getEntry(senderID);
 
@@ -565,49 +576,8 @@ var entry = getEntry(senderID);
 
   mwatson.manalyze(watsonNLUClient, entry, function(response){
     var response = response;
-    
-    console.log(" === NLU RESPONSE === ");
-    console.log(response);
-    console.log(" ==================== ");
-
-
-/* 
-2017-04-17T17:19:27.300179+00:00 app[web.1]: {
-
-      2017-04-17T17:19:27.300180+00:00 app[web.1]:   "sentiment": {     // sentiment 
-
-      2017-04-17T17:19:27.300181+00:00 app[web.1]:     "document": {
-      2017-04-17T17:19:27.300182+00:00 app[web.1]:       "score": -0.852204,
-      2017-04-17T17:19:27.300183+00:00 app[web.1]:       "label": "negative"
-      2017-04-17T17:19:27.300183+00:00 app[web.1]:     }
-
-      2017-04-17T17:19:27.300184+00:00 app[web.1]:   },       // sentiment 
-
-      2017-04-17T17:19:27.300184+00:00 app[web.1]:   "emotion": {   // emotion  
-
-      2017-04-17T17:19:27.300185+00:00 app[web.1]:     "document": {
-      2017-04-17T17:19:27.300186+00:00 app[web.1]:       "emotion": {
-      2017-04-17T17:19:27.300186+00:00 app[web.1]:         "sadness": 0.705762,
-      2017-04-17T17:19:27.300187+00:00 app[web.1]:         "joy": 0.000004,
-      2017-04-17T17:19:27.300187+00:00 app[web.1]:         "fear": 0.055549,
-      2017-04-17T17:19:27.300188+00:00 app[web.1]:         "disgust": 0.082278,
-      2017-04-17T17:19:27.300189+00:00 app[web.1]:         "anger": 0.288249
-      2017-04-17T17:19:27.300189+00:00 app[web.1]:       }
-      2017-04-17T17:19:27.300190+00:00 app[web.1]:     }
-
-      2017-04-17T17:19:27.300190+00:00 app[web.1]:   },      // emotion 
-
-      2017-04-17T17:19:27.300191+00:00 app[web.1]:   "language": "en"
-
-      2017-04-17T17:19:27.300191+00:00 app[web.1]: }
-
-
-
-*/
-    // if there's no analysis - set it to N/A
-    // var analysis = response.sentiment.document.label;    // +ve | -ve  
-
     var analysis; 
+
     response? analysis = response.sentiment.document.label:analysis = 'N/A'; 
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
