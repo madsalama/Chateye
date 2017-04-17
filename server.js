@@ -606,9 +606,9 @@ var entry = getEntry(senderID);
 */
     // if there's no analysis - set it to N/A
     // var analysis = response.sentiment.document.label;    // +ve | -ve  
-    
+
     var analysis; 
-    response? analysis = response.sentiment.document.label:analysis = 'blurgh'; 
+    response? analysis = response.sentiment.document.label:analysis = 'N/A'; 
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
