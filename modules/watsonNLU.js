@@ -37,13 +37,12 @@ module.exports = {
             }, function(err, response) {
                 if (err)                
                 { 
-                    callback(module.exports.returnData(JSON.stringify(response, null, 2)));
-                    console.log('error:', err); 
+                    callback(module.exports.returnData(response));
+                    console.log('error:', err);
                 }
                 else
-                {
-                    // console.log(JSON.stringify(response, null, 2));
-                    callback(module.exports.returnData(JSON.stringify(response, null, 2)));
+                {                    
+                    callback(module.exports.returnData(response));
                 }
                 
             });
