@@ -570,7 +570,7 @@ var entry = getEntry(senderID);
     console.log(response);
     console.log(" ==================== ");
 
-     var analysis = response[0].sentiment[0].document.label;    // +ve | -ve     
+     var analysis = response[0];    // +ve | -ve     
 
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
@@ -578,7 +578,7 @@ entry, dateTime, analysis, senderID,
     clearEntry(senderID);
     console.log(result);
 
-});
+}); 
 });
 
 // ==================================================================
