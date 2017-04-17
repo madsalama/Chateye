@@ -306,6 +306,7 @@ if (n<=10){
      var text = entries[(entries.length-1)-i].entryText ; 
      var analysis = entries[(entries.length-1)-i].entryAnalysis;
      var entryDate = entries[(entries.length-1)-i].entryDate;
+     var id = entries[(entries.length-1)-i]._id; 
 
 elements.push( 
   {
@@ -315,7 +316,7 @@ elements.push(
             "buttons":[
               { type:"postback",
                 title: "Read", 
-                payload:"read_note_number_"+n
+                payload:"read_"+id
               }
 
              // { type:"postback",
@@ -561,6 +562,7 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
 var entry = getEntry(senderID);
 
 // ================ EMOTIONAL ANALYSIS OF THE NOTE =================
+
   mwatson.manalyze(watsonNLUClient, entry, function(response){
     var response = response;
     
@@ -568,18 +570,18 @@ var entry = getEntry(senderID);
     console.log(response);
     console.log(" ==================== ");
 
-    var analysis = response.sentiment.document.label;    // +ve | -ve 
-
+    // var analysis = response.sentiment.document.label;    // +ve | -ve 
+    var analysis = 'blurgh';
+    
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
   function commitCallBack(result){
     clearEntry(senderID);
     console.log(result);
+
+});
 });
 
-
-
-  });
 // ==================================================================
 
 
