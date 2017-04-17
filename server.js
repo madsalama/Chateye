@@ -544,13 +544,13 @@ if ( seconds < 10 ){
 
 
 
-mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(local){
-  var local = local; 
-  hours = hours + locale; 
+mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
+  var timezone = timezone; 
+  hours = hours + timezone; 
 
 });
 
-var time = + ":" + minutes + ":" + seconds;
+var time = hours + ":" + minutes + ":" + seconds;
 var dateTime = date+' | '+time;
 
 var entry = getEntry(senderID);

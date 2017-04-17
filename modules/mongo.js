@@ -107,8 +107,8 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                     var users = db.collection('users');  
 
                         users.findOne({_id: userID}, function(err, result){ 
-                            console.log("USER LOCAL IS = " + result.locale);    
-                            callback(module.exports.returnData(result.locale)); 
+                            console.log("USER TIMEZONE IS = " + result.timezone);    
+                            callback(module.exports.returnData(result.timezone)); 
                     });                     
                 });
 
