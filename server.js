@@ -310,8 +310,8 @@ if (n<=10){
 
 elements.push( 
   {
-            title: "Note#" + n + " | " + entryDate,            
-            subtitle: "Emotional state: " + analysis,
+            title: "Note#" + n + " | " + "Note mood: " + analysis,            
+            subtitle: entryDate,
             // image_url: "",    // image defined according to note mood 
             "buttons":[
               { type:"postback",
