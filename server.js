@@ -316,7 +316,7 @@ elements.push(
             "buttons":[
               { type:"postback",
                 title: "Read", 
-                payload:"read_"+id
+                payload:"read_"+text
               }
 
              // { type:"postback",
@@ -885,8 +885,8 @@ if (postback === "getStarted") {
 
 
 else if (postback !== undefined && postback.startsWith("read_")){
-      var id = postback.substring(postback.indexOf("_") + 1);
-      console.log("===== POST BACK | NOTE ID ======> " + id);  
+      var text = postback.substring(postback.indexOf("_") + 1);
+      sendTextMessage(senderID, text); 
 }
 
 // console.log("=== OBJECT TYPE === ");
