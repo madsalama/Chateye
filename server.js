@@ -311,8 +311,16 @@ elements.push(
             "buttons":[
               { type:"postback",
                 title: "read note", 
-                payload:"show_note_number_"+n
-              }]                                       // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
+                payload:"read_note_number_"+n
+              },
+
+              { type:"postback",
+                title: "delete note", 
+                payload:"delete_note_number_"+n
+              },
+
+              
+              ]                                       // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
   }
   );
 
