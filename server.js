@@ -568,7 +568,7 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
 
   hours=hours+timezone;
   time = hours + ":" + minutes + ":" + seconds;
-  dateTime = 'day' + date+' at '+time;
+  dateTime = day + date+' at '+time;
      
 var entry = getEntry(senderID);
 
