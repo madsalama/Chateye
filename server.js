@@ -406,11 +406,11 @@ function resetContexts (app, senderID, context){
 
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-              console.log(JSON.stringify(body));
+              console.log(JSON.parse(body));
          }
 
          else{
-           console.log(JSON.stringify(error));
+           console.log(JSON.parse(error));
          }
       });
 
@@ -512,8 +512,7 @@ var entry = getEntry(senderID);
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, "happy", senderID, 
   function commitCallBack(result){
-    console.log(result);
-
+    console.log(JSON.stringify(result));
 });
 
 };
