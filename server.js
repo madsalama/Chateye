@@ -668,8 +668,7 @@ element.push(
             title: url_title,  
             subtitle: url_subtitle,
             image_url: video_thumbnail,    
-            
-                                     
+                                                 
   }
   );
 
