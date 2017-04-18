@@ -17,6 +17,12 @@
  *     2- create selfie game rules and responses.
  *     3- create multimedia interactions rules and responses.                            = WIP! 
  * 
+ * 
+ *          < CREATIVE NOTE TAKING >
+ *  		 		< FIX THE FACT THAT A CAROUSELL CAN ONLY CATCH 10 ELEMENTS >
+ * 			        < USER MAY HAVE A KAJILLION NOTES - HOW TO VIEW IN A CAROUSELL STILL - MULTIPLE ONES? > 
+ * 
+ * 
  * 																						 = WIP!
  *     4- create emotional responses ONLY on an entire log entry and store the current emotions in DB with entry. 
  *          - get TONE analysis / personality / emotions and sentiment in a formula to produce a response | and store! 
