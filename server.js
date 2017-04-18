@@ -894,7 +894,7 @@ if (postback === "getStarted") {
 
 
 else if (postback !== undefined && postback.startsWith("read_")){
-      var text = postback.substring(postback.indexOf("_ - ") + 1);
+      var text = postback.substring(postback.indexOf("_ * ") + 1);
       sendTextMessage(senderID, '"'+text+'"', function(){}); 
 }
 
