@@ -651,6 +651,14 @@ switch(media_type) {
             // =========================================================
             myoutube.getVideo(request, keywords, 20, function(data){ 
 
+                var url; 
+                var videoId; 
+
+                data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
+                videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
+                
+                console.log("======= VIDEO =======");
+                console.log(data);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -686,13 +694,7 @@ element.push(
 */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-                data?sendTextMessage(senderID, data, function(){})
+                url?sendTextMessage(senderID, url, function(){})
                 :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
             });
             // ==========================================================            

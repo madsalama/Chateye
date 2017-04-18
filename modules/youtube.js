@@ -13,32 +13,15 @@ getVideo: function(request, keywords, limit, callback){
 
                 request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-
-                var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)
-
-                var url;
-                var videoId;  
-
-                var object = JSON.parse(body);
-
-                object.items[choice]? videoId = object.items[choice].id.videoId:console.log("VIDEO NOT FOUND!");                 
-                
-                videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
-
-                console.log("=== suggested video ===");
-                callback(module.exports.returnData(url));
-
+                var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)  
+                          
+                var object = JSON.parse(body);            
+                callback(module.exports.returnData(object.items[choice]));
             }
-
        else
        {        
             console.log(body);
        }
-
-
-        
-    
-
 }
             );
 
