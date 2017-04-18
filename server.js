@@ -537,7 +537,7 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var minutes = today.getMinutes() ; 
 var seconds = today.getSeconds() ; 
 var hours = today.getHours() ;
-
+var period;
 
 var weekday = new Array(7);
 weekday[0] =  "Sun";
@@ -567,8 +567,16 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
   var timezone = parseInt(timezone); 
 
   hours=hours+timezone;
+  
+  if (hours>=13){ 
+    hours=hours-12;
+    period="PM"; 
+  }
+  else {
+    period="AM"; }
+
   time = hours + ":" + minutes + ":" + seconds;
-  dateTime = day + " " + date+' at '+time;
+  dateTime = day + " " + date+' at '+time + ' ' + period;
      
 var entry = getEntry(senderID);
 
