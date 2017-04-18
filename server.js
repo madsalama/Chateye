@@ -789,7 +789,7 @@ function getAction(senderID) {
 function conCatEntry(senderID, value) {
    for (var i in users) {
      if (users[i].id === senderID) {
-        users[i].currentEntry = users[i].currentEntry + " - " + value;
+        users[i].currentEntry = users[i].currentEntry + " * " + value;
         break;            
      }
    }
