@@ -1012,11 +1012,11 @@ else if (postback !== undefined && postback.startsWith("about")){
 //     SELFIE GAME BUTTONS  
 // ============================
 
-else if (message!== undefined && message.quick_reply.payload === "describeSelfie" ){
+else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "describeSelfie" ){
   sendTextMessage(senderID,"SELFIE DESCRIPTION",function(){});
 }
 
-else if (message!== undefined && message.quick_reply.payload === "guessAge" ){
+else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   sendTextMessage(senderID,"AGE GUESS",function(){});
 }
 
