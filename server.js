@@ -720,12 +720,13 @@ switch(media_type) {
                 console.log("======= VIDEO =======");
                 console.log(data);
 
-
-
-
-                url?sendTextMessage(senderID, url, function(){})
+                url?sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){})
                 :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
 
+                /*
+                url?sendTextMessage(senderID, url, function(){})
+                :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
+                */
 
 
             });
