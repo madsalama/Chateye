@@ -147,19 +147,19 @@ var App = function() {
         self.app.use(bodyParser.urlencoded({ extended: false }));
 		    self.app.use(bodyParser.json());
 
-
+/*
 mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
 mgraph.createMenu(request, function(result){
   console.log(result);
+*/
 
-      mgraph.getMenu(request, function(result){
-      console.log(result);
+mgraph.getMenu(request, function(result){
+      console.log(result);     
+});
 
-});
-});
 
 
 
