@@ -124,7 +124,7 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                     var users = db.collection('users');  
 
                         users.update({ _id: userID },
-                        { $pull: { user_entries: { $in: entryID }}}, function(err, result){
+                        { $pull: { user_entries: { $in: [entryID] }}}, function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
                                     console.log(err);
                                     
