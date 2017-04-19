@@ -306,7 +306,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               image_url: imageurl,
               buttons:[{type:"web_url",
                         url:url,
-                        title:"view",
+                        title:"watch video",
                         webview_height_ratio: "compact"}]
 }]; 
 
