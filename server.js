@@ -712,7 +712,7 @@ switch(media_type) {
 
                 data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
                 videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
-                url?imageurl=data.snippet.thumbnails.default:console.log(" "); 
+                url?imageurl=data.snippet.thumbnails.medium:console.log(" "); 
                 
                 console.log("IMAGE URL = " + JSON.stringify(imageurl)); 
                 
