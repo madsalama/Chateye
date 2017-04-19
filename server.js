@@ -714,7 +714,7 @@ switch(media_type) {
                 videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
                 url?imageurl=data.snippet.thumbnails.default:console.log(" "); 
                 
-                console.log("IMAGE URL = " + imageurl); 
+                console.log("IMAGE URL = " + JSON.stringify(imageurl)); 
                 
                 // sendCard(recipientId, title, subtitle, imageurl, url, function(){
 
