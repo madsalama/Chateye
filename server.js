@@ -301,7 +301,7 @@ function sendQuickReplies(recipientId, callback) {
       },
       {
         "content_type":"text",
-        "title":"ℹ️ Guess Age!",
+        "title":"🤔 Guess Age!",
         "payload":"guessAge"
       }
     ]
