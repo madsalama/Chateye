@@ -306,9 +306,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               image_url: imageurl,
               default_action: {
               type: "web_url",
-              url: url,
-              messenger_extensions: true,
-              webview_height_ratio: "tall",
+              url: url,                            
               fallback_url:url}
 
 }]; 
