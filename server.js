@@ -1087,9 +1087,7 @@ else {
       if ( action === 'play-selfie'){
         sendQuickReplies(senderID, function(){});
       }
-
-      console.log("IMAGE RECEIVED!");
-
+      
       var faceinfo; 
       var image = messageAttachments[0].payload.url;
 
