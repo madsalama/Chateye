@@ -1081,7 +1081,10 @@ else {
   // as the API is much more limited than Google's)
 
       // ONLY if action is set to selfie-game
-      if (getAction() === 'play-selfie'){
+      var action = getAction();
+      console.log(action);
+
+      if ( action === 'play-selfie'){
         sendQuickReplies(senderID, function(){});
       }
 
