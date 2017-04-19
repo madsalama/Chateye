@@ -11,16 +11,32 @@
             //   response.result.action === 'get-entries'       // load recent entries from DB into a UI Carousell 
             //   response.result.action === 'play-selfie'       // start selfie game (call selfie function)
 
+
+
+
  *     0- GETSTARTED introductory button for explaining the UX in not-so-boring detail!  = DONE! 
  * 
+ 
+ * = ADD PERSISTENT MENU = * 
+ *  * SEND MESSAGE *
+ *  * MENU = 
+ 		* <EMOJI ICON> Listen/Take note*
+ 		* <EMOJI ICON> Show Notes *
+ 		* <EMOJI ICON> SELFIE! *
+		* <EMOJI ICON> About *
+ 
+ *  
  *     1- create and integrate mongoDB database for entries/user information.            = DONE! 
  *     2- create selfie game rules and responses.
  *     3- create multimedia interactions rules and responses.                            = WIP! 
  * 
  * 
+ * 
+ * 
  *          < CREATIVE NOTE TAKING >
  *  		 		< FIX THE FACT THAT A CAROUSELL CAN ONLY CATCH 10 ELEMENTS >
  * 			        < USER MAY HAVE A KAJILLION NOTES - HOW TO VIEW IN A CAROUSELL STILL - MULTIPLE ONES? > 
+ * 
  * 
  * 
  * 																						 = WIP!
