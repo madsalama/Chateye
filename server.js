@@ -1091,6 +1091,7 @@ else {
       //   GOOGLE VISION
       // =================
 
+/*
         mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
             faces=values;
@@ -1105,6 +1106,7 @@ else {
       fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
 
       });
+*/
             
             // INTENT:CONTEXT = SELFIE 
 
