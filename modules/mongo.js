@@ -9,7 +9,7 @@ module.exports = {
     // in the 'users' collection for the user where : 'userID' = userID... 
 
 
-    addUser: function(MongoClient, assert, ObjectId, db_url, userID, first_name, last_name, profile_pic, gender, locale, timezone, callback){
+    addUser: function(MongoClient, assert, db_url, userID, first_name, last_name, profile_pic, gender, locale, timezone, callback){
         MongoClient.connect(db_url, function(err, db) {   //
 
                     assert.equal(null, err);
@@ -115,7 +115,7 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
 },
 
 
- deleteEntry: function (MongoClient, assert, db_url, userID, entryID, callback){
+ deleteEntry: function (MongoClient, assert, ObjectId, db_url, userID, entryID, callback){
                 MongoClient.connect(db_url, function(err, db) {   //
 
                     assert.equal(null, err);
