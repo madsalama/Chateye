@@ -126,11 +126,13 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                         users.update({ _id: userID },
                         { $pull: { user_entries: { $in: [entryID] }}}, function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
-                                    console.log(err);
+                                    // console.log(err);
+                                    console.log(result);
                                     
                                 entries.deleteOne( { _id : entryID },function(err, result){
                                     console.log(" === MONGO LOGGER ENTRY DELETE === ");
-                                    console.log(err);
+                                    // console.log(err);
+                                    console.log(result);
 
                                     // result?
                                     // callback(module.exports.returnData(result))
