@@ -306,7 +306,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               image_url: imageurl,
               buttons:[{type:"web_url",
                         url:url,
-                        title:"View",
+                        title:"view",
                         webview_height_ratio: "compact"}]
 }]; 
 
@@ -425,11 +425,22 @@ function sendGiphy(request,messageText,limit, senderID)
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             
+
+            // sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){})
+
+
+              url?sendCard(senderID, "Powered by GIPHY", "Hope you like this!", url, url, function(){
+                url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
+              }):sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;  
+
+
+            /*
             url?sendMediaMessage(senderID, message1, function(){              
               url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
             })
             :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;       
-                      
+            */        
+
         });
 
 };
