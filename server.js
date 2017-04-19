@@ -284,6 +284,39 @@ function sendTextMessage(recipientId, messageText, callback) {
 }
 
 
+function sendQuickReplies(recipientId, callback) {
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Pick one!",
+
+      "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"🤳 Selfie Opinion!",
+        "payload":"describeSelfie"
+      },
+      {
+        "content_type":"text",
+        "title":"ℹ️ Guess Age!",
+        "payload":"guessAge"
+      }
+    ]
+
+    }
+  };
+
+  callSendAPI(messageData, callback);
+
+}
+
+
+
+
+
 
 function introduce(senderID, username){
 
@@ -979,12 +1012,12 @@ else if (postback !== undefined && postback.startsWith("about")){
 //     SELFIE GAME BUTTONS  
 // ============================
 
-else if (postback !== undefined && postback.startsWith("guessAge")){
-
+else if (message!== undefined && message.quick_reply.payload === "describeSelfie" ){
+  sendTextMessage(senderID,"SELFIE DESCRIPTION",function(){});
 }
 
-else if (postback !== undefined && postback.startsWith("describeSelfie")){
-
+else if (message!== undefined && message.quick_reply.payload === "guessAge" ){
+  sendTextMessage(senderID,"AGE GUESS",function(){});
 }
 
 
@@ -1047,6 +1080,7 @@ else {
   // must find a way to catch exception if KAIROS do not work \
   // as the API is much more limited than Google's)
 
+      sendQuickReplies(senderID, function(){});
 
       console.log("IMAGE RECEIVED!");
 

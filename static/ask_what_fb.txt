@@ -1,9 +1,9 @@
 
 ## Who are you trying to reach?
-	Chatzer mainly targets teenagers and young adults who are interested in an AI/Puzzles/Interactive text games and would like to unravel what a bot can do through 'hints' without being spoon-fed everything a bot can do!
+	Chateye mainly targets teenagers and young adults who are interested in an AI/Puzzles/Interactive applications and would like to unravel what a bot can do through 'hints' without being spoon-fed everything a bot can do!
 
 ## In 100 words or less describe what your bot does.
-	Chatzer is an AI trying to create an interactive way of logging a diary entry, it can be thought of as an emotionally interactive diary that can sympathize! Users can take private ephemral daily entries using text, audio or taking a picture of handwritten diary entry, or even a selfie! An entry will disappear in 24 hours. Chatzer would then suggest media from different types according to user's preferences and current emotional state based on latest diary entry. Only user's emotional states are stored, user diary entry is never stored beyond 24 hours and only the owner can look at it.
+	Chateye is an AI trying to create an interactive way of logging a diary entry, it can be thought of as an emotionally interactive diary that can sympathize! Users can take private daily entries/notes using text, audio or taking a picture of handwritten diary entry, or even a selfie! Chateye would then suggest media from different types according to user's preferences and current emotional state based on latest diary entry. User's emotional states are stored.
 
 
 ## How did you go about designing your bot?
@@ -14,7 +14,7 @@
 	< >
 
 ## What will you build next?
-	I want to improve on Chatzer not by adding more features, but by improving how the bot responds to specific queries, improving the model of NLU to make it more responsive to unhandled emotional states, and even have more litle mini games as more users interact with it, also, trying to ask users questions and user other users' answers to answer other user's questions... it's going to get a bit crazy and I am excited! 
+	I want to improve on Chateye not by adding more features, but by improving how the bot responds to specific queries, improving the model of NLU to make it more responsive to unhandled emotional states, and even have more litle mini games as more users interact with it, also, trying to ask users questions and user other users' answers to answer other user's questions... it's going to get a bit crazy and I am excited! 
 
 ## Why Messenger? 
 	Facebook and Messenger are already very well established platforms for communicating with people, so an AI can reach a lot more people easily that way without much effort to try to get people to download an app and worry less about reaching a target audience. Also, Facebook has a great Ad system that I tried before, so the whole thing was a perfect match mad ein heaven! 
