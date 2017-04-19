@@ -123,12 +123,28 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                     var entries = db.collection('entries');  
                     var users = db.collection('users');  
 
-                        users.update({ _id: userID },   // {_id: { $in : result.user_entries } }
-                        { $pull: { 'user_entries': { _id: entryID }}}, function(err, result){
+
+
+
+/**
+ * 
+ *                     // do an application-level join...              
+                    users.findOne({_id: userID}, function(err, result){     
+                        entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){                                                                    
+                            callback(module.exports.returnData(result));
+                        });
+                    }); 
+
+ */
+
+
+
+                        users.update({ "_id": ObjectId(userID) },   // {_id: { $in : result.user_entries } }
+                        { "$pull": { "user_entries": { "_id": ObjectId(entryID) }}}, function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
                                     err?console.log(err):console.log(result);
                                             
-                                        entries.remove( { _id:entryID }, function(err, result){
+                                        entries.remove( { "_id": ObjectId(entryID) }, function(err, result){
                                             console.log(" === MONGO LOGGER ENTRY DELETE === ");
                                             err?console.log(err):console.log(result);
 
