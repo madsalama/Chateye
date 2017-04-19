@@ -339,7 +339,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               image_url: imageurl,
               buttons:[{type:"web_url",
                         url:url,
-                        title:"watch video",
+                        title:"Watch Video",
                         webview_height_ratio: "compact"}]
 }]; 
 
