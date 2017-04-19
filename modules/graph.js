@@ -93,7 +93,7 @@ getMenu:function(request, callback){
                     uri: 'https://graph.facebook.com/v2.6/me/messenger_profile?fields=persistent_menu',
                     method: 'GET',                           
                     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
-                    json: message
+                    
 
         };
 
