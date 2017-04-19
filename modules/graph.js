@@ -67,7 +67,7 @@ createMenu:function(request, callback){
                 },
                 {
                 type:"postback",
-                title:"ℹ️ About",
+                title:"🔮 About",
                 payload:"about"
                 }
 
