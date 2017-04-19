@@ -149,22 +149,20 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                             
                             function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
-                                    err?console.log(err):console.log(result);
-                        
-                      
-
+                                    err?console.log(err):console.log(result.result.opts);
+                                            
                         entries.remove( 
                             { _id: entryID }, 
                             
                             function(err, result){
                                             console.log(" === MONGO LOGGER ENTRY DELETE === ");
-                                            err?console.log(err):console.log(result);
+                                            err?console.log(err):console.log(result.result.opts);
                                     
                                             db.close();
 
-                                    // result?
-                                    // callback(module.exports.returnData(result))
-                                    // :callback(module.exports.returnData(err));
+                                    result?
+                                    callback(module.exports.returnData(result))
+                                    :callback(module.exports.returnData(err));
 
                                 });
                         });              
