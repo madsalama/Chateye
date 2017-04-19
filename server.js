@@ -707,58 +707,27 @@ switch(media_type) {
                 var videoId; 
                 var imageurl; 
 
-
-
-
                 data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
                 videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
-                url?imageurl=data.snippet.thumbnails.medium:console.log(" "); 
-                
+                url?imageurl=data.snippet.thumbnails.medium.url:console.log(" "); 
+                url? title = data.snippet.title:console.log(" ");
+
                 console.log("IMAGE URL = " + JSON.stringify(imageurl)); 
-                
-                // sendCard(recipientId, title, subtitle, imageurl, url, function(){
+                console.log("VIDEO TITLE = " + JSON.stringify(title));
 
-                // });
-
+                // sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){});
 
                 console.log("======= VIDEO =======");
                 console.log(data);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-var element = []; 
-element.push( 
-  {
-            title: url_title,  
-            subtitle: url_subtitle,
-            image_url: video_thumbnail,    
-                                                 
-  }
-  );
 
 
-  var messageData = {
-    recipient: {
-      id: senderID
-    },
-
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements:element
-        }
-      }
-    }
-  };  
-
-
-*/
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 url?sendTextMessage(senderID, url, function(){})
                 :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
+
+
+
             });
             // ==========================================================            
         break;
