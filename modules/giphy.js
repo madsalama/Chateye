@@ -45,7 +45,7 @@ module.exports = {
                 // console.log(object);
                 // console.timeEnd("json parse");
 
-                object.data[choice]? url = object.data[choice].images.fixed_width.url:console.log("GIPHY NOT FOUND!");                        
+                object.data[choice]? url = object.data[choice].images.fixed_height.url:console.log("GIPHY NOT FOUND!");                        
 
                 callback(module.exports.returnData(url));
 
