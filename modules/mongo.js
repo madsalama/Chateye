@@ -139,12 +139,12 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
 
 
 
-                        users.update({ "_id": ObjectId(userID) },   // {_id: { $in : result.user_entries } }
-                        { "$pull": { "user_entries": { "_id": ObjectId(entryID) }}}, function(err, result){
+                        users.update({ "_id": ObjectId(''+userID) },   // {_id: { $in : result.user_entries } }
+                        { "$pull": { "user_entries": { "_id": ObjectId(''+entryID) }}}, function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
                                     err?console.log(err):console.log(result);
                                             
-                                        entries.remove( { "_id": ObjectId(entryID) }, function(err, result){
+                                        entries.remove( { "_id": ObjectId(''+entryID) }, function(err, result){
                                             console.log(" === MONGO LOGGER ENTRY DELETE === ");
                                             err?console.log(err):console.log(result);
 
