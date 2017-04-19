@@ -37,7 +37,7 @@ createMenu:function(request, callback){
 
         var message = {
             setting_type: "call_to_actions",
-            thread_state: "new_thread",
+            thread_state: "existing_thread",
             call_to_actions: [{
 
           title:"MENU",

@@ -27,12 +27,15 @@
  
  *  
  * 
- * curl -X DELETE -H "Content-Type: application/json" -d '{
+ * 
+ * 
+ * 
+
+curl -X DELETE -H "Content-Type: application/json" -d '{
   "fields":[
     "persistent_menu"
   ]
 }' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
-
 
 curl -X DELETE -H "Content-Type: application/json" -d '{
   "setting_type":"call_to_actions",
