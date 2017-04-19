@@ -40,28 +40,28 @@ createMenu:function(request, callback){
             thread_state: "new_thread",
             call_to_actions: [{
 
-          "title":"MENU",
-          "type":"nested",
-          "call_to_actions":[
+          title:"MENU",
+          type:"nested",
+          call_to_actions:[
                     {
-                "type":"postback",
-                "title":"🎤 Listen | Take note",
-                "payload":"listen"
+                type:"postback",
+                title:"🎤 Listen | Take note",
+                payload:"listen"
                 },
                 {
-                "type":"postback",
-                "title":"📓 Show Notes",
-                "payload":"show"
+                type:"postback",
+                title:"📓 Show Notes",
+                payload:"show"
                 },
                 {
-                "type":"postback",
-                "title":"🤳 SELFIE!",
-                "payload":"selfie"
+                type:"postback",
+                title:"🤳 SELFIE!",
+                payload:"selfie"
                 },
                 {
-                "type":"postback",
-                "title":"ℹ️ About",
-                "payload":"about"
+                type:"postback",
+                title:"ℹ️ About",
+                payload:"about"
                 }
 
           ]}]
