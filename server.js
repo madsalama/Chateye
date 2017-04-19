@@ -152,6 +152,12 @@ mgraph.createGetStarted(request, function(result){
   console.log(result);
 });
 
+mgraph.createMenu(request, function(result){
+  console.log(result);
+});
+
+
+
 
 // ====================================
 //     LOCAL START UP TESTS GO HERE 
