@@ -304,11 +304,10 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               title: title,
               subtitle: subtitle,
               image_url: imageurl,
-              default_action: {
-              type: "web_url",
-              url: url,                            
-              fallback_url:url}
-
+              buttons:[{type:"web_url",
+                        url:url,
+                        title:"View",
+                        webview_height_ratio: "compact"}]
 }]; 
 
   var messageData = {
