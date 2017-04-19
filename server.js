@@ -1080,7 +1080,10 @@ else {
   // must find a way to catch exception if KAIROS do not work \
   // as the API is much more limited than Google's)
 
-      sendQuickReplies(senderID, function(){});
+      // ONLY if action is set to selfie-game
+      if (getAction() === 'play-selfie'){
+        sendQuickReplies(senderID, function(){});
+      }
 
       console.log("IMAGE RECEIVED!");
 
@@ -1107,7 +1110,7 @@ else {
 
       });
 */
-            
+
             // INTENT:CONTEXT = SELFIE 
 
       // =================
@@ -1123,22 +1126,9 @@ else {
 
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-
-
            
-
-          });
-
-                 
-
-
-
-
-
-
+          });              
         }
-
-
 
         else if (messageAttachments[0].type=="audio"){                          
 
