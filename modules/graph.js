@@ -99,11 +99,11 @@ getMenu:function(request, callback){
 
                 request(options, function (error, response, body) {
                 if (!error && response.statusCode == 200) {                              
-                    callback(module.exports.returnData(body));                    
+                    callback(module.exports.returnData(JSON.parse(body)));                    
                 }
                 else
                 {
-                    callback(module.exports.returnData(body));        
+                   callback(module.exports.returnData(JSON.parse(body)));                    
                 }
             });
 
