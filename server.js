@@ -123,7 +123,7 @@ var users = [];
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 
-// var ObjectId = require('mongodb').ObjectID;
+var ObjectId = require('mongodb').ObjectID;
 
 // Connection URL
 var db_url = 'mongodb://chatzer:chatzer2009@ds137760.mlab.com:37760/heroku_n6s5058w';
@@ -913,7 +913,7 @@ else if (postback !== undefined && postback.startsWith("read_")){
 else if (postback !== undefined && postback.startsWith("delete_")){
       var id = postback.substring(postback.indexOf("_") + 1);
 
-      mmongo.deleteEntry(MongoClient, assert, db_url, senderID, id, function(results){
+      mmongo.deleteEntry(MongoClient, assert, ObjectId, db_url, senderID, id, function(results){
         // console.log(results);
         sendTextMessage(senderID,"...note deleted!", function(){});
       });     

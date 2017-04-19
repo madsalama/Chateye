@@ -95,6 +95,7 @@ module.exports = {
                     users.findOne({_id: userID}, function(err, result){     
                         entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){                                                                    
                             callback(module.exports.returnData(result));
+                            db.close();
                         });
                     }); 
                 }); //
@@ -107,24 +108,22 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                     var users = db.collection('users');  
 
                         users.findOne({_id: userID}, function(err, result){ 
-                            console.log("USER TIMEZONE IS = " + result.timezone);    
+                            console.log("USER TIMEZONE IS = " + result.timezone);                                
                             callback(module.exports.returnData(result.timezone)); 
+                            db.close();
                     });                     
                 });
 
 },
 
 
- deleteEntry: function (MongoClient, assert, db_url, userID, entryID, callback){
+ deleteEntry: function (MongoClient, assert, ObjectId, db_url, userID, entryID, callback){
                 MongoClient.connect(db_url, function(err, db) {   //
 
                     assert.equal(null, err);
 
                     var entries = db.collection('entries');  
                     var users = db.collection('users');  
-
-
-
 
 /**
  * 
@@ -137,15 +136,31 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
  */
 
 
+                // users.update(usersID, { $pull: { user_entries: entryID } } );
 
-                        users.update({ "_id": userID },   // {_id: { $in : result.user_entries } }
-                        { "$pull": { "user_entries": { "_id": entryID }}}, function(err, result){
+                    
+                    console.log(" ==================== ");
+                    console.log(" === MONGO LOGGER === ");
+                    console.log("ENTRY ID = " + entryID);
+
+                        users.update(
+                            { _id: userID }, 
+                            { $pull: { user_entries: entryID }}, 
+                            
+                            function(err, result){
                                     console.log(" === MONGO LOGGER USERS UPDATE === ");
                                     err?console.log(err):console.log(result);
-                                            
-                                        entries.remove( { "_id": entryID }, function(err, result){
+                        
+                      
+
+                        entries.remove( 
+                            { _id: entryID }, 
+                            
+                            function(err, result){
                                             console.log(" === MONGO LOGGER ENTRY DELETE === ");
                                             err?console.log(err):console.log(result);
+                                    
+                                            db.close();
 
                                     // result?
                                     // callback(module.exports.returnData(result))
