@@ -298,6 +298,42 @@ even a photo of a handwritten note!", function(){
 
 }
 
+function sendCard(recipientId, title, subtitle, imageurl, url, callback){
+
+ var elements = [{
+              title: title,
+              subtitle: subtitle,
+              image_url: imageurl,
+              default_action: {
+              type: "web_url",
+              url: url,
+              messenger_extensions: true,
+              webview_height_ratio: "tall",
+              fallback_url:url}
+
+}]; 
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements:elements
+        }
+      }
+    }
+  }; 
+
+  callSendAPI(messageData, callback);
+
+
+
+};
 
 function sendNotes(recipientId, entries, callback) {
   
@@ -392,8 +428,7 @@ function sendGiphy(request,messageText,limit, senderID)
                     "payload": {
                     "url":"https://chatzer.herokuapp.com/logo.png" }}};
             
-            url?sendMediaMessage(senderID, message1, function(){
-              
+            url?sendMediaMessage(senderID, message1, function(){              
               url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
             })
             :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;       
@@ -670,6 +705,12 @@ switch(media_type) {
 
                 var url; 
                 var videoId; 
+                var imageurl; 
+
+                // sendCard(recipientId, title, subtitle, imageurl, url, function(){
+
+                // });
+
 
                 data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
                 videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
