@@ -36,14 +36,14 @@ createGetStarted:function(request, callback){
 createMenu:function(request, callback){
 
         var message = {
-            
+
            // setting_type: "call_to_actions",
            // thread_state: "existing_thread",
 
              persistent_menu:[{
 
              locale:"default",
-             composer_input_disabled:true,
+             composer_input_disabled:false,
 
             call_to_actions: [{
 
