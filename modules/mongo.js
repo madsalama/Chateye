@@ -112,9 +112,25 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                     });                     
                 });
 
-}
+},
 
 
+ deleteEntry: function (MongoClient, assert, db_url, userID, entryID, callback){
+                MongoClient.connect(db_url, function(err, db) {   //
 
+                    assert.equal(null, err);
 
+                    var entries = db.collection('entries');  
+                    var users = db.collection('users');  
+
+                        users.update({ _id: userID },
+                        { $pull: { 'user_entries': { _id: entryID }}}, function(err, result){
+                                entries.deleteOne( { _id : entryID },function(err, result){
+                                    result?
+                                    callback(module.exports.returnData(result))
+                                    :callback(module.exports.returnData(err));
+                                });
+                        });              
+                        });
+            }
 };

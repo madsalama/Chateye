@@ -279,12 +279,10 @@ function sendTextMessage(recipientId, messageText, callback) {
 function introduce(senderID, username){
 
     sendTextMessage(senderID, "Hello, "+ username + "!"+" I'm gonna be your own entertaining, interactive, note-logging friend!", function(){  
-    sendTextMessage(senderID, "I 'listen' when you wanna 'talk', \
-and will save your note when you're 'done' or have asked me to 'stop listening'. \
-I can read it as text, an audio message or even a handwritten note!", function(){
-
-    sendTextMessage(senderID, "Let's have fun! I can send you random songs, videos, gifs and more if you'd like, or we can play 'the selfie game'\
- - ask me anything! :P ", function(){});
+    sendTextMessage(senderID, "I'll 'listen' to you if you 'want to talk'. Send your note as text, an audio message or \
+even a photo of a handwritten note!", function(){
+    sendTextMessage(senderID, "Let's have fun! I can send you random songs, videos, gifs and more if you'd like, or we can play \
+'the selfie game'! Ask me anything! :P ", function(){});
 
 });  // 2
 }); // 1 
@@ -909,6 +907,20 @@ else if (postback !== undefined && postback.startsWith("read_")){
       text = text.substring(text.indexOf(" ") + 1);
       sendTextMessage(senderID, '"'+text+'"', function(){}); 
 }
+
+else if (postback !== undefined && postback.startsWith("delete_")){
+      var id = postback.substring(postback.indexOf("_") + 1);
+
+      mmongo.deleteEntry(MongoClient, assert, db_url, userID, entryID, function(results){
+        console.log(results);
+        sendTextMessage(senderID,"...note deleted!", function(){}); 
+      });     
+}
+
+
+
+
+
 
 // console.log("=== OBJECT TYPE === ");
 // checkObject(postback);
