@@ -912,8 +912,8 @@ else if (postback !== undefined && postback.startsWith("delete_")){
       var id = postback.substring(postback.indexOf("_") + 1);
 
       mmongo.deleteEntry(MongoClient, assert, db_url, senderID, id, function(results){
-        console.log(results);
-        sendTextMessage(senderID,"...note deleted!", function(){}); 
+        // console.log(results);
+        sendTextMessage(senderID,"...note deleted!", function(){});
       });     
 
 }
