@@ -535,7 +535,7 @@ var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 var minutes = today.getMinutes() ; 
-var seconds = today.getSeconds() ; 
+// var seconds = today.getSeconds() ; 
 var hours = today.getHours() ;
 var period;
 
@@ -555,9 +555,11 @@ if ( minutes < 10 ){
   minutes="0"+minutes ;
 };
 
+/*
 if ( seconds < 10 ){
   seconds="0"+seconds ; 
 };
+*/
 
 var time;
 var dateTime;
@@ -575,7 +577,7 @@ mmongo.getUserLocale(MongoClient, assert, db_url, senderID, function(timezone){
   else {
     period="AM"; }
 
-  time = hours + ":" + minutes + ":" + seconds;
+  time = hours + ":" + minutes; // + ":" ; // + seconds;
   dateTime = day + " " + date+' at '+time + ' ' + period;
      
 var entry = getEntry(senderID);
