@@ -1081,7 +1081,7 @@ else {
   // as the API is much more limited than Google's)
 
       // ONLY if action is set to selfie-game
-      var action = getAction();
+      var action = getAction(senderID);
       console.log(action);
 
       if ( action === 'play-selfie'){
