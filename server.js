@@ -147,18 +147,21 @@ var App = function() {
         self.app.use(bodyParser.urlencoded({ extended: false }));
 		    self.app.use(bodyParser.json());
 
-/*
+
 mgraph.createGetStarted(request, function(result){
-  console.log(result);
+    console.log(result);
+    mgraph.createMenu(request, function(result){
+          console.log(result);
+          mgraph.getMenu(request, function(result){
+                console.log(result);
+          });
+});
 });
 
-mgraph.createMenu(request, function(result){
-  console.log(result);
-*/
 
-mgraph.getMenu(request, function(result){
-      console.log(result);     
-});
+
+
+
 
 
 
@@ -413,7 +416,7 @@ function resetContexts (app, senderID, context){
     var headers = {
             'Accept':       'application/json',
             'Content-Type':     'application/json',
-            'Authorization': 'Bearer 686ce1c23e2d49fb9036a728a6ec8b3f' }
+            'Authorization': 'Bearer 686ce1c23e2d49fb9036a728a6ec8b3f' };
 
    
    var options = {
