@@ -390,12 +390,11 @@ function sendGiphy(request,messageText,limit, senderID)
                     "attachment": {
                     "type": "image",
                     "payload": {
-                    "url":"https://chatzer.herokuapp.com/logo.png" }}};
+                    "url":"https://chatzer.herokuapp.com/giphy.gif" }}};
             
             url?sendMediaMessage(senderID, message1, function(){
-              url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
-            })
-            :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;       
+              url?sendMediaMessage(senderID, message2,function(){}):console.log(" ============== ");
+          }):sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;       
                       
         });
 
@@ -1030,7 +1029,7 @@ else {
       // =================
       //   GOOGLE VISION
       // =================
-              
+
         mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
             faces=values;
