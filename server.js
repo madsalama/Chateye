@@ -160,17 +160,6 @@ mgraph.createGetStarted(request, function(result){
 });
 });
 
-
-
-
-
-
-
-
-
-
-
-
 // ====================================
 //     LOCAL START UP TESTS GO HERE 
 // ====================================
@@ -340,8 +329,7 @@ elements.push(
               { type:"postback",
                 title: "Delete", 
                 payload:"delete_"+id
-              },
-              
+              },              
               ]                                     // DEFINE POSTBACK - GIVE ENTRY TEXT - SEND TEXT MESSAGE 
   }
   );
@@ -938,22 +926,45 @@ else if (postback !== undefined && postback.startsWith("delete_")){
 
 }
 
+// =========================
+//   PERSISTENT MENU ITEMS 
+// =========================
+
+else if (postback !== undefined && postback.startsWith("listen")){
+    api_ai(senderID,'take a note', app); 
+}
+
+else if (postback !== undefined && postback.startsWith("show")){
+    api_ai(senderID,'show my notes', app); 
+}
+
+else if (postback !== undefined && postback.startsWith("selfie")){
+    api_ai(senderID,"let's play the selfie game!", app); 
+}
+
+else if (postback !== undefined && postback.startsWith("about")){
+    sendTextMessage(senderID,"Chateye is developed by Mahmoud Salama", function(){
+        sendTextMessage(senderID,"Contact | mahmoud_salama8086@yahoo.com", function(){}); 
+    }); 
+}
+
+
+// ============================
+//     SELFIE GAME BUTTONS  
+// ============================
+
+else if (postback !== undefined && postback.startsWith("guessAge")){
+
+}
+
+else if (postback !== undefined && postback.startsWith("describeSelfie")){
+
+}
 
 
 
-
-
-// console.log("=== OBJECT TYPE === ");
-// checkObject(postback);
 
 else { 
-
- //else if (postback.startsWith("read_"))
-// {
-
-  // Get whichever in postback after 'read_' 
-
-// }
 
   console.log("Received message for user %d and page %d at %d with message:", 
   senderID, recipientID, timeOfMessage);
@@ -1019,7 +1030,7 @@ else {
       // =================
       //   GOOGLE VISION
       // =================
-        // === ASYNC + Callback after fullfillment = HEAVEN! <3  ===    
+              
         mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
             faces=values;
