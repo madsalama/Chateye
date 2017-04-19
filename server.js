@@ -707,14 +707,20 @@ switch(media_type) {
                 var videoId; 
                 var imageurl; 
 
+
+
+
+                data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
+                videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
+                url?imageurl=data.snippets.thumbnails.default:console.log(" "); 
+                
+                console.log("IMAGE URL = " + imageurl); 
+                
                 // sendCard(recipientId, title, subtitle, imageurl, url, function(){
 
                 // });
 
 
-                data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
-                videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
-                
                 console.log("======= VIDEO =======");
                 console.log(data);
 
