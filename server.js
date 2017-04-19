@@ -154,6 +154,11 @@ mgraph.createGetStarted(request, function(result){
 
 mgraph.createMenu(request, function(result){
   console.log(result);
+
+      mgraph.getMenu(request, function(result){
+      console.log(result);
+
+});
 });
 
 
