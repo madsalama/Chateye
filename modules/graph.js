@@ -70,7 +70,7 @@ createMenu:function(request, callback){
            
             {
                 type:"postback",
-                title:"🤳 Selfie Game!",
+                title:"📷 Selfie Game!",
                 payload:"selfie"
             }
 
