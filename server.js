@@ -480,7 +480,7 @@ function sendGiphy(request,messageText,limit, senderID)
 
 
 
-function resetContexts (app, senderID, context){
+function resetContexts (app, senderID, context, callback){
 
     var headers = {
             'Accept':       'application/json',
@@ -497,6 +497,7 @@ function resetContexts (app, senderID, context){
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
               console.log(JSON.parse(body));
+              callback();
          }
 
          else{
@@ -612,7 +613,8 @@ if (response.result.action === 'get-entries'){
 
 if (response.result.action === 'save-entry') { 
 
-  resetContexts(app, senderID, 'listening');
+  resetContexts(app, senderID, 'listening', function(){
+  });
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -990,21 +992,28 @@ else if (postback !== undefined && postback.startsWith("delete_")){
 // =========================
 
 else if (postback !== undefined && postback.startsWith("listen")){
-    api_ai(senderID,'take a note', app); 
+    resetContexts(app, senderID, 'listening', function(){
+        api_ai(senderID,"listen to me", app); 
+    }); 
 }
 
 else if (postback !== undefined && postback.startsWith("show")){
-    api_ai(senderID,'show my notes', app); 
+        resetContexts(app, senderID, 'listening', function(){
+        api_ai(senderID,"show my notes", app); 
+    }); 
+}
+
+else if (postback !== undefined && postback.startsWith("stop")){
+          api_ai(senderID,"stop listening", app); 
+     //   resetContexts(app, senderID, 'listening', function(){
+    // }); 
+
 }
 
 else if (postback !== undefined && postback.startsWith("selfie")){
-    api_ai(senderID,"let's play the selfie game!", app); 
-}
-
-else if (postback !== undefined && postback.startsWith("about")){
-    sendTextMessage(senderID,"Chateye is developed by Mahmoud Salama", function(){
-        sendTextMessage(senderID,"Contact | mahmoud_salama8086@yahoo.com", function(){}); 
-    }); 
+         resetContexts(app, senderID, 'listening', function(){
+        api_ai(senderID,"let's play the selfie game!", app); 
+    });     
 }
 
 

@@ -52,24 +52,24 @@ createMenu:function(request, callback){
           call_to_actions:[
                     {
                 type:"postback",
-                title:"🎤 Listen | Take note",
+                title:"👂 Listen | Take a note",
                 payload:"listen"
                 },
                 {
                 type:"postback",
                 title:"📓 Show Notes",
                 payload:"show"
-                },
-                {
+            },
+            {   
+                type:"postback",
+                title:"✔ Stop Listening",
+                payload:"stop"
+            },            
+            {
                 type:"postback",
                 title:"🤳 SELFIE!",
                 payload:"selfie"
-                },
-                {
-                type:"postback",
-                title:"🔮 About",
-                payload:"about"
-                }
+            }
 
           ]}]
              }]
