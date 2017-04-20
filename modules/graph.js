@@ -66,12 +66,16 @@ createMenu:function(request, callback){
                 type:"postback",
                 title:"📓 Show Notes",
                 payload:"show"
-            },
-           
+            },           
             {
                 type:"postback",
                 title:"📷 Selfie Game!",
                 payload:"selfie"
+            },
+            {
+                type:"postback",
+                title:"😎 Random Media!",
+                payload:"random"
             }
 
           ]}]

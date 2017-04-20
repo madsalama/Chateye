@@ -1020,7 +1020,20 @@ else if (postback !== undefined && postback.startsWith("stop")){
 else if (postback !== undefined && postback.startsWith("selfie")){
          resetContexts(app, senderID, 'listening', function(){
         api_ai(senderID,"let's play the selfie game!", app); 
-    });     
+    });  
+}
+
+else if (postback !== undefined && postback.startsWith("random")){
+         resetContexts(app, senderID, 'listening', function(){
+        
+        // randomly choose between video/song/gif 
+        // randomly choose an adjective (read from list on disk)
+        
+        // api_ai(senderID,"let's play the selfie game!", app); 
+
+    });  
+
+
 }
 
 
