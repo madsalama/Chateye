@@ -52,22 +52,25 @@ createMenu:function(request, callback){
           call_to_actions:[
                     {
                 type:"postback",
-                title:"👂 Listen | Take a note",
+                title:"📞 Listen To Me | Take Note",
                 payload:"listen"
-                },
+                   },
+            
+                   {   
+                type:"postback",
+                title:"✔ Memorize Note",
+                payload:"stop"
+                   }, 
+
                 {
                 type:"postback",
                 title:"📓 Show Notes",
                 payload:"show"
             },
-            {   
-                type:"postback",
-                title:"✔ Stop Listening",
-                payload:"stop"
-            },            
+           
             {
                 type:"postback",
-                title:"🤳 SELFIE!",
+                title:"🤳 Selfie Game!",
                 payload:"selfie"
             }
 
