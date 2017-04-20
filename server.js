@@ -1019,7 +1019,7 @@ else if (postback !== undefined && postback.startsWith("stop")){
 
 else if (postback !== undefined && postback.startsWith("selfie")){
          resetContexts(app, senderID, 'listening', function(){
-        api_ai(senderID,"let's play the selfie game!", app); 
+         api_ai(senderID,"play the selfie game!", app); 
     });  
 }
 
