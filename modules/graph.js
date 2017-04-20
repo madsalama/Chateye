@@ -47,7 +47,7 @@ createMenu:function(request, callback){
 
             call_to_actions: [{
 
-          title:"☰ MENU",
+          title:"☰ Menu",
           type:"nested",
           call_to_actions:[
                     {
