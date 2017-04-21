@@ -197,7 +197,7 @@ deleteMenu:function(request, callback){
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {     
                // var data = JSON.parse(body);            
-               callback(module.exports.returnData(data));               
+               callback(module.exports.returnData(body));               
         }
         else
         {
