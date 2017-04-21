@@ -1181,10 +1181,11 @@ else {
           // try again in 5 seconds 
            if (values == 'wait'){
 
+            
             setTimeout(function(){ mkairos.media(senderID, timeOfMessage, fs, request, image, function(values){
             
             // GUESS AGE/GENDER/GLASSES             
-           console.log("========= KAIROS DETECT =========");
+           console.log("========= WAITING =========");
            faceinfo = values;
            console.log(JSON.stringify(faceinfo));
 
@@ -1197,7 +1198,7 @@ else {
            else {
 
             // GUESS AGE/GENDER/GLASSES             
-           console.log("========= KAIROS DETECT =========");
+           console.log("========= KAIROS DETECT OK! =========");
            faceinfo = values;
            console.log(JSON.stringify(faceinfo));
 

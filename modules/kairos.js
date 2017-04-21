@@ -91,7 +91,7 @@ module.exports = {
         if (!error && (response.statusCode == 2 || response.statusCode == 1) ) { 
 
             // STILL PROCESSING | TRY AGAIN AFTER A WHILE 
-
+            console.log("WAITING....");
             callback(module.exports.returnData("wait"));
             
         }
