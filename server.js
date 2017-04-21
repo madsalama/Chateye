@@ -676,6 +676,9 @@ var entry = getEntry(senderID);
 
 // ================ EMOTIONAL ANALYSIS OF THE NOTE =================
 
+// only save entry when it is not empty 
+if (entry !== ""){
+
   mwatson.manalyze(watsonNLUClient, entry, function(response){
     var response = response;
     var analysis; 
@@ -691,6 +694,13 @@ entry, dateTime, analysis, senderID,
 
 }); 
 });
+
+}
+else
+{
+api_ai(senderID,'i said nothing', app)
+}
+
 
 // ==================================================================
 
