@@ -90,28 +90,39 @@ module.exports = {
     var req = request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) { 
 
-                console.log(" = DEBUG BEFORE = ");
+                console.log(" === DEBUG BEFORE === ");
+                
+
+                console.log(body);
+                console.log(body.status_code);
+
+                console.log(JSON.parse(body));
                 console.log(JSON.parse(body.status_code));
 
+                console.log(JSON.stringify(body));
+                console.log(JSON.stringify(body.status_code));
+
+                // callback(module.exports.returnData("wait"));
+/*
             if ( JSON.parse(body.status_code) === '1' || JSON.parse(body.status_code) === '2'){
 
                 console.log("DEBUG AFTER");
-                console.log(JSON.parse(body.status_code));
+                console.log(body.status_code);
 
                 callback(module.exports.returnData("wait"));
-
             }
             else
             {
               var data = JSON.parse(body);
-              callback(module.exports.returnData(data));
+              callback(module.exports.returnData(body));
             }
+*/
 
         }
+
         else // ERROR 
         {
-                var data = JSON.parse(body);
-                callback(module.exports.returnData(data));
+                callback(module.exports.returnData(body));
         }
     });
 
