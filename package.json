@@ -8,6 +8,7 @@
     "apiai": "^4.0.2",
     "body-parser": "^1.17.1",
     "cloudconvert": "^1.1.1",
+    "color-namer": "^1.1.0",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "express": "^3.4.8",

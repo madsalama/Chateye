@@ -115,6 +115,7 @@ const speech2text = new watsonSpeech2text({
         'username': '747511eb-deb0-4294-a800-7f245665e62a',
         'password': 'mlunTdSmsGJU' });
 
+var namer = require('color-namer');
 
 // USER SESSION INFO | MEMORY
 var users = [];             
@@ -701,7 +702,7 @@ entry, dateTime, analysis, senderID,
 }
 else
 {
-api_ai(senderID,'i said nothing', app)
+api_ai(senderID,'i said nothing', app);
 }
 
 
@@ -1164,7 +1165,7 @@ else {
 
         mkairos.detect(senderID, timeOfMessage, fs, request, image, 
           function(values){        
-            faces = values.faces;
+            faces = values;
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
@@ -1174,6 +1175,7 @@ else {
            
           });  
 
+          
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
             faces=values;
@@ -1184,9 +1186,17 @@ else {
             console.log("========= VISION DETECT =========");
             faces? faces.forEach((face, i) => {              
                console.log(JSON.stringify(face));
-            }):console.log("no faces detected!");
+            }):sendTextMessage(senderID,"but...there're no faces in that!:P", function(){});
           
+
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
+
+           // var r;
+           // var g;
+           // var b;
+
+           // var colornames = namer("rgb("+r+","+g+","+b+")");
+           // var name = colornames.basic[0]; 
 
     });
     
