@@ -1135,14 +1135,19 @@ else {
 
       // ONLY if action is set to selfie-game
       var action = getAction(senderID);
+      var faceinfo; 
+      var image = messageAttachments[0].payload.url;
+      
       console.log(action);
 
       if ( action === 'play-selfie'){
         sendQuickReplies(senderID, function(){});
+
+
+
       }
       
-      var faceinfo; 
-      var image = messageAttachments[0].payload.url;
+
 
       // =================
       //   GOOGLE VISION
@@ -1171,21 +1176,34 @@ else {
       //      KAIROS
       // =================
         mkairos.media(senderID, timeOfMessage, fs, request, image, 
-          function(values){        
-            faces = values;
+          function(values){                   
+
+          // try again in 5 seconds 
+           if (values == 'wait'){
+
+            setTimeout(function(){ mkairos.media(senderID, timeOfMessage, fs, request, image, function(values){
+            
+            // GUESS AGE/GENDER/GLASSES             
+           console.log("========= KAIROS DETECT =========");
+           faceinfo = values;
+           console.log(JSON.stringify(faceinfo));
+
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+
+          });
+          }, 5000); 
+          }
+
+           else {
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(JSON.stringify(faces));
-
+           faceinfo = values;
+           console.log(JSON.stringify(faceinfo));
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-           
+           }           
           });              
-
-
-
-
         }
 
         else if (messageAttachments[0].type=="audio"){                          

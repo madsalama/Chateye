@@ -87,12 +87,26 @@ module.exports = {
             }; 
 
 
-    request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) { 
-                var data = JSON.parse(body);
-                callback(module.exports.returnData(body));
+    var req = request(options, function (error, response, body) {
+        if (!error && (response.statusCode == 2 || response.statusCode == 1) ) { 
+
+            // STILL PROCESSING | TRY AGAIN AFTER A WHILE 
+
+            callback(module.exports.returnData("wait"));
+            
+        }
+
+        else if (!error) {
+            callback(module.exports.returnData(body));
+        }
+        else {
+            callback(module.exports.returnData(body));
         }
     });
+
+
+
+
 
             });
             
