@@ -1170,7 +1170,7 @@ else {
       // =================
       //      KAIROS
       // =================
-        mkairos.detect(senderID, timeOfMessage, fs, request, image, 
+        mkairos.media(senderID, timeOfMessage, fs, request, image, 
           function(values){        
             faces = values;
 
@@ -1182,6 +1182,10 @@ else {
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
            
           });              
+
+
+
+
         }
 
         else if (messageAttachments[0].type=="audio"){                          
