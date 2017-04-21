@@ -1176,7 +1176,7 @@ else {
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(faces);
+           console.log(JSON.stringify(faces));
 
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
