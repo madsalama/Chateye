@@ -93,14 +93,13 @@ module.exports = {
                 console.log(" === DEBUG BEFORE === ");
                 
 
-                console.log(body);     // {"id":"e93c971243b190486aea9482","status_code":1,"status_message":"In Progress"}
-                // console.log(body.status_code); // undefined 
+                console.log(body);     // {"id":"e93c971243b190486aea9482","status_code":1,"status_message":"In Progress"}                // console.log(body.status_code); // undefined 
 
                // console.log(JSON.parse(body));
                // console.log(JSON.parse(body.status_code));
 
-                console.log(JSON.stringify(body));
-                console.log(JSON.stringify(body.status_code));
+               // console.log(JSON.stringify(body));
+               // console.log(JSON.stringify(body.status_code));
 
                 // callback(module.exports.returnData("wait"));
 /*

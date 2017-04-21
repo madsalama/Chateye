@@ -1135,19 +1135,14 @@ else {
 
       // ONLY if action is set to selfie-game
       var action = getAction(senderID);
-      var faceinfo; 
-      var image = messageAttachments[0].payload.url;
-      
       console.log(action);
 
       if ( action === 'play-selfie'){
         sendQuickReplies(senderID, function(){});
-
-
-
       }
       
-
+      var faceinfo; 
+      var image = messageAttachments[0].payload.url;
 
       // =================
       //   GOOGLE VISION
@@ -1175,41 +1170,21 @@ else {
       // =================
       //      KAIROS
       // =================
-        mkairos.media(senderID, timeOfMessage, fs, request, image, 
-          function(values){                   
-
-          // try again in 5 seconds 
-           if (values === "wait"){
-
-            console.log("VALUES");
-            console.log(values);
-
-            setTimeout(function(){             
-              mkairos.media(senderID, timeOfMessage, fs, request, image, function(values){
-            
-            // GUESS AGE/GENDER/GLASSES             
-           console.log("========= WAITING =========");
-           faceinfo = values;
-           console.log(JSON.stringify(faceinfo));
-
-           // fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-
-          });
-          }, 5000); 
-        
-          }
-
-           else {
+        mkairos.detect(senderID, timeOfMessage, fs, request, image, 
+          function(values){        
+            faces = values;
 
             // GUESS AGE/GENDER/GLASSES             
-           console.log("========= KAIROS DETECT OK! =========");
-           faceinfo = values;
-           console.log(JSON.stringify(faceinfo));
+           console.log("========= KAIROS DETECT =========");
+           console.log(faces);
+
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-
-           }           
+           
           });              
+
+
+          
         }
 
         else if (messageAttachments[0].type=="audio"){                          
