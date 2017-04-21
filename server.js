@@ -954,7 +954,19 @@ var lookup = getLookupSessions(users);
 if (!lookup[senderID]){
 
    // create an object for the user...    
-   users.push( { id:senderID, action:'', currentEntry:''} );
+   users.push( { id:senderID, action:'', currentEntry:'' , 
+   selfieInfo: {
+      age: 0,
+      gender: 'm',
+      nfaces: 0,
+      color: '',
+      glasses: false,
+      headwear: false,
+      emotionHappy: false,
+      emotionSurprise: false      
+   }
+  
+} );
    console.log("=== user information ===");
    console.log(users);
 
@@ -1070,7 +1082,9 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 }
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
+  
   sendTextMessage(senderID,"AGE GUESS",function(){});
+  // call a function to guess age from picture 
 }
 
 
@@ -1138,11 +1152,50 @@ else {
       console.log(action);
 
       if ( action === 'play-selfie'){
+
         sendQuickReplies(senderID, function(){});
-      }
+
+      // =================
+      //      KAIROS
+      // =================
       
       var faceinfo; 
       var image = messageAttachments[0].payload.url;
+
+        mkairos.detect(senderID, timeOfMessage, fs, request, image, 
+          function(values){        
+            faces = values.faces;
+
+            // GUESS AGE/GENDER/GLASSES             
+           console.log("========= KAIROS DETECT =========");
+           console.log(JSON.stringify(faces));
+
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+           
+          });  
+
+          mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
+          function(values){        
+            faces=values;
+
+            // Handle an exception where no faces are detected in image! 
+            // Send faceinfo to user for DEBUG! 
+
+            console.log("========= VISION DETECT =========");
+            faces? faces.forEach((face, i) => {              
+               console.log(JSON.stringify(face));
+            }):console.log("no faces detected!");
+          
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
+
+    });
+    
+
+
+
+      }
+      
+
 
       // =================
       //   GOOGLE VISION
@@ -1167,21 +1220,7 @@ else {
 
             // INTENT:CONTEXT = SELFIE 
 
-      // =================
-      //      KAIROS
-      // =================
-        mkairos.detect(senderID, timeOfMessage, fs, request, image, 
-          function(values){        
-            faces = values;
-
-            // GUESS AGE/GENDER/GLASSES             
-           console.log("========= KAIROS DETECT =========");
-           console.log(JSON.stringify(faces));
-
-
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-           
-          });              
+            
 
 
           
