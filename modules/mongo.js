@@ -75,7 +75,7 @@ module.exports = {
                         { $addToSet: { user_entries: entry_id  } } );
 
                         db.close();
-                        console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
+                      //   console.log("====== MONGO_LOGGER: ENTRY COMMITTED! =====");             
                         callback(module.exports.returnData(result));   
 
                     });
@@ -92,12 +92,18 @@ module.exports = {
                     var users = db.collection('users');  
 
                     // do an application-level join...              
-                    users.findOne({_id: userID}, function(err, result){     
+                    users.findOne({_id: userID}, function(err, result){  
+
+                        if (result){
                         entries.find({_id: { $in : result.user_entries } } ).toArray(function(err, result){                                                                    
                             callback(module.exports.returnData(result));
                             db.close();
                         });
-                    }); 
+                        }
+
+                    
+                }); 
+
                 }); //
     }, 
 
@@ -107,10 +113,17 @@ getUserLocale: function(MongoClient, assert, db_url, userID, callback){
                         assert.equal(null, err);                    
                     var users = db.collection('users');  
 
-                        users.findOne({_id: userID}, function(err, result){ 
+                        users.findOne({_id: userID}, function(err, result){  // IF A USER IS FOUND ONLY 
+
+                            if (result){
                             console.log("USER TIMEZONE IS = " + result.timezone);                                
                             callback(module.exports.returnData(result.timezone)); 
+                            }
+
+
                             db.close();
+
+
                     });                     
                 });
 
