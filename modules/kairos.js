@@ -88,7 +88,7 @@ module.exports = {
 
 
     var req = request(options, function (error, response, body) {
-        if (!error && (response.statusCode == 2 || response.statusCode == 1) ) { 
+        if (!error && (body.status_code == 2 || body.status_code == 1) ) { 
 
             // STILL PROCESSING | TRY AGAIN AFTER A WHILE 
             console.log("WAITING....");

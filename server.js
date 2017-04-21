@@ -1181,8 +1181,11 @@ else {
           // try again in 5 seconds 
            if (values == 'wait'){
 
-            
-            setTimeout(function(){ mkairos.media(senderID, timeOfMessage, fs, request, image, function(values){
+            console.log("VALUES");
+            console.log(values);
+
+            setTimeout(function(){             
+              mkairos.media(senderID, timeOfMessage, fs, request, image, function(values){
             
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= WAITING =========");
@@ -1193,6 +1196,7 @@ else {
 
           });
           }, 5000); 
+        
           }
 
            else {
@@ -1203,6 +1207,7 @@ else {
            console.log(JSON.stringify(faceinfo));
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+           
            }           
           });              
         }
