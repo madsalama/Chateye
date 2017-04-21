@@ -187,16 +187,16 @@ deleteMenu:function(request, callback){
             method: 'POST',                        
             qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
             json: {
-  "setting_type" : "domain_whitelisting",
-  "whitelisted_domains" : ["https://chatzer.herokuapp.com"],
-  "domain_action_type": "add"
+                setting_type : "domain_whitelisting",
+                whitelisted_domains : ["https://chatzer.herokuapp.com"],
+                domain_action_type: "add"
 }
     }; 
 
 
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {     
-               var data = JSON.parse(body);            
+               // var data = JSON.parse(body);            
                callback(module.exports.returnData(data));               
         }
         else
