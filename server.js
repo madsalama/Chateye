@@ -148,7 +148,7 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
-
+/*
 mgraph.whitelist(request, function(){
   mgraph.createGetStarted(request, function(result){
     console.log(result);
@@ -160,7 +160,7 @@ mgraph.whitelist(request, function(){
 });
 });
 });
-
+*/
 
 
 // ====================================
@@ -1023,8 +1023,19 @@ else if (postback !== undefined && postback.startsWith("show")){
     }); 
 }
 
-else if (postback !== undefined && postback.startsWith("stop")){
-          api_ai(senderID,"stop listening", app); 
+else if (postback !== undefined && postback.startsWith("stop")){          
+        
+          var entry = getEntry(senderID);
+          if (entry !==""){
+                api_ai(senderID,"stop listening", app);
+          }
+          else
+           {
+             resetContexts(app, senderID, 'listening', function(){
+             api_ai(senderID,"i said nothing", app);});             
+           }
+          
+        
      //   resetContexts(app, senderID, 'listening', function(){
     // }); 
 
