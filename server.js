@@ -1179,7 +1179,7 @@ else {
           function(values){                   
 
           // try again in 5 seconds 
-           if (values == 'wait'){
+           if (values === "wait"){
 
             console.log("VALUES");
             console.log(values);
@@ -1207,7 +1207,7 @@ else {
            console.log(JSON.stringify(faceinfo));
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-           
+
            }           
           });              
         }
