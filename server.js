@@ -1188,7 +1188,7 @@ else {
            faceinfo = values;
            console.log(JSON.stringify(faceinfo));
 
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+           // fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
           });
           }, 5000); 
