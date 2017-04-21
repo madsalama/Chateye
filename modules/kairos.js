@@ -88,19 +88,28 @@ module.exports = {
 
 
     var req = request(options, function (error, response, body) {
-        if (!error && (body.status_code == 2 || body.status_code == 1) ) { 
+        if (!error && response.statusCode == 200) { 
 
-            // STILL PROCESSING | TRY AGAIN AFTER A WHILE 
-            console.log("WAITING....");
-            callback(module.exports.returnData("wait"));
-            
-        }
+                console.log("DEBUG BEFORE");
+                console.log(body.status_code);
 
-        else if (!error) {
-            callback(module.exports.returnData(body));
+            if (body.status_code === '1' || body.status_code === '2'){
+
+                console.log("DEBUG AFTER");
+                console.log(body.status_code);
+
+                callback(module.exports.returnData("wait"));
+            }
+            else
+            {
+              // var data = JSON.parse(body);
+              callback(module.exports.returnData(body));
+            }
+
         }
-        else {
-            callback(module.exports.returnData(body));
+        else // ERROR 
+        {
+                callback(module.exports.returnData(body));
         }
     });
 
