@@ -875,6 +875,9 @@ function setAttribute(senderID, name, value) {
         {users[i].selfieInfo.glasses = value;}
         else if (name === 'selfieInfo.gender')
         {users[i].selfieInfo.gender = value;}
+        else if (name === 'selfieInfo.color')
+        {users[i].selfieInfo.color = value;}
+
 
         break;          
      }
@@ -893,6 +896,8 @@ function getAttribute(senderID, name) {
         {return users[i].selfieInfo.glasses;}
         else if (name === 'selfieInfo.gender')
         {return users[i].selfieInfo.gender;}
+        else if (name === 'selfieInfo.color')
+        {return users[i].selfieInfo.color;}
 
         break;          
      }
@@ -1129,11 +1134,20 @@ else if (postback !== undefined && postback.startsWith("random")){
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "describeSelfie" ){
   sendTextMessage(senderID,"SELFIE DESCRIPTION",function(){});
 
-  // GET ALL PARAMETERS
-
-  // DEFINE A SET OF MESSAGES FOR EACH PARAMETER HERE
+  var color = getAttribute(senderID, "selfieInfo.color");
+  var glasses = getAttribute(senderID, "selfieInfo.glasses");
   
-  // RANDOMLY PICK A PARAMETER/MESSAGE COMBINATION 
+
+  sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
+  
+    if (glasses !== "" && glasses === "eye"){
+      sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){});
+    }
+    else if (glasses !== "" && glasses === "sunglasses"){
+      sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){});
+    }
+
+  });
 
 
 }
@@ -1270,8 +1284,8 @@ else {
             var colornames = namer("#"+result);
             var name = colornames.basic[0].name;
 
-            console.log("=== PROMINENT COLOR NAME === " + name );
-            
+            setAttribute(senderID, 'selfieInfo.color', name );
+
             fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
             fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
