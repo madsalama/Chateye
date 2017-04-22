@@ -1265,6 +1265,10 @@ else {
              if (faces.images[0].faces.length>1) {
                 setAttribute(senderID, "selfieInfo.nfaces", faces.images[0].faces.length);
              }
+             else 
+             {
+               setAttribute(senderID, "selfieInfo.nfaces", 0);
+             }
              
 
            		var age = faces.images[0].faces[0].attributes.age;
