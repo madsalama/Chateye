@@ -1127,7 +1127,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
   var age = getAttribute(senderID, "selfieInfo.age" );
-  sendTextMessage(senderID,"Well, I think you look " + age +"! :P",function(){});
+  sendTextMessage(senderID,"Well, I think you look " + age +" ! :P",function(){});
   
   // call a function to guess age from picture 
 }
