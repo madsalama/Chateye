@@ -296,7 +296,7 @@ function sendQuickReplies(recipientId, callback) {
       id: recipientId
     },
     message: {
-      text: "OK! Pick one!",
+      text: "Pick one!",
 
       "quick_replies":[
       {
@@ -325,8 +325,8 @@ function sendQuickReplies(recipientId, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am an emotionally interactive, note logging, media suggesting AI!", function(){  
-    sendTextMessage(senderID, "Please, tap the menu below for more!", function(){});
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your emotionally interactive, note-logging, media-suggesting AI.", function(){  
+    sendTextMessage(senderID, "Please, tap the menu below to uncover all of my abilities!", function(){});
 /*
     sendTextMessage(senderID, "I'll 'listen' to you if you 'want to talk'. Send your note as text, an audio message or \
 even a photo of a something handwritten!", function(){
@@ -1205,6 +1205,7 @@ else {
 
       if ( action === 'play-selfie'){        
         sendTextMessage(senderID, "now checking...", function(){});
+
       // =================
       //      KAIROS
       // =================
@@ -1232,8 +1233,7 @@ else {
               console.log(users);
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
-          function(values){        
-            faces=values;
+          function(faces){                    
 
             // Handle an exception where no faces are detected in image! 
             // Send faceinfo to user for DEBUG! 
