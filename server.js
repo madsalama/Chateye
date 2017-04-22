@@ -149,7 +149,7 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
-/*
+
 mgraph.whitelist(request, function(){
   mgraph.createGetStarted(request, function(result){
     console.log(result);
@@ -161,7 +161,7 @@ mgraph.whitelist(request, function(){
 });
 });
 });
-*/
+
 
 
 // ====================================
