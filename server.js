@@ -296,7 +296,7 @@ function sendQuickReplies(recipientId, callback) {
       id: recipientId
     },
     message: {
-      text: "Pick one!",
+      text: "OK! Pick one!",
 
       "quick_replies":[
       {
@@ -1122,14 +1122,21 @@ else if (postback !== undefined && postback.startsWith("random")){
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "describeSelfie" ){
   sendTextMessage(senderID,"SELFIE DESCRIPTION",function(){});
+
+  // GET ALL PARAMETERS
+
+  // DEFINE A SET OF MESSAGES FOR EACH PARAMETER HERE
+  
+  // RANDOMLY PICK A PARAMETER/MESSAGE COMBINATION 
+
+
 }
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
   var age = getAttribute(senderID, "selfieInfo.age" );
-  sendTextMessage(senderID,"Well, I think you look " + age +" ! :P",function(){});
-  
-  // call a function to guess age from picture 
+  sendTextMessage(senderID,"Well, I think you look " + age +" ! :P",function(){});  
+
 }
 
 
@@ -1197,7 +1204,7 @@ else {
       console.log(action);
 
       if ( action === 'play-selfie'){        
-
+        sendTextMessage(senderID, "now checking...", function(){});
       // =================
       //      KAIROS
       // =================
@@ -1237,7 +1244,7 @@ else {
             }):console.log("no faces detected!");
           
 
-                                    sendQuickReplies(senderID, function(){});
+            sendQuickReplies(senderID, function(){});
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
