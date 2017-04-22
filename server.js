@@ -355,7 +355,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               buttons:[{type:"web_url",
                         url:url,
                         title:"Watch Video",
-                        webview_height_ratio: "compact"}]
+                        webview_height_ratio: "full"}]
 }]; 
 
   var messageData = {
@@ -769,7 +769,7 @@ console.log(keywords);
 switch(media_type) {
     case "#video":
             // =========================================================
-            myoutube.getVideo(request, keywords, 20, function(data){ 
+            myoutube.getVideo(request, keywords, 30, function(data){ 
 
                 var url; 
                 var videoId; 
