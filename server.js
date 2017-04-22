@@ -876,6 +876,9 @@ function setAttribute(senderID, name, value) {
         else if (name === 'selfieInfo.color')
         {users[i].selfieInfo.color = value;}
 
+        else if (name === 'selfieInfo.nfaces'){
+          users[i].selfieInfo.nfaces = value ; 
+        }
 
         break;          
      }
@@ -897,6 +900,9 @@ function getAttribute(senderID, name) {
         else if (name === 'selfieInfo.color')
         {return users[i].selfieInfo.color;}
 
+        else if (name === 'selfieInfo.nfaces'){
+          return users[i].selfieInfo.nfaces; 
+        }
         break;          
      }
    }
@@ -1133,6 +1139,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 
   var color = getAttribute(senderID, "selfieInfo.color");
   var glasses = getAttribute(senderID, "selfieInfo.glasses");
+  var nfaces = getAttribute(senderID, "selfieInfo.nfaces");
 
   // ... also guess emotional state here! 
 
@@ -1143,6 +1150,10 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
     }
     else if (glasses !== "" && glasses === "Sun"){
       sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){});
+    }
+
+    if (nfaces!=0) {
+        sendTextMessage(senderID,"You guys look great! 😀👍", function(){});
     }
 
   });
@@ -1250,6 +1261,12 @@ else {
               
            // FIRST FACE ON THE RIGHT
            if (faces.images) {
+
+             if (faces.images[0].faces.length>1) {
+                setAttribute(senderID, "selfieInfo.nfaces", faces.images[0].faces.length);
+             }
+             
+
            		var age = faces.images[0].faces[0].attributes.age;
 		          var gender = faces.images[0].faces[0].attributes.gender.type;
 		          var glasses_type = faces.images[0].faces[0].attributes.glasses;   // "None", "eye", "sun"
