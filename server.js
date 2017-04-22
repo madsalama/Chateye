@@ -1271,7 +1271,7 @@ else {
            } else {
 
 
-             sendTextMessage(senderID,"nope, you must actually face the camera in better light and send another one! :P ",function(){});  
+             sendTextMessage(senderID,"nah! you must actually 'face' the camera and in good lighting! Send another one! :P ",function(){});  
 
              setAttribute(senderID, 'selfieInfo.age', "none" );
              setAttribute(senderID, 'selfieInfo.gender', "none" );
