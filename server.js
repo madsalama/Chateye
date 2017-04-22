@@ -351,11 +351,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
  var elements = [{
               title: title,
               subtitle: subtitle,
-              image_url: imageurl,
-              buttons:[{type:"web_url",
-                        url:url,
-                        title:"Watch Video",
-                        webview_height_ratio: "full"}]
+              image_url: imageurl
 }]; 
 
   var messageData = {
@@ -788,7 +784,9 @@ switch(media_type) {
                 console.log("======= VIDEO =======");
                 console.log(data);
 
-                url?sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){})
+                url?sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){
+                    sendTextMessage(senderID, url, function(){});
+                })
                 :sendTextMessage(senderID, "bummer... nothing relevant was found! :(", function(){});
 
                 /*
