@@ -1266,11 +1266,11 @@ else {
             function(result){
 
 
-            var color = result[0];
-            var colornames = namer("#"+color);
-            var name = colornames.basic[0];
+            // var color = result[0];
+            // var colornames = namer("#"+color);
+            // var name = colornames.basic[0];
 
-            console.log("=== PROMINENT COLOR NAME === " + name );
+            // console.log("=== PROMINENT COLOR NAME === " + name );
             
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
