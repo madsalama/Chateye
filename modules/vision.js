@@ -90,7 +90,7 @@ module.exports = {
 
  getProminentColor:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
     
-    var values = []; 
+    var value; 
 
             // download the image & access it!
             var download = function(uri, filename, callback){
@@ -107,10 +107,10 @@ module.exports = {
 
         visionClient.detectProperties(image)
             .then((results) => {
-            values = results[0];                                    
+            value = results.colors[0];                                    
   });
 
-  callback(module.exports.returnData(values.colors[0])); 
+  callback(module.exports.returnData(value)); 
 
   });
   },    
