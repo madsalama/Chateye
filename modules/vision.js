@@ -105,9 +105,9 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
                 var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-        visionClient.detectProperties(image)
+        visionClient.detectProperties(image_path)
             .then((results) => {
-            value = results.colors[0];                                    
+            value = results.colors[0];                                  
   });
 
   callback(module.exports.returnData(value)); 
