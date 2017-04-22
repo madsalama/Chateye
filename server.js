@@ -1143,7 +1143,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
     if (glasses !== "" && glasses === "Eye"){
       sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){});
     }
-    else if (glasses !== "" && glasses === "sunglasses"){
+    else if (glasses !== "" && glasses === "Sun"){
       sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){});
     }
 
