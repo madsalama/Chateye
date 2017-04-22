@@ -1105,6 +1105,7 @@ else if (postback !== undefined && postback.startsWith("selfie")){
 else if (postback !== undefined && postback.startsWith("random")){
          resetContexts(app, senderID, 'listening', function(){
         
+        sendTextMessage(senderID, "Well, tell me what you're in the mood for... it could be any song/video/gif");
         // randomly choose between video/song/gif 
         // randomly choose an adjective (read from list on disk)
         
