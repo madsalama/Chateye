@@ -149,7 +149,7 @@ var App = function() {
 		    self.app.use(bodyParser.json());
 
 
-
+// SETUP MESSENGER PROFILE 
 mgraph.whitelist(request, function(){
   mgraph.createGetStarted(request, function(result){
     console.log(result);
@@ -858,6 +858,26 @@ reqs.end();
 }       // API.AI END 
 
 
+
+function setAttribute(senderID, name, value) {
+
+   for (var i in users) {
+     if (users[i].id == senderID) { 
+
+       if (name === 'selfieInfo.age')
+        {users[i].selfieInfo.age = value;}
+        else if (name === 'selfieInfo.glasses')
+        {users[i].selfieInfo.glasses = value;}
+        else if (name === 'selfieInfo.gender')
+        {users[i].selfieInfo.gender = value;}
+
+        break;          
+     }
+   }
+}
+
+
+
 function setAction(senderID, actionValue) {
    for (var i in users) {
      if (users[i].id == senderID) {
@@ -961,10 +981,12 @@ if (!lookup[senderID]){
       gender: 'm',
       nfaces: 0,
       color: '',
-      glasses: false,
-      headwear: false,
-      emotionHappy: false,
-      emotionSurprise: false      
+      glasses: '',
+      headwear: '',
+      emotionHappy: '',
+      emotionSad: '', 
+      emotionAnger: '',
+      emotionSurprise: ''      
    }
   
 } );
@@ -1168,6 +1190,17 @@ else {
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
+
+           		var age = faces.images[0].faces[0].attributes.age;
+		          var gender = faces.images[0].faces[0].attributes.gender;
+		          var glasses_type = faces.images[0].faces[0].attributes.glasses;   // "None", "eye", "sun"
+
+               setAttribute(senderID, 'selfieInfo.age', age );
+               setAttribute(senderID, 'selfieInfo.gender', gender );
+               setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
+
+              console.log(users);
+
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
