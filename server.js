@@ -1135,6 +1135,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
   var age = getAttribute(senderID, "selfieInfo.age" );
+
   if (age === "none"){
     sendTextMessage(senderID,"Your face isn't clear there, send another one! :P ",function(){});  
   }
@@ -1270,6 +1271,8 @@ else {
              setAttribute(senderID, 'selfieInfo.age', "none" );
              setAttribute(senderID, 'selfieInfo.gender', "none" );
              setAttribute(senderID, 'selfieInfo.glasses', "none" );
+
+             console.log(users);
 
            }
 
