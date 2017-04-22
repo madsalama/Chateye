@@ -151,6 +151,8 @@ var App = function() {
 
 
 // SETUP MESSENGER PROFILE 
+
+/*
 mgraph.whitelist(request, function(){
   mgraph.createGetStarted(request, function(result){
     console.log(result);
@@ -162,6 +164,7 @@ mgraph.whitelist(request, function(){
 });
 });
 });
+*/
 
 
 
