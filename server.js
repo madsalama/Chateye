@@ -1271,7 +1271,7 @@ else {
            } else {
 
 
-             sendTextMessage(senderID,"It was not clear. Face the phone in better light and send another one! :P ",function(){});  
+             sendTextMessage(senderID,"nope, you must actually face the phone in better light and send another one! :P ",function(){});  
 
              setAttribute(senderID, 'selfieInfo.age', "none" );
              setAttribute(senderID, 'selfieInfo.gender', "none" );
