@@ -1227,6 +1227,8 @@ else {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
+           sendQuickReplies(senderID, function(){});
+
               
            // FIRST FACE ON THE RIGHT
            if (faces.images) {
@@ -1251,8 +1253,7 @@ else {
                console.log(JSON.stringify(face));
             }):console.log("no faces detected!");
           
-
-            sendQuickReplies(senderID, function(){});
+           
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
