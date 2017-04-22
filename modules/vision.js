@@ -90,7 +90,7 @@ module.exports = {
 
  getProminentColor:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
     
-    var value; 
+    var values = []; 
 
             // download the image & access it!
             var download = function(uri, filename, callback){
@@ -105,17 +105,21 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
                 var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-        visionClient.detectProperties(image_path)
-            .then((results) => {
-            value = results.colors[0];                                  
+                vision.detectProperties(image_path)
+                .then((results) => {
+                const properties = results[0];
+
+                console.log('Colors:');
+                properties.colors.forEach((color) => console.log(color));
+
   });
 
-  callback(module.exports.returnData(value)); 
 
+       
   });
   },    
      
-     
+
      getSimilarImage:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
     
     }
