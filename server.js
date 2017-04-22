@@ -1167,12 +1167,7 @@ else {
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(faces);
-
-           
-
-
-
+           console.log(JSON.stringify(faces));
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
