@@ -877,6 +877,26 @@ function setAttribute(senderID, name, value) {
 }
 
 
+function getAttribute(senderID, name) {
+
+   for (var i in users) {
+     if (users[i].id == senderID) { 
+
+       if (name === 'selfieInfo.age')
+        {return users[i].selfieInfo.age ; }
+        else if (name === 'selfieInfo.glasses')
+        {return users[i].selfieInfo.glasses;}
+        else if (name === 'selfieInfo.gender')
+        {return users[i].selfieInfo.gender;}
+
+        break;          
+     }
+   }
+}
+
+
+
+
 
 function setAction(senderID, actionValue) {
    for (var i in users) {
@@ -1106,7 +1126,9 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
-  sendTextMessage(senderID,"AGE GUESS",function(){});
+  var age = getAttribute(senderID, "selfieInfo.age" );
+  sendTextMessage(senderID,"Well, I think you look " + age +"! :P",function(){});
+  
   // call a function to guess age from picture 
 }
 
