@@ -110,13 +110,16 @@ module.exports = {
                 values = results[0];
 
                 console.log('Colors:');
-                values.colors.forEach((color) => console.log(color));
+                values.colors.forEach(
+                    (color) => console.log(color)
+                );
 
   });
 
     callback(module.exports.returnData(values));
        
   });
+  
   },    
      
 
