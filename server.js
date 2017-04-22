@@ -1191,8 +1191,9 @@ else {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
+           // FIRST FACE ON THE RIGHT 
            		var age = faces.images[0].faces[0].attributes.age;
-		          var gender = faces.images[0].faces[0].attributes.gender;
+		          var gender = faces.images[0].faces[0].attributes.gender.type;
 		          var glasses_type = faces.images[0].faces[0].attributes.glasses;   // "None", "eye", "sun"
 
                setAttribute(senderID, 'selfieInfo.age', age );
@@ -1200,7 +1201,6 @@ else {
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
               console.log(users);
-
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
