@@ -109,14 +109,19 @@ module.exports = {
                 .then((results) => {
                 values = results[0];
 
+                
+                callback(module.exports.returnData(values.colors[0]));
+
+                /*
                 console.log('Colors:');
                 values.colors.forEach(
                     (color) => console.log(color)
                 );
+                */
 
   });
 
-    callback(module.exports.returnData(values));
+    
        
   });
   

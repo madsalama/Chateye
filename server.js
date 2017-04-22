@@ -1266,7 +1266,7 @@ else {
             function(result){
 
 
-             var color = result[0];
+             
              console.log("RESULT IS " + result);
 
             // var colornames = namer("#"+color);
