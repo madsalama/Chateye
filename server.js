@@ -1262,7 +1262,8 @@ else {
             }):console.log("no faces detected!");                     
 
 
-            mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, function(result){
+            mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, 
+            function(result){
 
 
             var color = result[0];

@@ -107,14 +107,14 @@ module.exports = {
 
                 visionClient.detectProperties(image_path)
                 .then((results) => {
-                const properties = results[0];
+                values = results[0];
 
                 console.log('Colors:');
-                properties.colors.forEach((color) => console.log(color));
+                values.colors.forEach((color) => console.log(color));
 
   });
 
-
+    callback(module.exports.returnData(values));
        
   });
   },    
