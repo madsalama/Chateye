@@ -788,6 +788,7 @@ switch(media_type) {
                 :sendTextMessage(senderID, "bummer... nothing relevant was found! :(", function(){});
 
                 /*
+
                 url?sendTextMessage(senderID, url, function(){})
                 :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
                 */
@@ -1105,7 +1106,7 @@ else if (postback !== undefined && postback.startsWith("selfie")){
 else if (postback !== undefined && postback.startsWith("random")){
          resetContexts(app, senderID, 'listening', function(){
         
-        sendTextMessage(senderID, "Well, tell me what you're in the mood for... it could be any song/video/gif");
+        sendTextMessage(senderID, "Well, tell me what you're in the mood for... it could be any song/video/gif", function(){});
         // randomly choose between video/song/gif 
         // randomly choose an adjective (read from list on disk)
         
