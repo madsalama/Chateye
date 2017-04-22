@@ -108,7 +108,6 @@ module.exports = {
                 visionClient.detectProperties(image_path)
                 .then((results) => {
                 values = results[0];
-
                 
                 callback(module.exports.returnData(values.colors[0]));
 

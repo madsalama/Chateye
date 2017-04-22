@@ -1132,15 +1132,15 @@ else if (postback !== undefined && postback.startsWith("random")){
 // ============================
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "describeSelfie" ){
-  sendTextMessage(senderID,"SELFIE DESCRIPTION",function(){});
 
   var color = getAttribute(senderID, "selfieInfo.color");
   var glasses = getAttribute(senderID, "selfieInfo.glasses");
-  
+
+  // ... also guess emotional state here! 
 
   sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
   
-    if (glasses !== "" && glasses === "eye"){
+    if (glasses !== "" && glasses === "Eye"){
       sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){});
     }
     else if (glasses !== "" && glasses === "sunglasses"){
@@ -1261,6 +1261,7 @@ else {
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
               console.log(users);
+
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(faces){                    
