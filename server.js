@@ -1152,9 +1152,7 @@ else {
       var action = getAction(senderID);
       console.log(action);
 
-      if ( action === 'play-selfie'){
-
-        sendQuickReplies(senderID, function(){});
+      if ( action === 'play-selfie'){        
 
       // =================
       //      KAIROS
@@ -1169,15 +1167,13 @@ else {
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(JSON.stringify(faces));
+           console.log(faces);
 
            
 
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
-           
-          });  
 
-          
+
+
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(values){        
             faces=values;
@@ -1191,7 +1187,10 @@ else {
             }):console.log("no faces detected!");
           
 
+                                    sendQuickReplies(senderID, function(){});
+
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
+           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
           // var r;
           // var g;
@@ -1201,6 +1200,15 @@ else {
           // var name = colornames.basic[0]; 
 
     });
+
+
+
+           
+           
+          });  
+
+          
+
     
 
 
