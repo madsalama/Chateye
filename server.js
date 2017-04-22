@@ -1270,10 +1270,10 @@ else {
             var colornames = namer("#"+result);
             var name = colornames.basic[0];
 
-            console.log("=== PROMINENT COLOR NAME === " + name );
+            console.log("=== PROMINENT COLOR NAME === " + JSON.stringify(name) );
             
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
-           fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
+            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
             });
 
