@@ -1262,9 +1262,12 @@ else {
             mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, function(result){
 
 
-            var color = result ;
-            console.log("=== PROMINENT COLOR IS === " + result );
+            var color = result[0];
+            var colornames = namer("#"+color);
+            var name = colornames.basic[0];
 
+            console.log("=== PROMINENT COLOR NAME === " + name );
+            
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
