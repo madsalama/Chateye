@@ -1135,6 +1135,10 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
   var age = getAttribute(senderID, "selfieInfo.age" );
+  if (age === "none"){
+    sendTextMessage(senderID,"Your face isn't clear there, send another one! :P ",function(){});  
+  }
+  else
   sendTextMessage(senderID,"Well, I think you look " + age +" ! :P",function(){});  
 
 }
@@ -1221,7 +1225,9 @@ else {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
-           // FIRST FACE ON THE RIGHT 
+              
+           // FIRST FACE ON THE RIGHT
+           if (faces.images) {
            		var age = faces.images[0].faces[0].attributes.age;
 		          var gender = faces.images[0].faces[0].attributes.gender.type;
 		          var glasses_type = faces.images[0].faces[0].attributes.glasses;   // "None", "eye", "sun"
@@ -1257,6 +1263,16 @@ else {
           // var name = colornames.basic[0]; 
 
     });
+
+
+           } else {
+
+             setAttribute(senderID, 'selfieInfo.age', "none" );
+             setAttribute(senderID, 'selfieInfo.gender', "none" );
+             setAttribute(senderID, 'selfieInfo.glasses', "none" );
+
+           }
+
 
 
 
