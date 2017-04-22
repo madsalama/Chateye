@@ -85,7 +85,14 @@ module.exports = {
   });
 
 
-    }
+    },
+
+
+    getProminentColor:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
+
+
+
+     }
 
 };
 

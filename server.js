@@ -1171,6 +1171,8 @@ else {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
+           
+
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
            
           });  
@@ -1186,17 +1188,17 @@ else {
             console.log("========= VISION DETECT =========");
             faces? faces.forEach((face, i) => {              
                console.log(JSON.stringify(face));
-            }):sendTextMessage(senderID,"but...there're no faces in that!:P", function(){});
+            }):console.log("no faces detected!");
           
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
 
-           // var r;
-           // var g;
-           // var b;
+          // var r;
+          // var g;
+          // var b;
 
-           // var colornames = namer("rgb("+r+","+g+","+b+")");
-           // var name = colornames.basic[0]; 
+          // var colornames = namer("rgb("+r+","+g+","+b+")");
+          // var name = colornames.basic[0]; 
 
     });
     
