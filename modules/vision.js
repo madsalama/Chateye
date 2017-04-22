@@ -105,7 +105,7 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
                 var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-                vision.detectProperties(image_path)
+                visionClient.detectProperties(image_path)
                 .then((results) => {
                 const properties = results[0];
 
