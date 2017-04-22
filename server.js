@@ -1134,11 +1134,12 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
 
 else if (message!== undefined && message.quick_reply !== undefined && message.quick_reply.payload === "guessAge" ){
   
-  var age = getAttribute(senderID, "selfieInfo.age" );
+  var age = getAttribute(senderID, "selfieInfo.age");
 
   if (age === "none"){
-    sendTextMessage(senderID,"Your face isn't clear there, send another one! :P ",function(){});  
+    sendTextMessage(senderID,"It was not clear - face the camera and send another one! :P ",function(){});  
   }
+
   else
   sendTextMessage(senderID,"Well, I think you look " + age +" ! :P",function(){});  
 
