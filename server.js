@@ -1227,7 +1227,7 @@ else {
            console.log("========= KAIROS DETECT =========");
            console.log(JSON.stringify(faces));
 
-           sendQuickReplies(senderID, function(){});
+           
 
               
            // FIRST FACE ON THE RIGHT
@@ -1245,15 +1245,15 @@ else {
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
           function(faces){                    
 
+            sendQuickReplies(senderID, function(){});
+
             // Handle an exception where no faces are detected in image! 
             // Send faceinfo to user for DEBUG! 
 
             console.log("========= VISION DETECT =========");
             faces? faces.forEach((face, i) => {              
                console.log(JSON.stringify(face));
-            }):console.log("no faces detected!");
-          
-           
+            }):console.log("no faces detected!");                     
 
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
@@ -1270,12 +1270,14 @@ else {
 
            } else {
 
+
+             sendTextMessage(senderID,"It was not clear. Face the phone in better light and send another one! :P ",function(){});  
+
              setAttribute(senderID, 'selfieInfo.age', "none" );
              setAttribute(senderID, 'selfieInfo.gender', "none" );
              setAttribute(senderID, 'selfieInfo.glasses', "none" );
 
-             console.log(users);
-
+            
            }
 
 
