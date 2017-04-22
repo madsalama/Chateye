@@ -52,13 +52,13 @@ createMenu:function(request, callback){
           call_to_actions:[
                     {
                 type:"postback",
-                title:"📞 Listen To Me | Take Note",
+                title:"🤐 Listen To Me | Take Note",
                 payload:"listen"
                    },
             
                    {   
                 type:"postback",
-                title:"✔ Memorize Note",
+                title:"📓 Memorize Note",
                 payload:"stop"
                    }, 
 
