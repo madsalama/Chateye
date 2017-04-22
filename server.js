@@ -1016,11 +1016,12 @@ if (!lookup[senderID]){
       nfaces: 0,
       color: '',
       glasses: '',
-      headwear: '',
-      emotionHappy: '',
-      emotionSad: '', 
-      emotionAnger: '',
-      emotionSurprise: ''      
+      
+      headwear: 0,
+      emotionHappy: 0,
+      emotionSad: 0, 
+      emotionAnger: 0,
+      emotionSurprise: 0      
    }
   
 } );
