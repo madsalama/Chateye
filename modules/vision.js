@@ -105,12 +105,13 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
                 var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
 
-        visionClient.detectProperties(image).then((results) => {
-            const properties = results[0];            
-            callback(module.exports.returnData(properties.colors[0])); 
-            
-            // .forEach((color) => console.log(color));
+        visionClient.detectProperties(image)
+            .then((results) => {
+            values = results[0];                                    
   });
+
+  callback(module.exports.returnData(values.colors[0])); 
+
   });
   },    
      
