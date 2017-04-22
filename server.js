@@ -1257,8 +1257,19 @@ else {
                console.log(JSON.stringify(face));
             }):console.log("no faces detected!");                     
 
+
+            mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, function(result){
+
+            
+            var color = result ;
+            console.log("=== PROMINENT COLOR IS === " + result );
+
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
            fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
+
+            });
+
+
 
           // var r;
           // var g;

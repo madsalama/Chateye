@@ -88,11 +88,36 @@ module.exports = {
     },
 
 
-    getProminentColor:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
+ getProminentColor:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
+    
+    var values = []; 
 
+            // download the image & access it!
+            var download = function(uri, filename, callback){
+            request.head(uri, function(err, res, body){
 
+            console.log('content-type:', res.headers['content-type']);
+            console.log('content-length:', res.headers['content-length']);
 
-     }
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);});
+            };
+
+            download(image, './static/'+''+senderID+'_'+timeOfMessage+'.jpg', function(){            
+                var image_path = './static/'+''+senderID+'_'+timeOfMessage+'.jpg';
+
+        visionClient.detectProperties(image).then((results) => {
+            const properties = results[0];            
+            callback(module.exports.returnData(properties.colors[0])); 
+            
+            // .forEach((color) => console.log(color));
+  });
+  });
+  },    
+     
+     getSimilarImage:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
+    
+    }
+
 
 };
 
