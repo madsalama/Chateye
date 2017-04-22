@@ -115,6 +115,7 @@ module.exports = {
   });
   },    
      
+     
      getSimilarImage:function(senderID, timeOfMessage, fs, request, visionClient, image, callback){
     
     }
