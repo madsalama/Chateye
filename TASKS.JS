@@ -21,7 +21,7 @@
  *  		 		< FIX THE FACT THAT A CAROUSELL CAN ONLY CATCH 10 ELEMENTS >
  * 			        < USER MAY HAVE A KAJILLION NOTES - HOW TO VIEW IN A CAROUSELL STILL - MULTIPLE ONES? > 
  
- *     8- translating from any input language to ENGLISH back and forth between messenger/API.AI  
+ *     8- Translating from any input language to ENGLISH back and forth between messenger/API.AI  
  *     9- putting a GIPHY in proper card showing the BANNER. 
  *    10- PUSH notifications after a long time of inactivity (push with what's your status or check the media out! )
  * 
