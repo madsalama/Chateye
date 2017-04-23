@@ -1297,6 +1297,8 @@ else {
             }):console.log("no faces detected!"); 
 
             var face = faces[0];
+            console.log("one face");
+            console.log(face);
             // var happy = face.
             // get specfic face data and set attributes 
 
@@ -1310,7 +1312,7 @@ else {
             console.log("RESULT IS " + result);
 
             var colornames = namer("#"+result);
-            var name = colornames.basic[0].name;
+            var name = colornames.ntc[0].name;
 
             setAttribute(senderID, 'selfieInfo.color', name );
 
