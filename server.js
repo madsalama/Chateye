@@ -1258,8 +1258,6 @@ else {
            console.log(JSON.stringify(faces));
 
            
-
-              
            // FIRST FACE ON THE RIGHT
            if (faces.images) {
 
@@ -1296,6 +1294,14 @@ else {
                console.log(JSON.stringify(face));
             }):console.log("no faces detected!"); 
 
+            // check if any of the faces is smiling - enable the smile flag - great smile :) !
+            // none of the faces is smiling? 
+              // "Show me that big smile though!"
+              // "I think you are hiding a great smile though! ;)"
+
+            // Check if any of the faces seem angry/sorrow - enable the negative flag 
+            // Oh, you seem a little upset though. Cheer up!
+
             var face = faces[0];
             console.log("one face");
             console.log(face);
@@ -1312,7 +1318,7 @@ else {
             console.log("RESULT IS " + result);
 
             var colornames = namer("#"+result);
-            var name = colornames.ntc[0].name;
+            var name = colornames.html[0].name;
 
             setAttribute(senderID, 'selfieInfo.color', name );
 
