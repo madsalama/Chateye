@@ -1278,7 +1278,7 @@ else {
                setAttribute(senderID, 'selfieInfo.gender', gender );
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
-              console.log(users);
+             
 
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
@@ -1322,6 +1322,8 @@ else {
 
             setAttribute(senderID, 'selfieInfo.color', name );
 
+             console.log(users);
+             
             fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.jpg');
             fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg');
 
