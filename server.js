@@ -1294,7 +1294,14 @@ else {
             console.log("========= VISION DETECT =========");
             faces? faces.forEach((face, i) => {              
                console.log(JSON.stringify(face));
-            }):console.log("no faces detected!");                     
+            }):console.log("no faces detected!"); 
+
+            var face = faces[0];
+            // var happy = face.
+            // get specfic face data and set attributes 
+
+
+
 
 
             mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, 
