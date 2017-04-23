@@ -109,7 +109,7 @@ module.exports = {
                 .then((results) => {
                 values = results[0];
                 
-                callback(module.exports.returnData(values.colors[1]));
+                callback(module.exports.returnData(values.colors[2]));
 
                 /*
                 console.log('Colors:');
