@@ -1231,6 +1231,9 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var nfaces = getAttribute(senderID, "selfieInfo.nfaces");
   var emotion = getAttribute(senderID, "selfieInfo.emotion");
 
+  if (emotion == 0) {
+    emotion = "???"
+  }
   // ... also guess emotional state here! 
 
   sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
