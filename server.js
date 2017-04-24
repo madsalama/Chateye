@@ -714,11 +714,12 @@ if (entry !== ""){
         }
 
       analysis = label ; 
-      
+
     }
     else {
       analysis = 'N/A'; 
     }
+    
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
