@@ -1232,8 +1232,16 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var emotion = getAttribute(senderID, "selfieInfo.emotion");
 
   if (emotion == 0) {
-    emotion = "???"
+    emotion = "???";
   }
+
+  else if (emotion === 'joy') {emotion = ':D';}
+  else if (emotion === 'sad') {emotion = ':(';}
+  else if (emotion === 'angry') {emotion = '>:(';}
+  else if (emotion === 'surprise') {emotion = ':O';}
+  else if (emotion === 'covered') {emotion = '🙈';}
+  else if (emotion === 'headwear') {emotion = '🙈';}
+
   // ... also guess emotional state here! 
 
   sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
@@ -1253,7 +1261,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
         });
     }  
     
-    sendTextMessage(senderID,"Emotional guess: "+ emotion + "!", function(){});
+    sendTextMessage(senderID,"Emoji look-a-like "+ emotion + "!", function(){});
 
   });
 
