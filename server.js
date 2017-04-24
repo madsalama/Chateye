@@ -1243,6 +1243,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   if (emotion === "covered") {emoji = "🙈";}
   if (emotion === "headwear"){emoji = "🙈";}
 
+  console.log(JSON.stringify(users)); 
  
   // ... also guess emotional state here! 
 
