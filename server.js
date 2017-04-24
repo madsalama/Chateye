@@ -1236,30 +1236,21 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
   
     if (glasses !== "" && glasses === "Eye"){
-      sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){
-            if (nfaces!=0) {
-        sendTextMessage(senderID,"You guys look great! 😀👍", function(){            
-        });
-    }
-
-            sendTextMessage(senderID,"Emotion guess: "+ emotion + "!", function(){});
-
+      sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){          
       });
     }
     else if (glasses !== "" && glasses === "Sun"){
       sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){
-            if (nfaces!=0) {
-        sendTextMessage(senderID,"You guys look great! 😀👍", function(){
+    });         
+    }
 
-
+    // MANY PEOPLE? 
+    if (nfaces!=0) {
+        sendTextMessage(senderID,"You guys look great! 😀👍", function(){            
         });
-    }
-            sendTextMessage(senderID,"Emotion guess: "+ emotion + "!", function(){});
-            
-      });
-    }
-
-
+    }  
+    
+    sendTextMessage(senderID,"Emotional guess: "+ emotion + "!", function(){});
 
   });
 
