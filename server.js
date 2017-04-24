@@ -687,8 +687,38 @@ if (entry !== ""){
     var response = response;
     var analysis; 
 
+    var emotions = []; 
+    var label ; 
+
+    // FORMAT: Note#2 | Note mood:+Joy || Note#2 | Note mood:-Anger || Note#2 | Note mood:-Fear
+    // Get LABEL of maximum value 
+
+    // response.emotion.document.emotion
+
     console.log(JSON.stringify(response));
-    response? analysis = response.sentiment.document.label:analysis = 'N/A'; 
+
+
+    if (response){
+
+        // for i in 
+        // response.emotion.document.emotion
+
+
+        if (response.sentiment.document.label === 'positive'){
+          label = '+';
+        } else if (response.sentiment.document.label === 'negative'){
+          label = '-';
+        }
+        else {
+            label = '~';
+        }
+
+      analysis = label ; 
+      
+    }
+    else {
+      analysis = 'N/A'; 
+    }
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
