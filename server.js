@@ -1230,17 +1230,18 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var glasses = getAttribute(senderID, "selfieInfo.glasses");
   var nfaces = getAttribute(senderID, "selfieInfo.nfaces");
   var emotion = getAttribute(senderID, "selfieInfo.emotion");
+  var emoji ; 
 
   if (emotion === "") {
     emotion = "???";
   }
 
-  if (emotion === "joy") {emotion = "😁";}
-  if (emotion === "sad") {emotion = "😞";}
-  if (emotion === "angry") {emotion = "😠";}
-  if (emotion === "surprise") {emotion = "😲";}
-  if (emotion === "covered") {emotion = "🙈";}
-  if (emotion === "headwear") {emotion = "🙈";}
+  if (emotion === "joy") {emoji = "😁";}
+  if (emotion === "sad") {emoji = "😞";}
+  if (emotion === "angry") {emoji = "😠";}
+  if (emotion === "surprise") {emoji = "😲";}
+  if (emotion === "covered") {emoji = "🙈";}
+  if (emotion === "headwear") {emoji = "🙈";}
 
  
   // ... also guess emotional state here! 
@@ -1262,7 +1263,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
         });
     }  
     
-    sendTextMessage(senderID,"Emoji look-a-like: "+ emotion + "!", function(){});
+    sendTextMessage(senderID,"Emoji look-a-like: "+ emoji + "!", function(){});
 
   });
 
