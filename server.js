@@ -738,9 +738,9 @@ if (entry !== ""){
 
 
         if (response.sentiment.document.label === 'positive'){
-          label = '+ ' + emotion ;
+          label = '+ve/' + emotion ;
         } else if (response.sentiment.document.label === 'negative'){
-          label = '- ' + emotion;
+          label = '-ve/' + emotion;
         }
         else {
             label = 'meh/' + emotion;
