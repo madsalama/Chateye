@@ -746,12 +746,15 @@ if (response.result.action === 'get-media') {
        var animal = animals[Math.floor(Math.random() * (animals.length-1))];
        // console.log(animal+ " | ");
 
+       var genres = response.result.parameters.music_genre;
+       var genre = genres[Math.floor(Math.random() * (genres.length-1))];
+       // console.log(animal+ " | ");
 
 
 
 // ======================================================================================================    
 
-var keywords = formulateKeywords(adjective, given_name, last_name, music_artist, animal);
+var keywords = formulateKeywords(adjective, given_name, last_name, music_artist, animal, genre);
 
 console.log(" ========= KEY WORDS LOGGER ========= ");
 
