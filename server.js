@@ -1235,12 +1235,12 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
     emotion = "???";
   }
 
-  if (emotion === 'joy') {emotion = '😁';}
-  if (emotion === 'sad') {emotion = '😞';}
-  if (emotion === 'angry') {emotion = '😠';}
-  if (emotion === 'surprise') {emotion = '😲';}
-  if (emotion === 'covered') {emotion = '🙈';}
-  if (emotion === 'headwear') {emotion = '🙈';}
+  if (emotion === "joy") {emotion = "😁";}
+  if (emotion === "sad") {emotion = "😞";}
+  if (emotion === "angry") {emotion = "😠";}
+  if (emotion === "surprise") {emotion = "😲";}
+  if (emotion === "covered") {emotion = "🙈";}
+  if (emotion === "headwear") {emotion = "🙈";}
 
  
   // ... also guess emotional state here! 
@@ -1412,12 +1412,12 @@ else {
             var face = faces[0];
 
             var emotions; 
-            emotions = { 'joy': face.joyLikelihood,                 
-                         'sad': face.sorrowLikelihood, 
-                         'angry': face.angerLikelihood,
-                         'surprise': face.surpriseLikelihood,
-                         'covered': face.underExposedLikelihood,
-                         'headwear':face.headwearLikelihood }; 
+            emotions = { "joy": face.joyLikelihood,                 
+                         "sad": face.sorrowLikelihood, 
+                         "angry": face.angerLikelihood,
+                         "surprise": face.surpriseLikelihood,
+                         "covered": face.underExposedLikelihood,
+                         "headwear":face.headwearLikelihood }; 
           
           // get most probable emotion 
           emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450    
