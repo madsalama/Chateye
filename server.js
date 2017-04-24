@@ -743,7 +743,7 @@ if (entry !== ""){
           label = '-ve | ' + emotion;
         }
         else {
-            label = '~ | ' + emotion;
+            label = '~meh | ' + emotion;
         }
 
       analysis = label ; 
