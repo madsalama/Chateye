@@ -251,7 +251,7 @@ return str;
     var arr = [];
     for (var prop in emotions) {
         if( emotions.hasOwnProperty( prop ) ) {
-            if(emotions[prop] > highest ){ 
+            if(emotions[prop] > highest && emotions[prop]>0){ 
                 arr = [];
                 highest = emotions[prop];
                 arr[prop] = highest;
@@ -713,7 +713,7 @@ if (entry !== ""){
     // Get LABEL of maximum value 
       
     var emotions = response.emotion.document.emotion; 
-    emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450
+    emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450    
     emotion = Object.keys(emotion); 
 
     // emotion = _.findKey(emotion[0], emotion );    // get KEY name matching MAX value 
