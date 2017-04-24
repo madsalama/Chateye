@@ -749,7 +749,11 @@ if (response.result.action === 'get-media') {
        var genres = response.result.parameters.music_genre;
        var genre = genres[Math.floor(Math.random() * (genres.length-1))];
        // console.log(animal+ " | ");
-
+       if ( genre === 'J-pop' ) {
+        genre = "jpop" ; 
+       }else if (genre === 'K-pop') {
+          genre = "kpop" ; 
+       }
 
 
 // ======================================================================================================    
