@@ -687,7 +687,7 @@ if (entry !== ""){
     var response = response;
     var analysis; 
 
-    console.log(response);
+    console.log(JSON.stringify(response));
     response? analysis = response.sentiment.document.label:analysis = 'N/A'; 
     
   mmongo.commitEntry(MongoClient, assert, db_url, 
