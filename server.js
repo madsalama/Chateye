@@ -764,7 +764,9 @@ console.log(keywords);
 
 switch(media_type) {
     case "#video":
-            // =========================================================
+    sendTextMessage(senderID, "OK! Now searching for something cool... 🤔", function(){
+
+           // =========================================================
             myoutube.getVideo(request, keywords, 30, function(data){ 
 
                 var url; 
@@ -788,6 +790,7 @@ switch(media_type) {
                     sendTextMessage(senderID, url, function(){});
                 })
                 :sendTextMessage(senderID, "bummer... nothing relevant was found! :(", function(){});
+  
 
                 /*
 
@@ -797,11 +800,17 @@ switch(media_type) {
 
 
             });
+            
+                }); 
+ 
             // ==========================================================            
         break;
 
-    case "#giphy":      
-        sendGiphy(request,keywords,20, senderID);
+    case "#giphy":   
+    sendTextMessage(senderID, "OK! Now searching for something cool... 🤔", function(){
+    sendGiphy(request,keywords,20, senderID);
+    });   
+
         break;
 
     default:
