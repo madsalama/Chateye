@@ -962,6 +962,10 @@ function setAttribute(senderID, name, value) {
           users[i].selfieInfo.nfaces = value ; 
         }
 
+         else if (name === 'selfieInfo.emotion'){
+          users[i].selfieInfo.emotion = value ; 
+        }
+
         break;          
      }
    }
@@ -985,6 +989,11 @@ function getAttribute(senderID, name) {
         else if (name === 'selfieInfo.nfaces'){
           return users[i].selfieInfo.nfaces; 
         }
+
+        else if (name === 'selfieInfo.emotion'){
+          return users[i].selfieInfo.emotion; 
+        }
+
         break;          
      }
    }
@@ -1099,11 +1108,8 @@ if (!lookup[senderID]){
       color: '',
       glasses: '',
       
-      headwear: 0,
-      emotionHappy: 0,
-      emotionSad: 0, 
-      emotionAnger: 0,
-      emotionSurprise: 0      
+      emotion: ''
+
    }
   
 } );
@@ -1223,21 +1229,37 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var color = getAttribute(senderID, "selfieInfo.color");
   var glasses = getAttribute(senderID, "selfieInfo.glasses");
   var nfaces = getAttribute(senderID, "selfieInfo.nfaces");
+  var emotion = getAttribute(senderID, "selfieInfo.emotion");
 
   // ... also guess emotional state here! 
 
   sendTextMessage(senderID,"I think that " + color + " is a color that looks good on you! ;)" ,function(){
   
     if (glasses !== "" && glasses === "Eye"){
-      sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){});
-    }
-    else if (glasses !== "" && glasses === "Sun"){
-      sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){});
+      sendTextMessage(senderID,"... also, I think these glasses look so cute!🤓 ", function(){
+            if (nfaces!=0) {
+        sendTextMessage(senderID,"You guys look great! 😀👍", function(){            
+        });
     }
 
-    if (nfaces!=0) {
-        sendTextMessage(senderID,"You guys look great! 😀👍", function(){});
+            sendTextMessage(senderID,"Emotion guess: "+ emotion + "!", function(){});
+
+      });
     }
+    else if (glasses !== "" && glasses === "Sun"){
+      sendTextMessage(senderID,"... also, wow! these are some cool shades! 😎", function(){
+            if (nfaces!=0) {
+        sendTextMessage(senderID,"You guys look great! 😀👍", function(){
+
+
+        });
+    }
+            sendTextMessage(senderID,"Emotion guess: "+ emotion + "!", function(){});
+            
+      });
+    }
+
+
 
   });
 
@@ -1385,13 +1407,20 @@ else {
             // Oh, you seem a little upset though. Cheer up!
 
             var face = faces[0];
-            console.log("one face");
-            console.log(face);
-            // var happy = face.
-            // get specfic face data and set attributes 
 
+            var emotions; 
+            emotions = { 'joy': face.joyLikelihood,                 
+                         'sad': face.sorrowLikelihood, 
+                         'angry': face.angerLikelihood,
+                         'surprise': face.surpriseLikelihood,
+                         'covered': face.underExposedLikelihood,
+                         'headwear':face.headwearLikelihood }; 
+          
+          // get most probable emotion 
+          emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450    
+          emotion = Object.keys(emotion);            
 
-
+          setAttribute(senderID, 'selfieInfo.emotion', emotion);
 
 
             mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, 
