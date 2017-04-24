@@ -647,7 +647,7 @@ if (response.result.action === 'save-entry') {
   });
 
 var today = new Date();
-var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
 
 var minutes = today.getMinutes() ; 
 // var seconds = today.getSeconds() ; 
