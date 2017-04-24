@@ -394,7 +394,7 @@ if (n<=10){
 
 elements.push( 
   {
-            title: "Note#" + n + " | " + "Note mood: " + analysis,            
+            title: "Note #" + n + " | " + "Mood: " + analysis,            
             subtitle: entryDate,
             // image_url: "",    // image defined according to note mood 
             "buttons":[
@@ -705,9 +705,9 @@ if (entry !== ""){
 
 
         if (response.sentiment.document.label === 'positive'){
-          label = '+';
+          label = '+ve';
         } else if (response.sentiment.document.label === 'negative'){
-          label = '-';
+          label = '-ve';
         }
         else {
             label = '~';
@@ -720,7 +720,7 @@ if (entry !== ""){
       analysis = 'N/A'; 
     }
     
-    
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
   function commitCallBack(result){
