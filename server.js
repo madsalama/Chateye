@@ -245,6 +245,25 @@ function formulateKeywords(){
 return str; 
 }
 
+
+ function MaxCat(emotions){
+    var highest = 0;
+    var arr = [];
+    for (var prop in emotions) {
+        if( emotions.hasOwnProperty( prop ) ) {
+            if(emotions[prop] > highest ){ 
+                arr = [];
+                highest = emotions[prop];
+                arr[prop] = highest;
+            }
+
+        } 
+    }
+    return arr;
+}
+
+
+
 function sendMediaMessage(recipientId, message, callback) {
 
   var messageAttachments ;
@@ -687,16 +706,30 @@ if (entry !== ""){
     var response = response;
     var analysis; 
 
-    var emotions = []; 
+    var emotion = []; 
     var label ; 
 
     // FORMAT: Note#2 | Note mood:+Joy || Note#2 | Note mood:-Anger || Note#2 | Note mood:-Fear
     // Get LABEL of maximum value 
+      
+    var emotions = response.emotion.document.emotion; 
+    emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450
+    emotion = Object.keys(emotion); 
 
-    // response.emotion.document.emotion
+    // emotion = _.findKey(emotion[0], emotion );    // get KEY name matching MAX value 
+
+    /* 
+    "emotion": {
+				"sadness": 0.137513,
+				"joy": 0.000069,
+				"fear": 0.021313,
+				"disgust": 0.163266,
+				"anger": 0.766191
+			}
+    */
+
 
     console.log(JSON.stringify(response));
-
 
     if (response){
 
@@ -705,12 +738,12 @@ if (entry !== ""){
 
 
         if (response.sentiment.document.label === 'positive'){
-          label = '+ve';
+          label = '+ve' + emotion ;
         } else if (response.sentiment.document.label === 'negative'){
-          label = '-ve';
+          label = '-ve' + emotion;
         }
         else {
-            label = '~';
+            label = '~' + emotion;
         }
 
       analysis = label ; 
