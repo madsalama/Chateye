@@ -738,12 +738,12 @@ if (entry !== ""){
 
 
         if (response.sentiment.document.label === 'positive'){
-          label = '+ve' + emotion ;
+          label = '+ve | ' + emotion ;
         } else if (response.sentiment.document.label === 'negative'){
-          label = '-ve' + emotion;
+          label = '-ve | ' + emotion;
         }
         else {
-            label = '~' + emotion;
+            label = '~ | ' + emotion;
         }
 
       analysis = label ; 
