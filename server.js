@@ -1236,12 +1236,12 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
     emotion = "???";
   }
 
-  if (emotion === "joy"){emoji = "😁";}
-  if (emotion === "sad"){emoji = "😞";}
-  if (emotion === "angry"){emoji = "😠";}
-  if (emotion === "surprise"){emoji = "😲";}
-  if (emotion === "covered") {emoji = "🙈";}
-  if (emotion === "headwear"){emoji = "🙈";}
+  if (emotion[0] === "joy"){emoji = "😁";}
+  if (emotion[0] === "sad"){emoji = "😞";}
+  if (emotion[0] === "angry"){emoji = "😠";}
+  if (emotion[0] === "surprise"){emoji = "😲";}
+  if (emotion[0] === "covered") {emoji = "🙈";}
+  if (emotion[0] === "headwear"){emoji = "🙈";}
 
   console.log(JSON.stringify(users)); 
  
