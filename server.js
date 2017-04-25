@@ -714,8 +714,8 @@ if (entry !== ""){
     // Get LABEL of maximum value 
       
     var emotions = response.emotion.document.emotion; 
-    emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - anger:0.3450    
-    emotion = Object.keys(emotion); 
+    emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - [anger:0.3450]
+    emotion = Object.keys(emotion);             // anger 
 
     // emotion = _.findKey(emotion[0], emotion );    // get KEY name matching MAX value 
 

@@ -6,29 +6,31 @@
 
  *     1- create and integrate mongoDB database for entries/user information.            = DONE! 
  *     2- create selfie game rules and responses.
- *     3- create multimedia interactions rules and responses.                            = WIP! 
- *  																				     = WIP!
+ *     3- create multimedia interactions rules and responses.                            = DONE! 
+ *  																				     = DONE!
  * 
  *     4- create emotional responses ONLY on an entire log entry and store the current emotions in DB with entry. 
  *          - get TONE analysis / personality / emotions and sentiment in a formula to produce a response | and store! 
  *          - react to emotion with multimedia too. 
  * 
- *     5- create contextually relevant messengerAPI related features (look at paper).
- *     6- handling emojis + emoji sentiment? (outside diary context/ inside diary context). 
+ *     5- create contextually relevant messengerAPI related features (look at paper).		= DONE!
+ *     6- handling emojis + emoji sentiment? (outside diary context/ inside diary context).  = DONE!
+ * 
  *     7- create animated visual response (animating GIF for CHATZER EYE) | In response to what though?
  * 
  *          < CREATIVE NOTE TAKING >
  *  		 		< FIX THE FACT THAT A CAROUSELL CAN ONLY CATCH 10 ELEMENTS >
  * 			        < USER MAY HAVE A KAJILLION NOTES - HOW TO VIEW IN A CAROUSELL STILL - MULTIPLE ONES? > 
  
- *     8- Translating from any input language to ENGLISH back and forth between messenger/API.AI  
- *     9- putting a GIPHY in proper card showing the BANNER. 
- *    10- PUSH notifications after a long time of inactivity (push with what's your status or check the media out! )
+ *     8- Translating from any input language to ENGLISH back and forth between messenger/API.AI  < N/A > 
+ *     9- putting a GIPHY in proper card showing the BANNER. 									  < N/A > 
+ * 
+ *    10- PUSH notifications after a long time of inactivity (push with what's your status or check the media out! ) < N/A > 
  * 
  * =============================================================================================================================
 
 
-
+Carousel = 10 items 
 
 
 DONE! 
