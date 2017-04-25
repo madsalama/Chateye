@@ -1233,8 +1233,8 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var emotion = getAttribute(senderID, "selfieInfo.emotion");
   var emoji ; 
 
-  if (emotion === "") {
-    emotion = "???";
+  if (emotion[0] === "") {
+    emoji = "🤔";
   }
 
   if (emotion[0] === "joy"){emoji = "😁";}
@@ -1242,7 +1242,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   if (emotion[0] === "angry"){emoji = "😠";}
   if (emotion[0] === "surprise"){emoji = "😲";}
   if (emotion[0] === "covered") {emoji = "🙈";}
-  if (emotion[0] === "headwear"){emoji = "🙈";}
+  if (emotion[0] === "headwear"){emoji = "🙉";}
 
   console.log(JSON.stringify(users)); 
  
