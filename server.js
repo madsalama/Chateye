@@ -370,7 +370,12 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
  var elements = [{
               title: title,
               subtitle: subtitle,
-              image_url: imageurl
+              image_url: imageurl,
+              item_url: url ,
+              default_action:{
+                type:"web_url",
+                url:url
+              }
 }]; 
 
   var messageData = {
@@ -383,6 +388,7 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
         type: "template",
         payload: {
           template_type: "generic",
+          sharable:true,
           elements:elements
         }
       }
