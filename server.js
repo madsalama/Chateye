@@ -494,8 +494,10 @@ function sendGiphy(request,messageText,limit, senderID)
                 url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
               }):sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;  
             */
+            url = 'https://media1.giphy.com/media/b9pK1N3lrYkCc/giphy.gif' ; 
+            sendTextMessage(senderID,url, function(){}); 
 
-            sendCard(senderID, "Powered by GIPHY", "Hope you like this!", url, url, function(){});
+           // sendCard(senderID, "Powered by GIPHY", "Hope you like this!", url, url, function(){});
 
            /* 
             url?sendMediaMessage(senderID, message1, function(){              
