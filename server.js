@@ -863,7 +863,7 @@ switch(media_type) {
                 console.log(data);
 
                 url?sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){
-                    sendTextMessage(senderID, url, function(){});
+                    // sendTextMessage(senderID, url, function(){});
                 })
                 :sendTextMessage(senderID, "bummer... nothing relevant was found! :(", function(){});
   
