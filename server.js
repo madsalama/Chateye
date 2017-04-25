@@ -373,8 +373,9 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               image_url: imageurl,
               item_url: url ,
               default_action:{
-                type:"web_url",
-                url:url
+              type:"web_url",
+              url:url
+              
               }
 }]; 
 
