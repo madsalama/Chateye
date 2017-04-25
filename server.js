@@ -483,14 +483,8 @@ function sendGiphy(request,messageText,limit, senderID)
                     "attachment": {
                     "type": "image",
                     "payload": {
-                    "url":url }}};
-
-             var message2 = {
-                    "attachment": {
-                    "type": "image",
-                    "payload": {
-                    "url":"https://chatzer.herokuapp.com/logo.png" }}};
-            
+                    "url":url+'?_nc_ad=z-m' }}};
+  
 
             // sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){})
 
@@ -503,7 +497,7 @@ function sendGiphy(request,messageText,limit, senderID)
 
             sendCard(senderID, "Powered by GIPHY", "Hope you like this!", url, url, function(){});
 
-            /*
+           /* 
             url?sendMediaMessage(senderID, message1, function(){              
               url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
             })
