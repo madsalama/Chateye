@@ -1233,7 +1233,7 @@ else if (message!== undefined && message.quick_reply !== undefined && message.qu
   var emotion = getAttribute(senderID, "selfieInfo.emotion");
   var emoji ; 
 
-  if (emotion[0] === "") {
+  if (emotion[0] === "" || emotion[0] === undefined ) {
     emoji = "🤔";
   }
 
