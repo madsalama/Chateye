@@ -501,12 +501,15 @@ function sendGiphy(request,messageText,limit, senderID)
               }):sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;  
             */
 
-            
+            sendCard(senderID, title, "Hope you like this!", url, url, function(){});
+
+            /*
             url?sendMediaMessage(senderID, message1, function(){              
               url?sendTextMessage(senderID,'Powered by GIPHY', function(){}):console.log(" ============== ");
             })
             :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
-
+            */
+            
         });
 
 };
