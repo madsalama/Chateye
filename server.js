@@ -501,7 +501,7 @@ function sendGiphy(request,messageText,limit, senderID)
               }):sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});;  
             */
 
-            sendCard(senderID, title, "Hope you like this!", url, url, function(){});
+            sendCard(senderID, "Powered by GIPHY", "Hope you like this!", url, url, function(){});
 
             /*
             url?sendMediaMessage(senderID, message1, function(){              
@@ -509,7 +509,7 @@ function sendGiphy(request,messageText,limit, senderID)
             })
             :sendTextMessage(senderID, "bummer... can't seem to find anything relevant! :(", function(){});
             */
-            
+
         });
 
 };
