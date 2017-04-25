@@ -371,12 +371,8 @@ function sendCard(recipientId, title, subtitle, imageurl, url, callback){
               title: title,
               subtitle: subtitle,
               image_url: imageurl,
-              item_url: url ,
-              default_action:{
-              type:"web_url",
-              url:url
+              item_url: url 
               
-              }
 }]; 
 
   var messageData = {
