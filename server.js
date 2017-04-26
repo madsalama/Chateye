@@ -95,7 +95,7 @@ const mgraph = require('./modules/graph');
 const mmongo = require('./modules/mongo');
 const myoutube = require('./modules/youtube');
 
-const url  = require("url"); 
+
 
 const cloudconvert = new (require('cloudconvert'))('NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A');
 
@@ -140,12 +140,11 @@ var App = function() {
 		self.app = express();
     self.app.use(express.static('static'));
 
-     proxy = url.parse(process.env.PROXIMO_URL); 
-     hostname = proxy.hostname; 
-     port = proxy.port || 80 ; 
+    // proxy = url.parse(process.env.PROXIMO_URL); 
+    // hostname = proxy.hostname; 
+    // port = proxy.port || 80 ; 
 
-        self.app.set('hostname', hostname); 
-        self.app.set('port', port);
+        self.app.set('port', (process.env.PORT || 8080));
      
         self.app.use(compression()); 
         self.app.use(cors());
