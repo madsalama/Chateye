@@ -140,7 +140,12 @@ var App = function() {
 		self.app = express();
     self.app.use(express.static('static'));
 
-        self.app.set('port', (process.env.PORT || 8080));
+     proxy = url.parse(process.env.PROXIMO_URL); 
+     hostname = proxy.hostname; 
+     port = proxy.port || 80 ; 
+
+        self.app.set('hostname', hostname); 
+        self.app.set('port', port);
      
         self.app.use(compression()); 
         self.app.use(cors());
