@@ -140,9 +140,9 @@ var App = function() {
 		self.app = express();
     self.app.use(express.static('static'));
 
-     proxy = url.parse(process.env.PROXIMO_URL); 
-     hostname = proxy.hostname; 
-     port = proxy.port || 80 ; 
+     // proxy = url.parse(process.env.PROXIMO_URL); 
+     // hostname = proxy.hostname; 
+     // port = proxy.port || 80 ; 
 
      // console.log("PROXIMO CONFIG =" + process.env.PROXIMO_URL + "|"+proxy+" | " + hostname + " | " + port);
 
@@ -179,11 +179,11 @@ mgraph.whitelist(request, function(){
 //     LOCAL START UP TESTS GO HERE 
 // ====================================
 
-    var proxy = url.parse(process.env.PROXIMO_URL); 
-    var hostname = proxy.hostname; 
-    var port = proxy.port || 80 ; 
+    // var proxy = url.parse(process.env.PROXIMO_URL); 
+    // var hostname = proxy.hostname; 
+    // var port = proxy.port || 80 ; 
 
-    console.log("PROXY AUTH = " + proxy.auth); 
+    // console.log("PROXY AUTH = " + proxy.auth); 
 
 // ====================================
 
@@ -207,7 +207,7 @@ var options = {
     json: messageData
     
     // ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
-    
+
 
 };
 
