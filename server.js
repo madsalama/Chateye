@@ -147,7 +147,7 @@ var App = function() {
      // console.log("PROXIMO CONFIG =" + process.env.PROXIMO_URL + "|"+proxy+" | " + hostname + " | " + port);
 
         self.app.set('port', (process.env.PORT || 8080));       // This should not change...
-        self.app.set('hostname', hostname);
+        // self.app.set('hostname', hostname);
 
         self.app.use(compression()); 
         self.app.use(cors());
@@ -206,7 +206,7 @@ var options = {
     method: 'POST',
     json: messageData
     
-    // ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+    ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
 
 };
 
