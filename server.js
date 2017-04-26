@@ -1633,7 +1633,7 @@ var data = req.body;
         //  Start the app on the specific interface (and port).
         self.app.listen(self.app.get('port'), function() {
             console.log('Node app is running on port', self.app.get('port'));
-            console.log('Node app hostname ', self.app.get('hostname'));            
+            // console.log('Node app hostname ', self.app.get('hostname'));            
         });
     };
 
