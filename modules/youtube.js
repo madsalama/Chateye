@@ -16,6 +16,8 @@ getVideo: function(request, keywords, limit, callback){
                 var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)  
                           
                 var object = JSON.parse(body);            
+                console.log(body);
+                
                 callback(module.exports.returnData(object.items[choice]));
             }
        else
