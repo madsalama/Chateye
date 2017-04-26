@@ -183,6 +183,8 @@ mgraph.whitelist(request, function(){
     var hostname = proxy.hostname; 
     var port = proxy.port || 80 ; 
 
+    console.log("PROXY AUTH = " + proxy.auth); 
+
 // ====================================
 
  
@@ -195,9 +197,9 @@ var headers = {
 };
 
 var options = {
-    hostname: hostname, //
-    port:     port,     //
-    headers: { 'Proxy-Authorization': 'Basic #{new Buffer(proxy.auth).toString("base64")}'}, // 
+    // hostname: hostname, //
+    // port:     port,     //
+    // headers: { 'Proxy-Authorization': 'Basic #{new Buffer(proxy.auth).toString("base64")}'}, // 
 
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
