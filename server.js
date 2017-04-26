@@ -140,9 +140,11 @@ var App = function() {
 		self.app = express();
     self.app.use(express.static('static'));
 
-    // proxy = url.parse(process.env.PROXIMO_URL); 
-    // hostname = proxy.hostname; 
-    // port = proxy.port || 80 ; 
+     proxy = url.parse(process.env.PROXIMO_URL); 
+     hostname = proxy.hostname; 
+     port = proxy.port || 80 ; 
+
+     console.log("PROXIMO CONFIG =" +proxy+" | " + hostname + " | " + port);
 
         self.app.set('port', (process.env.PORT || 8080));
      
