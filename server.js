@@ -144,9 +144,9 @@ var App = function() {
      hostname = proxy.hostname; 
      port = proxy.port || 80 ; 
 
-     console.log("PROXIMO CONFIG =" + process.env.PROXIMO_URL + "|"+proxy+" | " + hostname + " | " + port);
+     // console.log("PROXIMO CONFIG =" + process.env.PROXIMO_URL + "|"+proxy+" | " + hostname + " | " + port);
 
-        self.app.set('port', (process.env.PORT || 8080));
+        self.app.set('port', (process.env.PORT || 8080));       // This should not change...
         self.app.set('hostname', hostname);
 
         self.app.use(compression()); 
@@ -1623,6 +1623,8 @@ var data = req.body;
         //  Start the app on the specific interface (and port).
         self.app.listen(self.app.get('port'), function() {
             console.log('Node app is running on port', self.app.get('port'));
+            console.log('Node app hostname ', self.app.get('hostname'));
+
         });
     };
 
