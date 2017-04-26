@@ -147,7 +147,8 @@ var App = function() {
      console.log("PROXIMO CONFIG =" + process.env.PROXIMO_URL + "|"+proxy+" | " + hostname + " | " + port);
 
         self.app.set('port', (process.env.PORT || 8080));
-     
+        self.app.set('hostname', hostname);
+
         self.app.use(compression()); 
         self.app.use(cors());
      
