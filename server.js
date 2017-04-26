@@ -727,7 +727,9 @@ if (entry !== ""){
 
     // FORMAT: Note#2 | Note mood:+Joy || Note#2 | Note mood:-Anger || Note#2 | Note mood:-Fear
     // Get LABEL of maximum value 
-      
+    
+    console.log(response);
+    
     response? emotions = response.emotion.document.emotion : console.log("N/A");; 
     emotion = MaxCat(emotions);                 // get maximum VALUE in EMOTIONS objects (KEY/VALUE) - [anger:0.3450]
     emotion = Object.keys(emotion);             // anger 
