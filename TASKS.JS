@@ -77,4 +77,36 @@ DONE!
 				
  * 
  * 
+ * 
+ * 
+ * ========
+| TODO |
+========
+
+DONE!
+-- Fix response if KAIROS API is DOWN ! 
+-- Fix interpreting audio while listening ?
+https://medium.muz.li/the-ultimate-guide-to-chatbots-why-th…
+
+
+
+-0- Fix Audio feature - add something related to Audio entity recognition! 
+< tell something > - get a definition!
+-1- Mix and match emotions for better analysis (store all major emotions instead of only one major)
+-- use that information to save user's mood (average - trend - graph?)
+-- use a set of notes to detect user's personality (IBM natural tone analysis - personality - etc )
+-2- More than 10 items per carousel. (a 'view more' carousel item)
+-3- Media response is relating to latest note emotion.
+- FUTURE -
+-- CREATE a singalong game - where it suggests songs and shows a summary of lyrics to sing along! <3 
+-4- Extract information/entities from the notes to better sympathize with the person's preferences. (watson NLU)
+-- store these preferences to provide a customized experience. (mongoDB)
+-- in time, an interaction profile is created for the specific user. (mongoDB)
+-- in time, the application should use a machine learning model to improve and dynamically interpret user's intentions 
+and also generate more responses and update (API.AI) intent model with those responses.
+
+
+
  */
+
+

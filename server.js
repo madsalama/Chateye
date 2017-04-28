@@ -778,11 +778,25 @@ if (entry !== ""){
     }
     
 
+ if (response.sentiment.document.label === 'negative' ) {
+
+  sendTextMessage(senderID, "Oh, you seem upset... maybe this can cheer you up! ;)", function(){
+      sendGiphy(request,"funny",30, senderID);
+  });
+  
+ }
+
+
+
   mmongo.commitEntry(MongoClient, assert, db_url, 
 entry, dateTime, analysis, senderID, 
   function commitCallBack(result){
     clearEntry(senderID);
     console.log(result);
+
+
+    // sendGiphy(request,keywords,20, senderID);
+
 
 }); 
 });
