@@ -59,7 +59,7 @@ createMenu:function(request, callback){
             
                    {   
                 type:"postback",
-                title:"📓 Memorize Note",
+                title:"📓 Done Talking | Memorize",
                 payload:"stop"
                    }, 
 
