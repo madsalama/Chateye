@@ -363,7 +363,7 @@ function sendQuickReplies(recipientId, callback) {
 function introduce(senderID, username){
 
     sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your listening, emotionally interactive, note-logging, media-suggesting AI.", function(){  
-    sendTextMessage(senderID, "Please, tap the menu below to uncover all of my abilities!", function(){});
+    sendTextMessage(senderID, "Please, Just talk to me! Or tap the menu below to uncover all of my abilities!", function(){});
 
 /*
     sendTextMessage(senderID, "I'll 'listen' to you if you 'want to talk'. Send your note as text, an audio message or \
@@ -1500,7 +1500,7 @@ else {
 
             
            }
-           
+
             }
 
 
