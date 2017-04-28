@@ -362,7 +362,7 @@ function sendQuickReplies(recipientId, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your listening, note-logging, media-suggesting AI.", function(){  
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your sympathizing, note-logging, media-suggesting AI.", function(){  
     sendTextMessage(senderID, "Let\'s talk! Tap the menu below to uncover all of my abilities!", function(){});
 
 /*
