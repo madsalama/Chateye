@@ -1540,6 +1540,9 @@ else {
 
         else if (messageAttachments[0].type=="audio"){                          
 
+  // api_ai(senderID, "ok! now trying to understand your voice...", app);
+  sendTextMessage(senderID, "ok! now trying to understand your voice...", function(){});
+
   var audio = messageAttachments[0].payload.url;    
   maudio.transcribe(senderID, timeOfMessage, fs, request, audio, speech2text, cloudconvert,     
             function(result){              
@@ -1554,8 +1557,10 @@ else {
 
                 var transcript = JSON.stringify(mresult.results[0].alternatives[0].transcript) ;
 
-                sendTextMessage(senderID, "I heard you say: " + transcript, function(){});
-                api_ai(senderID, transcript, app);
+                sendTextMessage(senderID, "I heard you say:" + transcript, function(){
+                  api_ai(senderID, transcript, app);
+                });
+                
 
               // Remove transcribed audio files 
                fs.unlink('./static/'+''+senderID+'_'+timeOfMessage+'.mp4') ;
