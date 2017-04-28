@@ -782,8 +782,7 @@ if (entry !== ""){
 
   sendTextMessage(senderID, "Oh, you seem upset... maybe this can cheer you up! ;)", function(){
       sendGiphy(request,"funny",30, senderID);
-  });
-  
+  });  
  }
 
 
