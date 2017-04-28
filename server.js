@@ -362,8 +362,9 @@ function sendQuickReplies(recipientId, callback) {
 
 function introduce(senderID, username){
 
-    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your emotionally interactive, note-logging, media-suggesting AI.", function(){  
+    sendTextMessage(senderID, "Hello, "+ username + "!"+" I am your listening, emotionally interactive, note-logging, media-suggesting AI.", function(){  
     sendTextMessage(senderID, "Please, tap the menu below to uncover all of my abilities!", function(){});
+
 /*
     sendTextMessage(senderID, "I'll 'listen' to you if you 'want to talk'. Send your note as text, an audio message or \
 even a photo of a something handwritten!", function(){
@@ -1505,6 +1506,9 @@ else {
 
 
 
+      }
+      else{
+        sendTextMessage(senderID, "Well, I can only check a photo if you wanna play the selfie game! ;)", function(){});
       }
       
 
