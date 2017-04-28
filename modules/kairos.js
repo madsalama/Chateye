@@ -50,6 +50,9 @@ module.exports = {
         if (!error && response.statusCode == 200) {                
                 callback(module.exports.returnData(body));
         }
+        else{
+            callback(module.exports.returnData("down"));
+        }
     });
 
             });

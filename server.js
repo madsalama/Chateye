@@ -1383,7 +1383,15 @@ else {
       var image = messageAttachments[0].payload.url;
 
         mkairos.detect(senderID, timeOfMessage, fs, request, image, 
-          function(values){        
+          function(values){ 
+
+
+            if (values === "down"){
+              sendTextMessage(senderID, "Sorry, Can't check that now. Please try again later!", function(){});
+            }
+            else{
+
+
             faces = values;
 
             // GUESS AGE/GENDER/GLASSES             
@@ -1492,13 +1500,19 @@ else {
 
             
            }
+           
+            }
+
 
 
 
 
            
            
-          });  
+          }
+          
+          
+          );  
 
           
 
