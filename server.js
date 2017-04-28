@@ -1508,7 +1508,7 @@ else {
 
       }
       else{
-        sendTextMessage(senderID, "Well, I can only check a photo if you wanna play the selfie game! ;)", function(){});
+        sendTextMessage(senderID, "Well, I can only check a photo if you wanna play the selfie game! If you do, Just ask me to! ;)", function(){});
       }
       
 
