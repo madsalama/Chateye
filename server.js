@@ -883,7 +883,7 @@ switch(media_type) {
                 var url; 
                 var videoId; 
                 var imageurl; 
-                var title;
+                var title = "";
 
                 data? videoId = data.id.videoId:console.log("VIDEO NOT FOUND!");                                 
                 videoId?url = "https://www.youtube.com/watch?v="+videoId:console.log("");
