@@ -9,6 +9,7 @@
             // your photos | selfies ... 
             // your photos of a diary entry (handwritten) .... 
 
+
     // Chatzer learns to be your bestfriend, who you would talk to when you're bored/not feeling well/in a good sharing mood
     // it will sympathize and listen then try to make you feel better or celebrate with you!
 
