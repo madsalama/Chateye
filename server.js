@@ -890,8 +890,8 @@ switch(media_type) {
                 url?imageurl=data.snippet.thumbnails.medium.url:console.log(" "); 
                 url? title = data.snippet.title:console.log(" ");
 
-                console.log("IMAGE URL = " + JSON.stringify(imageurl)); 
-                console.log("VIDEO TITLE = " + JSON.stringify(title));
+               // console.log("IMAGE URL = " + JSON.stringify(imageurl)); 
+               // console.log("VIDEO TITLE = " + JSON.stringify(title));
 
                 // sendCard(senderID, title, "Hope you like this!", imageurl, url, function(){});
 
