@@ -16,8 +16,8 @@ createGetStarted:function(request, callback){
                     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
                     method: 'POST',                           
                     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
-                    json: message, 
-                    proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+                    json: message
+                   // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
 
         };
 
@@ -87,8 +87,8 @@ createMenu:function(request, callback){
                     uri: 'https://graph.facebook.com/v2.6/me/messenger_profile',
                     method: 'POST',                           
                     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
-                    json: message,
-                    proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+                    json: message
+                   // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
 
         };
 
@@ -109,8 +109,8 @@ getMenu:function(request, callback){
         var options = {
                     uri: 'https://graph.facebook.com/v2.6/me/messenger_profile?fields=persistent_menu',
                     method: 'GET',                           
-                    qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
-                    proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+                    qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' }
+                   // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
         };
 
                 request(options, function (error, response, body) {
@@ -132,8 +132,8 @@ deleteMenu:function(request, callback){
                     uri: 'https://graph.facebook.com/v2.6/me/messenger_profile?fields=persistent_menu',
                     method: 'DELETE',                           
                     qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' },
-                    json:{ "fields":["persistent_menu"] },
-                    proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+                    json:{ "fields":["persistent_menu"] }
+                    // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
 
         };
 
@@ -165,7 +165,7 @@ deleteMenu:function(request, callback){
             method: 'GET',   
             headers:module.exports.headers,         
             qs: { access_token: 'EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD' }
-            ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+            // ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
     }; 
 
 
@@ -195,8 +195,8 @@ deleteMenu:function(request, callback){
                 setting_type : "domain_whitelisting",
                 whitelisted_domains : ["https://chatzer.herokuapp.com"],
                 domain_action_type: "add"
-},
-proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+}
+// proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
     }; 
 
 
