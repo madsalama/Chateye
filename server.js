@@ -272,7 +272,6 @@ return str;
                 highest = emotions[prop];
                 arr[prop] = highest;
             }
-
         } 
     }
     return arr;
