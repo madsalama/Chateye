@@ -1,0 +1,46 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="shortcut icon" type="image/png" href="./images/chatzer.png"/>   
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:700,900" rel="stylesheet">
+        
+        <title>Welcome | Chateye</title>
+
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script>    
+
+    function drawCircle(stage, color, radius){
+            var circle = new createjs.Shape();        
+            circle.x = 250;
+            circle.y = 250;
+            circle.graphics.beginFill(color).drawCircle(0, 0, radius);    
+            stage.addChild(circle);
+            stage.update();
+            return circle;             
+        };
+
+        function init() {
+            var stage = new createjs.Stage("rings");
+            stage.enableMouseOver(60); 
+            
+
+            var size = 150; 
+            
+            var orange = drawCircle(stage, "orange", size);
+            var black1 = drawCircle(stage, "#191919", size-20);
+            var yellow = drawCircle(stage, "yellow", size-45);
+            var black2 = drawCircle(stage, "#191919", size-60);
+            var cyan = drawCircle(stage, "cyan", size-80);
+            var black3 = drawCircle(stage, "#191919", size-110); 
+                
+        }
+
+    </script>
+    </head>
+
+ <body onload="init();" bgcolor="#191919">
+    <canvas id="rings" width="500" height="500"></canvas>
+</body>
+
+</html>

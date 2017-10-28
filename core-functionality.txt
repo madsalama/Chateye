@@ -1,0 +1,18 @@
+==========================================================================
+0 - INPUT methods: text/audio/image/emoji/location/gif... 
+
+1 - Collected basic USER INFO.
+2 - Emotional diary entries...
+
+	-a- emotional state of each diary entry is color coded.
+	-b- retrieve each entry in a WEBVIEW.
+	-c- retrieve the latest set of entries in a CAROUSELL.
+	-d- entry is TEXT/IMAGE/LOCATION/ if AUDIO convert to TEXT... 
+
+==========================================================================
+>  functionality for sentiment/emotion analysis IBM. 
+==========================================================================
+
+3 - Contexually relevant multimedia (twitter, instagram, giphy, youtube).
+4 - SELFIE game!
+
