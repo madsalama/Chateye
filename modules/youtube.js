@@ -7,7 +7,7 @@ module.exports = {
 getVideo: function(request, keywords, limit, callback){
         var keywords = encodeURIComponent(keywords);        
         var options = {
-                url: 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyD_cG0i-KHnuVJ2HorENASSz9F0pI5dkl4&part=snippet\
+                url: 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRWF1EfsvVlXTSLsG6XWir2KuRyPtkBB8&part=snippet\
 &q='+keywords+'&order=viewCount&maxResults='+limit,
                 method: 'GET' }; 
 
