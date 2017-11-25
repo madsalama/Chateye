@@ -5,14 +5,12 @@ module.exports = {
     },
 
 getVideo: function(request, keywords, limit, callback){
-        var keywords = encodeURIComponent(keywords);  
-        var headers = {'Referrer': 'https://chatzer.herokuapp.com'};
-
+        var keywords = encodeURIComponent(keywords);          
         var options = {
                 url: 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRWF1EfsvVlXTSLsG6XWir2KuRyPtkBB8&part=snippet\
 &q='+keywords+'&order=viewCount&maxResults='+limit,
                 method: 'GET',
-                headers: headers
+                headers: {'Referer': 'https://chatzer.herokuapp.com/'}
             }; 
 
                 request(options, function (error, response, body) {
