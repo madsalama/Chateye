@@ -40,7 +40,7 @@ module.exports = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
                 // body: " {\"image\":\"http://chatzer.herokuapp.com/\"+senderID+\"_\"+timeOfMessage+\"_kairos.jpg\",\"selector\":\"ROLL\" } ",
-                body: "{  \"image\": \"http://media.kairos.com/kairos-elizabeth.jpg\",  \"selector\": \"ROLL\"}",
+                //  body: "{  \"image\": \"http://media.kairos.com/kairos-elizabeth.jpg\",  \"selector\": \"ROLL\"}",
                 headers: module.exports.headers 
             }; 
 
