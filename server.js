@@ -1408,6 +1408,8 @@ else {
 
 
             faces = values;
+             	    console.log("FACES ARE = " + faces);
+
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
