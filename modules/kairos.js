@@ -3,8 +3,9 @@
 
 module.exports = {
     headers:{
-            'User-Agent':       'Super Agent/0.0.1',
-            'Content-Type':     'application/x-www-form-urlencoded',
+           //  'User-Agent':       'Super Agent/0.0.1',
+             'Content-Type':     'application/x-www-form-urlencoded',
+            // 'Content-Type': 'application/json',
             'app_id': 'b1592ea1',
             'app_key': 'ddfb3317a291a021d1ee240b54f517cf' },
 
@@ -39,8 +40,8 @@ module.exports = {
             options = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
-                // body: " {\"image\":\"http://chatzer.herokuapp.com/\"+senderID+\"_\"+timeOfMessage+\"_kairos.jpg\",\"selector\":\"ROLL\" } ",
-                //  body: "{  \"image\": \"http://media.kairos.com/kairos-elizabeth.jpg\",  \"selector\": \"ROLL\"}",
+                json:  { "image":"http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg","selector":"ROLL" },
+                // json: { image": \"http://media.kairos.com/kairos-elizabeth.jpg\",  \"selector\": \"ROLL\"}",
                 headers: module.exports.headers 
             }; 
 
@@ -48,6 +49,7 @@ module.exports = {
     request(options, function (error, response, body) {
 
         console.log(" === KAIROS TROUBLESHOOT === ");
+        console.log(options);
         console.log('Status:', response.statusCode);
         console.log('Headers:', JSON.stringify(response.headers));
         console.log('Response:', body);
