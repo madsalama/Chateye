@@ -1408,7 +1408,7 @@ else {
 
 
             faces = values;
-             	    console.log("FACES ARE = " + faces);
+             	    console.log("FACES ARE = " + faces.images[0]);
 
 
             // GUESS AGE/GENDER/GLASSES             
