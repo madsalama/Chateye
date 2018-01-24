@@ -1408,12 +1408,11 @@ else {
 
 
             faces = values;
-             	    console.log("FACES ARE = " + faces.images[0]);
 
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(JSON.stringify(faces));
+           console.log("KAIROS RESULT= " + JSON.stringify(faces));
 
            
            // FIRST FACE ON THE RIGHT
