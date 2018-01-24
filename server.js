@@ -3,7 +3,7 @@
 // ========================================
 //       Chatzer - A friendly AI
 // ========================================
-    
+// test    
     // CHATZER SEES and sympathizes.
             // your text entries ... 
             // your photos | selfies ... 
