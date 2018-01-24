@@ -34,7 +34,7 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg', 
                 function(){            
                     var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';                
-                    var image_ = encodeURIComponent("http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg");     
+                    var image_ = encodeURIComponent("http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg&selector=ROLL");     
 
             options = {
                 url: 'https://api.kairos.com/detect?image='+image_,
@@ -47,6 +47,13 @@ module.exports = {
 
 
     request(options, function (error, response, body) {
+
+        console.log(" === KAIROS TROUBLESHOOT === ");
+        console.log('Status:', response.statusCode);
+        console.log('Headers:', JSON.stringify(response.headers));
+        console.log('Response:', body);
+
+
         if (!error && response.statusCode == 200) {                
                 callback(module.exports.returnData(body));
         }
