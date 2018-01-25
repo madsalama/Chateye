@@ -1436,7 +1436,7 @@ else {
                setAttribute(senderID, 'selfieInfo.gender', gender );
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
-             console.log(selfieInfo);
+               console.log(users);
 
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
@@ -1475,7 +1475,7 @@ else {
           emotion = Object.keys(emotion);            
 
           setAttribute(senderID, 'selfieInfo.emotion', emotion);
-
+        
 
             mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, 
             function(result){
