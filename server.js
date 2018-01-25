@@ -1408,7 +1408,7 @@ else {
             else{
 
 
-            faces = values;
+            faces = JSON.parse(values);
 
 
             // GUESS AGE/GENDER/GLASSES             
