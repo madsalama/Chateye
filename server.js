@@ -771,7 +771,7 @@ if (entry !== ""){
             label = 'meh/' + emotion;
         }
 
-        
+
       analysis = label ; 
 
     }
@@ -1436,7 +1436,7 @@ else {
                setAttribute(senderID, 'selfieInfo.gender', gender );
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
-             
+             console.log(selfieInfo);
 
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
