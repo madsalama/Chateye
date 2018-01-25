@@ -4,8 +4,8 @@
 module.exports = {
     headers:{
            //  'User-Agent':       'Super Agent/0.0.1',
-             'Content-Type':     'application/x-www-form-urlencoded',
-            // 'Content-Type': 'application/json',
+            // 'Content-Type':     'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
             'app_id': 'b1592ea1',
             'app_key': 'ddfb3317a291a021d1ee240b54f517cf' },
 
@@ -40,8 +40,10 @@ module.exports = {
             options = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
-                json: { "image":" http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg " },
-                // json: { image": \"http://media.kairos.com/kairos-elizabeth.jpg\",  \"selector\": \"ROLL\"}",
+                body: JSON.stringify ({
+                    image:"http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg",
+                    selector:"ROLL"
+                }),                
                 headers: module.exports.headers 
             }; 
 
