@@ -771,6 +771,7 @@ if (entry !== ""){
             label = 'meh/' + emotion;
         }
 
+        
       analysis = label ; 
 
     }
