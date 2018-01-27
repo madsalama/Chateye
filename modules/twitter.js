@@ -1,30 +1,24 @@
 module.exports = {
+  // Get the most releveant and popular tweet (with most favorited/retweets)
+  // but not neccassarily latest (but a recent tweet is more prioritized)
 
-    // Get the most releveant and popular tweet (with most favorited/retweets) 
-    // but not neccassarily latest (but a recent tweet is more prioritized)
+  findTweet: function() {
+    var Twitter = require("twitter");
+    var client = new Twitter({
+      access_token_key: "119710335-AKBgvx71f8jmhpuJ0q8Fsh6yOYjSrq0YrZ8hHgnd",
 
-    findTweet: function(){
+      access_token_secret: "r96eL48Qd2yEx9C0UJlvd8gwYdHgwlg06UHZQUhH7Lvfp",
 
-        var Twitter = require('twitter');
-        var client  = new Twitter({
+      consumer_key: "wOI0K9TtPnmDRMcaJUM9MW6hL",
 
-		    access_token_key:
-    			'119710335-AKBgvx71f8jmhpuJ0q8Fsh6yOYjSrq0YrZ8hHgnd',
-		
-	    	access_token_secret:
-			    'r96eL48Qd2yEx9C0UJlvd8gwYdHgwlg06UHZQUhH7Lvfp',
-		
-		    consumer_key:
-    			'wOI0K9TtPnmDRMcaJUM9MW6hL',
-		
-		    consumer_secret:
-    			'w9zNUnEciOb5nHEtpMyB1m4I1weiIDU5SDkBQuUIoM4rlYqrNt'}); 
+      consumer_secret: "w9zNUnEciOb5nHEtpMyB1m4I1weiIDU5SDkBQuUIoM4rlYqrNt"
+    });
 
-// ===============================================
+    // ===============================================
 
-// var params = {screen_name: '_zalterego'};
+    // var params = {screen_name: '_zalterego'};
 
-/**
+    /**
  * 
  * client.get('search/tweets', {q: '#funny'}, function(error, tweets, response) {
 
@@ -47,12 +41,5 @@ module.exports = {
 
  * 
  */
-
-
-
-
-	
-
-    }
-
-}
+  }
+};

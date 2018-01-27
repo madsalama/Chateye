@@ -1,7 +1,6 @@
 #!/bin/sh
 
 ./node_modules/.bin/prettier --write "{*.js,modules/*.js}"
-mv server-pretty.js server.js
 
 #jsfiles=$(git diff --cached --name-only --diff-filter=ACM "*.js" "*.jsx" | tr '\n' ' ')
 #[ -z "$jsfiles" ] && exit 0

@@ -1,40 +1,33 @@
-
 module.exports = {
-    returnData:function(data){
-        return data;                
-    },
+  returnData: function(data) {
+    return data;
+  },
 
-getVideo: function(request, keywords, limit, callback){
-        var keywords = encodeURIComponent(keywords);          
-        var options = {
-                url: 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRWF1EfsvVlXTSLsG6XWir2KuRyPtkBB8&part=snippet\
-&q='+keywords+'&order=viewCount&maxResults='+limit,
-                method: 'GET',
-                headers: {'Referer': 'https://chatzer.herokuapp.com/'}
-            }; 
+  getVideo: function(request, keywords, limit, callback) {
+    var keywords = encodeURIComponent(keywords);
+    var options = {
+      url:
+        "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRWF1EfsvVlXTSLsG6XWir2KuRyPtkBB8&part=snippet\
+&q=" +
+        keywords +
+        "&order=viewCount&maxResults=" +
+        limit,
+      method: "GET",
+      headers: { Referer: "https://chatzer.herokuapp.com/" }
+    };
 
-                request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-                var choice = Math.floor(Math.random() * (limit-1));          // + 0 (from zero to limit)  
-                          
-                var object = JSON.parse(body);            
-                // console.log(body);
+    request(options, function(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var choice = Math.floor(Math.random() * (limit - 1)); // + 0 (from zero to limit)
 
-                callback(module.exports.returnData(object.items[choice]));
-            }
-       else
-       {        
-            console.log(body);
-       }
-}
-            );
+        var object = JSON.parse(body);
+        // console.log(body);
 
-
-}
-// OUTPUT IS A YT LINK: https://www.youtube.com/watch?v=videoId
-
-
-
+        callback(module.exports.returnData(object.items[choice]));
+      } else {
+        console.log(body);
+      }
+    });
+  }
+  // OUTPUT IS A YT LINK: https://www.youtube.com/watch?v=videoId
 };
-
-

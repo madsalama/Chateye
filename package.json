@@ -25,7 +25,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettify":"./prettify.sh",
     "start": "node server.js"
   },
   "repository": {
