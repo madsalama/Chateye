@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ "$1" == "--prettify-all" ]]
+if [[ "$1" == "--make-pretty" ]]
 then
 ./prettify.sh
 fi
