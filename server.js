@@ -86,7 +86,6 @@ projectId: 'nlpi-162211',
 keyFilename: './NLPI-80241e447e0b.json'
 });
 
-
 const mvision = require('./modules/vision');
 const mkairos = require('./modules/kairos');
 const mgiphy = require('./modules/giphy');
