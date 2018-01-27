@@ -129,6 +129,10 @@ var ObjectId = require("mongodb").ObjectID;
 var db_url =
   "mongodb://chatzer:chatzer2009@ds137760.mlab.com:37760/heroku_n6s5058w";
 
+const log4js = require("log4js");
+const logger_kairos = log4js.getLogger("KAIROS");
+logger_kairos.level = "debug";
+
 var App = function() {
   var self = this;
 
@@ -1484,7 +1488,11 @@ if ( seconds < 10 ){
                       sendTextMessage(
                         senderID,
                         "nah! you actually gotta 'face' the camera, and in good lighting! Send another one! :P ",
-                        function() {}
+                        function() {
+                          logger_kairos.debug(
+                            "FACE NOT FOUND IN IMAGE | USER NOTIFIED"
+                          );
+                        }
                       );
 
                       setAttribute(senderID, "selfieInfo.age", "none");
