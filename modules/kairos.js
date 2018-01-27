@@ -3,8 +3,9 @@
 
 module.exports = {
     headers:{
-            'User-Agent':       'Super Agent/0.0.1',
-            'Content-Type':     'application/x-www-form-urlencoded',
+           //  'User-Agent':       'Super Agent/0.0.1',
+            // 'Content-Type':     'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
             'app_id': 'b1592ea1',
             'app_key': 'ddfb3317a291a021d1ee240b54f517cf' },
 
@@ -34,19 +35,28 @@ module.exports = {
             download(image, './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg', 
                 function(){            
                     var image_path = './static/'+''+senderID+'_'+timeOfMessage+'_kairos.jpg';                
-                    // var uri = encodeURIComponent();     
+                    var image_ = encodeURIComponent("http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg&selector=ROLL");     
 
             options = {
                 url: 'https://api.kairos.com/detect',
                 method: 'POST',
-                json: {
-                    "image":"http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg",
-                    "selector":"ROLL" },                    
+                body: JSON.stringify ({
+                    image:"http://chatzer.herokuapp.com/"+senderID+"_"+timeOfMessage+"_kairos.jpg",
+                    selector:"ROLL"
+                }),                
                 headers: module.exports.headers 
             }; 
 
 
     request(options, function (error, response, body) {
+
+        console.log(" === KAIROS TROUBLESHOOT === ");
+        console.log(options);
+        console.log('Status:', response.statusCode);
+        console.log('Headers:', JSON.stringify(response.headers));
+        console.log('Response:', body);
+
+
         if (!error && response.statusCode == 200) {                
                 callback(module.exports.returnData(body));
         }

@@ -3,7 +3,7 @@
 // ========================================
 //       Chatzer - A friendly AI
 // ========================================
-    
+// test    
     // CHATZER SEES and sympathizes.
             // your text entries ... 
             // your photos | selfies ... 
@@ -770,6 +770,7 @@ if (entry !== ""){
             label = 'meh/' + emotion;
         }
 
+
       analysis = label ; 
 
     }
@@ -1406,11 +1407,12 @@ else {
             else{
 
 
-            faces = values;
+            faces = JSON.parse(values);
+
 
             // GUESS AGE/GENDER/GLASSES             
            console.log("========= KAIROS DETECT =========");
-           console.log(JSON.stringify(faces));
+           console.log("KAIROS RESULT= " + JSON.stringify(faces));
 
            
            // FIRST FACE ON THE RIGHT
@@ -1433,7 +1435,7 @@ else {
                setAttribute(senderID, 'selfieInfo.gender', gender );
                setAttribute(senderID, 'selfieInfo.glasses', glasses_type );
 
-             
+               console.log(users);
 
 
           mvision.detect(senderID, timeOfMessage, fs, request, visionClient, image, 
@@ -1472,7 +1474,7 @@ else {
           emotion = Object.keys(emotion);            
 
           setAttribute(senderID, 'selfieInfo.emotion', emotion);
-
+        
 
             mvision.getProminentColor(senderID, timeOfMessage, fs, request, visionClient, image, 
             function(result){
