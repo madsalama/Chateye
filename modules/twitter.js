@@ -5,13 +5,13 @@ module.exports = {
   findTweet: function() {
     var Twitter = require("twitter");
     var client = new Twitter({
-      access_token_key: "119710335-AKBgvx71f8jmhpuJ0q8Fsh6yOYjSrq0YrZ8hHgnd",
+      access_token_key: "",
 
-      access_token_secret: "r96eL48Qd2yEx9C0UJlvd8gwYdHgwlg06UHZQUhH7Lvfp",
+      access_token_secret: "",
 
-      consumer_key: "wOI0K9TtPnmDRMcaJUM9MW6hL",
+      consumer_key: "",
 
-      consumer_secret: "w9zNUnEciOb5nHEtpMyB1m4I1weiIDU5SDkBQuUIoM4rlYqrNt"
+      consumer_secret: ""
     });
 
     // ===============================================
