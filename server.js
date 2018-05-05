@@ -58,7 +58,7 @@ var ObjectId = require("mongodb").ObjectID;
 
 // Connection URL
 var db_url =
-  "mongodb://chatzer:chatzer2009@ds137760.mlab.com:37760/heroku_n6s5058w";
+  "mongodb://";
 
 const log4js = require("log4js");
 const logger_kairos = log4js.getLogger("KAIROS");
