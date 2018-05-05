@@ -9,8 +9,8 @@ const request = require("request");
 
 const vision = require("@google-cloud/vision");
 const visionClient = vision({
-  projectId: "nlpi-162211",
-  keyFilename: "./NLPI-80241e447e0b.json"
+  projectId: "",
+  keyFilename: ""
 });
 
 const mvision = require("./modules/vision");
