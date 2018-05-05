@@ -6,4 +6,4 @@ Chateye - an entertaining, media-interactive, emotionally responsive listener AI
 - Check it out at: https://m.me/chateye 
 - Facebook page at: https://www.facebook.com/chateye/
 
-**Creation Release Date: 15 April 2017**
+**Initial Release Date: 15 April 2017**
