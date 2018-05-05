@@ -5,3 +5,5 @@ Chateye - an entertaining, media-interactive, emotionally responsive listener AI
 - APIs used includes: Youtube/Google-NLP/Giphy/Kairos/IBM Watson for sentiment analysis, etc. 
 - Check it out at: https://m.me/chateye 
 - Facebook page at: https://www.facebook.com/chateye/
+
+**Creation Release Date: 15 April 2017**
