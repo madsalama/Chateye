@@ -7,13 +7,13 @@ module.exports = {
     var keywords = encodeURIComponent(keywords);
     var options = {
       url:
-        "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCRWF1EfsvVlXTSLsG6XWir2KuRyPtkBB8&part=snippet\
+        "https://www.googleapis.com/youtube/v3/search?key=&part=snippet\
 &q=" +
         keywords +
         "&order=viewCount&maxResults=" +
         limit,
       method: "GET",
-      headers: { Referer: "https://chatzer.herokuapp.com/" }
+      headers: { Referer: "<APP_URL>" }
     };
 
     request(options, function(error, response, body) {
