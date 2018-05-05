@@ -1,74 +1,5 @@
 #!/bin/env node
 
-// ========================================
-//       Chatzer - A friendly AI
-// ========================================
-// CHATZER SEES and sympathizes.
-// your text entries ...
-// your photos | selfies ...
-// your photos of a diary entry (handwritten) ....
-
-// Chatzer learns to be your bestfriend, who you would talk to when you're bored/not feeling well/in a good sharing mood
-// it will sympathize and listen then try to make you feel better or celebrate with you!
-
-// Contexts | what it does //
-// "mutually_identify"/greet/small_talk/"listen"/sympathize/entertain/handle_repetition/bye_bye
-// remember user's "emotional_state"" | confirms it via +ve/-ve feedback from the user.
-
-// Chatzer offers a personalized experience for each user...
-// as it detects "mood patterns"" and saves your 'personality type' and 'preferences'.
-
-// Chatzer uses google Speech API/translateAPI
-// to listen to audio/texts in other languages other than english
-// English/Arabic/Japanese
-
-// BONUS: Chatzer can detect your mood based on a selfie feature
-// + textual/audio sentiment analysis using KAIROS API
-
-// GAME VISUAL RESPONSE: It can response by a chatzer GIF as it detects your emotions
-// confused (dont know - not sure)
-// sad - surprise - angry
-
-// ==========================
-//     Integration list
-// ==========================
-
-// 1- API.AI            = DONE
-// 2- Google NLP        = DONE
-
-// get overall sentiment of a message if AI context is 'sentiment-required'
-// get parts of speech to detect whether user is talking about themselves or about chatzer (You are awesome | I am bored)
-// get adjectives to be able to only send the adjective to detect whether it's positive or negative. (you are awesome vs you are terrible)
-// a list of 100 most common pos/neg adjectives is going to be used in API.AI
-// emotional response can be a custom chatzer gif with a moving eye and a smile/frown/etc
-
-// 3- MessengerAPI      = DONE
-
-// User is asked about his prferences/hobbies and will be suggested media from these platforms
-// media types are: tweet - instagram pic - giphy gif - youtube video (music/etc) - music+lyrics (sing-a-long)
-
-// 4- Youtube           =
-// 5- Instagram         =
-// 6- Twitter           = DONE
-// 7- GIPHY             = DONE
-
-// 9- Speech API/translateAPI = a SLOW WIP (Speech is in BETA on only works with .raw audio files - messenger works with MP4 audio)
-
-// Translate ANY language (text/audio) to English to process it in API.AI
-// If input is in certain language/output should be in the same language. (BIDIRECTIONAL)
-
-// 10-KAIROS.API       = DONE
-
-// ==================
-//    NOTE TO SELF
-// ==================
-// This is a huge project to be handled by one person...
-// who's also doing a full time job and has limited time and energy
-// in less than freaking 30 days ONLY! - I am doing it anyway! It's a light hack though! ;)
-
-// NodeJS is perfect because it's only a JSON API Server that does not do any heavy processing/io
-// - which is awesome, super fast and efficient! - also I only know JS pretty well enough! <3
-
 require("newrelic");
 const express = require("express");
 const compression = require("compression");
@@ -94,25 +25,25 @@ const myoutube = require("./modules/youtube");
 // const url  = require("url");
 
 const cloudconvert = new (require("cloudconvert"))(
-  "NWI7R-QImkho2Vp1HE_0jYU4SvzRoOKoFO2rniLiLZPI6JhmWmLdInskuhgzuigTas0F0zdmxqWqMx0iWHXG_A"
+  "<API_KEY>"
 );
 const bodyParser = require("body-parser");
 
 const apiai = require("apiai");
-const app = apiai("686ce1c23e2d49fb9036a728a6ec8b3f");
+const app = apiai("<API_KEY>");
 
 const mwatson = require("./modules/watsonNLU");
 const watsonNLU = require("watson-developer-cloud/natural-language-understanding/v1.js");
 const watsonNLUClient = new watsonNLU({
-  username: "e1ca4da7-3cec-4720-9557-e6d211560e4a",
-  password: "re5ZyVptFvH7",
-  version_date: "2017-02-27"
+  username: "<USER_NAME>",
+  password: "<PASSWORD>",
+  version_date: "<DATE>"
 });
 
 const watsonSpeech2text = require("watson-developer-cloud/speech-to-text/v1");
 const speech2text = new watsonSpeech2text({
-  username: "747511eb-deb0-4294-a800-7f245665e62a",
-  password: "mlunTdSmsGJU"
+  username: "<USERNAME>",
+  password: "<KEY>"
 });
 
 var namer = require("color-namer");
@@ -198,7 +129,7 @@ mgraph.whitelist(request, function(){
         uri: "https://graph.facebook.com/v2.6/me/messages",
         qs: {
           access_token:
-            "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+            "<TOKEN>"
         },
         method: "POST",
         json: messageData
