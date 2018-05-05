@@ -13,7 +13,7 @@ module.exports = {
       url:
         "http://api.giphy.com/v1/gifs/search?q=" +
         keywords +
-        "&api_key=dc6zaTOxFJmzC&limit=" +
+        "&api_key=&limit=" +
         limit +
         "&offset=0",
       method: "GET"
