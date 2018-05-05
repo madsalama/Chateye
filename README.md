@@ -3,6 +3,7 @@ Chateye - an entertaining, media-interactive, emotionally responsive listener AI
 
 - Chateye's server-side application created in nodeJS/Express and mongoDB. #javascript
 - APIs used includes: Youtube/Google-NLP/Giphy/Kairos/IBM Watson for sentiment analysis, etc. 
+- This is a Public respository with all API keys removed, consider replacing with your own. 
 - Check it out at: https://m.me/chateye 
 - Facebook page at: https://www.facebook.com/chateye/
 
