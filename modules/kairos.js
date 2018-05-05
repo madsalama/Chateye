@@ -5,8 +5,8 @@ module.exports = {
     //  'User-Agent':       'Super Agent/0.0.1',
     // 'Content-Type':     'application/x-www-form-urlencoded',
     "Content-Type": "application/json",
-    app_id: "b1592ea1",
-    app_key: "ddfb3317a291a021d1ee240b54f517cf"
+    app_id: "",
+    app_key: ""
   },
 
   returnData: function(data) {
@@ -112,7 +112,7 @@ module.exports = {
           if (!error && response.statusCode == 200) {
             console.log(" === DEBUG BEFORE === ");
 
-            console.log(body); // {"id":"e93c971243b190486aea9482","status_code":1,"status_message":"In Progress"}                // console.log(body.status_code); // undefined
+            console.log(body); // {"id":"","status_code":1,"status_message":"In Progress"}                // console.log(body.status_code); // undefined
 
             // console.log(JSON.parse(body));
             // console.log(JSON.parse(body.status_code));
