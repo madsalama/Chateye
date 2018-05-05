@@ -15,10 +15,10 @@ module.exports = {
       method: "POST",
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       },
       json: message
-      // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+      // proxy: 'http://proxy:-4792-@proxy-54-235-72-96..io'
     };
 
     request(options, function(error, response, body) {
@@ -84,10 +84,10 @@ module.exports = {
       method: "POST",
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       },
       json: message
-      // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+      // proxy: 'http://proxy:-4792-865b-@proxy-54-235-72-96.proximo.io'
     };
 
     request(options, function(error, response, body) {
@@ -106,7 +106,7 @@ module.exports = {
       method: "GET",
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       }
       // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
     };
@@ -127,10 +127,10 @@ module.exports = {
       method: "DELETE",
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       },
       json: { fields: ["persistent_menu"] }
-      // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+      // proxy: 'http://proxy:-4792-865b-@proxy-54-235-72-96.io'
     };
 
     request(options, function(error, response, body) {
@@ -152,9 +152,9 @@ module.exports = {
       headers: module.exports.headers,
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       }
-      // ,proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+      // ,proxy: 'http://proxy:-4792-865b-@proxy-54--72-96..io'
     };
 
     request(options, function(error, response, body) {
@@ -173,14 +173,14 @@ module.exports = {
       method: "POST",
       qs: {
         access_token:
-          "EAAXdsmtZAx2oBAElkgercsynCvZCqOpoC34wffTFgboGO4j5h02kmmy4SiJ1ayBjcvQ8A2r40JUvn9hptnZCuen9A6t7xoYIcff6Yj3xuckHlZCLPhe2O9S44xRSFSQhL0b82unbVO63NNH1fu1EVDhJ2X51GSpFCzXUytDNOgZDZD"
+          ""
       },
       json: {
         setting_type: "domain_whitelisting",
         whitelisted_domains: ["https://chatzer.herokuapp.com"],
         domain_action_type: "add"
       }
-      // proxy: 'http://proxy:9954c1da29e3-4792-865b-96f4e4004f0d@proxy-54-235-72-96.proximo.io'
+      // proxy: 'http://proxy:-4792-865b-@-54-235-72-96..io'
     };
 
     request(options, function(error, response, body) {
